@@ -1,8 +1,6 @@
 #! /usr/bin/env Rscript
 
-
-bookdown::render_book(input = ".", output_dir = "book")
-
+bookdown::render_book(input = ".", output_dir = "book", output_format = "all")
 
 current_user <- Sys.info()[["user"]]
 
