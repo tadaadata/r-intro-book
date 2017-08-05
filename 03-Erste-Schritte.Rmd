@@ -1,0 +1,14 @@
+# Erste Schritte
+
+## RStudio
+
+### Konsole
+
+WTF is even
+
+### Text Editor
+
+Script > Konsole
+
+### Output Kram
+  

@@ -13,5 +13,15 @@ SPSS kann viel.
 SPSS kostet unsäglich viel.  
 SPSS nimmt euch das denken ab — im guten wie im schlechten Sinn.  
 
-Wenn ihr SPSS bedienen könnt, ihr wisst was ihr tut und entweder ihr oder eure ArbeitgeberIn tief in die Taxhe gegriffen haben um eine Lizenz bereitzustellen, dann ist das schön und gut, und ihr könnt den Knopf mit *"Mach mal Statistik"* drücken und dann kommen da PDFs raus wo Statistik drinsteht.  
+Wenn ihr SPSS bedienen könnt, ihr wisst was ihr tut und entweder ihr oder eure ArbeitgeberIn tief in die Tasche gegriffen haben um eine Lizenz bereitzustellen, dann ist das schön und gut, und ihr könnt den Knopf mit *"Mach mal Statistik"* drücken und dann kommen da PDFs raus wo Statistik drinsteht.  
 Schön.
+
+Möglicherweise habt ihr aber nicht die finanziellen Ressourcen für SPSS.  
+Möglicherweise braucht ihr mehr Flexibilität.  
+Vielleicht funktioniert SPSS für euch nur mittels einer Remotedesktop-Verbindung (\*hust hust\*), das heißt sobald ihr irgendwo ohne schnelle Verbindung seid, könnt ihr nicht mehr arbeiten.  
+
+Vielleicht gefällt euch aber auch nur, dass ihr mit R interaktiv und schnell[^schnell] einfache Dinge ausprobieren könnt. 
+
+
+<!-- Fußnoten -->
+[^schnell]: Das mit der Schnelligkeit kommt mit etwas Übung. Wirklich.

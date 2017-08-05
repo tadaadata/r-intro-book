@@ -1,6 +1,17 @@
 #! /usr/bin/env Rscript
 
-bookdown::render_book(input = ".", output_dir = "book", output_format = "all")
+if (file.exists("r-intro.Rmd")) {
+  file.remove("r-intro.Rmd")
+}
+
+# Build Website
+bookdown::render_book(input = ".", output_dir = "book", output_format = "bookdown::gitbook")
+
+# Build PDF
+# bookdown::render_book(input = ".", output_dir = "book", output_format = "bookdown::pdf_book")
+
+# Build EPUB
+# bookdown::render_book(input = ".", output_dir = "book", output_format = "bookdown::epub_book")
 
 current_user <- Sys.info()[["user"]]
 
