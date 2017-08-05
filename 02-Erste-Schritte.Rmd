@@ -1,0 +1,10 @@
+# Erste Schritte
+
+- Installation
+- RStudio
+  - Konsole
+    - WTF is even
+  - Text Editor
+    - Script > Konsole
+  - Output Kram
+  

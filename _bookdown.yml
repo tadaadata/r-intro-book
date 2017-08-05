@@ -1,0 +1,6 @@
+book_filename: "r-intro"
+language:
+  ui:
+    chapter_name: "Kapitel "
+
+output_dir: "book"
