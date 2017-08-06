@@ -1,7 +1,7 @@
 bookdown::gitbook:
   self_contained: false
   lib_dir: assets
-  split_by: "section+number"
+  split_by: "section"
   url: https://r-intro.tadaa-data.de/book/
   github-repo: tadaadata/r-intro-book
   config:
