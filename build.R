@@ -44,9 +44,16 @@ bookdown::render_book(input = ".",
                       clean_envir = F, quiet = TRUE)
 
 # Build EPUB
-if (as.numeric(difftime(Sys.time(),
-                        file.mtime(paste0(out_dir, "/r-intro.epub")),
-                        units = "d")) > 1) {  cat("Rendering epub…")
+out_epub <- paste0(out_dir, "/", bookdown_yml$book_filename, ".epub")
+
+if (file.exists(out_epub)) {
+  age <- as.numeric(difftime(Sys.time(), file.mtime(out_epub), units = "d"))
+} else {
+  age <- NULL
+}
+
+if (is.null(age) || age > 1) {
+  cat("Rendering epub…")
   bookdown::render_book(input = ".",
                         output_format = "bookdown::epub_book",
                         clean_envir = F, quiet = TRUE)
