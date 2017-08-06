@@ -146,7 +146,13 @@ Damit können wir sowas machen:
 24 * 365
 ```
 
-Damit bekommen eure Befehle Kontext, und sowohl ihr als auch eure KommilitonInnen können leicht rausfinden, was zum Geier ihr euch da eigentlich gedacht habt.
+Damit bekommen eure Befehle Kontext, und sowohl ihr als auch eure KommilitonInnen können leicht rausfinden, was zum Geier ihr euch da eigentlich gedacht habt.  
+Kommentare sind auch praktisch, wenn ihr ein längere Script ausführt, aber ein Befehl Probleme bereitet. Wenn ihr einfach ein `#` davor setzt, ist die Zeile *auskommentiert*, und wird von R ignoriert.
+
+Wenn ihr dann ein paar Zeilen Code angesammelt habt, könnt ihr euer Script ausführen.  
+Ein Script wird von oben nach unten (und von links nach rechts) ausgeführt, wenn ihr auf "`Source`" klickt oder `Shift + STRG + ⏎` drückt (auf dem Mac `Shift + cmd + ⏎`).  
+Wenn ihr nur die aktuelle Zeile (da wo euer Cursor gerade ist, ist "aktuell") ausführen wollt, reicht `STRG + R` (Mac: `cmd + R`).
+
 
 ## Und das da rechts?
 
