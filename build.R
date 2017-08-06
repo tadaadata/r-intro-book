@@ -6,16 +6,6 @@ if (file.exists("r-intro.Rmd")) {
   file.remove("r-intro.Rmd")
 }
 
-print("Copying assets…")
-# Copy image dir to output dir so paths don't mess up
-status <- file.copy("images", "book/", overwrite = T, recursive = T)
-
-if (all(status)) {
-  print("Successfully copied assets")
-} else {
-  warning("Something didn't work right!")
-}
-
 print("Rendering book…")
 # Build Website
 bookdown::render_book(input = ".", output_dir = "book", output_format = "bookdown::gitbook")
@@ -24,7 +14,7 @@ bookdown::render_book(input = ".", output_dir = "book", output_format = "bookdow
 # bookdown::render_book(input = ".", output_dir = "book", output_format = "bookdown::pdf_book")
 
 # Build EPUB
-# bookdown::render_book(input = ".", output_dir = "book", output_format = "bookdown::epub_book")
+bookdown::render_book(input = ".", output_dir = "book", output_format = "bookdown::epub_book")
 
 print("Checking who you are…")
 
