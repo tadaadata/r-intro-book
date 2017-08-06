@@ -1,5 +1,11 @@
 # Erste Schritte
 
+```{r, include=FALSE}
+library(knitr)
+knitr::opts_chunk$set(echo=F)
+```
+
+
 Wenn ihr vorher noch nie eine Programmiersprache benutzt habt… ist das auch eigentlich gar nicht so schlimm, denn R verhält sich sowieso für den Einstieg etwas anders.  
 
 "Programmiersprache" klingt so abschreckend, weil es nach kompliziertem Informatikkram klingt, aber wenn ihr es in eurer Schulzeit geschafft habt einen Taschenrechner zu bedienen, dann bekommt ihr auch den Einstieg in R hin.  
@@ -10,13 +16,35 @@ Gute Praxis^[Wenn wir von "Guter Praxis" reden, dann meint das in der Regel best
 
 ## RStudio
 
-### Konsole
+Wenn ihr RStudio öffnet, seht ihr vermutlich folgendes:
+
+```{r, fig.cap="Ein frisches RStudio Fenster"}
+knitr::include_graphics("images/rstudio_fresh.png")
+```
+
+Auf der rechten Seite habr ihr eine Übersicht eurer Dateien und angelegten Variablen, sowie der Hilfe und diversem anderem Krams, der uns zuerst noch nicht interessiert.  
+Das große Fenster zur linken Seite ist die Konsole, mit der beschäftigen wir uns zuerst.  
+
+Bevor wir hier aber irgendwas machen, schaffen wir erstmal ein bisschen Struktur und erstellen ein neues Projekt.  
+Ein Projekt ist einfach nur ein bestimmter Ordner, in dem ihr arbeiten könnt. Idealerweise ist es auch ein Ordner, den ihr auf eurem Computer einfach wiederfindet.
+
+```{r, fig.cap="Ein neues RStudio Projekt erstellen"}
+knitr::include_graphics("images/rstudio_new_project_0.png")
+```
+
+```{r, out.width="90%"}
+knitr::include_graphics(c("images/rstudio_new_project_1.png",
+                          "images/rstudio_new_project_2.png",
+                          "images/rstudio_new_project_3.png"))
+```
+
+## Konsole
 
 WTF is even
 
-### Text Editor
+## Text Editor
 
 Script > Konsole
 
-### Output Kram
+## Output Kram
   

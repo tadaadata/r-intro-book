@@ -40,6 +40,7 @@ Die am häufigsten zitierten Vorteile sind in etwa die Folgenden:
     - Übersicht auf z.B. [r-pkg.org](https://www.r-pkg.org/) 
     - Sogar eure TutorInnen können packages schreiben. Tun sie [sogar manchmal](https://github.com/tadaadata/tadaatoolbox).
 - **Gute Dokumentation**
+    - R bringt seine Hilfe selber mit, das ist der *"Help"*-Tab in RStudio. Jede Funktion ist dokumentiert!
     - Seiten wie [rdocumentation.org](https://www.rdocumentation.org/) oder [rdrr.io](https://rdrr.io/) erlauben es so gut wie alle verfügbaren R packages nach bestimmten Funktionen zu durchsuchen, egal wie obskur der Anwendungsfall auch sein mag
     - Communities wie [stackoverflow](https://stackoverflow.com/questions/tagged/r) sind beliebte "Ich brauche Hilfe bei XY"-Anlaufstellen, und eine Horde von Menschen, die meistens das gleiche Problem auch schonmal hatten, können euch helfen
 - **Interaktivität**

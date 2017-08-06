@@ -1,6 +1,9 @@
 book_filename: "r-intro"
 language:
+  label:
+    fig: "Abbildung "
+    tab: "Tabelle "
   ui:
+    edit: "Edit"
     chapter_name: "Kapitel "
-
 output_dir: "book"

@@ -44,7 +44,7 @@ Und in *Diffenzielle*.
 Und im Expra.  
 Und vermutlich danach auch. 
 
-## Reproduzierbarkeit
+## Reproduzierbarkeit {-}
 
 Hier die *Session Info* zum Zeitpunkt des Renderns:
 

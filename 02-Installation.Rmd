@@ -70,7 +70,7 @@ Wenn ihr nicht wisst, was `https://<my.favorite.cran.mirror>/bin/linux/ubuntu` s
 
 ## Schritt 2: RStudio installieren
 
-RStudio bekommt ihr hier: <https://www.rstudio.com/products/rstudio/download/>
+RStudio bekommt ihr hier: <https://www.rstudio.com/products/rstudio/download/#download>
 
 ```{r, echo=FALSE}
 knitr::include_graphics("images/install_rstudio.png")
