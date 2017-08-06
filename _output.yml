@@ -6,6 +6,8 @@ bookdown::gitbook:
   split_by: "chapter"
   url: https://r-intro.tadaa-data.de/book/
   github-repo: tadaadata/r-intro-book
+  include:
+    in_header: icons.html
   config:
     toc:
       collapse: none
