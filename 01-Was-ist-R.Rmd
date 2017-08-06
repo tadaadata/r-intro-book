@@ -22,6 +22,29 @@ Vielleicht funktioniert SPSS für euch nur mittels einer Remotedesktop-Verbindun
 
 Vielleicht gefällt euch aber auch nur, dass ihr mit R interaktiv und schnell[^schnell] einfache Dinge ausprobieren könnt. 
 
+## Was ist an R so toll?
+
+Nicht alles an R ist toll — und sobald ihr das erste Mal mehrere Stunden damit verbracht habt, ein vergleichsweise einfaches Problem lösen zu wollen, werdet ihr wissen was ich meine.  
+
+Die am häufigsten zitierten Vorteile sind in etwa die Folgenden:
+
+- **Kostenlos**
+    - Keine Lizenzgebühren
+    - Keine Update-Gebühren
+- **Open Source**
+    - Software-Sprech für "jeder kann sich die Innereien angucken"
+    - Jeder kann R beliebig erweitern und modifizieren
+    - "Was genau macht R an Stelle XYZ" ist immer beantwortbar, weil der Quelltext [offen verfügbar ist](https://github.com/wch/r-source)
+- **Erweiterbarkeit**
+    - Es gibt unzählige Erweiterungen (*"packages"*) für R, die neue Funktionen bereitstellen
+    - Übersicht auf z.B. [r-pkg.org](https://www.r-pkg.org/) 
+    - Sogar eure TutorInnen können packages schreiben. Tun sie [sogar manchmal](https://github.com/tadaadata/tadaatoolbox).
+- **Gute Dokumentation**
+    - Seiten wie [rdocumentation.org](https://www.rdocumentation.org/) oder [rdrr.io](https://rdrr.io/) erlauben es so gut wie alle verfügbaren R packages nach bestimmten Funktionen zu durchsuchen, egal wie obskur der Anwendungsfall auch sein mag
+    - Communities wie [stackoverflow](https://stackoverflow.com/questions/tagged/r) sind beliebte "Ich brauche Hilfe bei XY"-Anlaufstellen, und eine Horde von Menschen, die meistens das gleiche Problem auch schonmal hatten, können euch helfen
+- **Interaktivität**
+    - Wo SPSS auf Buttons und Befehle reagiert und dann einen Stapel PDFs produziert, kann R mit der Konsole auch einfach schnell und interaktiv benutzt werden: "Schnell mal eben was nachgucken" ist einfach
+
 
 <!-- Fußnoten -->
 [^schnell]: Das mit der Schnelligkeit kommt mit etwas Übung. Wirklich.
