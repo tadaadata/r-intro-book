@@ -1,27 +1,61 @@
 #! /usr/bin/env Rscript
 
-message("Cleaning up potential debug files…")
-
-if (file.exists("r-intro.Rmd")) {
-  file.remove("r-intro.Rmd")
+#### Check dependencies ####
+cat("\n\nChecking if bookdown is installed…\n")
+if (!("bookdown" %in% installed.packages())) {
+  install.packages("bookdown")
 }
 
-print("Rendering book…")
+#### Save config for stuff ####
+bookdown_yml <- yaml::yaml.load_file(rprojroot::find_rstudio_root_file("_bookdown.yml"))
+
+out_dir   <- bookdown_yml$output_dir
+debug_out <- paste0(bookdown_yml$book_filename, ".Rmd")
+
+#### Clean up artifacts that cause problems ####
+cat("Cleaning up potential debug files…\n")
+
+if (file.exists(debug_out)) {
+  file.remove(debug_out)
+}
+
+### Move CSS dir to output ###
+cat("Moving CSS directory to output dir\n")
+status <- file.copy("css", out_dir, overwrite = T, recursive = T)
+if (all(status)) {
+  cat("Successfully copied CSS dir\n")
+} else {
+  warning("Something didn't work right!")
+}
+
+#### Render things ####
+cat("Rendering things\n")
+
 # Build Website
-bookdown::render_book(input = ".", output_dir = "book", output_format = "bookdown::gitbook")
+cat("Rendering website…\n")
+bookdown::render_book(input = ".",
+                      output_format = "bookdown::gitbook",
+                      clean_envir = F, quiet = TRUE)
 
 # Build PDF
-# bookdown::render_book(input = ".", output_dir = "book", output_format = "bookdown::pdf_book")
+# cat("Rendering PDF…")
+# bookdown::render_book(input = ".",
+#                       output_format = "bookdown::pdf_book",
+#                       clean_envir = F, quiet = TRUE)
 
 # Build EPUB
-bookdown::render_book(input = ".", output_dir = "book", output_format = "bookdown::epub_book")
+# cat("Rendering epub…")
+# bookdown::render_book(input = ".",
+#                       output_format = "bookdown::epub_book",
+#                       clean_envir = F, quiet = TRUE)
+cat("Done rendering.\n")
 
-print("Checking who you are…")
+#### Prepare to copy to output ####
+cat("Checking who you are…\n")
 
 current_user <- Sys.info()[["user"]]
 
-print(paste0("Presumably you're ", current_user,
-             ", I guess. If not, please check things."))
+cat(paste0("I hope you're really ", current_user), "\n")
 
 if (current_user == "Lukas") {
   book_dir  <- "~/Sync/public.tadaa-data.de/r-intro/book"
@@ -31,20 +65,25 @@ if (current_user == "Lukas") {
   book_dir <-  NA
 }
 
-print("Copying stuff…")
+#### Copy to output ####
+cat("Copying stuff…\n")
 
 if (is.na(book_dir)) {
   warning("No output directory defined, leaving everything as is.")
 } else {
   # Copy book
-  files <- list.files("book", full.names = T)
+  files <- list.files(path = out_dir, full.names = T)
   status <- file.copy(files, book_dir, overwrite = TRUE, recursive = TRUE)
   if (all(status)) {
-    print("Successfully copied stuff!")
+    cat("Worked allright\n")
   } else {
     warning("Something didn't work right!")
   }
 }
 
-print("All done!")
-print(Sys.time())
+#### Done ####
+cat("All done!\n")
+cat(format(Sys.time(), "%F, %T"), "\n")
+
+# Cleanup, just in case
+rm(bookdown_yml, out_dir, status, debug_out, current_user)

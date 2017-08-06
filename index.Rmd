@@ -8,8 +8,19 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: tadaa-data/r-intro-book
+monofont: "Source Code Pro"
+url: 'https\://r-intro.tadaa-data.de/book/'
 description: "Eine R-Einführung für QM"
 ---
+
+```{r setup, include=F}
+pkgs <- c("svglite", "tadaatoolbox")
+sapply(pkgs, function(pkg) {
+  if (!(pkg %in% installed.packages())) {
+    install.packages(pkg)
+  }
+})
+```
 
 # Vorwort {-}
 
@@ -32,3 +43,12 @@ Okay, ihr werden das Ganze auch in *Methodenlehre* brauchen.
 Und in *Diffenzielle*.  
 Und im Expra.  
 Und vermutlich danach auch. 
+
+## Reproduzierbarkeit
+
+Hier die *Session Info* zum Zeitpunkt des Renderns:
+
+```{r}
+devtools::session_info()
+```
+
