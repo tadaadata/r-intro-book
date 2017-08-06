@@ -1,0 +1,10 @@
+# (PART) Grundlagen {-}
+
+# Erste Funktionen
+
+Im letzten Abschnitt habt ihr R als glorifizierten Taschenrechner gesehen.  
+Als nächstes schauen wir uns an, was wir sonst so damit anstellen können.
+
+## Variablen
+
+## Daten

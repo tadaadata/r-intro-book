@@ -43,6 +43,8 @@ Und in *Diffenzielle*.
 Und im Expra.  
 Und vermutlich danach auch. 
 
+Wenn ihr mehr (oder so grob dasselbe, aber in besser erklärt) wollt, dann empfehle ich herzlichst "[**R for Data Science**](http://r4ds.had.co.nz/)", ein kostenloses Buch von Hadley Wickham, einem der populärsten R-Menschen^[Populär, weil er einfach unheimlich viel raushaut. Packages, Vorträge, Bücher, alles. All hail Hadley!].
+
 ## Reproduzierbarkeit {-}
 
 Hier die *Session Info* zum Zeitpunkt des Renderns:

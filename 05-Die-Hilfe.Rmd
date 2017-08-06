@@ -1,0 +1,12 @@
+# Die Hilfe
+
+Wir haben bereits Seiten wie [rdrr.io](https://rdrr.io/) und [rdocumentation.org](https://www.rdocumentation.org/) erwähnt, wo ihr euch Dokumentation anschauen könnt. Unter *Dokumentation* verbirgt sich übrigens nichts weltbewegendes, in der Regel geht es nur darum wie einzelne Funktionen zu benutzen sind.
+Diese Seiten sind im Wesentlichen aufgebohrte Versionen der Hilfe, die R von Haus aus mtibringt.
+
+Diie Hilfe findet ihr auf der rechten Seite in RStudio, unter dem `"Help"`-Tab:
+
+```{r, fig.cap="Die Startseite der R-Hilfe"}
+include_graphics("images/hilfe_0.png")
+```
+
+In die Suchleiste oben rechts könnt ihr Suchbegriffe eingeben. Denkt daran, dass die Hilfe in erster Linie auf englisch verfügbar ist.

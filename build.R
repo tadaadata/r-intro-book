@@ -19,7 +19,7 @@ if (file.exists(debug_out)) {
   file.remove(debug_out)
 }
 
-### Move images/CSS dir to output ###
+#### Move images/CSS dir to output ####
 cat("Moving images and CSS directory to output dir\n")
 status <- file.copy("css", out_dir, overwrite = T, recursive = T)
 if (all(status)) {

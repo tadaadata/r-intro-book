@@ -7,7 +7,7 @@ Ihr installiert zunächst R, und bekommt dann auf dem Desktop Verknüpfungen ang
 Damit *könntet* ihr R benutzen, aber es macht beim besten Willen keinen Spaß.  
 **Deshalb** installiert ihr **RStudio** — Ein Programm (wie Spotify, nur ganz anders!), mit dem ihr R komfortabler benutzen könnt.
 
-## Schritt 1: R installieren
+## R installieren
 
 R bekommt ihr von der offiziellen seite, hier: <https://cloud.r-project.org/>
 
@@ -51,8 +51,8 @@ knitr::include_graphics("images/install_R_mac.png")
 
 - Wenn euer Betriebssystem auf dem aktuellen Stand ist, benutzt die aktuelle Version des R-installers.  
 - Wenn ihr aus unerfindlichen Gründen noch eine sehr alte OS X version laufen habt:
-    - a) Möge die Deität eurer Wahl euch beistehen
-    - b) Müsst ihr vermutlich den Installer mit `snowleopard` im Namen  benutzen 
+    a) Möge die Deität eurer Wahl euch beistehen
+    b) Müsst ihr vermutlich den Installer mit `snowleopard` im Namen  benutzen 
 - Wenn ihr nicht wisst, welche OS X Version ihr benutzt: Versucht's erstmal mit dem aktuellen Installer, wenn das nicht funktioniert, versucht den älteren. Ansonsten: Googlet.
 
 Ansonsten braucht ihr nichts runterzuladen. Den Installer (die `.pkg`-Datei) einfach doppelklicken und alles brav bejahen.  
@@ -68,7 +68,7 @@ Wenn ihr nicht wisst, was `https://<my.favorite.cran.mirror>/bin/linux/ubuntu` s
 - `deb https://cloud.r-project.org/bin/linux/ubuntu xenial/`
 - Oder: `deb http://cloud.r-project.org/bin/linux/ubuntu xenial/`
 
-## Schritt 2: RStudio installieren
+## RStudio installieren
 
 RStudio bekommt ihr hier: <https://www.rstudio.com/products/rstudio/download/#download>
 
@@ -91,7 +91,7 @@ Gratuliere.
 
 Falls ihr Windows 10 benutzt und sich keine Desktopverknüfung erstellt habt, wollt ihr eure Suchfunktion benutzen und "RStudio" suchen. Vollkommen unerwartet, ich weiß.  
 
-### RStudio benutzen
+## RStudio benutzen
 
 Das ist keine Anleitung, das ist eine Aufforderung.  
 
