@@ -13,12 +13,24 @@ description: "Eine R-Einführung für QM"
 ---
 
 ```{r setup, include=F}
-pkgs <- c("svglite", "tadaatoolbox")
+pkgs <- c("svglite", "tadaatoolbox", "sjPlot", "sjmisc", "devtools",
+          "haven", "readr", "dplyr", "ggplot2", "scales", "RColorBrewer", "viridis",
+          "readxl", "googlesheets", "rpivotTable", "stringr", "tibble", "tidyr", "waffle",
+          "praise", "babynames", "magrittr", "ggthemes")
+
 sapply(pkgs, function(pkg) {
   if (!(pkg %in% installed.packages())) {
     install.packages(pkg)
+  } else {
+    "☑"
   }
 })
+
+if (!("emo" %in% installed.packages())) {
+  devtools::install_github("hadley/emo")
+}
+
+knitr::opts_chunk$set(comment = "")
 ```
 
 # Vorwort {-}
