@@ -19,9 +19,15 @@ if (file.exists(debug_out)) {
   file.remove(debug_out)
 }
 
-### Move CSS dir to output ###
-cat("Moving CSS directory to output dir\n")
+### Move images/CSS dir to output ###
+cat("Moving images and CSS directory to output dir\n")
 status <- file.copy("css", out_dir, overwrite = T, recursive = T)
+if (all(status)) {
+  cat("Successfully copied CSS dir\n")
+} else {
+  warning("Something didn't work right!")
+}
+status <- file.copy("images", out_dir, overwrite = T, recursive = T)
 if (all(status)) {
   cat("Successfully copied CSS dir\n")
 } else {
@@ -37,18 +43,15 @@ bookdown::render_book(input = ".",
                       output_format = "bookdown::gitbook",
                       clean_envir = F, quiet = TRUE)
 
-# Build PDF
-# cat("Rendering PDF…")
-# bookdown::render_book(input = ".",
-#                       output_format = "bookdown::pdf_book",
-#                       clean_envir = F, quiet = TRUE)
-
 # Build EPUB
-# cat("Rendering epub…")
-# bookdown::render_book(input = ".",
-#                       output_format = "bookdown::epub_book",
-#                       clean_envir = F, quiet = TRUE)
-cat("Done rendering.\n")
+if (as.numeric(difftime(Sys.time(),
+                        file.mtime(paste0(out_dir, "/r-intro.epub")),
+                        units = "d")) > 1) {  cat("Rendering epub…")
+  bookdown::render_book(input = ".",
+                        output_format = "bookdown::epub_book",
+                        clean_envir = F, quiet = TRUE)
+  cat("Done rendering.\n")
+}
 
 #### Prepare to copy to output ####
 cat("Checking who you are…\n")
