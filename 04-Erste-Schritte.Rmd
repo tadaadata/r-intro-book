@@ -253,7 +253,7 @@ In Worten heißt die Zeile `gruppe1 <- sleep[sleep$group == 1]` lediglich:
 "*Nimm die Tabelle `sleep` und filtere daraus alle Zeilen, die zu der Gruppe `1` gehören, und speichere sie in die Variable `gruppe1`*"
 Das Resultat sind zwei Variablen, die einen Teil der Tabelle `sleep` enthalten, und zwar jeweils zu einer der beiden Gruppen.
 
-Wieso dann eigentlich noch diese `[…, ]`-Sache am Ende der eckigen Klammern?  
+Wieso dann eigentlich noch diese `, `-Sache am Ende der eckigen Klammern?  
 Das gehört zur Art, wie R Tabellen *indiziert*, sprich wie man einzelne Bereiche der Tabelle ansteuert:
 
 ```{r}
@@ -296,3 +296,5 @@ mean(sleep[1])
 Vermutlich verwirrt euch das ganze Geklammere jetzt mehr oder weniger stark, aber glaubt mir, wenn wir erstmal ein Gefühl dafür habt ist es sehr viel Wert diese Grundlagen auf dem Schirm zu haben (oder sie zumindest nachlesen zu können), denn in der ersten Zeit eurer R-Nutzung werdet ihr massenhaft kleinere und größere Fehler in dieser Art machen, wo ihr zwar das richtige *meint*, aber R nicht das richtige *sagt*.
 
 Wir schneiden das Ganze Thema *Subsetting* hier auch erstmal nur an, aber wenn ihr's jetzt schon ganz genau wissen wollt, könnt ihr die Details [hier nachlesen](http://adv-r.hadley.nz/subsetting.html#subsetting-operators)
+
+## Logische Vergleiche

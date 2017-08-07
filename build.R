@@ -14,9 +14,13 @@ sapply(pkgs, function(pkg) {
   if (!(pkg %in% installed.packages())) {
     install.packages(pkg)
   } else {
-    "OK"
+    TRUE
   }
-})
+}, USE.NAMES = F) -> status
+
+if (all(status)) {
+  cat("Successfully checked dependencies!\n")
+}
 
 rm(pkgs)
 
