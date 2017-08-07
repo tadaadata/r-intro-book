@@ -7,32 +7,13 @@ documentclass: book
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
-github-repo: tadaa-data/r-intro-book
+github-repo: 'tadaa-data/r-intro-book'
 url: 'https\://r-intro.tadaa-data.de/book/'
 description: "Eine R-Einführung für QM"
 ---
 
-```{r setup, include=F}
-pkgs <- c("svglite", "tadaatoolbox", "sjPlot", "sjmisc", "devtools",
-          "haven", "readr", "dplyr", "ggplot2", "scales", "RColorBrewer", "viridis",
-          "readxl", "googlesheets", "rpivotTable", "stringr", "tibble", "tidyr", "waffle",
-          "praise", "babynames", "magrittr", "ggthemes")
-
-sapply(pkgs, function(pkg) {
-  if (!(pkg %in% installed.packages())) {
-    install.packages(pkg)
-  } else {
-    "☑"
-  }
-})
-
-rm(pkgs)
-
-if (!("emo" %in% installed.packages())) {
-  devtools::install_github("hadley/emo")
-}
-
-knitr::opts_chunk$set(comment = "")
+```{r setup, include=FALSE}
+#knitr::opts_chunk$set(comment = "")
 ```
 
 # Vorwort {-}

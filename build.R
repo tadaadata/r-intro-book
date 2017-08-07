@@ -3,9 +3,25 @@
 t_start <- Sys.time()
 
 #### Check dependencies ####
-cat("\n\nChecking if bookdown is installed…\n")
-if (!("bookdown" %in% installed.packages())) {
-  install.packages("bookdown")
+cat("\n\nChecking if required stuff is installed…\n")
+
+pkgs <- c("bookdown", "svglite", "tadaatoolbox", "sjPlot", "sjmisc", "devtools",
+          "haven", "readr", "dplyr", "ggplot2", "scales", "RColorBrewer", "viridis",
+          "readxl", "googlesheets", "rpivotTable", "stringr", "tibble", "tidyr", "waffle",
+          "praise", "babynames", "magrittr", "ggthemes")
+
+sapply(pkgs, function(pkg) {
+  if (!(pkg %in% installed.packages())) {
+    install.packages(pkg)
+  } else {
+    "OK"
+  }
+})
+
+rm(pkgs)
+
+if (!("emo" %in% installed.packages())) {
+  devtools::install_github("hadley/emo")
 }
 
 #### Save config for stuff ####
