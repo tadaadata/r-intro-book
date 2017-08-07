@@ -253,7 +253,7 @@ In Worten heißt die Zeile `gruppe1 <- sleep[sleep$group == 1]` lediglich:
 "*Nimm die Tabelle `sleep` und filtere daraus alle Zeilen, die zu der Gruppe `1` gehören, und speichere sie in die Variable `gruppe1`*"
 Das Resultat sind zwei Variablen, die einen Teil der Tabelle `sleep` enthalten, und zwar jeweils zu einer der beiden Gruppen.
 
-Wieso dann eigentlich noch diese `, `-Sache am Ende der eckigen Klammern?  
+Wieso dann eigentlich noch diese `[…, ]`-Sache am Ende der eckigen Klammern?  
 Das gehört zur Art, wie R Tabellen *indiziert*, sprich wie man einzelne Bereiche der Tabelle ansteuert:
 
 ```{r}

@@ -7,12 +7,12 @@ bookdown::gitbook:
   url: https://r-intro.tadaa-data.de/book/
   github-repo: tadaadata/r-intro-book
   include:
-    in_header: icons.html
+    in_header: "icons.html"
   config:
     toc:
-      collapse: section
+      collapse: "section"
       before: |
-        <li><a href="https://tadaa-data.de"><img src="images/tadaa_thin_t.png" style="padding: 5px; max-width: 100%"></a></li>
+        <li><a class="toc-banner" href="https://tadaa-data.de"><img src="images/tadaa_thin_t.png"></a></li>
         <li><a class="toc-headline" href="./">Tadaa, R-Intro!</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>

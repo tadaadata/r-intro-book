@@ -1,6 +1,6 @@
 # Orientierung
 
-```{r, include=FALSE}
+```{r setup_orientierung, include=FALSE}
 library(knitr)
 knitr::opts_chunk$set(echo=F,
                       out.width="90%")
@@ -86,18 +86,23 @@ Die Mathe-Basics in R:
     - …und ja, jede [offene Klammer](https://xkcd.com/859/) braucht eine geschlossen Klammer, sonst gibt's Fehler
 - Das Dezimaltrennzeichen ist der Punkt `.`
     - 12,1 wird eingegeben als `12.1`
-    - Die Konvention kommt aus dem englischsprachigem Raum, da sind Zahlen… anders
+    - Die Konvention kommt aus dem englischsprachigen Raum, da sind Zahlen… anders
 
 Ansonsten gibt es etliche weitere mathematischen Funktionen, und wir können das ganze beliebig komplex aussehen lassen:
 
 ```r
-2 + sin((2*pi)/3) / exp(10)
+2 + sin((2*pi)/3) * exp(5)
 ```
 
 Hier sehen wir mehrere neue Dinge:
 
 Erstens: `pi` ist wirklich, naja, π. Das mit dem Kreis. Als Konstante schon in R vorgespeichert, weil ja kein Mensch π auf der Tastatur findet^[Die spitzfindigen Mac-User finden π mit *alt + p*].  
-Zweitens: `sin()` und `exp()` sind **Funktionen**. Die sind ziemlich wichtig, aber denen wenden wir uns erst im nächsten Abschnitt zu.
+Zweitens: `sin()` und `exp()` sind **Funktionen**. Die sind ziemlich wichtig, aber denen wenden wir uns erst im nächsten Abschnitt zu.  
+Was wir da geschrieben haben sieht übersetzt in Mathe übrigens so aus…
+
+$$2 + \sin \left( \frac{2\pi}{3} \right) \cdot e^{5}$$
+
+… und ergibt etwa 130,5. Aber darum geht's eigentlich gar nicht. 
 
 ## Text Editor
 
@@ -123,7 +128,7 @@ include_graphics("images/text_editor_2.png")
 Im Moment heißt euer Script noch `Untitled1` — das heißt, euer Script hat noch keinen Namen und ist **noch nicht gespeichert**. Letzteres wollt ihr umgehend ändern, weil all eure schönen Befehle für die Katz sind, wenn ihr euren Kram nicht speichert.  
 Ihr könnt zum speichern entweder den anachronistischen Diskettenbutton klicken und eurem Script einen schönen Namen geben, oder ihr drückt `STRG + S` oder auf dem Mac `cmd + S` — der wohl wichtigste Keyboard-Shortcut der Welt.
 
-```{r fig.cap="Der \"Datei speicher…\"-Dialog"}
+```{r fig.cap="Der \"Datei speichern…\"-Dialog"}
 include_graphics("images/text_editor_3.png")
 ```
 
