@@ -14,6 +14,11 @@ bookdown_yml <- yaml::yaml.load_file(rprojroot::find_rstudio_root_file("_bookdow
 out_dir   <- bookdown_yml$output_dir
 debug_out <- paste0(bookdown_yml$book_filename, ".Rmd")
 
+if (!file.exists(out_dir)) {
+  cat("Output directory", out_dir, "doesn't exist, creating that for you…\n")
+  dir.create(out_dir)
+}
+
 #### Clean up artifacts that cause problems ####
 cat("Cleaning up potential debug files…\n")
 
