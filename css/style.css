@@ -1,5 +1,13 @@
 /* Tadaa modifications */
 
+.toc-banner {
+  padding: 5px;
+}
+
+.toc-banner img {
+  max-width: 100%;
+}
+
 .toc-headline {
   text-align: center;
   font-size: 18px;
