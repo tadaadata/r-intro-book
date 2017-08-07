@@ -100,4 +100,4 @@ Alle anderen Desktopverknüpfungen die im Laufe der Installationen erschienen se
 Dazu gehören solche Dinge wie "R Console" oder auch "R GUI" oder ähnliches. Das sind die Verknüpfungen für das reine R, aber wir wollen R ja durch RStudio benutzen.  
 Trust me, it's better that way.  
 
-In RStudio könnt ihr jetzt vermutlich noch nicht viel machen, außer in der Konsole aus Spaß "`print('Wurstwasser')`" eingeben und ⏎ drücken.
+In RStudio könnt ihr jetzt vermutlich noch nicht viel machen, außer in der Konsole aus Spaß "`print('Wurstwasser')`" eingeben und Enter drücken.

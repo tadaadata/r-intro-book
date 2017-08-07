@@ -11,7 +11,7 @@ Wenn ihr vorher noch nie eine Programmiersprache benutzt habt… ist das auch ei
 
 "Programmiersprache" klingt so abschreckend, weil es nach kompliziertem Informatikkram klingt, aber wenn ihr es in eurer Schulzeit geschafft habt einen Taschenrechner zu bedienen, dann bekommt ihr auch den Einstieg in R hin.  
 Was der Begriff "Programmiersprache" für uns heißt ist recht simpel:  
-R folgt Anweisungen. Anweisungen, die wir entweder in die Konsole (in RStudio das Fenster unten links) schreiben können, und dann mit der Entertaste ⏎ bestätigt werden. R guckt dann, ob es weiß wovon ihr redet, und rödelt dann los — und wenn es weiß was es mit eurem Befehl anfangen soll, gibt es euch auch direkt eine Antwort.  
+R folgt Anweisungen. Anweisungen, die wir entweder in die Konsole (in RStudio das Fenster unten links) schreiben können, und dann mit der Entertaste bestätigt werden. R guckt dann, ob es weiß wovon ihr redet, und rödelt dann los — und wenn es weiß was es mit eurem Befehl anfangen soll, gibt es euch auch direkt eine Antwort.  
 
 Gute Praxis^[Wenn wir von "Guter Praxis" reden, dann meint das in der Regel bestimmte Gewohnheiten, die wir euch empfehlen, weil sie euer Leben langfristig einfacher machen. Ihr müsst nicht immer sofort verstehen wieso wir euch irgendetwas empfehlen, aber seit euch sicher, dass da mehrere Jahre Erfahrung hinter stecken.] ist es übrigens, ein *Script* zu erstellen, das Scriptfenster ist dann in RStudio oben links. Dort könnt ihr einen Befehl pro Zeile schreiben und als Datei abspeichern, so müsst ihr euch bei eurer Arbeit nicht jeden Befehl einzeln merken, sondern könnt einfach das Script wieder neu ausführen und eure Ergebnisse tauchen alle wieder auf. 
 
@@ -57,7 +57,7 @@ include_graphics("images/rstudio_project_file.png")
 
 Jetzt habt ihr ein frisches Projekt und könnt loslegen.  
 Als erstes müssen wir uns mit der Konsole (dem Teil unten links) vertraut machen.  
-Hier könnt ihr Frage-Antwort-mäßig Befehle eingeben, mit Enter ⏎ bestätigen, und erhaltet eine Antwort.  
+Hier könnt ihr Frage-Antwort-mäßig Befehle eingeben, mit Enter bestätigen, und erhaltet eine Antwort.  
 Hier kommt die Taschenrechner-Analogie wieder — versucht mal folgendes:
 
 ```r
@@ -96,7 +96,7 @@ Ansonsten gibt es etliche weitere mathematischen Funktionen, und wir können das
 
 Hier sehen wir mehrere neue Dinge:
 
-Erstens: `pi` ist wirklich, naja, π. Das mit dem Kreis. Als Konstante schon in R vorgespeichert, weil ja kein Mensch π auf der Tastatur findet^[Die spitzfindigen Mac-User finden π mit *alt + p*].  
+Erstens: `pi` ist wirklich, naja, $\pi$. Das mit dem Kreis. Als Konstante schon in R vorgespeichert, weil ja kein Mensch $\pi$ auf der Tastatur findet^[Die spitzfindigen Mac-User finden $\pi$ mit *alt + p*. Das kennt aber R nicht.].  
 Zweitens: `sin()` und `exp()` sind **Funktionen**. Die sind ziemlich wichtig, aber denen wenden wir uns erst im nächsten Abschnitt zu.  
 Was wir da geschrieben haben sieht übersetzt in Mathe übrigens so aus…
 
@@ -136,7 +136,7 @@ Gebt eurem Script einen aussagekräftigen Namen. Ihr wollt ja auch in zwei Woche
 Außerdem solltet ihr darauf achten, am besten ausschließlich Zahlen und Buchstaben sowie `-` und `_` zu verwenden. Leerzeichen und Umlaute (äöü) sind zwar *in der Theorie* kein Problem, aber glaubt mir, sobald ihr euer Script an KommilitonInnen mit anderen Betriebssystemen verschickt, kann auch jedes noch so harmlos aussehende *Ü* auf einmal zu einer Reihe von kleinen Problemen führen, deren Ursache ihr erst nach Stundenlanger Probiererei (oder niemals) finden würdet.  
 
 Etwas ähnliches gilt auch für den Text in eurem Script:  
-Vermeidet nach Möglichkeit besondere Zeichen wie Emoji `r emo::ji("upside_down_face")` (auch wenn die theoretisch korrekt angezeigt werden). Leerzeichen sind kein Problem, und sollten sogar der besseren Lesbarkeit halber großzügig eingesetzt werden.
+Vermeidet nach Möglichkeit besondere Zeichen wie Emoji `r if(knitr:::is_html_output()) emo::ji("upside_down_face")` (auch wenn die theoretisch korrekt angezeigt werden). Leerzeichen sind kein Problem, und sollten sogar der besseren Lesbarkeit halber großzügig eingesetzt werden.
 
 Was der Lesbarkeit auch sehr hilft: Kommentare.  
 R ignoriert in Scripten sowie in der Konsole generell alles, was links neben einem `#` steht. Wir nennen dieses Zeichen übrigens entweder *Raute*, *Lattenzaun* oder [*Octothorpe*](https://en.wiktionary.org/wiki/octothorpe). Wer es *hashtag* nennt muss leider 5€ in die Millenial-Dose werfen.
@@ -155,7 +155,7 @@ Damit bekommen eure Befehle Kontext, und sowohl ihr als auch eure KommilitonInne
 Kommentare sind auch praktisch, wenn ihr ein längere Script ausführt, aber ein Befehl Probleme bereitet. Wenn ihr einfach ein `#` davor setzt, ist die Zeile *auskommentiert*, und wird von R ignoriert.
 
 Wenn ihr dann ein paar Zeilen Code angesammelt habt, könnt ihr euer Script ausführen.  
-Ein Script wird von oben nach unten (und von links nach rechts) ausgeführt, wenn ihr auf "`Source`" klickt oder `Shift + STRG + ⏎` drückt (auf dem Mac `Shift + cmd + ⏎`).  
+Ein Script wird von oben nach unten (und von links nach rechts) ausgeführt, wenn ihr auf "`Source`" klickt oder `Shift + STRG + Enter` drückt (auf dem Mac `Shift + cmd + Enter`).  
 Wenn ihr nur die aktuelle Zeile (da wo euer Cursor gerade ist, ist "aktuell") ausführen wollt, reicht `STRG + R` (Mac: `cmd + R`).
 
 
