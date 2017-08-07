@@ -4,6 +4,93 @@
 
 ### Numeric <small class="subtitle">(Zahlen und so)</small>
 
+Zahlen in R (und in den meisten anderen Programmiersprachen, beziehungsweise generell irgendwo, wo Maschinen rechnen) kommen in zwei Geschmacksrichtungen: **Integer** (ganze Zahlen) und **double** (Dezimalzahlen, Fließkommazahlen, *floating point numbers*).  
+Der Grund dafür hat damit zu tun, wie Computer intern Zahlen abbilden, binäres Zahlensystem, Bits, ihr wisst schon — komplizierter Kram wo sich kluge Menschen Dinge ausdachten, mit dem wir arbeiten können, wir aber nicht im Detail verstehen müssen.  
+Fließkommazahlen sind so gängig, dass R sogar eine einfache ganze Zahl wie `2` erstmal als *double* interpretiert, und wie explizit `2L` schreiben müssen, wenn wir *"2, aber als integer"* meinen. Wieso wir dafür `L` brauchen sei dahingestellt, aber nun ja, der Unterschied ist da:
+
+```{r}
+# Beides "numeric"
+class(2)
+class(2.5)
+
+# Aber…
+typeof(2L)
+
+# …und
+typeof(2.5)
+```
+
+
+Integers sind ziemlich unproblematisch, werden aber in der Praxis nicht häufig explizit genutzt.  
+Fließkommazahlen (*double*) hingegen tauchen häufiger auf, weil Computer in den letzten Jahrzehnten *echt verdammt gut* darin geworden sind, mit Fließkommazhalen zu rechnen. Arithemtik mit integers ist auch okay, aber wenn eure Datensätze riesieg und eure Statistik komplex ist, dann ist Geschwindigkeit von Rechenoperationen auf ein mal ein wichtiger Faktor.  
+Das Problem an der Sache ist nur leider, dass Fließkommazahlen seltsam sind. Nicht nur vom initialen Verständnis her, dazu empfehle ich euch herzlichst [dieses schöne Video von Tom Scott](https://www.youtube.com/watch?v=PZRI1IfStY0), sondern auch für ganz reale Konsequenzen, über die wir stolpern können, wenn wir nicht aufpassen:
+
+```{r}
+# Wurzel aus 2, ganz harmlos
+sqrt(2)
+
+# Quadrierte Wurzel aus 2 ergibt 2, ja, kommt hin
+sqrt(2)^2
+
+# Das sollte ja dann…
+sqrt(2)^2 == 2
+```
+
+<small>Wait, what?</small> 
+
+Und das ist der Grund warum Fließkommazahlen (*double*) seltsam sind.  
+Die kurze Version: $\sqrt{2}$ ist eine *irrationale Zahl*, das heißt sie hat *unendlich viele Nachkommastellen*. Computer können nur eine begrenzte Anzahl an Nachkommastellen speichern, weshalb das Resultat von einer Berechnung wie $\left(\sqrt{2}\right)^2$ zwar für alle praktischen Zwecke immer noch 2 ist, aber *irgendwie auch nicht*. Wenn wir mit Datensätzen arbeiten und darin rumrechnen dann sind solche kleinen Rundungsfehler egal, aber wenn wir uns auf Operatoren wie `==` verlassen, um berechnete Werte zu vergleichen, dann müssen wir vorsichtig sein.  
+
+An dieser Stelle ein kurzer Exkurs in die Numerik:  
+Die absolut kleinste Toleranz, die euer Computer für Fließkommazahlen berücksichtigt, könnt ihr euch mit `.Machine$double.eps` anzeigen lassen[^ Habt ihr mal im Kontext von Computern oder Betriebssystemen/Software von "32bit" und "64bit" gehört? Da geht's tatsächlich genau um dieses Ding mit den Fließkommazahlen. 64 bit kann einfach mehr Nachkommastellen speichern als 32bit. Vergleiche dazu auch `.Machine$double.digits` auf einem 32bit gegen ein 64bit-Betriebssystem]. `.Machine` ist ein besonderes Objekt in R, dass Informationen zu eurem Computer (sprich eurer *Maschine*) sammelt.  
+
+```{r}
+# Wie groß ist die Abweichung vom erwarteten Ergebnis?
+sqrt(2)^2 - 2
+```
+
+`4.4408920985e-16` ist Computer für $4.4408920985 \cdot 10^{-16}$, also ungefähr…
+
+$$\frac{4.4408920985}{10000000000000000} \approx 0.00000000000000044$$
+
+Das ist… ziemlich wenig, und im Alltag auch ziemlich egal, aber wie gesagt: Für R ist das ein Unterschied.
+
+```{r}
+# Wie groß ist die Toleranz?
+.Machine$double.eps
+
+# Moment mal…
+.Machine$double.eps * 2
+
+# Wenn jetzt…
+(.Machine$double.eps * 2) == (sqrt(2)^2 - 2)
+```
+
+Tatsache.  
+Wir könnten noch weiter damit rumspielen, aber als Lektion sollte eigentlich nur hängenbleiben, dass Zahlen in R gerne mal mehr sind, als euch in der Konsole angezeigt wird.
+
+```{block2, float-rounding, type='rmdimportant'}
+> One does not simply *round* floating point numbers
+> --- [Programmer Boromir](https://ironholds.org/projects/rbitrary/#why-doesnt-round-work-like-you-think-it-should)
+```
+
+Wenn ihr mal auf sowas stoßen solltet, dann verwendet am besten einfach die Funktion `round()` um eure Werte auf eine sinnvolle Anzahl Nachkommastellen zu runden:
+
+```{r}
+# Auf 5 Stellen gerundete Wurzel 2
+round(sqrt(2), digits = 5)
+
+# Gerundetes Ergebnis von "Wurzel 2 hoch 2"
+round(sqrt(2)^2, digits = 5)
+
+# Literally close enough.
+round(sqrt(2)^2, digits = 5) == 2
+```
+
+```{block2, float-rounding_tip, type='rmdtip'}
+Im Zweifelsfall einfach Genauigkeit Opfern um den Verstand zu behalten
+```
+
 ### Character <small class="subtitle">(Buchstabenzeugs)</small>
 
 ### Factor <small class="subtitle">(Here be dragons)</small>
