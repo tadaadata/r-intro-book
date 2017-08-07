@@ -1,0 +1,39 @@
+# (APPENDIX) Appendix {-}
+
+# Ressourcen
+
+## Bücher
+
+- ["R for Data Science"](http://r4ds.had.co.nz/) -- Hadley Wickham
+- ["Advanced R"](http://adv-r.hadley.nz/) -- Hadley Wickham
+- [ggplot2](http://had.co.nz/ggplot2/) -- Hadley Wickham
+
+## Kurse
+
+- RStudio Webinars
+- DataCamp
+- (Codeschool, Coursera?)
+
+## Vorträge
+
+- useR stuff
+- YouTube stuff
+
+## Communities
+
+- Stackoverflow
+- Twitter: `#rstats`
+- Facebook Gruppen
+
+## Dokumentation
+
+- R help
+    - vignettes
+- rdrr
+- rdocumentation
+- github
+
+- Package-specific
+    - tidyverse.org
+
+

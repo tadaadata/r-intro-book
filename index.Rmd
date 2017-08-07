@@ -26,6 +26,8 @@ sapply(pkgs, function(pkg) {
   }
 })
 
+rm(pkgs)
+
 if (!("emo" %in% installed.packages())) {
   devtools::install_github("hadley/emo")
 }

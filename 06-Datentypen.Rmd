@@ -1,0 +1,17 @@
+# Datentypen
+
+## Vektoren
+
+### Numeric <small class="subtitle">(Zahlen und so)</small>
+
+### Character <small class="subtitle">(Buchstabenzeugs)</small>
+
+### Factor <small class="subtitle">(Here be dragons)</small>
+
+## Besondere Typen
+
+### Fehlende Werte: `NA`
+
+### Leere Werte: `NULL`
+
+### To `Inf` and Beyo`NaN`d!

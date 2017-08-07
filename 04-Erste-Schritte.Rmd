@@ -1,0 +1,298 @@
+# (PART) Grundlagen {-}
+
+```{r setup_grundlagen}
+knitr::opts_chunk$set(echo = T)
+```
+
+
+# Erste Schritte
+
+Im letzten Abschnitt habt ihr R als glorifizierten Taschenrechner gesehen.  
+Als nächstes schauen wir uns an, was wir sonst so damit anstellen können.
+
+## Grundfunktionen
+
+Die einfachsten Funktionen haben wir in Form der Rechenzeichen `+ - / *` schon kennengelernt, aber es gibt natürlich noch mehr.  
+Eine Funktion in R hat sieht immer ungefähr so aus: `sqrt(8)`. Der Name der Funktion, hier `sqrt`, (**immer** ohne Leerzeichen) gefolgt von Klammern, in denen ein oder mehrere *Argumente* stehen. Ein Argument ist das, womit die Funktion arbeiten soll. Eine gängige Veranschaulichung für Funktionen sind **Verben** einer Sprache, denn sie *tun* etwas.  
+
+Eine der wichtigsten Grundfunktionen ist `c()`, für *combine*. Mit `c` verbindet ihr mehrere Zahlen zu einem **Vektor** (ja, wie in der linearen Algebra. Mathe und so. Wisstschon.). Wenn ihr mehrere Zahlen zu einem Vektor kombiniert habt, könnt ihr damit so spaßige Dinge machen wie Mittelwerte ausrechen, sie aufsummieren oder zwei Vektoren gleicher Länge addieren.  
+Probiert mal ein paar Beispiele aus:
+
+```{r}
+# Ein paar Zahlen
+c(1, 1, 2, 3, 5, 8, 13, 21)
+
+# Was ist der Mittelwert der Zahlen?
+mean(c(1, 1, 2, 3, 5, 8, 13, 21))
+
+# Und die Summe?
+sum(c(1, 1, 2, 3, 5, 8, 13, 21))
+
+# Und wenn wir quadrieren?
+c(1, 1, 2, 3, 5, 8, 13, 21)^2
+
+# Oder die Wurzel ziehen?
+sqrt(c(1, 1, 2, 3, 5, 8, 13, 21))
+```
+
+Was wir hier sehen ist der Unterschied zwischen Funktionen, die aus mehreren Zahlen eine machen (`mean`, `sum`), und Funktionen, die auf jeder Zahl einzeln operieren (`sqrt`, `^`).  
+Was wir außerdem sehen: Jedes mal die Liste von Zahlen `c(1, 1, 2, 3, 5, 8, 13, 21)` kopieren und in eine Funktion einsetzen ist ziemlich unpraktisch. Stellt euch vor, ihr habt eine Reihe von Testergebnissen von hunderten ProbandInnen und müsst da alles einzeln, also, nein, das wäre ja albern.  
+Für sowas gibt es dann Abstraktionen wie **Variablen** und **Datensätze**, die entweder eine Liste von Werten oder auch eine Liste einer Liste von Werten handlich machen — das sehen wir dann in den nächsten beiden Abschnitten. 
+
+Eine weitere praktische Funktion ist `length()`: Sie sagt uns, wie *lang* das Argument ist.  
+Wenn wir uns also angucken, wie der Mittelwert funktioniert…
+
+$$\bar{x} = \frac{1}{n} \sum^n_{i=1} x_i$$
+
+…und wir das übersetzen in *"Die Summe aller Werte geteilt durch die Anzahl der Werte"*, dann können wir statt `mean` also auch folgendes schreiben:
+
+```{r}
+# in lang
+sum(c(1, 1, 2, 3, 5, 8, 13, 21))/length(c(1, 1, 2, 3, 5, 8, 13, 21))
+
+# in kurz
+mean(c(1, 1, 2, 3, 5, 8, 13, 21))
+```
+
+Ihr seht vielleicht so langsam, wieso wir das mit den Klammern und den Leerzeichen für die Lesbarkeit erwähnt haben.  
+Aber gut, so langsam wird's unübersichtlich, es wird Zeit ein paar Variablen anzulegen.
+
+## Variablen
+
+Wenn Funktionen wie Verben sind, dann sind Variablen wie **Nomen**. Sie haben einen Namen, und mit ihnen kann man Dinge tun. Oder sogar Sachen machen.  
+Variablen werden durch eine *Zuweisung* (*Assignment*) erstellt, was in R traditionell via `<-` passiert.  
+In den meisten anderen Programmiersprachen benutzt man dafür `=`, aber nun ja, R ist [historisch gewachsen](https://ironholds.org/projects/rbitrary/#why-do-we-use---for-assignment)^[Money quote: "[…] the reason we use `<-` for assignment is it made sense in a programming language written before the incorporation of Apple Computers, because it made sense in a programming language written before the moon landings."], also nehmt für den Anfang einfach mal hin, dass das nunmal so ist.  
+Wir speichern also mal ein paar Dinge:
+
+```{r}
+# Speichern in "fib"
+fib <- c(1, 1, 2, 3, 5, 8, 13, 21) 
+
+# Ausgeben lassen
+fib
+
+# Mittelwert…
+mean(fib)
+
+# …funktioniert immer noch. Angenehm.
+# Und wenn wir…
+fib + fib
+
+# Abgefahrener Kram.
+```
+
+Hier haben wir die Zahlen `1, 1, 2, 3, 5, 8, 13, 21` in die Variable `fib` gespeichert, weil es die ersten paar [Fibonacci-Zahlen](https://de.wikipedia.org/wiki/Fibonacci-Folge) sind, und wir unsere Variablen immer so benennen sollten, dass wir später noch wissen wofür sie da sind. Viele Tutorials beginnen damit, Variablen wie `x`, `y` und `z` anzulegen, aber da blickt ja irgendwann kein Mensch mehr durch.  
+Wenn ihr jetzt mit euren Zahlen arbeiten wollt, könnt ihr einfach in jeder Funktion `fib` statt der Liste mit `c(…)` einsetzen, und alles funktioniert wie vorher. Das liegt daran, dass R bei jedem Befehl erstmal nachschaut, ob ihr eine Variable benutzt (alles was Text ohne Anführungszeichen ist), und ob es die Variable findet. Wenn es die Variable gefunden hat, guckt es nach, was da drinsteht, in diesem Fall also `c(1, 1, 2, 3, 5, 8, 13, 21)`, dann benutzt R den Inhalt der Variablen.
+
+An dieser Stelle bietet es sich an, einen neuen Typ einzuführen: Den String (oder auch `character`). Als String bezeichnet man im Kontext von, naja, Computerkram generell eigentlich, alles was als Text durchgeht. Sobald wir etwas nicht mehr nur durch Zahlen darstellen können, ist es ein String.  
+Strings stehen in R immer in Anführungszeichen, entweder in \"doppelten\" oder in \'einfachen\'.
+
+Wichtig dabei ist, dass sich Anführungszeichen ähnlich verhalten wie Klammern. Wenn wir einen String mit <code>"</code> beginnen, müssen wir ihn auch wieder mit <code>"</code> schließen, ansonsten wartet R brav darauf, dass endlich das zweite <code>"</code> kommt und verläuft sich.  
+Ein Beispiel:
+
+```r
+# Vollkommen okay
+namen <- c("Tobi", "Lukas", "Nadja", "Christoph")
+
+# Auch okay, aber inkonsistent und daher eher unschön
+namen <- c('Tobi', "Lukas", 'Nadja', "Christoph")
+
+# Tod und Verderben (=> funktioniert nicht)
+namen <- c("Tobi", 'Lukas", 'Nadja, Christop")
+```
+
+Wir können auch Zahlen in `""` setzen — das ist kein Problem, aber dann sind es nunmal keine Zahlen in diesem Sinne mehr, es sind *Strings*, und mit Strings können wir nicht rechnen.  
+Probiert folgendes aus:
+
+```{r, eval=FALSE}
+# Okay
+5 + 5
+
+# Hä?
+5 + "5"
+```
+
+Ihr sehr jetzt vermutlich die Meldung `Error in 5 + "5" : non-numeric argument to binary operator`.  
+Das *non-numeric argument* hier ist die `"5"`. Merken: `5` ist **numerisch**, aber `"5"` ist ein **character** (=> **String**).  
+Der *binary operator* an dieser Stelle ist übrigens das `+`. Ein **Operator**, weil es, äh… operiert? Naja, es tut Dinge, und wenn etwas in R Dinge tut, ist es meistens ein Operator in irgendeinem Sinne. Das *binary* heißt, dass es **zwei** (bi, binär, binary, zwei halt) Argumente nimmt.  
+Wie schon gesagt, Argumente sind die Dinge, die wir an Funktionen übergeben, und wenn wir an eine Funktion wie `+` oder auch `mean()` ein Argument übergeben, mit denen sie nichts anfangen können, dann beschwert sich R weil es nicht weiß was zum Geier ihr da vorhabt.  
+
+```{r}
+namen <- c("Tobi", "Lukas", "Nadja", "Christoph")
+
+fib <- c(1, 1, 2, 3, 5, 8, 13, 21) 
+
+# Alles knorke
+mean(fib)
+
+# Alles CHAOS UND UNHEIL
+mean(namen)
+```
+
+Was es mit `NA` auf sich hat, und was es noch so für Datentypen gibt, sehen wir dann im Abschnitt zu [Datentypen].
+
+Eine letzte Sache noch: Strings sind "dominanter" als Zahlen, das heißt, wir können zwar Zahlen verbinden zu `c(1, 2, 3)`, und Strings zu `c("A", "B", "C")`, aber wenn wir `c("A", 2, "C", 4)` schreiben, dann behandelt R einfach alle Elemente des Vektors (=> Das, was in `c(…)`) steht, als wären es `character`-Werte.  
+
+```{block2, vector-types, type='rmdimportant'}
+Merke: Ein Vektor in R muss immer Elemente des gleichen Typs haben, Zahlen und Buchstaben zusammen werden zu Strings konvertiert!
+```
+
+## Tabellen
+
+Jetzt haben wir schonmal das Vokuabular an der Hand um Zahlen und beliebige Strings in R zu verarbeiten, aber noch ist das alles etwas unahndlich um damit *richtig* zu arbeiten.  
+
+Stellt euch vor, wir wollen einen kleinen Datensatz erstellen über die Statistiktutorien in QM mit Variablen wie *Namen*, *Alter*, und vielleicht sowas wie *Beliebtheit* auf einer Skala von 1-10.  
+Wir könnten sowas machen:
+
+```{r}
+namen <- c("Tobi", "Christoph", "Nadja", "Lukas")
+alter <- c(20, 35, 30, 12) # (Nicht alle diese Werte sind korrekt)
+
+mean(alter)
+```
+
+Schön und gut, aber das ist ja unhandlich. Was, wenn wir die Namen aller TutorInnen haben wollen, die jünger als 30 sind? Alles was wir mit `alter` machen, passiert unabhängig von `namen`.  
+
+Um mehrere Variablen in Kontext zu setzen, gibt es tabellarischen Datenstrukturen, namentlich nennt sich sowas in R dann `data.frame`. Letztendlich ist das nichts anderes als eine Tabelle, aber für R ist eine Tabelle praktische eine Liste von Vektoren mit gleicher länge:
+
+```{r}
+leute <- data.frame(name = c("Tobi", "Christoph", "Nadja", "Lukas"),
+                    alter = c(20, 35, 30, 12),
+                    beliebtheit = c(9, 10, 8, 3))
+
+# Anzeigen lassen
+leute
+```
+
+Was haben wir da gemacht? 
+
+- Wir haben einen `data.frame` mit der gleichnamigen Funktion erstellt
+- Die **Argumente** der Funktion haben die Form `Spaltenname = Werte der Spalte`
+- Mehrere Argumente werden mit `,` getrennt und optional mit einem Zeilenumbruch übersichtlich gehalten
+
+Das Ergebnis ist eine Variable `leute`, die drei Spalten mit je vier Werten hat.  
+Jede Spalte ist eine Variable, und jede Zeile der Tabelle kann als eine *Beobachtung* betrachtet werden.  
+Eine Beobachtung (*Observation*) sind alle Werte, die wir zu einem Untersuchungsobjekt haben, also in diesem Beispiel eine Person. Wenn wir uns nur die erste Zeile anschauen, sehen wir nur die Werte, die zu Tobi gehören, in der zweiten Zeile sehen wir die Werte zu Christoph etc.
+
+Tabellen, und damit `data.frames`, sind für uns die wichtigsten Objekte in R, weil wir fast ausschließlich mit Datensätzen in dieser Form arbeiten werden um unsere Statistik da draufzuwerfen.  
+Wie können wir jetzt mit einzelnen Variablen arbeiten? 
+
+```{r}
+# Die Variable "name" ausgeben lassen
+leute$name
+
+# Den Mittelwert von "alter" bestimmen
+mean(leute$alter)
+
+# Die Standardabweichung von "beliebtheit"
+sd(leute$beliebtheit)
+
+# Was auch funktioniert:
+leute[["name"]]
+leute[["alter"]]
+```
+
+<small>Das mit den "Levels" wird im Abschnitt zu [Datentypen] erklärt</small>
+
+Was wir hier benutzen nennt sich *Subsetting*, also im Grunde nur einen Teil von etwas rausholen. Hier also einen Teil der Tabelle on Form einer einzelnen Spalte.  
+Spalten können wir mit `$` oder `[[ ]]` direkt aus einem `data.frame` ansteuern, was unser Leben gleich viel einfacher macht. Strenggenommen sidn `$` und `[[` auch eigene Funktionen, aber dazu vielleicht später mehr, im Moment ist für uns nur wichtig, dass wir einzelne Spalten (Variablen) einer Tabelle (`data.frame`) einfach adressieren und genauso behandeln können wie die einzelnen Variablen `name` und `alter`, die wir weiter oben erstellt haben.
+
+## Umgang mit Tabellen
+
+Da wir noch nicht an dem Punkt sind, wo wir beliebige Daten einlesen können, und wir natürlich zu faul sind uns eine größere Tabelle selber zu schreiben, greifen wir zu Übungszwecken mal auf einen Datensatz zurück, der bei R von Haus aus mitgeliefert wird: `sleep`.
+
+Dieser Datensatz beinhaltet die Daten aus einer Medikamentenstudie, bei der es um Schlafgewinn bzw. -verlust ging. Die Tabelle hat drei Spalten (Variablen) zu 10 Personen:
+
+- `extra`: Schlafzuwachs in Stunden, positiv oder negativ für mehr bzw. weniger Schlaf als vorher
+- `group`: Die Versuchsgruppe, sprich welches Medikament die Person bekam, `1` oder `2`
+- `ID`: Die Identifikationsnummer der Person. Es ist gängig, ProbandInnen pseudonymisiert durchzunummerieren, der Zuordnung unt des Datenschutzes wegen als Zahlen.
+
+```{r}
+# Mit head() lassen wir uns die ersten paar Zeilen (den "Kopf") der Tabelle anzeigen
+head(sleep)
+```
+
+Wie viele Zeilen hat die Tabelle?
+
+```{r}
+nrow(sleep)
+```
+
+Die *number of rows* bekommen wir mit `nrow()` — ihr dürft jetzt raten, wie wir uns die Anzahl der Spalten (*columns*) anzeigen lassen können.
+
+```{r}
+ncol(sleep)
+```
+
+Surprise!
+
+Okay, aber was interessiert uns an diesem Datensatz jetzt? Wie wäre es mit dem durchschnittlichen Schlafzuwachs:
+
+```{r}
+mean(sleep$extra)
+```
+
+Schön und gut, aber wir wollen ja vermutlich die beiden Gruppen (Medikamente) vergleichen, also was tun?  
+Subsetting to the rescue /o/
+
+```{r}
+gruppe1 <- sleep[sleep$group == 1, ]
+gruppe2 <- sleep[sleep$group == 2, ]
+
+# Mittelwert der ersten Gruppe
+mean(gruppe1$extra)
+
+# Mittelwert der zweiten Gruppe
+mean(gruppe2$extra)
+```
+
+Okay, Schritt wir Schritt.  
+Hier haben wir unseren ersten logischen vergleich benutzt, um eine Teilmenge der Tabelle zu extrahieren.  
+Das klingt fancy, ist aber ziemlich simpel.  
+In Worten heißt die Zeile `gruppe1 <- sleep[sleep$group == 1]` lediglich:  
+"*Nimm die Tabelle `sleep` und filtere daraus alle Zeilen, die zu der Gruppe `1` gehören, und speichere sie in die Variable `gruppe1`*"
+Das Resultat sind zwei Variablen, die einen Teil der Tabelle `sleep` enthalten, und zwar jeweils zu einer der beiden Gruppen.
+
+Wieso dann eigentlich noch diese `, `-Sache am Ende der eckigen Klammern?  
+Das gehört zur Art, wie R Tabellen *indiziert*, sprich wie man einzelne Bereiche der Tabelle ansteuert:
+
+```{r}
+# Die erste Spalte
+sleep[1]
+
+# Die erste Zeile
+sleep[1, ]
+
+# Die erste Zeile und die dritte Spalte
+sleep[1, 3]
+```
+
+Die allgemeine Form ist `tabelle[Zeilennummer, Spaltennumer]`, und jetzt fragt ihr euch vermutlich, wieso wir vorhin `[[ ]]` benutzt haben, und jetzt `[ ]` — die kurze Antwort ist: Das ist halt was anderes. Die Details sind erstmal nicht so wichtig, was ihr euch vorerst merken solltet ist folgendes:
+
+- `sleep[1]` ergibt einen `data.frame` mit **nur einer Spalte**
+- `sleep[1, ]` ergibt einen `data.frame` mit **nur einer Zeile**
+- `sleep[[1]]` und `sleep$extra` sind **dasselbe** (weil `extra` die erste Spalte ist) und ergeben die erste Spalte als **Vektor**
+- `sleep$extra[[2]]` und `sleep$extra[2]` sind **dasselbe**: Das zweite Element im Vektor `sleep$extra`
+
+Bei einer Tabelle ist es nützlich mit Zeilen und Spalten zu arbeiten, um die gewünschten Werte rauszuholen, aber bei einem Vektor gibt es in diesem Sinne nur eine Dimension.  
+Sinn der Sache ist, dass wir Funktionen wie `mean` oder `sd` nur auf Vektoren anwenden können, was auch intuitiv irgendwie sinnvoll scheint, denn der Mittelwert einer ganzen Tabelle mit mehreren Variablen ist ja konzeptionell etwas… schwierig.
+
+```{r}
+# Okay
+mean(sleep$extra)
+
+# Das selbe Ergebnis
+mean(sleep[[1]])
+
+# Auch okay!
+mean(sleep[["extra"]])
+
+# Das hier nicht so
+mean(sleep[1])
+```
+
+`sleep[1]` gibt euch zwar auch die Spalte `extra`, aber wie schon gesagt, in `data.frame`-Form, und nicht als Vektor.
+
+Vermutlich verwirrt euch das ganze Geklammere jetzt mehr oder weniger stark, aber glaubt mir, wenn wir erstmal ein Gefühl dafür habt ist es sehr viel Wert diese Grundlagen auf dem Schirm zu haben (oder sie zumindest nachlesen zu können), denn in der ersten Zeit eurer R-Nutzung werdet ihr massenhaft kleinere und größere Fehler in dieser Art machen, wo ihr zwar das richtige *meint*, aber R nicht das richtige *sagt*.
+
+Wir schneiden das Ganze Thema *Subsetting* hier auch erstmal nur an, aber wenn ihr's jetzt schon ganz genau wissen wollt, könnt ihr die Details [hier nachlesen](http://adv-r.hadley.nz/subsetting.html#subsetting-operators)

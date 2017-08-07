@@ -1,5 +1,7 @@
 #! /usr/bin/env Rscript
 
+t_start <- Sys.time()
+
 #### Check dependencies ####
 cat("\n\nChecking if bookdown is installed…\n")
 if (!("bookdown" %in% installed.packages())) {
@@ -29,13 +31,13 @@ if (all(status)) {
 }
 status <- file.copy("images", out_dir, overwrite = T, recursive = T)
 if (all(status)) {
-  cat("Successfully copied CSS dir\n")
+  cat("Successfully copied images dir\n")
 } else {
   warning("Something didn't work right!")
 }
 
 #### Render things ####
-cat("Rendering things\n")
+cat("\nRendering things\n")
 
 # Build Website
 cat("Rendering website…\n")
@@ -53,15 +55,15 @@ if (file.exists(out_epub)) {
 }
 
 if (is.null(age) || age > 1) {
-  cat("Rendering epub…")
+  cat("Rendering epub…\n")
   bookdown::render_book(input = ".",
                         output_format = "bookdown::epub_book",
                         clean_envir = F, quiet = TRUE)
-  cat("Done rendering.\n")
 }
+cat("Done rendering\n")
 
 #### Prepare to copy to output ####
-cat("Checking who you are…\n")
+cat("\nChecking who you are…\n")
 
 current_user <- Sys.info()[["user"]]
 
@@ -76,7 +78,7 @@ if (current_user == "Lukas") {
 }
 
 #### Copy to output ####
-cat("Copying stuff…\n")
+cat("\nCopying stuff…\n")
 
 if (is.na(book_dir)) {
   warning("No output directory defined, leaving everything as is.")
@@ -92,8 +94,11 @@ if (is.na(book_dir)) {
 }
 
 #### Done ####
-cat("All done!\n")
-cat(format(Sys.time(), "%F, %T"), "\n")
+cat("\nAll done!\n")
+t_finish <- Sys.time()
+t_diff   <- round(as.numeric(difftime(t_finish, t_start, "s")), 0)
+cat("Took about", t_diff, "seconds", "\n")
+cat(format(t_finish, "%F, %T"), "\n")
 
 # Cleanup, just in case
 rm(bookdown_yml, out_dir, status, debug_out, current_user)

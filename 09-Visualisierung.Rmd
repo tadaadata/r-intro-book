@@ -1,0 +1,5 @@
+# (PART) Der Spaßige Teil {-}
+
+# Visualisierung
+
+Es hat ein bisschen gedauert, aber wir mussten uns zuerst erarbeiten, wie wir eigentlich in R mit Daten umgehen können und grob verstehen wie sich R überhaupt verhält, bis wir endlich was spaßiges machen können.

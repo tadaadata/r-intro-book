@@ -10,10 +10,10 @@ bookdown::gitbook:
     in_header: icons.html
   config:
     toc:
-      collapse: none
+      collapse: section
       before: |
-        <li><a href="https://tadaa-data.de"><img src="images/tadaa_thin_t.png" style="max-width: 100%"></a></li>
-        <li><a href="./">Tadaa, R-Intro!</a></li>
+        <li><a href="https://tadaa-data.de"><img src="images/tadaa_thin_t.png" style="padding: 5px; max-width: 100%"></a></li>
+        <li><a class="toc-headline" href="./">Tadaa, R-Intro!</a></li>
       after: |
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
         <li><a href="https://www.rstudio.com/products/rstudio/" target="blank">Written in RStudio</a></li>

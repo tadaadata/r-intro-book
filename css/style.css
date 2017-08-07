@@ -1,3 +1,17 @@
+/* Tadaa modifications */
+
+.toc-headline {
+  text-align: center;
+  font-size: 18px;
+  padding-top: 0;
+}
+.subtitle {
+  font-size: small;
+  color: lightgray;
+}
+
+/* Original CSS by Yihui below */
+
 .rmdcaution, .rmdimportant, .rmdnote, .rmdtip, .rmdwarning {
   padding: 1em 1em 1em 4em;
   margin-bottom: 10px;
