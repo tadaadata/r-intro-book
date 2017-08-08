@@ -24,3 +24,5 @@ bookdown::gitbook:
 bookdown::epub_book:
   dev: svglite
   stylesheet: css/style.css
+  toc: true
+

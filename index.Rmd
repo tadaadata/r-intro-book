@@ -43,7 +43,7 @@ Wenn ihr mehr (oder so grob dasselbe, aber in besser erklärt) wollt, dann empfe
 ## Verfügbarkeit {-}
 
 Wenn ihr das hier als Website unter `https://r-intro.tadaa-data.de/book` lest, dann habt ihr schonmal alles richtig gemacht. Zusätzlich gibt es diese Website auch als Ebook (`.epub`, funktioniert auf allen gängigen e-readern, tablets, smartphones und sowieso) unter dem Downloadbutton in der obigen Leiste.  
-Alle Versuche auch ein PDF Output zu erstellen sind bisher glamurös an $\LaTeX$ gescheitert, aber möglicherweise ändert sich das irgendwann<sup>TM</sup>.  
+Alle Versuche auch ein PDF Output zu erstellen sind bisher glamurös an LaTeX gescheitert, aber möglicherweise ändert sich das irgendwann<sup>TM</sup>.  
 Die Website (also HTML) ist allerdings auch ein deutlich flexibleres Format als PDF, der einzige Nachteil ist, dass sich die Website schlecht ausdrucken lässt — aber wenn ihr Websites ausdruckt habt ihr sowieso die Kontrolle über euer Leben verloren.  
 Wenn ihr diese Einführung also offline verfügbar und portabel haben wollt, bleibt euch vorerst nur die Ebook-Version als Lösung (mal abgesehen von der "offline verfügbar machen"-Funktion, die viele Webbrowser haben).
 
@@ -53,12 +53,3 @@ Die primäre Motivation und Zielgruppe für diese Einführung sind die Studieren
 Wir gehen anfangs sehr kleinschrittig vor und versuchen gängige Konzepte wie Datentypen/-klassen, Datenstrukturen, Syntax von Grund auf zu erklären.  
 
 Solltet ihr bei Begriffen wie "funktionale Programmiersprache", "generics", "functionals" und "Attribute" ein grobes Bild im Kopf haben, dann empfehle ich euch einen Blick in das weiter oben erwähnte [**R for Data Science**](http://r4ds.had.co.nz/). Also generell würde ich allen interessierten dieses Buch/Seite empfehlen, aber ich vermute, dass es für einen absoluten Sprung ins kalte Wasser R nur dann geeignet ist, wenn man entweder sehr viel Motivation oder ein entsprechendes Vorwissen mitbringt.
-
-## Reproduzierbarkeit {-}
-
-Hier die *Session Info* zum Zeitpunkt des Renderns:
-
-```{r}
-devtools::session_info()
-```
-

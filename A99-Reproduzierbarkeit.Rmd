@@ -1,0 +1,7 @@
+# Reproduzierbarkeit {-}
+
+Hier die *Session Info* zum Zeitpunkt des Renderns:
+
+```{r}
+devtools::session_info()
+```
