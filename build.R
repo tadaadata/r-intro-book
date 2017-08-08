@@ -8,7 +8,7 @@ cat("\n\nChecking if required stuff is installed…\n")
 pkgs <- c("bookdown", "svglite", "tadaatoolbox", "sjPlot", "sjmisc", "devtools",
           "haven", "readr", "dplyr", "ggplot2", "scales", "RColorBrewer", "viridis",
           "readxl", "googlesheets", "rpivotTable", "stringr", "tibble", "tidyr", "waffle",
-          "praise", "babynames", "magrittr", "ggthemes")
+          "praise", "babynames", "magrittr", "ggthemes", "tidyverse")
 
 sapply(pkgs, function(pkg) {
   if (!(pkg %in% installed.packages())) {
@@ -84,6 +84,9 @@ if (is.null(age) || age > 1) {
   bookdown::render_book(input = ".",
                         output_format = "bookdown::epub_book",
                         clean_envir = F, quiet = TRUE)
+  cat("Converting epub to PDF…\n")
+  # system(command = "pandoc --toc --latex-engine=xelatex book/r-intro.epub -o book/r-intro.pdf")
+  system(command = "ebook-convert book/r-intro.epub book/r-intro.pdf")
 }
 cat("Done rendering\n")
 
@@ -123,7 +126,7 @@ cat("\nAll done!\n")
 t_finish <- Sys.time()
 t_diff   <- round(as.numeric(difftime(t_finish, t_start, "s")), 0)
 cat("Took about", t_diff, "seconds", "\n")
-cat(format(t_finish, "%F, %T"), "\n")
+timestamp()
 
 # Cleanup, just in case
-rm(bookdown_yml, out_dir, status, debug_out, current_user)
+rm(bookdown_yml, out_dir, status, debug_out, current_user, t_diff, t_start, t_finish)
