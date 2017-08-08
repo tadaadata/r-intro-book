@@ -148,6 +148,38 @@ Eine letzte Sache noch: Strings sind "dominanter" als Zahlen, das heißt, wir k�
 Merke: Ein Vektor in R muss immer Elemente des gleichen Typs haben, Zahlen und Buchstaben zusammen werden zu Strings konvertiert!
 ```
 
+Wir können auch relativ simpel *Sequenzen* erstellen, zum Beispiel die Zahlen von 1 bis 100:
+
+```{r}
+1:100
+```
+
+Das `:` ist eine einfache Funktion und kann gelesen werden wie "Von … bis … in ganzen Schritten". Zusötzlich gibt es die Funktion `seq()`, die etwas flexibler ist. Außerdem gibt es diverse Funktionen für zufallsgenerierte Zahlen:
+
+```{r}
+# 10 bis 15 in 0.5er-Schritten
+seq(10, 15, 0.5)
+
+# Von 5 bis -5 in ganzen Schritten
+seq(5, -5)
+
+# Sequenz von 1 mit Länge 5, dasselbe wie 1:5
+seq_len(length.out = 5)
+
+# Normalverteilte Zufallszahlen (10 Stück, Mittelwert 5, Standardabweichung 2) 
+rnorm(n = 10, mean = 5, sd = 2)
+
+# Gleichverteilte Zufallszahlen (sprich "r unif", nicht "run if")
+runif(n = 10)
+
+# Münzwurf (Binomialverteilte Ergebnisse), 10 Stück
+rbinom(n = 10, size = 1, prob = 0.5)
+
+# Würfel (W6) (10 Stück)
+sample(x = 1:6, size = 10, replace = TRUE)
+```
+
+
 ## Tabellen
 
 Jetzt haben wir schonmal das Vokuabular an der Hand um Zahlen und beliebige Strings in R zu verarbeiten, aber noch ist das alles etwas unahndlich um damit *richtig* zu arbeiten.  
@@ -309,3 +341,77 @@ Vermutlich verwirrt euch das ganze Geklammere jetzt mehr oder weniger stark, abe
 Wir schneiden das Ganze Thema *Subsetting* hier auch erstmal nur an, aber wenn ihr's jetzt schon ganz genau wissen wollt, könnt ihr die Details [hier nachlesen](http://adv-r.hadley.nz/subsetting.html#subsetting-operators)
 
 ## Logische Vergleiche
+
+Logik! Eine Welt des Spaßes, der internen Konsistenz[^Naja, fast. Aber Gödel lassen wir mal aus.] und der unendlichen Anwendbarkeit in allen Bereichen.  
+Was ihr intuitiv als Logik kennt ist alleridngs etwas anderes als *formale Logik*, also das, was Computer verstehen.  
+Wir brauchen zum Glück nicht all zu viel davon, nur den Standardkram und nichtmal das [volle Spekrum Bool'scher Algebra](https://de.wikipedia.org/wiki/Boolesche_Algebra).
+
+Wir brauchen Logik in R in erster Linie zum *indizieren* von Objekten. Das heißt, wenn wir alle Zeilen einer Tabelle haben wollen, für die eine bestimmte Variable einen bestimmten Wert hat oder eine *Bedingung* erfüllt, dann drücken wir das durch Logik aus. Dasselbe funktioniert natürlich auch bei Vektoren (und strenggenommen funktioniert Tabellenindizierung sowieso über Vektorindizierung).
+Man nehme folgendes Beispiel:
+
+```{r}
+sleep[sleep$extra > 3, ]
+```
+
+Das heißt: *"Nimm die Tabelle `sleep` und gib mir alle Zeilen (das mit den eckigen Klammen), für die die Variable `sleep$extra` _größer als 3_ ist"*.
+
+Das Ergebnis eines logischen Vergleichs ist immer entweder `TRUE` oder `FALSE` für wahr oder falsch.  
+Wenn wir in R indizieren wollen, können wir dafür auch direkt `TRUE` und `FALSE` statt eines Vergleichs benutzen:
+
+```{r}
+fib <- c(1, 1, 2, 3, 5, 8, 13, 21) 
+
+fib[c(TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE)]
+```
+
+Hier haben wir uns effektiv nur die ersten beiden Werte des Vektors `fib` ausgeben lassen, weil R alles ausgibt, was mit `TRUE` indiziert ist und alles weglässt, was mit `FALSE` indiziert ist.  
+`c(TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE)` ist hier ein *logischer Vektor*, also ein Vektor mit, naja, logischen Werten, der praktisch der Reihe nach jedes Element im Vektor `fib` entweder *an* oder *aus* schaltet, wie Lichtschalter. Wir müssen dafür nicht unbedingt einen logischen Vektor der gleichen Länge (Anzahl der Elemente) wie unser Zielvektor (der, den wir indizieren/filtern wollen) benutzen, aber es bietet sich für den Einstieg an so genau wie möglich zu sein.  
+Wir könnten aber auch sowas machen:
+
+```{r}
+# Immer abwechselnd TRUE und FALSE, also jedes zweite Element
+fib[c(TRUE, FALSE)]
+
+# Schema TRUE TRUE FALSE FALSE ginge auch
+fib[c(TRUE, TRUE, FALSE, FALSE)]
+```
+
+Wichtig hierbei ist, dass der logische Vektor ein *ganzer Faktor* des Zielvektors ist, das heißt, dass die Anzahl der Element im Zielvektor *ganz* durch die Anzahl der Elemente im logischen Vektor teilbar sein muss (also ohne Rest), ansonsten bekommen wir potenziell schwer vorhersagbare Ergebnisse.  
+Was R hier macht nennt sich *Recycling*: In der ersten Zeile im letzten Beispiel wird der Vektor `c(TRUE, FALSE)` solange *recyclet*, also wiederverwendet, bis der ganze Zeilvektor "abgedeckt" ist. Wenn der logische Vektor nicht sauber in den Zielvektor passt (in Bezug auf die Anzahl der Elemente), dann bleibt entweder was übrig oder es reicht nicht. Das wäre schade.
+
+Es gibt eine Reihe *logischer Operatoren* wie hier `>` für *"ist größer als"*, die wichtigsten in Übersicht:  
+
+- `==` (doppeltes Gleichheitszeichen **ohne Leerzeichen dazwischen**):
+    - "Ist gleich"
+    - `1 == 2` --> `FALSE`
+    - `3 == 3` --> `TRUE`
+    - `3 == "Hallo"` --> `FALSE`
+- `!=`:
+    - "ist ungleich"
+    - Die *Negation* von `==`, also immer da wo `==` euch `TRUE` zeigt, gibt `!=` euch `FALSE` und andersherum.
+    - `pi != 3` --> `TRUE`
+    - `"Psychologiestudium" != "Voll gute Idee"`
+- `!` (ja, ein einfaches Ausrufezeichen):
+    - "Negation"
+    - Dreht ein `FALSE` zu einem `TRUE` um und andersherum. Wichtig: Klammern!
+    - `!(2 == 3)`
+    - `TRUE == !FALSE`
+- `>` und `<` (spitze Klammern):
+    - "ist größer/kleiner als"
+    - Da wo die Klamer spitz ist, soll das *kleinere* sein
+    - `5 > 4` --> `TRUE`
+    - `2^10 < 1000` --> `FALSE`
+- `>=`, `<=`: 
+    - "Größer gleich bzw. kleiner gleich"
+    - Ist *Entweder* `a > b` *oder* `a == b`?
+    - `5 >= 4`
+    - `16 <= 2^4`
+    
+Diese Ausdrücke können wir auch auf bestimmte Arten *verknüpfen*:
+
+- `&`: 
+    - "Und"
+- `|`:
+    - "Oder"
+- `xor()`:
+    - "Entweder … oder …" (*ausschließend*!)
