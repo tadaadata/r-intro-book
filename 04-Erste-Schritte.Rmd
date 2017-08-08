@@ -10,6 +10,17 @@ knitr::opts_chunk$set(echo = T)
 Im letzten Abschnitt habt ihr R als glorifizierten Taschenrechner gesehen.  
 Als nächstes schauen wir uns an, was wir sonst so damit anstellen können.
 
+Zuerst ein bisschen Terminologie:
+
+> “To understand computations in R, two slogans are helpful:
+>
+> - Everything that exists is an object.
+> - Everything that happens is a function call."  
+> 
+> -- John Chambers
+
+Oder in der Sprach-Analogie: Alles was in R existiert (Variablen, Tabellen, etc.) ist ein *Nomen* (Objekt) und alles, was etwas tut, ist ein *Verb* (Funktion).
+
 ## Grundfunktionen
 
 Die einfachsten Funktionen haben wir in Form der Rechenzeichen `+ - / *` schon kennengelernt, aber es gibt natürlich noch mehr.  

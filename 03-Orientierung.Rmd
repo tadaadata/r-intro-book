@@ -96,7 +96,7 @@ Ansonsten gibt es etliche weitere mathematischen Funktionen, und wir können das
 
 Hier sehen wir mehrere neue Dinge:
 
-Erstens: `pi` ist wirklich, naja, $\pi$. Das mit dem Kreis. Als Konstante schon in R vorgespeichert, weil ja kein Mensch $\pi$ auf der Tastatur findet^[Die spitzfindigen Mac-User finden $\pi$ mit *alt + p*. Das kennt aber R nicht.].  
+Erstens: `pi` ist wirklich, naja, $\pi$. Das mit dem Kreis. Als Konstante schon in R vorgespeichert, weil ja kein Mensch $\pi$ auf der Tastatur findet[^pi].  
 Zweitens: `sin()` und `exp()` sind **Funktionen**. Die sind ziemlich wichtig, aber denen wenden wir uns erst im nächsten Abschnitt zu.  
 Was wir da geschrieben haben sieht übersetzt in Mathe übrigens so aus…
 
@@ -163,3 +163,6 @@ Wenn ihr nur die aktuelle Zeile (da wo euer Cursor gerade ist, ist "aktuell") au
 
 Auf der rechten Seite in RStudio findet ihr unter Anderem die Hilfe, die Dateien in eurem Projektordner, eine Übersicht der installierten packages, eine Variablenübersicht und noch etwas mehr.  
 Wenn ihr das hier in der richtigen Reihenfolge lest, habt ihr vermutlich keine Ahnung was das alles heißen soll — und genau deswegen wenden wir uns dem Ganzen auch Schritt wir Schritt in späteren Abschnitten zu, wenn ihr ein bisschen mehr Übersicht über die Grundlagen habt.
+
+<!-- Footnotes -->
+[^pi]: Die spitzfindigen Mac-User finden $\pi$ mit *alt + p*. Das Zeichen kennt aber R nicht.
