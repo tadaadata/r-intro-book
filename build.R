@@ -33,6 +33,8 @@ bookdown_yml <- yaml::yaml.load_file(rprojroot::find_rstudio_root_file("_bookdow
 
 out_dir   <- bookdown_yml$output_dir
 debug_out <- paste0(bookdown_yml$book_filename, ".Rmd")
+out_pdf   <- paste0(out_dir, "/", bookdown_yml$book_filename, ".pdf")
+out_epub  <- paste0(out_dir, "/", bookdown_yml$book_filename, ".epub")
 
 if (!file.exists(out_dir)) {
   cat("Output directory", out_dir, "doesn't exist, creating that for you…\n")
@@ -71,8 +73,6 @@ bookdown::render_book(input = ".",
                       clean_envir = F, quiet = TRUE)
 
 # Build EPUB
-out_epub <- paste0(out_dir, "/", bookdown_yml$book_filename, ".epub")
-
 if (file.exists(out_epub)) {
   age <- as.numeric(difftime(Sys.time(), file.mtime(out_epub), units = "d"))
 } else {
@@ -85,8 +85,7 @@ if (is.null(age) || age > 1) {
                         output_format = "bookdown::epub_book",
                         clean_envir = F, quiet = TRUE)
   cat("Converting epub to PDF…\n")
-  # system(command = "pandoc --toc --latex-engine=xelatex book/r-intro.epub -o book/r-intro.pdf")
-  system(command = "ebook-convert book/r-intro.epub book/r-intro.pdf")
+  bookdown::calibre(input = out_epub, output = out_pdf)
 }
 cat("Done rendering\n")
 
@@ -129,4 +128,6 @@ cat("Took about", t_diff, "seconds", "\n")
 timestamp()
 
 # Cleanup, just in case
-rm(bookdown_yml, out_dir, status, debug_out, current_user, t_diff, t_start, t_finish)
+rm(bookdown_yml, out_dir, status, debug_out,
+   current_user, t_diff, t_start, t_finish,
+   out_epub, out_epub)
