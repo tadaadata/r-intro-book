@@ -130,4 +130,4 @@ timestamp()
 # Cleanup, just in case
 rm(bookdown_yml, out_dir, status, debug_out,
    current_user, t_diff, t_start, t_finish,
-   out_epub, out_epub)
+   out_epub, out_pdf)
