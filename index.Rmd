@@ -1,5 +1,5 @@
 ---
-title: "R-Einführung QM"
+title: "R für Psychos"
 author: "Tobi, Lukas, all the people"
 date: "Stand: `r format(Sys.time(), '%d. %B %Y @ %H:%M Uhr')`"
 site: bookdown::bookdown_site
@@ -13,16 +13,15 @@ description: "Eine R-Einführung für QM"
 ---
 
 ```{r setup, include=FALSE}
-#knitr::opts_chunk$set(comment = "")
+knitr::opts_chunk$set(comment = "")
 ```
 
 # Vorwort {-}
 
-Das hier wird mal eine R-Einführung, hoffentlich.
+Das hier wird gerade eine R-Einführung für Psychologiestudierende so mit ganz ohne Vorwissen im Bereich Software oder Programmierung.
 
 Die grobe Idee ist es, eine Präsentaion für die Übung zu haben, und zusätzlich eine long-form Intro als Nachschlagwerk und vertiefendes Intro.  
-
-Hoffentlich mit Screenshots, gifs/Videos als demo, Code-Beispielen, Plots und all dem Kram.
+Beides sollte ausreichend mit Screenshots/Beispielen ausgefüttert sein um auch die verunsichertesten Neulinge bei der Stange zu halten.
 
 Um an diesem Projekt mitzuarbeiten könnt ihr entweder den *edit* (<i class="fa fa-edit fa-lg"></i>) button auf der Web-Version oben in der Leiste klicken, oder direkt auf das [GitHub repository](https://github.com/tadaadata/r-intro-book) gehen und dort entweder Issues erstellen oder direkt Pull Requests machen.
 
@@ -43,9 +42,9 @@ Wenn ihr mehr (oder so grob dasselbe, aber in besser erklärt) wollt, dann empfe
 ## Verfügbarkeit {-}
 
 Wenn ihr das hier als Website unter `https://r-intro.tadaa-data.de/book` lest, dann habt ihr schonmal alles richtig gemacht. Zusätzlich gibt es diese Website auch als Ebook (`.epub`, funktioniert auf allen gängigen e-readern, tablets, smartphones und sowieso) unter dem Downloadbutton in der obigen Leiste.  
-Alle Versuche auch ein PDF Output zu erstellen sind bisher glamurös an LaTeX gescheitert, aber möglicherweise ändert sich das irgendwann<sup>TM</sup>.  
-Die Website (also HTML) ist allerdings auch ein deutlich flexibleres Format als PDF, der einzige Nachteil ist, dass sich die Website schlecht ausdrucken lässt — aber wenn ihr Websites ausdruckt habt ihr sowieso die Kontrolle über euer Leben verloren.  
-Wenn ihr diese Einführung also offline verfügbar und portabel haben wollt, bleibt euch vorerst nur die Ebook-Version als Lösung (mal abgesehen von der "offline verfügbar machen"-Funktion, die viele Webbrowser haben).
+Zusätzlich gibt es die Ebook-Version auch als PDF, wobei es sein kann, dass Teile der Formatierung nicht ganz sauber konvertiert werden, was insbesondere bei mathematischen Ausdrücken vorkommen kann.  
+Die Website (also HTML) ist allerdings das *primäre* Format dieser Einführung, der einzige Nachteil ist, dass sich die Website schlecht ausdrucken lässt — aber wenn ihr Websites ausdruckt habt ihr sowieso die Kontrolle über euer Leben verloren.  
+Wenn ihr diese Einführung unbedingt offline verfügbar und portabel haben wollt, bleibt euch die PDF- oder Ebook-Version. Und wehe ihr druckt die aus. Wehe.
 
 ## Zielgruppe {-}
 

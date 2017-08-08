@@ -25,4 +25,5 @@ bookdown::epub_book:
   dev: svglite
   stylesheet: css/style.css
   toc: true
+  toc_depth: 2
 
