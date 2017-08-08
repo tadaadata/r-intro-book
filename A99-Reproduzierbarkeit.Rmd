@@ -4,9 +4,9 @@ Hier die *Session Info* zum Zeitpunkt des Renderns:
 
 ```{r}
 # Pandoc für HTML/epub output
-system(command = "pandoc --version")
+system(command = "pandoc --version", intern = TRUE)[c(1, 2, 4)]
 # calibre-convert for epub -> PDF
-system(command = "ebook-convert --version")
+system(command = "ebook-convert --version", intern = TRUE)
 # R info
 devtools::session_info()
 ```
