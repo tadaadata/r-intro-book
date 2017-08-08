@@ -23,6 +23,10 @@ Das hier wird gerade eine R-Einführung für Psychologiestudierende so mit ganz 
 Die grobe Idee ist es, eine Präsentaion für die Übung zu haben, und zusätzlich eine long-form Intro als Nachschlagwerk und vertiefendes Intro.  
 Beides sollte ausreichend mit Screenshots/Beispielen ausgefüttert sein um auch die verunsichertesten Neulinge bei der Stange zu halten.
 
+## Für TutorInnen und Leute mit zu viel Motivation
+
+Wenn ihr noch keine Ahnung habt wie R funktioniert, wie man einen Computer bedient oder was Versionskontrollsysteme sein sollen, dann könnt ihr das hier überspringen. Wenn ihr aber Ergänzungen oder Korrekturen machen wollt, dann ist das auch möglich!
+
 Um an diesem Projekt mitzuarbeiten könnt ihr entweder den *edit* (<i class="fa fa-edit fa-lg"></i>) button auf der Web-Version oben in der Leiste klicken, oder direkt auf das [GitHub repository](https://github.com/tadaadata/r-intro-book) gehen und dort entweder Issues erstellen oder direkt Pull Requests machen.
 
 ## Über diese Einführung {-}
