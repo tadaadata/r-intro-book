@@ -379,6 +379,8 @@ fib[c(TRUE, TRUE, FALSE, FALSE)]
 Wichtig hierbei ist, dass der logische Vektor ein *ganzer Faktor* des Zielvektors ist, das heißt, dass die Anzahl der Element im Zielvektor *ganz* durch die Anzahl der Elemente im logischen Vektor teilbar sein muss (also ohne Rest), ansonsten bekommen wir potenziell schwer vorhersagbare Ergebnisse.  
 Was R hier macht nennt sich *Recycling*: In der ersten Zeile im letzten Beispiel wird der Vektor `c(TRUE, FALSE)` solange *recyclet*, also wiederverwendet, bis der ganze Zeilvektor "abgedeckt" ist. Wenn der logische Vektor nicht sauber in den Zielvektor passt (in Bezug auf die Anzahl der Elemente), dann bleibt entweder was übrig oder es reicht nicht. Das wäre schade.
 
+### Operatoren 
+
 Es gibt eine Reihe *logischer Operatoren* wie hier `>` für *"ist größer als"*, die wichtigsten in Übersicht:  
 
 - `==` (doppeltes Gleichheitszeichen **ohne Leerzeichen dazwischen**):
@@ -401,17 +403,48 @@ Es gibt eine Reihe *logischer Operatoren* wie hier `>` für *"ist größer als"*
     - Da wo die Klamer spitz ist, soll das *kleinere* sein
     - `5 > 4` --> `TRUE`
     - `2^10 < 1000` --> `FALSE`
+    - `2 < 5 < 4` --> *Funktioniert nicht!*
 - `>=`, `<=`: 
     - "Größer gleich bzw. kleiner gleich"
     - Ist *Entweder* `a > b` *oder* `a == b`?
     - `5 >= 4`
     - `16 <= 2^4`
-    
+
 Diese Ausdrücke können wir auch auf bestimmte Arten *verknüpfen*:
 
-- `&`: 
+- `&` (oder auch `&&`): 
     - "Und"
-- `|`:
+    - Ist `TRUE`, wenn beide Seiten `TRUE` sind
+    - `(1 < 3) & (5 < 10)` --> `TRUE`
+    - `(5 < 2) & (2 < 10)` --> `FALSE`
+    - 1 und 0 werden zu `TRUE` bzw. `FALSE` übersetzt:
+        - `1 & (2 == 2)` --> `TRUE`
+        - `!(0 & FALSE)` --> `TRUE`
+- `|` (oder auch `||`):
     - "Oder"
+    - Ist *entweder* A *oder* B *oder* beides `TRUE`?
+    - Da `|` auch wahr ist, wenn nur eine Seite wahr ist, ist es auch Grundlage für etlicher Mathe-/Logikwitze
+    - `(1 < 3) | (5 < 10)` --> `TRUE`
+    - `(5 < 2) | (2 < 10)` --> `TRUE`
 - `xor()`:
     - "Entweder … oder …" (*ausschließend*!)
+    - Wenn euch `|` zu unspezifisch ist
+    - Ist *nur* war, wenn *eins von beidem* wahr ist, aber nicht, wenn beides wahr ist
+    - **Kein** *binärer Operator* wie die anderen, sondern eine R-Funktion mit Klammern und so
+    - `xor((1 < 3), (5 < 10))` --> `FALSE`
+    - `xor((5 < 2), (2 < 10))` --> `TRUE`
+    
+### Spezielle Tests
+
+Die obigen Operatoren können wir für getrost für Vektorvergleiche benutzen, aber es gibt noch ein paar Sonderfälle. Was zum Beispiel, wenn wir nur generell wissen wollen, ob ein Element wie eine Zahl oder ein String in einem Vektor enthalten ist? Oder was, wenn wir wir auf spezielle Typen oder Klassen testen wollen? Was das im Detail heißt sehen wir in den entsprechenden Abschnitten zu [Datentypen] noch einmal, aber hier schonmal eine Kurzreferenz:
+
+- `%in%` (auch hier, *ohne Leerzeichen* dazwischen!):
+    - "Ist in"
+    - Mengentheoretisch ist das $x \in X$
+    - Ist Element `a` in Element `b`?
+    - `5 %in% c(1, 4, 5, 3)` --> `TRUE`
+    - `"B" %in% c("a", "b", "c")` --> `FALSE`
+    - `"B" %in% c("a", "B", "c")` --> `TRUE`
+    - `c(1, 2) %in% 1:5` --> `TRUE`
+- `is.na()`: Testet auf fehlende Werte (*missing values*, `NA`)
+- `is.null()`: Testet auf leere Werte (`NULL`)
