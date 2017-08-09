@@ -1,7 +1,11 @@
 ---
-title: "R für Psychos"
-author: "Tobi, Lukas, all the people"
+title: R für Psychos
+author:
+  - "Lukas Burk"
+  - "Tobias Anton"
 date: "Stand: `r format(Sys.time(), '%d. %B %Y @ %H:%M Uhr')`"
+lang: de-DE
+publisher: tadaa-data.de
 site: bookdown::bookdown_site
 documentclass: book
 bibliography: [book.bib, packages.bib]
@@ -9,7 +13,7 @@ biblio-style: apalike
 link-citations: yes
 github-repo: 'tadaa-data/r-intro-book'
 url: 'https\://r-intro.tadaa-data.de/book/'
-description: "Eine R-Einführung für QM"
+description: "Eine Einführung in für Menschen ohne Vorkenntnisse"
 ---
 
 ```{r setup, include=FALSE}
