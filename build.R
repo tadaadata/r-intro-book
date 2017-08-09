@@ -74,12 +74,12 @@ bookdown::render_book(input = ".",
 
 # Build EPUB
 if (file.exists(out_epub)) {
-  age <- as.numeric(difftime(Sys.time(), file.mtime(out_epub), units = "d"))
+  age <- as.numeric(difftime(Sys.time(), file.mtime(out_epub), units = "hours"))
 } else {
   age <- NULL
 }
 
-if (is.null(age) || age > 1) {
+if (is.null(age) || age > 12) {
   cat("Rendering epub…\n")
   bookdown::render_book(input = ".",
                         output_format = "bookdown::epub_book",
@@ -91,9 +91,7 @@ cat("Done rendering\n")
 
 #### Prepare to copy to output ####
 cat("\nChecking who you are…\n")
-
 current_user <- Sys.info()[["user"]]
-
 cat(paste0("I hope you're really ", current_user), "\n")
 
 if (current_user == "Lukas") {
