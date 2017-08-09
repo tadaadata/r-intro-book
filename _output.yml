@@ -21,9 +21,11 @@ bookdown::gitbook:
     download: [["r-intro.epub", "ebook"], ["r-intro.pdf", "PDF"]]
     scroll_highlight: yes
     search: yes
+  md_extension: "+emoji"
 bookdown::epub_book:
   dev: svglite
   stylesheet: css/style.css
   toc: true
   toc_depth: 2
+  md_extension: "+emoji"
 

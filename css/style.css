@@ -18,6 +18,10 @@
   color: lightgray;
 }
 
+#header {
+  text-align: center;
+}
+
 /* Original CSS by Yihui below */
 
 .rmdcaution, .rmdimportant, .rmdnote, .rmdtip, .rmdwarning {

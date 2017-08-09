@@ -136,7 +136,7 @@ Gebt eurem Script einen aussagekräftigen Namen. Ihr wollt ja auch in zwei Woche
 Außerdem solltet ihr darauf achten, am besten ausschließlich Zahlen und Buchstaben sowie `-` und `_` zu verwenden. Leerzeichen und Umlaute (äöü) sind zwar *in der Theorie* kein Problem, aber glaubt mir, sobald ihr euer Script an KommilitonInnen mit anderen Betriebssystemen verschickt, kann auch jedes noch so harmlos aussehende *Ü* auf einmal zu einer Reihe von kleinen Problemen führen, deren Ursache ihr erst nach Stundenlanger Probiererei (oder niemals) finden würdet.  
 
 Etwas ähnliches gilt auch für den Text in eurem Script:  
-Vermeidet nach Möglichkeit besondere Zeichen wie Emoji `r if(knitr:::is_html_output()) emo::ji("upside_down_face")` (auch wenn die theoretisch korrekt angezeigt werden). Leerzeichen sind kein Problem, und sollten sogar der besseren Lesbarkeit halber großzügig eingesetzt werden.
+Vermeidet nach Möglichkeit besondere Zeichen wie Emoji :upside_down_face: (auch wenn die theoretisch korrekt angezeigt werden). Leerzeichen sind kein Problem, und sollten sogar der besseren Lesbarkeit halber großzügig eingesetzt werden.
 
 Was der Lesbarkeit auch sehr hilft: Kommentare.  
 R ignoriert in Scripten sowie in der Konsole generell alles, was links neben einem `#` steht. Wir nennen dieses Zeichen übrigens entweder *Raute*, *Lattenzaun* oder [*Octothorpe*](https://en.wiktionary.org/wiki/octothorpe). Wer es *hashtag* nennt muss leider 5€ in die Millenial-Dose werfen.

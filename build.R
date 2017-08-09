@@ -22,12 +22,6 @@ if (all(status)) {
   cat("Successfully checked dependencies!\n")
 }
 
-rm(pkgs)
-
-if (!("emo" %in% installed.packages())) {
-  devtools::install_github("hadley/emo")
-}
-
 #### Save config for stuff ####
 bookdown_yml <- yaml::yaml.load_file(rprojroot::find_rstudio_root_file("_bookdown.yml"))
 
@@ -126,6 +120,6 @@ cat("Took about", t_diff, "seconds", "\n")
 timestamp()
 
 # Cleanup, just in case
-rm(bookdown_yml, out_dir, status, debug_out,
+rm(pkgs, bookdown_yml, out_dir, status, debug_out,
    current_user, t_diff, t_start, t_finish,
    out_epub, out_pdf)

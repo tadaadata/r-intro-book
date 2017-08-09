@@ -1,8 +1,10 @@
 ---
 title: R für Psychos
 author:
-  - "Lukas Burk"
-  - "Tobias Anton"
+  - name: "Lukas Burk"
+    affiliation: "Universität Bremen"
+  - name: "Tobias Anton"
+    affiliation: "Universität Bremen"
 date: "Stand: `r format(Sys.time(), '%d. %B %Y @ %H:%M Uhr')`"
 lang: de-DE
 publisher: tadaa-data.de
