@@ -431,6 +431,8 @@ Diese Ausdrücke können wir auch auf bestimmte Arten *verknüpfen*:
     - Wenn euch `|` zu unspezifisch ist
     - Ist *nur* war, wenn *eins von beidem* wahr ist, aber nicht, wenn beides wahr ist
     - **Kein** *binärer Operator* wie die anderen, sondern eine R-Funktion mit Klammern und so
+    - `xor(TRUE, FALSE)` --> `TRUE`
+    - `xor(TRUE, TRUE)` --> `FALSE`
     - `xor((1 < 3), (5 < 10))` --> `FALSE`
     - `xor((5 < 2), (2 < 10))` --> `TRUE`
     
@@ -448,3 +450,45 @@ Die obigen Operatoren können wir für getrost für Vektorvergleiche benutzen, a
     - `c(1, 2) %in% 1:5` --> `TRUE`
 - `is.na()`: Testet auf fehlende Werte (*missing values*, `NA`)
 - `is.null()`: Testet auf leere Werte (`NULL`)
+
+### Indexing: Beispiele
+
+Das war jetzt relativ viel Information, und ihr müsst euch das auch nicht alles sofort merken, sondern nur wissen, wo ihr's bei Bedarf nachschlagen könnt.  
+Die Motivation hinter dem Logikram ist wie erwähnt primär das Filtern von Tabellen und Vektoren, was wir nunmal relativ häufig brauchen um zum Beispiel bestimmte Untergruppen in unseren Datensätze zu analysieren, zum Beispiel Personen älter als 35 (z.B. `age > 35`) oder Menschen, die sowohl weiblich sind als auch Medikament B bekommen haben (z.B. `geschlecht == "weiblich" & drug == "B"`).  
+
+#### Vektoren
+
+Vektoren werden immer *elementweise* verglichen, das heißt, dass das Ergebnis von `c(1, 2) == 1` nicht `FALSE` oder `TRUE` ist, sondern der *logische Vektor* `TRUE FALSE`. Dadurch entsteht durch den logischen Vergleich eines Vektors ein Vektor aus `TRUE` und `FALSE`, den wir zum indizieren benutzen können, wie wir weiter oben schon gesehen haben.
+
+```{r}
+# Irgendwelche Zahlen
+x <- c(4, 7, 2, 1, 7, 9, 6, 5, 4, 3, 3, 2, 2, 5, 8, 9, 31)
+
+# Alle Zahlen größer 4: "Gib mir x, wo x > 4"
+x[x > 4]
+
+# Die Logik dahinter
+x > 4
+
+# Alle Zahlen größer 5 und kleiner 20
+x[x > 5 & x < 20]
+```
+
+Das Ganze lässt sich natürlich beliebig komplex aussehen lassen, weshalb zu viele Bedingungen in Kombination etwas verwirrend aussehen können.  
+Weiterhin können wir einen Vektor natürlich auch durch einen Vergleich eines anderen Vektors indizieren.
+
+```{r}
+x <- c(4, 7, 2, 1, 7, 9, 6, 5, 4, 3)
+y <- c(6, 7, 10, 1, 9, 3, 6, 5, 6, 3)
+
+# x, wo x größer gleich 4 ist *und* y kleiner 6
+x[x >= 4 & (y < 6)]
+
+# x, wo x und y identisch sind
+x[x == y]
+
+# x, wo x kleiner y ist
+x[x < y]
+```
+
+#### Tabellen
