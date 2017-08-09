@@ -15,7 +15,7 @@ biblio-style: apalike
 link-citations: yes
 github-repo: 'tadaa-data/r-intro-book'
 url: 'https\://r-intro.tadaa-data.de/book/'
-description: "Eine Einführung in für Menschen ohne Vorkenntnisse"
+description: "Eine Einführung in R für Menschen ohne Vorkenntnisse"
 ---
 
 ```{r setup, include=FALSE}
