@@ -1,8 +1,38 @@
 # Datentypen
 
-## Vektoren
+Es gibt eine Reihe von Unterscheidungsmöglichkeiten zwischen verschiedenen Arten von Daten.  
+Neben der naheliegenden Unterscheidung zwischen "Zahlen" und "Buchstaben" gibt es diverse andere Typen, die R verwendet.  
+Technisch gesehen müssten wir hier noch zwischen Typen und Klassen unterscheiden, aber für die meisten unserer normalen Anwendungszwecke ist es nicht unbedingt notwendig Typen und Klassen auseinanderhalten zu können, weshalb wir hier auch mehr oder weniger beides gleichzeitig abhandeln.
 
-### Numeric <small class="subtitle">(Zahlen und so)</small>
+*"Und wieso sollte uns interessieren, wie R da unterscheidet?"*  
+R ist verwirrt, wenn wir Buchstaben in eine Funktion stecken, die Zahlen erwartet. Genauso ist R verwirrt, wenn wir den Mittelwert aus einer Tabelle berechnen wollen. Mittelwerte sind nur dann sinnvoll, wenn wir sie aus einem Vektor aus numerischen Werten berechnen. Da eure Daten in verschiedenen Formaten ankommen, und unterschiedliche Repräsentationen unterschiedliche Vor- und Nachteile haben, ist es wichtig, dass ihr im Zweifelsfall herausfinden könnt was ihr da vor der Nase habt und wie ihr damit arbeiten könnt.  
+Was eine R-Funktion mit einem Objekt anstellt hängt von der *Klasse* des Objekts ab, das ganze fällt vermutlich irgendwo unter *"object oriented programming"*, und wenn ihr InformatikerInnen kennt und die euch Fragen, ob R eine funktionale oder objektorientierte Frage ist, könnt ihr getrost "ja" sagen[^logic].
+
+Die wichtigste Funktion für diesen Abschnitt ist `class()`, was euch sagt was R unter einem bestimmten Objekt versteht (die *Klasse* des Objekts):
+
+```{r}
+class(4)
+class(c(1, 2, 3))
+class(c("hallo", "welt"))
+class(sleep)
+class(sleep$extra)
+class(sleep$group)
+```
+
+<small>Was es mit `factor` auf sich hat sehen wir ein paar Abschnitte weiter</small>
+
+Zusätzlich gibt es `typeof()`, eine Funktion, die so speziell ist, dass ich sie in meinen ~4 Jahren R erst neulich entdeckt habe, weil der exakte *Typ* eines Objekts meistens weniger relevant ist als die *Klasse*:
+
+```{r}
+typeof(4)
+typeof(c(1, 2, 3))
+typeof(c("hallo", "welt"))
+typeof(sleep)
+typeof(sleep$extra)
+typeof(sleep$group)
+```
+
+## Numeric <small class="subtitle">(Zahlen und so)</small>
 
 Zahlen in R (und in den meisten anderen Programmiersprachen, beziehungsweise generell irgendwo, wo Maschinen rechnen) kommen in zwei Geschmacksrichtungen: **Integer** (ganze Zahlen) und **double** (Dezimalzahlen, Fließkommazahlen, *floating point numbers*).  
 Der Grund dafür hat damit zu tun, wie Computer intern Zahlen abbilden, binäres Zahlensystem, Bits, ihr wisst schon — komplizierter Kram wo sich kluge Menschen Dinge ausdachten, mit denen wir arbeiten können, wir aber nicht im Detail verstehen müssen.  
@@ -92,9 +122,11 @@ round(sqrt(2)^2, digits = 5) == 2
 Im Zweifelsfall einfach Genauigkeit Opfern um den Verstand zu behalten
 ```
 
-### Character <small class="subtitle">(Buchstabenzeugs)</small>
+Theoretisch ist "numeric" für Zahlen eine *Klasse*, und *integer* und *double* sind die beiden *Typen*, aus denen die Klasse besteht.
 
-### Factor <small class="subtitle">(Here be dragons)</small>
+## Character <small class="subtitle">(Buchstabenzeugs)</small>
+
+## Factor <small class="subtitle">(Here be dragons)</small>
 
 ## Besondere Typen
 
@@ -104,6 +136,10 @@ Im Zweifelsfall einfach Genauigkeit Opfern um den Verstand zu behalten
 
 ### To `Inf` and Beyo`NaN`d!
 
+## Tabellen <small>Just a bunch of vectors</small>
+
 <!-- Footnotes -->
 
 [^bits]: Habt ihr mal im Kontext von Computern oder Betriebssystemen/Software von "32bit" und "64bit" gehört? Da geht's tatsächlich genau um dieses Ding mit den Fließkommazahlen. 64 bit kann einfach mehr Nachkommastellen speichern als 32bit. Vergleiche dazu auch `.Machine$double.digits` auf einem 32bit gegen ein 64bit-Betriebssystem
+
+[^logic]: Das ist einer von diesesn Logikwitzen basierend auf dem Umstand, dass das logische *oder* (`|`) auch *wahr* ist, wenn beide Auswahlmöglichkeiten *wahr* sind.
