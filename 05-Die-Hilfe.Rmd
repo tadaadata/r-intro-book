@@ -5,7 +5,7 @@ Diese Seiten sind im Wesentlichen aufgebohrte Versionen der Hilfe, die R von Hau
 
 Diie Hilfe findet ihr auf der rechten Seite in RStudio, unter dem `"Help"`-Tab:
 
-```{r, fig.cap="Die Startseite der R-Hilfe"}
+```{r, echo=FALSE, fig.cap="Die Startseite der R-Hilfe"}
 include_graphics("images/hilfe_0.png")
 ```
 

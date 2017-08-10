@@ -19,7 +19,7 @@ class(sleep$extra)
 class(sleep$group)
 ```
 
-<small>Was es mit `factor` auf sich hat sehen wir ein paar Abschnitte weiter</small>
+<small>(Was es mit `factor` auf sich hat sehen wir ein paar Abschnitte weiter)</small>
 
 Zusätzlich gibt es `typeof()`, eine Funktion, die so speziell ist, dass ich sie in meinen ~4 Jahren R erst neulich entdeckt habe, weil der exakte *Typ* eines Objekts meistens weniger relevant ist als die *Klasse*:
 
@@ -137,6 +137,24 @@ Theoretisch ist "numeric" für Zahlen eine *Klasse*, und *integer* und *double* 
 ### To `Inf` and Beyo`NaN`d!
 
 ## Tabellen <small class="subtitle">(Just a bunch of vectors)</small>
+
+## Prüfen & Konvertieren
+
+- `as.numeric`
+- `as.character`
+
+```{r}
+# Römische Zahlen
+as.roman(2017)
+
+# Hexadezimal
+as.hexmode(255)
+
+# Logische Werte
+as.logical(0)
+as.logical(1)
+```
+
 
 <!-- Footnotes -->
 
