@@ -68,6 +68,65 @@ mean(c(1, 1, 2, 3, 5, 8, 13, 21))
 Ihr seht vielleicht so langsam, wieso wir das mit den Klammern und den Leerzeichen für die Lesbarkeit erwähnt haben.  
 Aber gut, so langsam wird's unübersichtlich, es wird Zeit ein paar Variablen anzulegen.
 
+### Funktionsbeispiele
+
+Wenn ihr R lernt, werdet ihr erfahrungsgemäß die meiste Zeit damit verbringen herauszufinden wie bestimmte Funktionen funktionieren und welche Funktion für euer Vorhaben die richtige ist.  
+
+Funktionen sind zwar vom Schema immer gleich — ihr steckt irgendwelche Argumente rein, und es kommt irgendein Ergebnis raus — aber wie die Argumente aussehen unterscheidet sich von Funktion zu Funktion.  
+`sd()` zum Beispiel hat zwei Argumente: 
+  - `x`: Ein Vektor aus Zahlen, aus denen die Standardabweichung berechnet werden soll
+  - `na.rm`: Für `NA remove`, entweder `TRUE` oder `FALSE`. Wenn `x` fehlende Werte (`NA`) enthält, dann werden diese automatisch ignoriert, wenn `na.rm = TRUE`
+  
+```{r}
+zahlen <- c(3, 6, 8, 3, 1, 2, 5, 6, 4, 3, NA, 4, 5, 7, NA, 1, 4)
+
+# Ergibt NA :(
+sd(zahlen)
+
+# Ergibt ein Ergebnis :)
+sd(zahlen, na.rm = TRUE)
+```
+
+Der *default* für `na.rm` ist bei den meisten Funktionen (z.B auch `mean`) `FALSE`, das heißt fehlende Werte werden nicht automatisch ignoriert. Wenn euer *input* aber `NA` enthält, dann lässt sich daraus nicht sauber ein Mittelwert oder eine Standardabweichung berechnen, weil wir nichts über `NA` wissen (wir widmen uns `NA` im Kapitel zu Datentypen).  
+Nicht jede Funktion hat ein Argument namens `na.rm`, aber ihr werdet im Laufe der Zeit lernen, bei welchen Funktionen ihr darauf achten müsst, wie mit fehlenden Werten umgegangen wird.
+
+Einige andere Funktionen, die insbesondere zum Lernen und Ausprobieren praktisch sind, werden zur Erstellung von **Sequenzen** benutzt — also Reihen von Zahlen in einem bestimmten Muster:
+
+```{r}
+# Die Zahlen von 1 bis 100
+1:100
+
+# 10 bis 15 in 0.5er-Schritten
+seq(10, 15, 0.5)
+
+# Äquivalent, mit explizit benannten Argumenten:
+seq(from = 10, to = 15, by = 0.5)
+
+# Von 5 bis -5 in ganzen Schritten
+seq(5, -5)
+
+# Sequenz von 1 mit Länge 5, dasselbe wie 1:5
+seq_len(5)
+seq_len(length.out = 5)
+```
+
+Das `:` ist eine einfache Funktion und kann gelesen werden wie "Von … bis … in ganzen Schritten". Zusötzlich gibt es die Funktion `seq()`, die etwas flexibler ist. Außerdem gibt es diverse Funktionen für zufallsgenerierte Zahlen:
+
+```{r}
+# Normalverteilte Zufallszahlen (10 Stück, Mittelwert 5, Standardabweichung 2) 
+rnorm(n = 10, mean = 5, sd = 2)
+
+# Gleichverteilte Zufallszahlen (sprich "r unif", nicht "run if")
+runif(n = 10)
+
+# Münzwurf (Binomialverteilte Ergebnisse), 10 Stück
+rbinom(n = 10, size = 1, prob = 0.5)
+
+# Würfel (W6) (10 Stück)
+sample(x = 1:6, size = 10, replace = TRUE)
+```
+
+
 ## Variablen
 
 Wenn Funktionen wie Verben sind, dann sind Variablen wie **Nomen**. Sie haben einen Namen, und mit ihnen kann man Dinge tun. Oder sogar Sachen machen.  
@@ -146,37 +205,6 @@ Eine letzte Sache noch: Strings sind "dominanter" als Zahlen, das heißt, wir k�
 
 ```{block2, vector-types, type='rmdimportant'}
 Merke: Ein Vektor in R muss immer Elemente des gleichen Typs haben, Zahlen und Buchstaben zusammen werden zu Strings konvertiert!
-```
-
-Wir können auch relativ simpel *Sequenzen* erstellen, zum Beispiel die Zahlen von 1 bis 100:
-
-```{r}
-1:100
-```
-
-Das `:` ist eine einfache Funktion und kann gelesen werden wie "Von … bis … in ganzen Schritten". Zusötzlich gibt es die Funktion `seq()`, die etwas flexibler ist. Außerdem gibt es diverse Funktionen für zufallsgenerierte Zahlen:
-
-```{r}
-# 10 bis 15 in 0.5er-Schritten
-seq(10, 15, 0.5)
-
-# Von 5 bis -5 in ganzen Schritten
-seq(5, -5)
-
-# Sequenz von 1 mit Länge 5, dasselbe wie 1:5
-seq_len(length.out = 5)
-
-# Normalverteilte Zufallszahlen (10 Stück, Mittelwert 5, Standardabweichung 2) 
-rnorm(n = 10, mean = 5, sd = 2)
-
-# Gleichverteilte Zufallszahlen (sprich "r unif", nicht "run if")
-runif(n = 10)
-
-# Münzwurf (Binomialverteilte Ergebnisse), 10 Stück
-rbinom(n = 10, size = 1, prob = 0.5)
-
-# Würfel (W6) (10 Stück)
-sample(x = 1:6, size = 10, replace = TRUE)
 ```
 
 
