@@ -126,22 +126,183 @@ Theoretisch ist "numeric" für Zahlen eine *Klasse*, und *integer* und *double* 
 
 ## Character <small class="subtitle">(Buchstabenzeugs)</small>
 
+*Characters* sind *Strings* sind *irgendwas was aus mehr als nur Zahlen besteht* (zumindest meistens). Die Unterscheidung zwischen *numeric* und *character* ist intuitiv ziemlich einfach, und in eurer statistischen Praxis werdet ihr vermutlich meistens auf *numerics* treffen, wobei *characters* dann meistens nur für nominale Variablen (Gruppenzugehörigkeiten, Entscheidungen für *A*, *B*, *C*) gebraucht werden. Tatsächlich werden eure nominalen Variablen sogar eher als `factor` daherkommen, dazu dann der nächste Abschnitt.
+
+Characters verhalten sich im Grunde wie Worte. Wir können sie aneinanderhängen, wir können sie vergleichen, aber wir können zum Beispiel keine Berechnungen damit durchführen:
+
+```{r}
+namen <- c("Lukas", "Tobias", "Christoph")
+mean(namen)
+
+# Zahlen != Buchstaben
+5 == "5"
+
+# Groß- / Kleinschreibung ist wichtig!
+"Lukas" == "Lukas"
+"Lukas" == "LUKAS"
+
+# Strings aneinanderhängen
+paste("Lukas", "hat", "Spass", sep = "_")
+```
+
+Die Funktionen `paste` und `paste0` sind zirmlich praktisch wenn ihr mit Strings arbeitet, die werdet ihr früher oder später mal brauchen.  
+Ansonsten dürfte euch aufgefallen sein, dass man *Spaß* mit *ß* schreibt. Das ist korrekt. Allerdings zählt *ß* als Sonderzeichen, genauso wie Umlaute (*üöä*). R kann damit zwar prinzipiell umgehen, solange ihr das richtige *Encoding* verwendet, aber dennoch bietet es sich an auf Sonderzeichen in R-Code zu verzichten, um Inkompatibilität mit anderen vorzubeugen.
+
+Um eure Einstellungen anzupassen und auf Nummer sicher zu gehen, öffnet die Einstellungen von RStudio und setzt die folgende Einstellung auf **UTF-8** (Unicode):
+
+```{r, echo=FALSE, fig.cap="RStudio > Optionen > Code > Saving: UTF-8"}
+knitr::include_graphics("images/character_encoding_settings.png")
+```
+
+Encoding ist so der einfachste Grund aus dem eure Scripte und Dokumente auf einmal kaputt aussehen, wenn ihr sie von einem Windows-Rechner an einen Mac oder eine Linux-Kiste schickt. Mac und Linux können sich wenigstens meistens auf Unix-Standards und Unicode eignen, aber Windows… Windows ist seltsam.
+
+```{block2, encoding, type="rmdimportant"}
+Encoding ist Kodifizierter Selbsthass
+```
+
 ## Factor <small class="subtitle">(Here be dragons)</small>
+
+Okay, der haarige Teil.  
+Die `factor`-Klasse in R ist unheimlich praktisch, aber auch ziemlich unintuitiv bei der ersten Verwendung. Das liegt nicht zuletzt daran, dass ein `facotr` von aussehen meistens einfach aussieht wie ein `character`, aber nunmal kein `character` ist.  
+*Factors* haben zwei Bestandteile:
+
+- `level`: Die *Merkmalsausprägung*, so wie R den `factor` sieht. Meistens *numeric*.
+- `label`: (*Optional*) Die *Bezeichnung der Merkmalsausprägungen*, meistens `character`, für die bessere Lesbarkeit.
+
+Ein Beispiel aus dem `sleep`-Datensatz:
+
+```{r}
+# Die Vairable "group"
+sleep$group
+
+# …hat die Klasse "factor"
+class(sleep$group)
+
+# Und die levels…
+levels(sleep$group)
+```
+
+Wir sehen, dass `group` die Merkmalsausprägungen (*levels*) `1` und `2` hat, aber das ist für uns möglicherweise nicht wirklich aussagekräftig. Wir können die Variable modifizieren, und einen schöneren `factor` daraus machen:
+
+```{r}
+# Wir modifizieren nur die labels, nicht die level
+sleep$group <- factor(sleep$group, levels = c(1, 2), labels = c("Medikament A", "Medikament B"))
+
+# Jetzt werden uns unsere Labels angezeigt
+sleep$group
+
+# Und unsere unveränderten Levels
+levels(sleep$group)
+
+# Aber wir können den factor immer noch wie Zahlen behandeln
+as.numeric(sleep$group)
+```
+
+Mit `factor` können wir praktisch zwei Lagen an Informationen in nur einer Variable speichern, einmal numerische *levels* und einmal character *labels*. Die Levels sind die eigentlich wichtige Information und die Labels sind praktisch nur für uns zur besseren Lesbarkeit da, zum Beispiel bei Tabellen oder Grafiken.  
 
 ## Besondere Typen
 
+Eure Daten kommen meistens von anderen, zumindest in den ersten Semestern eures Studiums.  
+Meistens kommen eure Daten auch mit Fehlenden oder irgendwie kaputten Werten, mit denen ihr ohne Weiteres nichts anfangen könnt.  
+
 ### Fehlende Werte: `NA`
+
+Vermutlich der wichtigste Datentyp, der euch begegnen wird. `NA` steht für *Not Available* und heißt, dass es an dieser Stelle einfach keinen Wert gibt. In einem Fragebogen wäre das zum Beispiel eine nicht ausgefüllte Frage, und das heißt für euch, dass ihr ohne Weiteres keine Annahme über diese Wert machen könnt. `NA` heißt nicht "da ist nichts", sondern eher "da könnte was sein, aber ich weiß nicht".  
+Das ist auch der Grund, warum der Mittelwert nicht funktioniert, wenn da `NA` drinstecken:
+
+```{r}
+mean(c(1, 2, NA, 4, 5, NA, 7))
+```
+
+Klar könnten wir einfach annehmen, dass die fehlenden Werte `3` und `6` sind, aber das wissen wir nunmal nicht, und da R in der Regel nicht rät, sagt es halt auch "weiß nicht" in Form von `NA`.  
+In solchen Fällen müsst ihr explizit `NA` ignorieren:
+
+```{r}
+mean(c(1, 2, NA, 4, 5, NA, 7), na.rm = TRUE)
+```
+
+Ihr könnt auch mit der Funktion `is.na` prüfen, ob ihr fehlende Werte habt. Beachtet, dass `==` zum vergleichen nicht funktioniert!
+
+```{r}
+zahlen <- c(1, 2, NA, 4, 5, NA, 7)
+
+is.na(zahlen)
+
+# Alle 'zahlen', für die is.na() _nicht_ TRUE ist
+zahlen[!is.na(zahlen)]
+
+# An welcher Position sind die NAs?
+which(is.na(zahlen))
+```
+
 
 ### Leere Werte: `NULL`
 
+Wenn `NA` fehlende Werte sind, was soll dann `NULL` sein?  
+Naja, ich merke mir das immer ungefähr so:
+
+- `NULL`: Da ist *nichts*, also so wirlich _*nichts*_, und ich weiß das auch!
+- `NA`: Da ist zwar *nichts*, aber ich hab _*keine Ahnung*_ ob da nicht doch was sein sollte ¯\\\_(ツ)_/¯
+
+`NULL` wird euch vermutlich weniger häufig begegnenals `NA`, zumindest in Datensätzen.  
+Ansonsten taucht `NULL` eher bei R-Funktionen als *default argument* auf, also ein Argument einer Funktion, dass nicht gesetzt, außer ihr setzt es explizit. Das klingt jetzt etwas abstrakt, aber wir werden im Laufe dieser Einführung vermutlich noch Beispiele dafür sehen.
+
+```{block2, null_na, type="rmdnote"}
+`NULL` ist leer, und zwar mir Sicherheit  
+`NA` ist leer, aber man weiß es nicht so recht
+```
+
 ### To `Inf` and Beyo`NaN`d!
+
+Habt ihr schonmal durch 0 geteilt? Oder den Tangens von 0 bestimmt?  
+Das ist die Ecke, in der `Inf` und `NaN` auftauchen.  
+
+`Inf` und `-Inf` stehen erstmal nur für $\infty$ und $-\infty$ und sind Rs Weg euch zu sagen, dass ihr da gerade den Bereich der alltagstauglichen Zahlen überschritten habt.  
+Nehmt mal folgendes Beispiel:
+
+```{r}
+# 2 hoch 10… geht noch
+10^10
+
+# Auch das…
+10^100
+
+# Okay, aber jetzt…
+10^1000
+```
+
+Das ist R einfach zu viel, bzw. es ist eurem Computer generell zu viel.  
+Kurzer reminder: `1e10` ist Computer für $1 \cdot 10^{10}$, also eine 1 mit 10 Nullen, also…
+
+$$1e10 = 1 \cdot 10^{10} = 10000000000$$
+
+Dementsprechend könnt ihr euch vorstellen, wie groß $10^{1000}$ wäre, und R macht solche Späße nicht mit und sagt einfach `Inf`.  
+Wenn ihr `Inf` oder `-Inf` in euren Ergebnissen seht, dann solltet ihr nur wissen, dass es da ein entweder *viel zu großes* oder *viel zu kleines* Ergebnis gab. 
+
+Und dann ist da noch die Sache mit `NaN`.  
+`NaN` steht für *not a number* und passiert dann, wenn ihr irgendwas mathematisch fragwürdiges macht, wie zum Beispiel 0 durch 0 teilen:
+
+```{r}
+0/0
+```
+
+Das ist mathematisch nicht definiert, und wieso das so ist und mehr dazu findet ihr zum Beispiel bei [Numberphile](https://www.youtube.com/watch?v=BRRolKTlF6Q) gut erklärt.  
+Hier solltet ihr auch nur wissen, dass es das gibt und dass ihr es im Zweifelsfall vermeiden wollt, wenn es in euren Ergebnissen auftaucht.
 
 ## Tabellen <small class="subtitle">(Just a bunch of vectors)</small>
 
-## Prüfen & Konvertieren
+## Prüfen & Konvertieren {#convert}
 
-- `as.numeric`
-- `as.character`
+Was wir im Abschnitt zu `factor` am Ende mit `as.numeric` gemacht haben fällt unter *Coercion*, und heißt, dass Werte eines Typs in einen anderen Typ konvertiert werden sollen. Das Gegenstück dazu wäre `is.numeric`, was nachsieht, ob eine Variable bereits *numeric* ist.
+
+```{r}
+as.numeric("5")
+as.numeric(5)
+
+as.character(c(2, 5, 4, 3))
+```
+
+Es gibt etliche solcher Konvertierungsfunktionen in R, manche mehr oder weniger nützlich, aber nun gut, sie sind da:
 
 ```{r}
 # Römische Zahlen
