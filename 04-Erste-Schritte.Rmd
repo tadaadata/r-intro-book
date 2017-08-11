@@ -73,7 +73,8 @@ Aber gut, so langsam wird's unübersichtlich, es wird Zeit ein paar Variablen an
 Wenn ihr R lernt, werdet ihr erfahrungsgemäß die meiste Zeit damit verbringen herauszufinden wie bestimmte Funktionen funktionieren und welche Funktion für euer Vorhaben die richtige ist.  
 
 Funktionen sind zwar vom Schema immer gleich — ihr steckt irgendwelche Argumente rein, und es kommt irgendein Ergebnis raus — aber wie die Argumente aussehen unterscheidet sich von Funktion zu Funktion.  
-`sd()` zum Beispiel hat zwei Argumente: 
+`sd()` zum Beispiel hat zwei Argumente:  
+
   - `x`: Ein Vektor aus Zahlen, aus denen die Standardabweichung berechnet werden soll
   - `na.rm`: Für `NA remove`, entweder `TRUE` oder `FALSE`. Wenn `x` fehlende Werte (`NA`) enthält, dann werden diese automatisch ignoriert, wenn `na.rm = TRUE`
   

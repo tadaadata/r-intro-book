@@ -46,7 +46,7 @@ htmls <- list.files(pattern = ".html")
 if (length(htmls) != 0) {
   status <- file.remove(htmls)
 
-  if (stats) {
+  if (status) {
     cat("Removed html files at root directory…\n")
   }
 }
