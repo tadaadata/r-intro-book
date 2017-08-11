@@ -20,6 +20,14 @@
 
 #header {
   text-align: center;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-color: black;
+  border-width: 1px;
+}
+
+.title {
+  font-variant: small-caps;
 }
 
 /* Original CSS by Yihui below */
