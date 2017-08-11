@@ -157,7 +157,7 @@ knitr::include_graphics("images/character_encoding_settings.png")
 Encoding ist so der einfachste Grund aus dem eure Scripte und Dokumente auf einmal kaputt aussehen, wenn ihr sie von einem Windows-Rechner an einen Mac oder eine Linux-Kiste schickt. Mac und Linux können sich wenigstens meistens auf Unix-Standards und Unicode eignen, aber Windows… Windows ist seltsam.
 
 ```{block2, encoding, type="rmdimportant"}
-Encoding ist Kodifizierter Selbsthass
+Encoding ist Kodifizierter Selbsthass, aber [Unicode ist großer Spaß](https://romain.rbind.io/blog/2017/08/03/unicode-utf-8-strings-and-emojis/)
 ```
 
 ## Factor <small class="subtitle">(Here be dragons)</small>
@@ -290,6 +290,33 @@ Das ist mathematisch nicht definiert, und wieso das so ist und mehr dazu findet 
 Hier solltet ihr auch nur wissen, dass es das gibt und dass ihr es im Zweifelsfall vermeiden wollt, wenn es in euren Ergebnissen auftaucht.
 
 ## Tabellen <small class="subtitle">(Just a bunch of vectors)</small>
+
+All eure Datensätze im Studium kommen in Tabellenform.  
+Tabellen in R sind im Grunde nichts anderes als Listen von Vektoren mit gleiche Länge: Der `sleep`-Datensatz zum Beispiel besteht aus drei Vektoren der Länge 20, und jede Spalte verhält sich wie ein Vektor mit bestimmten Typen.  
+Um sich einen Überblick über einen Datensatz zu verschaffen empfiehlt sich die Funktion `str` (lies *structure*), oder auch `head`:
+
+```{r}
+# Die ersten paar Zeilen
+head(sleep)
+
+# Nur die ersten 2 Zeilen
+head(sleep, n = 2)
+
+# Struktur des Datensatzes
+str(sleep)
+
+```
+
+Das Output von `str` sagt euch alles, was ihr braucht:
+
+- Die *Klasse* des Objekts, hier ein `data.frame`, das Tabellenformat
+    - Die Anzahl der Zeilen (`20 obs.`), und Spalten (`3 variables`)
+- Die Spalten der Tabelle mit den ersten Werten
+    - `extra`: Numerisch (`num`)
+    - `group`: `factor` mit 2 Merkmalsausprägungen (`w/ 2 levels`), die *Labels* und die *Levels*
+    - `ID`: `factor` mit 10 *Labels* (`"1", "2", "3" …`) und *Levels* (`1 2 3 4 …`)
+    
+Später werden wir noch andere Klassen für Tabellen sehen, die `data.frame` erweitern bzw. etwas aufhübschen, namentlich werden das `tbl_df` oder eher `tibble` sein, aber dazu müssen wir uns erst *Packages* ansehen.  
 
 ## Prüfen & Konvertieren {#convert}
 
