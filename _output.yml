@@ -7,7 +7,7 @@ bookdown::gitbook:
   url: https://r-intro.tadaa-data.de/book/
   github-repo: tadaadata/r-intro-book
   include:
-    in_header: "icons.html"
+    in_header: "html_includes/icons.html"
   config:
     toc:
       collapse: "section"

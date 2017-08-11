@@ -42,6 +42,16 @@ if (file.exists(debug_out)) {
   file.remove(debug_out)
 }
 
+htmls <- list.files(pattern = ".html")
+if (length(htmls) != 0) {
+  status <- file.remove(htmls)
+
+  if (stats) {
+    cat("Removed html files at root directory…\n")
+  }
+}
+rm(htmls)
+
 #### Move images/CSS dir to output ####
 cat("Moving images and CSS directory to output dir\n")
 status <- file.copy("css", out_dir, overwrite = T, recursive = T)
