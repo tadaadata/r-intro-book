@@ -52,6 +52,7 @@ Alternativ könnt ihr auch auf eurem Computer den Ordner mit dem Projekt öffnen
 include_graphics("images/rstudio_project_file.png")
 ```
 
+Als nächstes können wir uns **Konsole** und **Text Editor** widmen: Ihr könnt in der Regel immer nur in einem der beiden Bereiche schreiben, und erkennt den aktiven Bereich am blinkenden Cursor (ein bisschen wie in Textprogrammen á la Word) — Konsole und Editor sind die wichtigsten Bereiche in RStudio, und dort wird auch der Großteil eurer Arbeit gemacht.
 
 ## Konsole
 
@@ -103,6 +104,15 @@ Was wir da geschrieben haben sieht übersetzt in Mathe übrigens so aus…
 $$2 + \sin \left( \frac{2\pi}{3} \right) \cdot e^{5}$$
 
 … und ergibt etwa 130,5. Aber darum geht's eigentlich gar nicht. 
+
+### Gängige Probleme
+
+Was den meisten Leuten während der R-Einführung passiert ist, dass sie einen Befehl in die Konsole eingeben und Enter drücken, aber der Befehl nicht richtig abgeschlossen (*korrekt terminiert*) wurde. Das passiert zum Beispiel, wenn ihr eine schließende Klammer vergesst, oder etwa ein `+` am Ende der Zeile habt. In diesen Fällen drückt ihr Enter und R nimmt euren Befehl entgegen, aber es merkt, dass da irgendwas fehlt und wartet auf den Rest des Befehls.  
+Ihr erkennt das daran, dass das Symbol an der linken Seite eurer Konsole auf einmal ein Pfeil ist und auch wiederholtes Drücken der Entertaste nichts daran ändert.  
+Ihr habt an dieser Stelle zwei Möglichkeiten:
+
+- Drückt Escape (`esc`) um den Befehl abzubrechen und es nochmal zu versuchen
+- Führt den Befehl korrekt zu Ende, sprich schließt ggf. offene Klammern etc.
 
 ## Text Editor
 
