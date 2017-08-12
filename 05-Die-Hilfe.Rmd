@@ -15,11 +15,11 @@ In die Suchleiste oben rechts könnt ihr Suchbegriffe eingeben. Denkt daran, das
 
 Die Dokumentation von Funktionen hat immer das gleiche Format mit bestimmtem Pflichtbereichen und mehreren optionalen Abschnitten.
 
-- **Description**:
-- **Usage**:
-- **Value**:
-- **See Also**:
-- **Examples**:
+- **Description**: Was macht die Funktion?
+- **Usage**: Wie benutzt man die Funktion?
+- **Value**: Was kommt dabei raus?
+- **See Also**: Welche anderen Funktionen sind verwandt?
+- **Examples**: Anwendungsbeispiele
 
 ## Sprache
 

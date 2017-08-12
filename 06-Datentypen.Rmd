@@ -157,7 +157,7 @@ knitr::include_graphics("images/character_encoding_settings.png")
 Encoding ist so der einfachste Grund aus dem eure Scripte und Dokumente auf einmal kaputt aussehen, wenn ihr sie von einem Windows-Rechner an einen Mac oder eine Linux-Kiste schickt. Mac und Linux können sich wenigstens meistens auf Unix-Standards und Unicode eignen, aber Windows… Windows ist seltsam.
 
 ```{block2, encoding, type="rmdimportant"}
-Encoding ist Kodifizierter Selbsthass, aber [Unicode ist großer Spaß](https://romain.rbind.io/blog/2017/08/03/unicode-utf-8-strings-and-emojis/)
+Encoding ist kodifizierter Selbsthass, aber [Unicode ist großer Spaß](https://romain.rbind.io/blog/2017/08/03/unicode-utf-8-strings-and-emojis/)
 ```
 
 ## Factor <small class="subtitle">(Here be dragons)</small>
@@ -316,7 +316,7 @@ Das Output von `str` sagt euch alles, was ihr braucht:
     - `group`: `factor` mit 2 Merkmalsausprägungen (`w/ 2 levels`), die *Labels* und die *Levels*
     - `ID`: `factor` mit 10 *Labels* (`"1", "2", "3" …`) und *Levels* (`1 2 3 4 …`)
     
-Später werden wir noch andere Klassen für Tabellen sehen, die `data.frame` erweitern bzw. etwas aufhübschen, namentlich werden das `tbl_df` oder eher `tibble` sein, aber dazu müssen wir uns erst *Packages* ansehen.  
+Später werden wir noch andere Klassen für Tabellen sehen, die `data.frame` erweitern bzw. etwas aufhübschen, namentlich wird das [`tbl_df` bzw. `tibble`](http://tibble.tidyverse.org/) sein, aber dazu müssen wir uns erst *Packages* ansehen.  
 
 ## Prüfen & Konvertieren {#convert}
 

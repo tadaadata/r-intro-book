@@ -520,4 +520,7 @@ x[x == y]
 x[x < y]
 ```
 
-#### Tabellen
+#### Tabellen <small><code>data.frame</code></small>
+
+Tabellenindexing ist nichts anderes als Vektorindexing mit einer anderen Struktur. 
+Alle Regeln zum Vektorindexing, die wir bisher gesehen haben, gelten auch so für `data.frames`, nur dass wir hier jetzt auf einmal in Spalten und Zeilen denken müssen, anstatt in Vektoren.
