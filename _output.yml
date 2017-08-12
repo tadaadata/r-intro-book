@@ -7,7 +7,9 @@ bookdown::gitbook:
   url: https://r-intro.tadaa-data.de/book/
   github-repo: tadaadata/r-intro-book
   include:
-    in_header: "html_includes/icons.html"
+    in_header:
+      - "html_includes/icons.html"
+      - "html_includes/piwik.html"
   config:
     toc:
       collapse: "section"
@@ -21,11 +23,13 @@ bookdown::gitbook:
     download: [["r-intro.epub", "ebook"], ["r-intro.pdf", "PDF"]]
     scroll_highlight: yes
     search: yes
+    language: de
   md_extension: "+emoji"
 bookdown::epub_book:
   dev: svglite
   stylesheet: css/style.css
   toc: true
   toc_depth: 2
+  metadata: epub_metadata.xml
   md_extension: "+emoji"
 

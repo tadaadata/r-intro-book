@@ -87,7 +87,7 @@ if (is.null(age) || age > 12) {
   cat("Rendering epub…\n")
   bookdown::render_book(input = ".",
                         output_format = "bookdown::epub_book",
-                        clean_envir = F, quiet = TRUE)
+                        clean_envir = F, quiet = FALSE)
   cat("Converting epub to PDF…\n")
   bookdown::calibre(input = out_epub, output = out_pdf)
 }
