@@ -30,6 +30,11 @@
   font-variant: small-caps;
 }
 
+/* No "not-allowed"-cursor on toc hearders */
+.book .book-summary ul.summary li span {
+  cursor: unset !important;
+}
+
 /* Original CSS by Yihui below */
 
 .rmdcaution, .rmdimportant, .rmdnote, .rmdtip, .rmdwarning {
