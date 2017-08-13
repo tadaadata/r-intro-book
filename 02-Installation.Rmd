@@ -82,7 +82,7 @@ Enttäuscht mich nicht.
 
 Nach der Installation solltet ihr jedenfalls folgendes Symbol entweder auf eurem Desktop oder in eurem Programmordner finden:
 
-```{r, echo=FALSE}
+```{r, echo=FALSE, fig.align='center'}
 knitr::include_graphics("images/RStudio-Ball.png")
 ```
 
