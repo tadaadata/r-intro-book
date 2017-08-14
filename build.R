@@ -16,7 +16,7 @@ sapply(pkgs, function(pkg) {
   } else {
     TRUE
   }
-}, USE.NAMES = F) -> status
+}, USE.NAMES = FALSE) -> status
 
 if (all(status)) {
   cat("Successfully checked dependencies!\n")

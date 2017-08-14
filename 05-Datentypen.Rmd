@@ -244,8 +244,8 @@ Naja, ich merke mir das immer ungefähr so:
 - `NULL`: Da ist *nichts*, also so wirlich _*nichts*_, und ich weiß das auch!
 - `NA`: Da ist zwar *nichts*, aber ich hab _*keine Ahnung*_ ob da nicht doch was sein sollte ¯\\\_(ツ)_/¯
 
-`NULL` wird euch vermutlich weniger häufig begegnenals `NA`, zumindest in Datensätzen.  
-Ansonsten taucht `NULL` eher bei R-Funktionen als *default argument* auf, also ein Argument einer Funktion, dass nicht gesetzt, außer ihr setzt es explizit. Das klingt jetzt etwas abstrakt, aber wir werden im Laufe dieser Einführung vermutlich noch Beispiele dafür sehen.
+`NULL` wird euch vermutlich weniger häufig begegnen als `NA`, zumindest in Datensätzen.  
+Ansonsten taucht `NULL` eher bei R-Funktionen als *default argument* auf, also ein Argument einer Funktion, das nicht gesetzt ist, außer ihr setzt es explizit. Das klingt jetzt etwas abstrakt, aber wir werden im Laufe dieser Einführung vermutlich noch Beispiele dafür sehen.
 
 ```{block2, null_na, type="rmdnote"}
 `NULL` ist leer, und zwar mir Sicherheit  
@@ -254,7 +254,7 @@ Ansonsten taucht `NULL` eher bei R-Funktionen als *default argument* auf, also e
 
 ### To `Inf` and Beyo`NaN`d!
 
-Habt ihr schonmal durch 0 geteilt? Oder den Tangens von 0 bestimmt?  
+Habt ihr schonmal durch 0 geteilt? Oder überlegt was $0^0$ ist?  
 Das ist die Ecke, in der `Inf` und `NaN` auftauchen.  
 
 `Inf` und `-Inf` stehen erstmal nur für $\infty$ und $-\infty$ und sind Rs Weg euch zu sagen, dass ihr da gerade den Bereich der alltagstauglichen Zahlen überschritten habt.  
