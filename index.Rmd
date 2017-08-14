@@ -19,21 +19,26 @@ description: "Eine Einführung in R für Menschen ohne Vorkenntnisse"
 knitr::opts_chunk$set(comment = "")
 
 get_latest_commit <- function() {
+  
+  if (httr::status_code(httr::GET("https://api.github.com")) != "200") {
+    return("(No recent commits to show)")
+  }
+  
   commits <- jsonlite::fromJSON("https://api.github.com/repos/tadaadata/r-intro-book/commits")
   
   name       <- commits$commit$author$name[1:3]
-  date       <- format(lubridate::ymd_hms(commits$commit$author$date[1:3], tz = "Europe/Berlin"), 
-                       "%F %T %Z")
+  date       <- format(lubridate::ymd_hms(commits$commit$author$date[1:3], 
+                                          tz = "Europe/Berlin"), "%F %T %Z")
   url        <- commits$html_url[1:3]
   avatar     <- commits$author$avatar_url[1:3]
   author_url <- commits$author$html_url[1:3]
   msg        <- commits$commit$message[1:3]
   
   cat("<strong>Latest Changes:</strong><br />")
-  glue::glue("
-             <span class='latest-commit'>
-             {date}: <a href='{author_url}'><img src='{avatar}' width='15px' />
-             {name}</a> committed: <a href='{url}'><code>\"{msg}\"</code></a></span><br />")
+  glue::glue("<span class='latest-commit'>
+              {date}: <a href='{author_url}'><img src='{avatar}' width='15px' />
+              {name}</a> committed: <a href='{url}'><code>\"{msg}\"</code></a>
+             </span><br />")
 }
 
 ```
