@@ -30,6 +30,11 @@
   font-variant: small-caps;
 }
 
+sup {
+  vertical-align: super;
+  font-size: 50%;
+}
+
 /* No "not-allowed"-cursor on toc hearders */
 .book .book-summary ul.summary li span {
   cursor: unset !important;
