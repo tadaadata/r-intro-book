@@ -11,7 +11,12 @@ Saubere (*tidy*) Daten sehen immer gleich aus, aber unsaubere Daten sind alle au
 Vielleicht wundert ihr euch auch, wieso dieses Kapitel erst so spät in dieser Einführung auftaucht. Das liegt primär daran, dass ihr unter Umständen ein ausreichend großes Repertoire an Grundlagen braucht, um Daten auf alle Fälle sauber eingelesen zu bekommen.  
 In vielen Fällen, und besonders in QM, ist das Ganze noch relativ überschaubar und eure TutorInnen können entsprechende Hilfestellung bieten, aber *irgendwann* seid ihr auf euch allein gestellt, und dann macht ein bisschen Bonus-Wissen hier und da den Unterschied zwischen einem anstrengenden Nachmittag voller Leid und Schmerz oder 10 Minuten Probiererei und schnellem Erfolg.
 
-Wenn ihr Daten von eurer Festplatte einlesen wollt, und ihr keine Ahnung habt wie Datepfade funktionieren oder aussehen oder wie ihr rausfindet, *wo* ihr gerade auf euren Computern seid, [dann lest euch das bitte selber an](https://de.wikipedia.org/wiki/Pfadname).
+Wenn ihr Daten von eurer Festplatte einlesen wollt, und ihr keine Ahnung habt wie Dateipfade funktionieren, was euer *Home Ordner* ist, was beispielsweise `~/Documents` sein soll oder wie ihr rausfindet, *wo* ihr gerade auf euren Computern seid, [dann lest euch das bitte selber an](https://de.wikipedia.org/wiki/Pfadname).  
+Auch hier liefert RStudio jedenfalls im "Files"-Tab entsprechende Orientierungshilfe:
+
+```{r, echo=FALSE, fig.cap="RStudio Filebrowser im Projekt dieser Einführung"}
+knitr::include_graphics("images/data_import_rstudio_filesystem.png")
+```
 
 ## Quellen
 
