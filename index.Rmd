@@ -17,6 +17,24 @@ description: "Eine Einführung in R für Menschen ohne Vorkenntnisse"
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(comment = "")
+
+get_latest_commit <- function() {
+  commits <- jsonlite::fromJSON("https://api.github.com/repos/tadaadata/r-intro-book/commits")
+  
+  name       <- commits$commit$author$name[1:3]
+  date       <- format(lubridate::ymd_hms(commits$commit$author$date[1:3]), "%F %T %Z")
+  url        <- commits$html_url[1:3]
+  avatar     <- commits$author$avatar_url[1:3]
+  author_url <- commits$author$url[1:3]
+  msg        <- commits$commit$message[1:3]
+  
+  cat("<strong>Latest Changes:</strong><br />")
+  glue::glue("
+             <span class='latest-commit'>
+             <a href='{author_url}'><img src='{avatar}' width='15px' />
+             {name}</a> committed: <code>\"{msg}\"</code><a href='{url}'> on {date}</a></span><br />")
+}
+
 ```
 
 # Vorwort {-}
@@ -25,6 +43,13 @@ Das hier wird gerade eine R-Einführung für Psychologiestudierende so mit ganz 
 
 Die grobe Idee ist es, eine Präsentaion für die Übung zu haben, und zusätzlich eine long-form Intro als Nachschlagwerk und vertiefendes Intro.  
 Beides sollte ausreichend mit Screenshots/Beispielen ausgefüttert sein um auch die verunsichertesten Neulinge bei der Stange zu halten.
+
+Das ganze ist so dermaßen work in progress, dass ich sogar das hier eingebaut habe:
+
+```{r, results='asis'}
+get_latest_commit()
+```
+
 
 ## Für TutorInnen und Leute mit zu viel Motivation {-}
 
