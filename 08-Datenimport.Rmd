@@ -18,6 +18,15 @@ Auch hier liefert RStudio jedenfalls im "Files"-Tab entsprechende Orientierungsh
 knitr::include_graphics("images/data_import_rstudio_filesystem.png")
 ```
 
+Das rot umrandete ist der Pfad zum Projektordner, in R würde ich den also so eingeben müssen:
+
+```sh
+"~/repos/tadaadata/r-intro-book"
+```
+
+Wobei die Tilde `~` eine Abkürzung für das Home-Verzeichnis ist.
+
+
 ## Quellen
 
 Da in QM nur SPSS und R benutzt werden, werdet ihr vermutlich meistens auf Datensätze aus SPSS (`.sav`) stoßen. R kann zwar SPSS-Daten einlesen, aber SPSS kann mit R-Daten nichts anfangen. Außerdem beinhalten SPSS-Datensätze auch ein bisschen Metadaten, wie zum Beispiel Labels für eure Variablen oder nominalskalierte Variablen, die wir in R dann für bessere Optik benutzen können — andere Formate wie Textdateien (`.csv`, `.txt`, *plain text*) sind spartanischer und haben sowas nicht.    
@@ -63,6 +72,20 @@ Daten speichern auch:
 ```r
 saveRDS(datensatz, "pfad/zur/datei.rds")
 ```
+
+Hier zum Beispiel der Datensatz zur Tutoriumsteilnahme, den ihr von <https://public.tadaa-data.de/data/participation.rds> runterladen könnt:
+
+```r
+participation <- readRDS("~/Downloads/participation.rds")
+```
+
+Alternativ könnt ihr das `readr`-package benutzen. Die Funktion daraus sieht fast gleich aus, ist aber theoretisch etwas schneller — unabhängig davon welche Funktion besser ist, wisst ihr jetzt zumindest, dass es zwei Möglichkeiten gibt.
+
+```r
+library(readr)
+participation <- read_rds("~/Downloads/participation.rds")
+```
+
 
 
 #### `.rda`, `.RData`
