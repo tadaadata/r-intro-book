@@ -53,6 +53,9 @@ Zusätzlich gibt es die Ebook-Version auch als PDF, wobei es sein kann, dass Tei
 Die Website (also HTML) ist allerdings das *primäre* Format dieser Einführung, der einzige Nachteil ist, dass sich die Website schlecht ausdrucken lässt — aber wenn ihr Websites ausdruckt habt ihr sowieso die Kontrolle über euer Leben verloren.  
 Wenn ihr diese Einführung unbedingt offline verfügbar und portabel haben wollt, bleibt euch die PDF- oder Ebook-Version. Und wehe ihr druckt die aus. Wehe.
 
+Anbei: Auf der Web-Version haben wir analytics Zeug eingebunden, was uns sagt, welche Kapitel am häufigsten besucht werden. Die Idee dahinter ist relativ simpel: Wenn ein Kapitel besonders häufig besucht wurde, ist es vermutlich interessant, ergo ist es vermutlich auch sinnvoll, da mehr Aufwand reinzustecken als in andere.  
+Wenn ihr AdBlock und Kram installiert habt, wäre es entsprechend hilfreich für uns, das auf dieser Seite zu deaktivieren. Werbung haben wir hier eh nicht, und die Tracking-Daten landen auch nur bei uns und nicht bei Google, Facebook oder der Stasi.
+
 ## Zielgruppe {-}
 
 Die primäre Motivation und Zielgruppe für diese Einführung sind die Studierenden der Psychologie an der Universität Bremen, weshalb hier auch möglichst wenig Vorkenntnisse im Bereich der Statistik, Programmierung, statistischen Programmierung oder programmierenden Sta… ähm… ihr versteht schon.  
