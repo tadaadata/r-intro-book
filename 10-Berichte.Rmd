@@ -1,0 +1,15 @@
+# Berichte
+
+Scripte schreiben ist schön und gut, aber das was dabei rauskommt ist in erster Linie ein Haufen Konsolen-Output, gespickt mit Plots, die ihr ggf. manuell speichern müsst, und dann wollt ihr das in eure krummen Word-Dokumente stecken und das will doch niemand.
+In SPSS ist das einfach. Ihr drückt den großen bunten Knopf wo *"Mach mal Statistik"* draufsteht und dann fallen da PDFs raus. In R ist das anders. Habt ihr vermutlich gemerkt.
+Das erste Output, das ihr mit R erzeugt wird wahrscheinlich nicht besonders hübsch aussehen — das ist schade, aber es ist nunmal auch die einfachste Art. Was in der Konsole passiert, kann auch problemlos auf großen Servern in der Cloud<sup>TM</sup> passieren und ferngesteuert werden — bei SPSS bleibt euch nur Remotedesktop-Kram.
+Aber ich schweife ab. Das schöne an R ist jedenfalls die Flexibilität, die wir beim Output haben. Vielleicht habt ihr den Abschnitt zu `sjPlot` im Kapitel zu **[Packages]** schon gelesen, und wie die `sjt.*`-Funktionen hübsche Tabellen produzieren. Diese Tabellen sind HTML — dasselbe Zeug, aus dem Webseiten zusammengesteckt werden, und auch dasselbe Zeug, das so grob auch in Word-Dokumenten steckt. Wir können auch gleich eine ganze Analyse in HTML produzieren, mit Plots an den richtigen stellen und Tabellen in schön!
+
+Wie das funktioniert soll in diesem Kapitel erklärt werden.
+Als Vorraussetzung bzw. further reading könnt ihr euch bei diesen RStudio-Ressourcen umschauen:
+
+- [RMarkdown](http://rmarkdown.rstudio.com/lesson-1.html)
+- [HTML Output](http://rmarkdown.rstudio.com/html_document_format.html)
+- [Word Output](http://rmarkdown.rstudio.com/word_document_format.html)
+- [Markdown Syntax](http://rmarkdown.rstudio.com/authoring_basics.html)
+- Bonus: [Präsentationen in RMarkdown mit `revealjs`](http://rmarkdown.rstudio.com/revealjs_presentation_format.html)
