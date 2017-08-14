@@ -11,20 +11,53 @@ In vielen Fällen, und besonders in QM, ist das Ganze noch relativ überschaubar
 
 Da in QM nur SPSS und R benutzt werden, werdet ihr vermutlich meistens auf Datensätze aus SPSS (`.sav`) stoßen. R kann zwar SPSS-Daten einlesen, aber SPSS kann mit R-Daten nichts anfangen. Außerdem beinhalten SPSS-Datensätze auch ein bisschen Metadaten, wie zum Beispiel Labels für eure Variablen oder nominalskalierte Variablen, die wir in R dann für bessere Optik benutzen können — andere Formate wie Textdateien (`.csv`, `.txt`, *plain text*) sind spartanischer und haben sowas nicht.    
 
-### SPSS (`.sav`)
+Die einfachste Option ist meistens die RStudio-Funktio zum Datenimport, aber auch hier solltet ihr erstmal wissen, wo eure Daten herkommen und ggf. über die ein oder andere Eigenart bescheid wissen.
 
-- Benötigte packages: `haven` oder `sjmisc`
-- Anstrengend? Manchmal.
+```{r, fig.cap="RStudio Import-Tool"}
+knitr::include_graphics("images/data_import_rstudio.png")
+```
+
+Eine Sache noch zum Encoding: Um kaputte Umlaute und andere Krämpfe zu vermeiden bietet es sich an, **überall alles immer** auf Unicode bzw. **UTF-8** zu stellen wenn ihr _irgendwo_ nach Encoding gefragt werdet.
 
 ### Roher Text (`.csv`, `.txt`)
 
 - Benötigte packages: `readr`
 - Anstrengend? Entweder alles super oder Riesenkrampf
 
+### SPSS (`.sav`)
+
+- Benötigte packages: `haven` oder `sjmisc`
+- Anstrengend? Manchmal.
+
 ### R (`.rds`, `.rda`)
 
 - Benötigte packages: Keins (Base R reicht, optional `readr` als Alternative)
 - Anstrengend? Nope, alles tutti.
+
+Der wohl einfachste und dankbarste Anwendungsfall: Von R zu R.  
+Hier habt ihr zwei Möglichkeiten: `.rds` und `.rda`: Generell scheint `.rds` die präferierte Option zu sein.
+
+#### `.rds`
+
+Daten einlesen ist simpel:
+
+```r
+datensatz <- readRDS("pfad/zur/Datei.rds")
+```
+
+Daten speichern auch:
+
+```r
+saveRDS(datensatz, "pfad/zur/datei.rds")
+```
+
+
+#### `.rda`
+
+```r
+load("pfad/zur/datei.rda")
+```
+
 
 ### Google Sheets
 
@@ -42,3 +75,6 @@ Da in QM nur SPSS und R benutzt werden, werdet ihr vermutlich meistens auf Daten
 - `names`
 - dplyr: `mutate`, `recode[_factor]`
 - tidyr
+
+Um festzustellen, ob eure frisch eingelesenen Daten auch brauchbar sind, empfiehlt sich ein Blick in die Daten via `View(daten)` bzw. Über einen Klick auf den Datensatz im *Environment*-Tab von RStudio.  
+Zusätzlich ist auch hier natürlich `str()´ praktisch, um zum Beispiel schnell zu überprüfen, ob eure Variablen auch alle die Klasse haben, die ihr erwartet (alle Zahlen sind *numeric* und Nominaldaten sind *factor* oder wenigstens *character*).
