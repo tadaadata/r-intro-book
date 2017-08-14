@@ -1,3 +1,7 @@
+---
+editor_options: 
+  chunk_output_type: console
+---
 # Datenimport
 
 Im Laufe eures Studiums (und vermutlich darüberhinaus) werdet ihr sehr viel Zeit damit verbringen Daten aus verschiedenen Quellen in die Statistiksoftware eurer Wahl (oder auch nicht eurer Wahl, aber der eurer Arbeitstselle) zu quetschen.  
@@ -7,15 +11,19 @@ Saubere (*tidy*) Daten sehen immer gleich aus, aber unsaubere Daten sind alle au
 Vielleicht wundert ihr euch auch, wieso dieses Kapitel erst so spät in dieser Einführung auftaucht. Das liegt primär daran, dass ihr unter Umständen ein ausreichend großes Repertoire an Grundlagen braucht, um Daten auf alle Fälle sauber eingelesen zu bekommen.  
 In vielen Fällen, und besonders in QM, ist das Ganze noch relativ überschaubar und eure TutorInnen können entsprechende Hilfestellung bieten, aber *irgendwann* seid ihr auf euch allein gestellt, und dann macht ein bisschen Bonus-Wissen hier und da den Unterschied zwischen einem anstrengenden Nachmittag voller Leid und Schmerz oder 10 Minuten Probiererei und schnellem Erfolg.
 
+Wenn ihr Daten von eurer Festplatte einlesen wollt, und ihr keine Ahnung habt wie Datepfade funktionieren oder aussehen oder wie ihr rausfindet, *wo* ihr gerade auf euren Computern seid, [dann lest euch das bitte selber an](https://de.wikipedia.org/wiki/Pfadname).
+
 ## Quellen
 
 Da in QM nur SPSS und R benutzt werden, werdet ihr vermutlich meistens auf Datensätze aus SPSS (`.sav`) stoßen. R kann zwar SPSS-Daten einlesen, aber SPSS kann mit R-Daten nichts anfangen. Außerdem beinhalten SPSS-Datensätze auch ein bisschen Metadaten, wie zum Beispiel Labels für eure Variablen oder nominalskalierte Variablen, die wir in R dann für bessere Optik benutzen können — andere Formate wie Textdateien (`.csv`, `.txt`, *plain text*) sind spartanischer und haben sowas nicht.    
 
 Die einfachste Option ist meistens die RStudio-Funktio zum Datenimport, aber auch hier solltet ihr erstmal wissen, wo eure Daten herkommen und ggf. über die ein oder andere Eigenart bescheid wissen.
 
-```{r, fig.cap="RStudio Import-Tool"}
+```{r, echo=FALSE, fig.cap="RStudio Import-Tool", out.width="50%"}
 knitr::include_graphics("images/data_import_rstudio.png")
 ```
+
+Bei den Textdateien sind mit `base` und `readr` die beiden unterschiedlichen Möglichkeiten gemeint, mit denen wir Daten einlesen können, aber mehr dazu im entsprechenden Abschnitt.
 
 Eine Sache noch zum Encoding: Um kaputte Umlaute und andere Krämpfe zu vermeiden bietet es sich an, **überall alles immer** auf Unicode bzw. **UTF-8** zu stellen wenn ihr _irgendwo_ nach Encoding gefragt werdet.
 
@@ -29,13 +37,13 @@ Eine Sache noch zum Encoding: Um kaputte Umlaute und andere Krämpfe zu vermeide
 - Benötigte packages: `haven` oder `sjmisc`
 - Anstrengend? Manchmal.
 
-### R (`.rds`, `.rda`)
+### R (`.rds`, `.rda` & `.RData`)
 
 - Benötigte packages: Keins (Base R reicht, optional `readr` als Alternative)
 - Anstrengend? Nope, alles tutti.
 
 Der wohl einfachste und dankbarste Anwendungsfall: Von R zu R.  
-Hier habt ihr zwei Möglichkeiten: `.rds` und `.rda`: Generell scheint `.rds` die präferierte Option zu sein.
+Hier habt ihr zwei Möglichkeiten: `.rds` und `.rda` (auch `.RData`): Generell scheint `.rds` die präferierte Option zu sein.
 
 #### `.rds`
 
@@ -52,22 +60,57 @@ saveRDS(datensatz, "pfad/zur/datei.rds")
 ```
 
 
-#### `.rda`
+#### `.rda`, `.RData`
+
+Bei `.rda` bzw. `.RData`-Dateien ist zu beachten, dass diese den Namen des Objekts gleich mitspeichern, das heißt ihr müsst den eingelesenen Datensatz keinen Namen geben — der kommt schon mit der Datei.  
+Theoretisch kann so eine Datei auch mehrere Variablen enthalten, und wenn ihr zum Beispiel RStudio schließt und wieder öffnet, dann werden in der Zwischenzeit auch eure Variablen der aktuellen Session in Form einer `.RData`-Datei im Projektordner abgelegt und beim nächsten Start wieder eingelesen.
 
 ```r
 load("pfad/zur/datei.rda")
+
+# Oder…
+load("pfad/zur/datei.RData")
+
 ```
 
+Speichern:
+
+```r
+save(datensatz, file = "pfad/zur/Datei.rda")
+```
+
+### Excel (`.xlsx`)
+
+- Benötigte packages: `readxl`
+- Anstrengend? Manchmal.
 
 ### Google Sheets
 
 - Benötigte packages: `googlesheets`
 - Anstrengend? Meistens geht's ganz gut.
 
-### Excel (`.xlsx`)
+Wenn euch Excel zu unpraktisch ist, dann bietet sich [Google Sheets](https://www.google.com/sheets/about/) an. Es ist kostenlos, einfach und ausreichend mächtig für alles, was ihr so vorhaben könnten — mitunter weil ihr für alle komplexeren Sachen sowieso R benutzen wollt. Sheets ist praktisch wie Excel, nur halt in der Cloud<sup>TM</sup> und von Google, aber für überschaubare Datensammlungen reicht's auf alle Fälle. Die [Tutoriumsteilnahmedaten haben wir da auch gesammelt](https://qmparticipation.tadaa-data.de/), und da das Sheet immer an der selben Stelle ist muss man einfach nur den Code zum einlesen und auswerten erneut ausführen und schon hat man eine mehr oder weniger selbstupdatende Analyse. Nett.
 
-- Benötigte packages: `readxl`
-- Anstrengend? Manchmal.
+In besagtem Projekt sieht das zum Beispiel so aus:
+
+```r
+participation_1 <- gs_title("Tutoriumsteilnehmer") %>%
+  gs_read(ws = "WS1516", range = cellranger::cell_cols(1:7)) %>%
+  arrange(Datum, Uhrzeit) %>%
+  mutate(Studienjahr = "15/16",
+         SemesterID  = "WiSe 15/16")
+```
+
+Zuerst müsst ihr aber die Authentifizierung mit eurem Google-Account abhandeln:
+
+```r
+library(googlesheets)
+
+gs_ls()
+```
+
+Mit diesem Befehl zeigt euch das package all eure Google Sheets an nachdem es euch nach einem Login gefragt hat, von da aus könnt ihr dann weiterarbeiten. 
+Mehr Informationen und Beispiele [gibt's in der Vignette](https://rawgit.com/jennybc/googlesheets/master/vignettes/basic-usage.html).
 
 
 ## Sauber machen
