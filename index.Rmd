@@ -32,7 +32,7 @@ get_latest_commit <- function() {
   glue::glue("
              <span class='latest-commit'>
              <a href='{author_url}'><img src='{avatar}' width='15px' />
-             {name}</a> committed: <code>\"{msg}\"</code><a href='{url}'> on {date}</a></span><br />")
+             {name}</a> committed: <a href='{url}'><code>\"{msg}\"</code></a> on {date}</span><br />")
 }
 
 ```
