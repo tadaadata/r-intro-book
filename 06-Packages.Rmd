@@ -6,7 +6,7 @@ Bei Software heißt sowas meistens *library* oder *package*[^Die Ruby-Leute und 
 R hat sowas natürlich auch, als populäre open-source Software. Hier heißt sowas *packages* und besteht aus Funktionen, die andere Leute für bestimmte Anwendungsfälle geschrieben haben, und durch ein Verteilungssystem verfügbar machen, sodass wir alle sie benutzen können.  
 Der *Kern* von R wird auch **base** genannt und umfasst die wichtigstens Grundfunktionen — mit denen kommen wir auch schon relativ weit, wir können zum Beispiel problemlos diverse Statistiken berechnen und sogar Visualisierungen machen, aber wir eollen natürlich mehr, einfacher, schneller und besser.
 
-## Installation und Updates
+## Installieren, Laden, Updaten
 
 Packages ladet ihr aus dem Internet runter, woraufhin sie ggf. kompiliert und in eure R-library eingepflegt werden müssen.  
 Das klingt kompliziert, und deshalb passiert das auch alles automatisch!  
@@ -26,21 +26,68 @@ Alternativ könnt ihr rechts in RStudio im "Packages"-Tab den "Install"-Button d
 
 In diesem Fenster ist auch von *Repositories* die Rede. Damit ist der Web-Adresse gemeint, von der die packages geladen werden sollen. RStudio sollte da automatisch die schnellste Quelle auswählen, aber wenn ihr mal in die Verlegenheit kommt euch entscheiden zu müssen, versucht am besten folgende Adresse:
 
-`https://cloud.r-project.org`
+```
+https://cloud.r-project.org
+```
 
 Und da packages auch nur Software sind, und Software auf dem aktuellen Stand gehalten werden will, bietet es sich an sporadisch (spätestens alle paar Monate) mal den Update-Button zu drücken und einfach alles zu aktualisieren, was aktualisiert werden kann.  
 Das könnt ihr auch aus der Konsole heraus machen indem ihr den Befehl `update.packages(ask = FALSE)` ausführt. R fragt euch dann, ob ihr sicherheitshalber R neustarten wollt, das könnt ihr tun oder auch nicht, aber wenn ihr es *nicht* tut, dann solltet ihr *auf jeden Fall* die R-Session neu starten nachdem ihr alle Updates gemacht habt (`RStudio -> Session -> Restart R`).  
 
 Wieso? Nun ja, packages werden von R *geladen*, das heißt verfügbar gemacht, und wenn ihr ein package ersetzt (was beim Update passiert), dann zieht ihr damit R praktisch den Boden unter den Füßen weg und es ist sauer weil Dinge anders sind, als sie eben noch waren.
 
-Dieses "verfügbar machen" sieht übrigens so aus: `library("tadaatoolbox")`.  
+Dieses "verfügbar machen" sieht übrigens so aus:
+
+```r
+library("tadaatoolbox")
+```
+
 Wenn ihr diesen Befehl ausgeführt hat, dann läd R für die aktuelle Session das package und ihr könnt die Funktionen darin benutzen.  
 Normalerweise beginnen eure R-Scripte mit einer Reihe von `library()`-Befehlen um eure Analyse vorzubereiten und alle benötigten packages zu laden, da ihr diesen Schritt jedes mal wiederholen müsst, wenn ihr eine neue R-Session starten (z.B. beim Neustart von RStudio, Computerneustart etc.).  
 Außerdem gebt ihr so euren KommilitonInnen eine gute Gelegenheit abzuschätzen, was in eurem Script so passiert, wenn sie direkt erkennen können, welche packages ihr dafür benutzt habt.  
 
 Es gibt *tausende* R-packages, und die meisten davon sind für euch vollkommen uninteressant, aber einige wiederum sind so dermaßen praktisch, dass wir sie uns hier im Detail anschauen.
 
+### Quellen
+
+Die wichtigste Quelle für R-packages ist das erwähnte *CRAN*, kurz für *"**C**omprehensive **R** **A**rchive **N**etwork"*. Packages müssen diverse Anforderungen erfüllen, um auf CRAN publiziert zu werden, was eine gewisse Hürde darstellt. Deswegen gibt es diverse packages, die gerade in frühen, potenziell noch nicht ausgereiften Versionen an anderen Stellen verfügbar gemacht werden.  
+Die wohl populärster dieser Sekundärquellen ist [GitHub](https://github.com).  
+Auf GitHub findet ihr zum Beispiel auch [den Quelltext der `tadaatoolbox`](https://github.com/tadaadata/tadaatoolbox).  
+
+Optional könnt ihr packages auch direkt von GitHub installieren, was insbesondere dann interessant ist, wenn das package noch jung und experimentell ist.  
+In euren normalen Projekten solltet ihr euch nicht auf GitHub-packages verlassen, sondern nach Möglichkeit ausschließlich packages von CRAN benutzen, aber wenn euch nach Abenteuer ist, dann fühlt euch frei:
+
+```r
+# Wir brauchen das devtools package
+install.packages("devtools")
+
+# devtools package laden
+library(devtools)
+
+# install_github ist eine Funktion aus dem devtools package
+install_github("tadaadata/tadaatoolbox")
+```
+
 ## sjPlot und Co.
 
-## Das `tidyverse` <small>Hail Hadley!</small>
+`sjPlot` ist das Aushängeschild der `strengejacke`-Packages von Daniel Lüdecke, und insgesamt sind seine packages _ziemlich ziemlich_ praktisch für die gängigen sozialwissenschaftlichen Analysen.  
+
+Eine umfassende Dokumentation findet ihr unter <http://www.strengejacke.de/sjPlot/>, und die packages von Interesse installiert ihr wie folgt:
+
+```r
+install.packages("sjPlot")
+install.packages("sjmisc")
+install.packages("sjstats")
+install.packages("sjlabelled")
+```
+
+Das wichtigste package ist wie erwähnt `sjPlot`, also laden wir das erstmal:
+
+```r
+library("sjPlot")
+```
+
+## Das `tidyverse` <small class="subtitle">Hail Hadley!</small>
+
+Das *tidyverse* ist eine Ansammlung von packages, die alle mehr oder weniger gut miteinander auskommen und auf ähnliche Art zu benutzen sind.  
+Eine Übersicht und ganz viel Dokumentation und Beispiele findet ihr auf <http://tidyverse.org>.
 
