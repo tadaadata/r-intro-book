@@ -14,7 +14,7 @@ In vielen Fällen, und besonders in QM, ist das Ganze noch relativ überschaubar
 Wenn ihr Daten von eurer Festplatte einlesen wollt, und ihr keine Ahnung habt wie Dateipfade funktionieren, was euer *Home Ordner* ist, was beispielsweise `~/Documents` sein soll oder wie ihr rausfindet, *wo* ihr gerade auf euren Computern seid, [dann lest euch das bitte selber an](https://de.wikipedia.org/wiki/Pfadname).  
 Auch hier liefert RStudio jedenfalls im "Files"-Tab entsprechende Orientierungshilfe:
 
-```{r, echo=FALSE, fig.cap="RStudio Filebrowser im Projekt dieser Einführung"}
+```{r, echo=FALSE, fig.cap="RStudio Filebrowser im Projekt dieser Einführung", out.width="50%"}
 knitr::include_graphics("images/data_import_rstudio_filesystem.png")
 ```
 
