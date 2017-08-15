@@ -13,3 +13,166 @@ Als Vorraussetzung bzw. further reading könnt ihr euch bei diesen RStudio-Resso
 - [Word Output](http://rmarkdown.rstudio.com/word_document_format.html)
 - [Markdown Syntax](http://rmarkdown.rstudio.com/authoring_basics.html)
 - Bonus: [Präsentationen in RMarkdown mit `revealjs`](http://rmarkdown.rstudio.com/revealjs_presentation_format.html)
+
+## Markdown
+
+Habt ihr schonmal HTML gesehen? So mit `<html><body><p>Hallo Welt</p></body></html>`?  
+Den Scheiß will *kein Mensch* per Hand schreiben, wenn's nur um Text und vielleicht mal Bilder geht.  
+Dafür gibt es [Markdown](http://rmarkdown.rstudio.com/authoring_basics.html).  
+Markdown zu lernen wird euch **ungefähr 5 Minuten** kosten, _wenn_ ihr euch Zeit lasst und zwischendurch nochmal auf Klo geht.
+
+Der obige Paragraph sieht im Markdown-Rohtext übrigens so aus:
+
+```markdown
+Habt ihr schonmal HTML gesehen? So mit `<html><body><p>Hallo Welt</p></body></html>`?  
+Den Scheiß will *kein Mensch* per Hand schreiben, wenn's nur um Text und vielleicht mal Bilder geht.  
+Dafür gibt es [Markdown](http://rmarkdown.rstudio.com/authoring_basics.html).  
+Markdown zu lernen wird euch **ungefähr 5 Minuten** kosten, _wenn_ ihr euch Zeit lasst und zwischendurch nochmal auf Klo geht.
+```
+
+Nicht so schwer, oder?  
+Das wird übersetzt in folgendes HTML:
+
+```html
+<p>Habt ihr schonmal HTML gesehen? So mit <code>&lt;html&gt;&lt;body&gt;&lt;p&gt;Hallo Welt&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</code>?<br />
+Den Scheiß will <em>kein Mensch</em> per Hand schreiben, wenn’s nur um Text und vielleicht mal Bilder geht.<br />
+Dafür gibt es <a href="http://rmarkdown.rstudio.com/authoring_basics.html">Markdown</a>.<br />
+Markdown zu lernen wird euch <strong>ungefähr 5 Minuten</strong> kosten, <em>wenn</em> ihr euch Zeit lasst und zwischendurch nochmal auf Klo geht.</p>
+```
+
+Anstrengend.
+
+Was RStudio euch mittels RMarkdown erlaubt ist ein Bericht in Markdown geschrieben, zwischendurch mit R *Code Chunks*, die von R einfach ausgeführt werden, und am Ende fällt eine HTML-Datei raus, die ihr einfach im Browser öffnen könnt.  
+Optional könnt ihr da auch ein PDF rausfallen lassen, aber das erfordert möglicherweise rudimentäre *LaTeX*-Kenntnisse, und das will ja niemand.
+
+## RMarkdown
+
+RMarkdown ist R + Markdown. Jip.  
+Ihr schreibt ganz normales Markdown, und wenn ihr R Code einfügen wollt, setzt ihr da so einen Block rein:
+
+````markdown
+`r ""````{r}
+nrow(sleep)
+```
+````
+
+Und in eurem fertigen Dokument landet dann euer Text _und_ der R Code _und_ das Output des R-Codes.  
+Diese ganze Einführung ist in RMarkdown geschrieben, inklusive allen Code-Beispiele, Bildern und sowieso, und wenn ihr euch erstmal ein bisschen durch die oben verlinkte Einführung geklickt habt und gesehen habt, dass das gar nicht so schwer ist, werdet auch ihr irgendwann vermutlich lieber RMarkdown benutzen als Word.
+
+Ihr könnt damit loslegen, sobald ihr RMarkdown installiert habt:
+
+```r
+# Für die Grundfunktion
+install.packages("rmarkdown")
+
+# Schöne Output-Formate (optional)
+install.packages("rmdformats")
+
+# Schöne Präsentationen (Optional)
+install.packages("revealjs")
+```
+
+
+Also los, macht mal ein neues RMarkdown-Dokument auf:
+
+```{r, echo=FALSE, fig.cap="Neues Dokument für RMarkdown", out.width="50%"}
+knitr::include_graphics("images/rmarkdown_new_file_button.png")
+```
+
+Soweit alle mitgekommen? Gut.  
+Als nächstes dürft ihr euch was wünschen: Einen Dateinamen und einen AutorInnennamen.
+
+```{r, echo=FALSE, fig.cap="Beliebig ausfüllen und \"HTML\" ausgewählt lassen", out.width="50%"}
+knitr::include_graphics("images/rmarkdown_new_doc_modal.png")
+```
+
+Und sieheda, ein RMarkdown default document:
+
+````markdown
+---
+title: "Untitled"
+author: "Lukas"
+date: "8/15/2017"
+output: html_document
+---
+
+`r ''````{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+`r ''````{r cars}
+summary(cars)
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+`r ''````{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+````
+
+Das könnt ihr jetzt erstmal speichern, vielleicht testhalber etwas reinschreiben und sobald ihr den "*Knit*"-Button drückt, rödelt RMarkdown im Hintergrund los und spuckt euch ein HTML aus.  
+So einfach.  
+Jetzt könnt ihr damit beliebig experimentieren, den Text anpassen, eigenen Code reinschreiben und wenn ihr Fragen habt, googlet ihr die einfach solange, bis ihr jemanden findet, der/die die gleiche Frage auch schon hatte und rausgefunden hat wie's geht.  
+Oder es steht in der oben verlinkten Dokumentation von RStudio.  
+Vermutlich letzteres.
+
+### Der `YAML`-Header
+
+Als nächstes könnt ihr ein bisschen an den Optionen rumspielen:
+
+```{r, echo=FALSE, fig.cap="Output Optionen für diversen Kram", out.width="50%"}
+knitr::include_graphics("images/rmarkdown_output_options.png")
+```
+
+So Dinge wie die Dimensionen der ausgegebenen Plots ("figure height/width"), Inhaltsverzeichnis ("Table of Contents") etc. sind einfach über dieses Menü machbar, alles was irgendwie darüberhinausgeht muss über die Optionen am Anfang des Dokuments gesetzt werden.  
+Das oben ist der [*YAML*](https://en.wikipedia.org/wiki/YAML) header. YAML ist auch eine Markup-Sprache wie HTML, und weil es so viele dieser Markup-Sprachen gibt, heißt YAML lang "**Y**et **A**nother **M**arkup **L**anguage"[^yaml]. Es gibt auch noch *HAML* und *TOML*.  
+Ihr erkennt das Muster.
+
+Der Standard-Header definiert nur die wichtigstens Elemente, aber wir können den unter Anderem durch die Optionen im Menü erweitern. Ein umfangreicheres Beispiel aus einem alten QM-Aufgabenzettel sieht zum Beispiel so aus:
+
+````yaml
+---
+title: "Aufgabenblatt 5"
+author: "Lukas"
+date: "Rendered `r format(Sys.time(), '%F %H:%M')`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    toc_depth: 4
+    highlight: tango
+    fig_width: 9
+    fig_retina: 2
+    theme: yeti
+    code_folding: show
+    df_print: paged
+---
+````
+
+Was euch da komisch vorkommen könnte ist der Teil mit dem `date:`. Das rechts daneben ist ein
+*String* mit einem *inline code chunk*, und alles was in RMarkdown  `` `r `` und `` ` `` steht wird
+wie R-Code behandelt und ausgeführt, das heißt das Datum des Dokuments wird in diesem Fall
+automatisch auf `format(Sys.time(), '%F %H:%M')` gesetzt, was folgendes ergibt:
+
+```{r}
+format(Sys.time(), '%F %H:%M')
+```
+
+*Boom*, Dokument zeigt immer automatisch an, wann es zuletzt generiert (*rendered*, bzw. *knitted*) wurde.  
+
+Spitzfindigen Lesenden mögen jetzt denken *"Aber seltsamer Nerd Mensch"*, werden sie sagen, *"wenn dieses Dokument hier in RMarkdon geschrieben wurde, und diese inline Code chunks automatisch ausgeführt werden"* werden sie feststellen, woraufhin sie sich fragen werden: *"wie ist es dann möglich den rohen Code dafür hier reinzuschreiben ohne, dass er ausgeführt wird?"* — und dazu, liebe hypothetische Lesende, habe ich eine Antwort: [Zero-width non-joiners everywhere](https://en.wikipedia.org/wiki/Zero-width_non-joiner), vielleicht [ASCII escape characters](http://donsnotes.com/tech/charsets/ascii.html), und extra `` ` ``.
+Ihr werdet dieses Wissen vermutlich nie brauchen, aber ich habe ~30 Minuten damit verbracht herauszufinden wie ich das anstelle, also will ich dafür auch mindestens ein *bisschen* street cred.
+
+
+[^yaml]: Alternativ kann YAML auch für ***Y**AML **A**in't **M**arkup **L**anguage* stehen, wenn ihr [rekursive Akronyme](https://de.wikipedia.org/wiki/Rekursives_Akronym) bevorzugt
