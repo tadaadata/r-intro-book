@@ -131,7 +131,7 @@ Vermutlich letzteres.
 
 Als nächstes könnt ihr ein bisschen an den Optionen rumspielen:
 
-```{r, echo=FALSE, fig.cap="Output Optionen für diversen Kram", out.width="50%"}
+```{r, echo=FALSE, fig.cap="Output Optionen f&uuml;r diversen Kram", out.width="50%"}
 knitr::include_graphics("images/rmarkdown_output_options.png")
 ```
 
