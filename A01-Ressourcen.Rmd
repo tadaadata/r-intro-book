@@ -4,9 +4,15 @@
 
 ## Bücher
 
+<small>(Mit *Bücher* ist meistens kein Totholz, sondern sowas wie dieses hier gemeint)<small>
+
 - ["R for Data Science"](http://r4ds.had.co.nz/) -- Hadley Wickham
 - ["Advanced R"](http://adv-r.hadley.nz/) -- Hadley Wickham
 - [ggplot2](http://had.co.nz/ggplot2/) -- Hadley Wickham
+
+### Kollaboration und Organisation
+
+- Git + GitHub: [happygitwithr.com](http://happygitwithr.com/) -- Jenny Bryan
 
 ## Kurse
 
@@ -18,6 +24,8 @@
 
 - useR stuff
 - YouTube stuff
+
+## Blogs
 
 ## Communities
 
