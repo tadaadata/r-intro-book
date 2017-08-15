@@ -18,25 +18,28 @@ description: "Eine Einführung in R für Menschen ohne Vorkenntnisse"
 ```{r setup, include=FALSE, cache=FALSE}
 knitr::opts_chunk$set(comment = "")
 
-get_latest_commit <- function() {
+get_latest_commit <- function(count = 3) {
   
   if (httr::status_code(httr::GET("https://api.github.com")) != "200") {
     return("(No recent commits to show)")
   }
   
+  index <- seq_len(count)
+  
   commits <- jsonlite::fromJSON("https://api.github.com/repos/tadaadata/r-intro-book/commits")
   
-  name       <- commits$commit$author$name[1:3]
-  date       <- format(lubridate::ymd_hms(commits$commit$author$date[1:3], 
-                                          tz = "Europe/Berlin", quiet = TRUE), "%F %T %Z")
-  url        <- commits$html_url[1:3]
-  avatar     <- commits$author$avatar_url[1:3]
-  author_url <- commits$author$html_url[1:3]
-  msg        <- commits$commit$message[1:3]
+  name       <- commits$commit$author$name[index]
+  name       <- ifelse(name == "jemus42", "Lukas", name)
+  date       <- format(lubridate::ymd_hms(commits$commit$author$date[index], 
+                                          tz = "Europe/Berlin", quiet = TRUE), "%F %H:%M")
+  url        <- commits$html_url[index]
+  avatar     <- commits$author$avatar_url[index]
+  author_url <- commits$author$html_url[index]
+  msg        <- commits$commit$message[index]
   
-  cat("<strong>Latest Changes:</strong><br />")
+  cat("<strong>Letzte &Auml;nderungen:</strong><br />")
   glue::glue("{date}: <a href='{author_url}'><img src='{avatar}' width='15px' />
-              {name}</a> committed: <code><a href='{url}'> \"{msg}\" </a></code><br />")
+              {name}</a> committed: <code><a href='{url}'>\"{msg}\"</a></code><br />")
 }
 
 ```
@@ -51,7 +54,7 @@ Beides sollte ausreichend mit Screenshots/Beispielen ausgefüttert sein um auch 
 Das ganze ist so dermaßen work in progress, dass ich sogar das hier eingebaut habe:
 
 ```{r, results='asis', cache=FALSE}
-get_latest_commit()
+get_latest_commit(5)
 ```
 
 
