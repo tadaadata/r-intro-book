@@ -39,7 +39,12 @@ if (!file.exists(out_dir)) {
 cat("Cleaning up potential debug files…\n")
 
 if (file.exists(debug_out)) {
+  cat("Removing", debug_out, "\n")
   file.remove(debug_out)
+}
+if (file.exists("_bookdown_files")) {
+  cat("Removing \"_bookdown_files\"…\n")
+  system(command = "rm -r _bookdown_files")
 }
 
 htmls <- list.files(pattern = ".html")
