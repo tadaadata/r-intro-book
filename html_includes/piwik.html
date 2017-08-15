@@ -8,6 +8,10 @@
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
   (function() {
+    if (window.location.hostname == "localhost")
+    return;
+    if (window.location.hostname == "127.0.0.1")
+    return;
     var u="//analytics.tadaa-data.de/";
     _paq.push(['setTrackerUrl', u+'piwik.php']);
     _paq.push(['setSiteId', '13']);
