@@ -12,7 +12,7 @@ biblio-style: apalike
 link-citations: yes
 github-repo: 'tadaa-data/r-intro-book'
 url: 'https\://r-intro.tadaa-data.de/book/'
-description: "Eine Einführung in R für Menschen ohne Vorkenntnisse"
+description: "Eine Einführung in R für Menschen so ganz ohne Vorkenntnisse"
 ---
 
 ```{r setup, include=FALSE, cache=FALSE}
@@ -48,7 +48,7 @@ get_latest_commit <- function(count = 3) {
 
 Das hier wird gerade eine R-Einführung für Psychologiestudierende so mit ganz ohne Vorwissen im Bereich Software oder Programmierung.
 
-Die grobe Idee ist es, eine Präsentaion für die Übung zu haben, und zusätzlich eine long-form Intro als Nachschlagwerk und vertiefendes Intro.  
+Die grobe Idee ist es, eine Präsentaion für die Übung zu haben, und zusätzlich eine long-form Intro als Nachschlagwerk und vertiefendes Material.  
 Beides sollte ausreichend mit Screenshots/Beispielen ausgefüttert sein um auch die verunsichertesten Neulinge bei der Stange zu halten.
 
 Das ganze ist so dermaßen work in progress, dass ich sogar das hier eingebaut habe:
@@ -70,10 +70,10 @@ Tobi und Lukas haben zwei Jahre lang die R-Einführung in QM gehalten, basierend
 Weil Lukas aber ein gigantischer Nerd mit viel zu viel Spaß an Programmierzeugs ist, und sich sonst niemand für technische Details interessiert, brauchte er die Hilfe von Tobi und einer Hand voll TutorInnen um die Einführung menschenkompatibel zu halten.  
 Das Resultat ist/wird zum Einen diese Website/Buch/Dings, und zum Anderen die [Folien der Übung](https://r-intro.tadaa-data.de/slides/).  
 
-Diese Einführung hier wird deutlich stärker ins Detail gehen, und soll auf kurz oder lang so ziemlich alles abdecken, was ihr in zwei Semestern *Quantitative Methode* brauchen werdet.  
+Diese Einführung hier wird deutlich stärker ins Detail gehen, und soll auf kurz oder lang so ziemlich alles abdecken, was ihr in zwei Semestern *Quantitative Methoden* brauchen werdet.  
 Okay, ihr werdet das Ganze auch in *Methodenlehre* brauchen.  
 Und in *Diffenzielle*.  
-Und im Expra.  
+Und im *Expra*.  
 Und vermutlich danach auch. 
 
 Wenn ihr mehr (oder so grob dasselbe, aber in besser erklärt) wollt, dann empfehle ich herzlichst "[**R for Data Science**](http://r4ds.had.co.nz/)", ein kostenloses Buch von Hadley Wickham, einem der populärsten R-Menschen^[Populär, weil er einfach unheimlich viel raushaut. Packages, Vorträge, Bücher, alles. All hail Hadley!].

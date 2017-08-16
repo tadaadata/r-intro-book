@@ -75,7 +75,7 @@ install.packages("revealjs")
 
 Also los, macht mal ein neues RMarkdown-Dokument auf:
 
-```{r, echo=FALSE, fig.cap="Neues Dokument für RMarkdown", out.width="50%"}
+```{r, echo=FALSE, fig.cap="Neues Dokument f&uuml;r RMarkdown", out.width="50%"}
 knitr::include_graphics("images/rmarkdown_new_file_button.png")
 ```
 
@@ -136,7 +136,7 @@ knitr::include_graphics("images/rmarkdown_output_options.png")
 ```
 
 So Dinge wie die Dimensionen der ausgegebenen Plots ("figure height/width"), Inhaltsverzeichnis ("Table of Contents") etc. sind einfach über dieses Menü machbar, alles was irgendwie darüberhinausgeht muss über die Optionen am Anfang des Dokuments gesetzt werden.  
-Das oben ist der [*YAML*](https://en.wikipedia.org/wiki/YAML) header. YAML ist auch eine Markup-Sprache wie HTML, und weil es so viele dieser Markup-Sprachen gibt, heißt YAML lang "**Y**et **A**nother **M**arkup **L**anguage"[^yaml]. Es gibt auch noch *HAML* und *TOML*.  
+Das oben ist der [*YAML*](https://en.wikipedia.org/wiki/YAML) header. YAML ist auch eine Markup-Sprache wie HTML, und weil es so viele dieser Markup-Sprachen gibt, heißt YAML lang "**Y**et **A**nother **M**arkup **L**anguage"[^yaml]. Es gibt auch noch [*HAML*](https://en.wikipedia.org/wiki/Haml) und [*TOML*](https://en.wikipedia.org/wiki/TOML)  
 Ihr erkennt das Muster.
 
 Der Standard-Header definiert nur die wichtigstens Elemente, aber wir können den unter Anderem durch die Optionen im Menü erweitern. Ein umfangreicheres Beispiel aus einem alten QM-Aufgabenzettel sieht zum Beispiel so aus:
@@ -171,8 +171,8 @@ format(Sys.time(), '%F %H:%M')
 
 *Boom*, Dokument zeigt immer automatisch an, wann es zuletzt generiert (*rendered*, bzw. *knitted*) wurde.  
 
-Spitzfindigen Lesenden mögen jetzt denken *"Aber seltsamer Nerd Mensch"*, werden sie sagen, *"wenn dieses Dokument hier in RMarkdon geschrieben wurde, und diese inline Code chunks automatisch ausgeführt werden"* werden sie feststellen, woraufhin sie sich fragen werden: *"wie ist es dann möglich den rohen Code dafür hier reinzuschreiben ohne, dass er ausgeführt wird?"* — und dazu, liebe hypothetische Lesende, habe ich eine Antwort: [Zero-width non-joiners everywhere](https://en.wikipedia.org/wiki/Zero-width_non-joiner), vielleicht [ASCII escape characters](http://donsnotes.com/tech/charsets/ascii.html), und extra `` ` ``.
+Spitzfindigen Lesenden wird etwas aufgefallen sein: *"Aber seltsamer Nerd Mensch"*, werden sie sagen, *"wenn dieses Dokument hier in RMarkdon geschrieben wurde, und diese inline Code chunks automatisch ausgeführt werden"* werden sie feststellen, woraufhin sie sich fragen werden: *"wie ist es dann möglich den rohen Code dafür hier reinzuschreiben ohne, dass er ausgeführt wird?"* — und dazu, liebe hypothetische Lesende, habe ich eine Antwort: [Zero-width non-joiners everywhere](https://en.wikipedia.org/wiki/Zero-width_non-joiner), vielleicht [ASCII escape characters](http://donsnotes.com/tech/charsets/ascii.html), und extra `` ` ``.
 Ihr werdet dieses Wissen vermutlich nie brauchen, aber ich habe ~30 Minuten damit verbracht herauszufinden wie ich das anstelle, also will ich dafür auch mindestens ein *bisschen* street cred.
 
 
-[^yaml]: Alternativ kann YAML auch für ***Y**AML **A**in't **M**arkup **L**anguage* stehen, wenn ihr [rekursive Akronyme](https://de.wikipedia.org/wiki/Rekursives_Akronym) bevorzugt
+[^yaml]: Alternativ kann YAML auch für * **Y**AML **A**in't **M**arkup **L**anguage * stehen, wenn ihr [rekursive Akronyme](https://de.wikipedia.org/wiki/Rekursives_Akronym) bevorzugt

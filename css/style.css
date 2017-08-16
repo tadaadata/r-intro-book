@@ -1,5 +1,9 @@
 /* Tadaa modifications */
 
+.book .book-body .page-wrapper .page-inner section.normal small {
+  font-size: smaller;
+}
+
 .toc-banner {
   padding: 5px;
 }
@@ -13,9 +17,9 @@
   font-size: 18px;
   padding-top: 0;
 }
-.subtitle {
-  font-size: small;
-  color: lightgray;
+.book .book-body .page-wrapper .page-inner section.normal .subtitle {
+  font-size: 60%;
+  color: #a8a8a8;
 }
 
 #header {
@@ -30,9 +34,9 @@
   font-variant: small-caps;
 }
 
-.book .book-body .page-wrapper .page-inner section.normal sup {
+.book .book-body .page-wrapper .page-inner section.normal p > sup {
   vertical-align: super;
-  font-size: 50%;
+  font-size: 70%;
 }
 
 .book .book-body .page-wrapper .page-inner section.normal h1 {

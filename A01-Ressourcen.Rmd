@@ -4,7 +4,7 @@
 
 ## Bücher
 
-<small>(Mit *Bücher* ist meistens kein Totholz, sondern sowas wie dieses hier gemeint)<small>
+<small>(Mit *Bücher* ist meistens kein Totholz, sondern sowas wie dieses hier gemeint)</small>
 
 - ["R for Data Science"](http://r4ds.had.co.nz/) -- Hadley Wickham
 - ["Advanced R"](http://adv-r.hadley.nz/) -- Hadley Wickham
@@ -14,11 +14,12 @@
 
 - Git + GitHub: [happygitwithr.com](http://happygitwithr.com/) -- Jenny Bryan
 
-## Kurse
+## Kurse & Workshops
 
 - RStudio Webinars
 - DataCamp
 - (Codeschool, Coursera?)
+- [LOTR Data](https://github.com/jennybc/lotr-tidy)
 
 ## Vorträge
 
@@ -26,6 +27,8 @@
 - YouTube stuff
 
 ## Blogs
+
+Siehe auch: [Blogs in `blogdown`](https://github.com/sellorm/awesome-blogdown)
 
 ## Communities
 
