@@ -119,7 +119,7 @@ round(sqrt(2)^2, digits = 5) == 2
 ```
 
 ```{block2, float-rounding_tip, type='rmdtip'}
-Im Zweifelsfall einfach Genauigkeit Opfern um den Verstand zu behalten
+Im Zweifelsfall einfach Genauigkeit opfern um den Verstand zu behalten
 ```
 
 Theoretisch ist "numeric" für Zahlen eine *Klasse*, und *integer* und *double* sind die beiden *Typen*, aus denen die Klasse besteht.
