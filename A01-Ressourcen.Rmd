@@ -6,22 +6,31 @@
 
 <small>(Mit *Bücher* ist meistens kein Totholz, sondern sowas wie dieses hier gemeint)</small>
 
+Aus der Community:
+
 - ["R for Data Science"](http://r4ds.had.co.nz/) -- Hadley Wickham
 - ["Advanced R"](http://adv-r.hadley.nz/) -- Hadley Wickham
 - [ggplot2](http://had.co.nz/ggplot2/) -- Hadley Wickham
 
+Andere Quellen:
+
+- [R for Dummies](http://www.dummies.com/store/product/R-For-Dummies.productCd-1119962846.html)
+
+
 ### Kollaboration und Organisation
 
-- Git + GitHub: [happygitwithr.com](http://happygitwithr.com/) -- Jenny Bryan
+#### Git & GitHub
+
+- [happygitwithr.com](http://happygitwithr.com/) -- Jenny Bryan
+- [ohshitgit](http://ohshitgit.com/)
 
 ## Kurse & Workshops
 
 - RStudio Webinars
 - DataCamp
-- (Codeschool, Coursera?)
 - [LOTR Data](https://github.com/jennybc/lotr-tidy)
 
-## Vorträge
+## Vorträge / Lectures
 
 - useR stuff
 - YouTube stuff
@@ -30,7 +39,7 @@
 
 Siehe auch: [Blogs in `blogdown`](https://github.com/sellorm/awesome-blogdown)
 
-## Communities
+## Community
 
 - Stackoverflow
 - Twitter: `#rstats`

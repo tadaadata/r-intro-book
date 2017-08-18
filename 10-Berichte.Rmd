@@ -175,4 +175,4 @@ Spitzfindigen Lesenden wird etwas aufgefallen sein: *"Aber seltsamer Nerd Mensch
 Ihr werdet dieses Wissen vermutlich nie brauchen, aber ich habe ~30 Minuten damit verbracht herauszufinden wie ich das anstelle, also will ich dafür auch mindestens ein *bisschen* street cred.
 
 
-[^yaml]: Alternativ kann YAML auch für * **Y**AML **A**in't **M**arkup **L**anguage * stehen, wenn ihr [rekursive Akronyme](https://de.wikipedia.org/wiki/Rekursives_Akronym) bevorzugt
+[^yaml]: Alternativ kann YAML auch für <em>"**Y**AML **A**in't **M**arkup **L**anguage"</em> stehen, wenn ihr [rekursive Akronyme](https://de.wikipedia.org/wiki/Rekursives_Akronym) bevorzugt
