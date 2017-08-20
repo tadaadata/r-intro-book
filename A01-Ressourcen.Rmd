@@ -2,6 +2,21 @@
 
 # Ressourcen
 
+## Datensätze
+
+Es gibt viele freie Quellen für schöne Datensätze zum Üben oder rumspielen, und einige packages bringen auch entsprechende Datensätze mit, die geeignet sind um bestimmte Funktionen auszuprobieren.
+
+### In R / Packages
+
+- `iris`, `sleep`, `mtcars`: Gängige Standarddatensätze
+- `dplyr::starwars`: *Star Wars*-stuff mit *list-columns*
+- `babynames::babynames`: Naja, baby names.
+
+### In der freien Wildbahn
+
+- [kaggle](https://www.kaggle.com): Mit Challenges zu den Daten
+- [data.world](https://data.world): Hier kommt z.B. der [*Game of Thrones* deaths](https://data.world/aendrew/game-of-thrones-deaths)-Datensatz her
+
 ## Bücher
 
 <small>(Mit *Bücher* ist meistens kein Totholz, sondern sowas wie dieses hier gemeint)</small>

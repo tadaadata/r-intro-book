@@ -8,6 +8,15 @@ Deswegen ist der erste Schritt jeder Datenanalyse ein Plot der Daten in verschie
 
 ## ggplot2
 
+[ggplot2](http://had.co.nz/ggplot2/) ist nicht nur ein R-Packages, es ist auch gleichzeitig eine Implementation des *Grammar of Graphics*. Das klingt fancy (ist es auch), heißt für uns aber in erster Linie nur, dass es gut durchdachter Kram ist.  
+
 ## `geom_wtf`
+
+Der visuelle Kern eines Plots ist die geometrische Verknüpfung eurer Daten auf einen *Layer*, sowas wie Punkte, Linien, Balken, ihr wisst schon. Ein Plot braucht mindestens einen *Layer* (ein *geom*) um überhaupt irgendwas anzuzeigen, und die entsprechenden Funktionen sind dankbar einfach benannt:
+
+- `geom_point`: Macht Punkte
+- `geom_line`: Macht Linien
+- `geom_histogram`: Histogramm
+- `geom_col`: Balkendiagramm
 
 ## Mach mal bunt!
