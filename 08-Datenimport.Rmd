@@ -46,6 +46,33 @@ Eine Sache noch zum Encoding: Um kaputte Umlaute und andere Krämpfe zu vermeide
 - Benötigte packages: `readr`
 - Anstrengend? Entweder alles super oder Riesenkrampf
 
+Einfacher Text (*plain text*) ist die einfachste Möglichkeit Datensätze zu speichern bzw. zu übertragen, da Text so ziemlich der kleinste gemeinsame Nenner jeder gängigen Software ist.  **CSV** heißt auch nur *"comma separated values"*, und wird euch vermutlich noch häufiger begegnen. Eine CSV-Datei könnt ihr mit jedem beliebigen Texteditor öffnen (ihr müsst dafür kein Office rauskramen, auf Windows tut es auch das Notepad), und ihr seht dann vermutlich sowas in der Art:
+
+```csv
+"extra","group","ID"
+0.7,"1","1"
+-1.6,"1","2"
+-0.2,"1","3"
+-1.2,"1","4"
+-0.1,"1","5"
+3.4,"1","6"
+```
+
+Das Prinzip ist ziemlich einfach: In der ersten Zeile stehen die Variablennamen, und in jeder folgenden Zeile steht jeweils der Wert der zugehörigen Variable, getrennt durch ein Komma.  
+Die Schwierigkeit kommt dann, wenn die Werte zum Beispiel Text enthalten, der wiederum ein Komma enthalten kann, und der Wert nicht richtig in Anführsungszeichen gesetzt ist. Es gibt auch noch Varianten mit Tabs statt Kommata als Trennzeichen, das wäre dann strenggenommen *TSV* (ihr dürft raten wofür das *T* steht).  
+Textformate sind also ziemlich einfach um eure Daten zu speichern oder zu verschicken, aber es ist auch sehr fragil, sobald mal irgendwo ein `"` fehlt oder zu viel ist, wird's kompliziert.
+
+Zum lesen und schreiben empfehle ich herzlichst das `readr`-package mit den Funktionen `read_csv`, `write_csv` etc. zu benutzen, die sind weniger anfällig für Murks als die base-Standardfunktionen mit gleichem Namen aber `.` statt `_` (`read.csv`, `write.csv`).
+
+Als Beispiel laden wir mal [diesen schönen *Game of Thrones*-Datensatz](https://data.world/aendrew/game-of-thrones-deaths):
+
+```{r}
+library(readr)
+gotdeaths <- read_csv("data/got_deaths.csv")
+
+head(gotdeaths)
+```
+
 ### SPSS (`.sav`)
 
 - Benötigte packages: `haven` oder `sjmisc`
