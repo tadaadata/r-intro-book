@@ -3,10 +3,10 @@
 # Was ist R
 
 R ist eine Programmiersprache, und ja, das klingt abschreckend.  
-Was das für uns heißt sind in erster Linie zwei Dinge:
+Für uns heißt das in erster Linie Folgendes:
 
 - Die Lernkurve ist etwas steil, flacht dann aber schnell ab. Versprochen.
-- Wir können prinzipiell _alles_ damit machen, wenn wir erstmal rausgefunden haben, wie's geht.
+- Wir können prinzipiell _alles_ damit machen, wenn wir erstmal rausgefunden haben wie's geht.
 
 ## Wieso nicht einfach SPSS?
 
@@ -51,6 +51,16 @@ Die am häufigsten zitierten Vorteile sind in etwa die Folgenden:
 - **Flexibilität**: R ist eine Programmiersprache, das heißt per default kann R erstmal *alles*. Vielleicht nicht alles gut, aber prinzipiell lässt sich zumindest theoretisch alles damit anstellen. Dieses Dokument hier? In R (RMarkdown, *bookdown*) geschrieben. Dynamische Webseiten? Auch möglich, googlet "R shiny". Interaktive Elemente? Auch kein Ding, googlet "R htmlwidgets". Daten aus Software wie SPSS, Excel oder sogar Google Sheets importieren? Auch kein Problem. You get the idea.
 - **Aktive Entwicklung & Community**: R wird *immer besser*. Immer mehr Leute benutzen R, von diesen Leuten haben einige gute Ideen, und davon wiederum gibt es einige, die diese sogar umsetzen. Das Resultat ist ein stetig wachsendes und gedeihendes Ökosystem um R und eine aktive Community auf diversen Netzwerken, die sowohl Hilfestellung liefern können als auch aktiv an besseren Tools rund um R arbeiten, von besserer Dokumentation bis zu besserer Integration mit anderer Software.
 
+## Was ist R **nicht**?
+
+R ist nicht wie SPSS. R "nackt" ist ein Kommandozeilenprogramm. Terminal/Konsole, wie man es auch nennen mag, aber es ist nicht wie die Programme, die ihr im Alltag benutzt. Es gibt keine Knöpfe zum drücken und alles ist Text, ohne Formatierungskram wie **fett** oder *kursiv*, weil die Grundlagen bzw. Vorstufen von R aus einer Zeit kommen, in der Computer noch *anders* waren und die Mauer noch frisch war. 
+
+Weil das wenig benutzerfreundlich bzw. einsteigerfreundlich ist, gibt es Programme wie **RStudio**, was sozusagen auf R sitzt und es benutzbar macht. Wenn R ein Pferd ist, ist RStudio ein Sattel.  
+Das heißt für euch aber auch, dass ihr eine Datenanalyse nicht durch bloßes Knöpfchendrücken zusammenstecken könnt wie das bei SPSS möglich ist — ihr müsst Befehle lernen, eure Daten(struktur) verstehen, und euch sicher sein, was ihr tun wollt.  
+Ich weiß, dass das alles wirklich eher krampfig klingt wenn ihr das so lest, weshalb es auch häufig vorkommt, dass Studierenden in den ersten Semestern R eher ignorieren und sich lieber mit SPSS beschäftigen, weil das weniger kognitiver Aufwand ist — aber glaubt mir wenn ich euch sage, dass "R lernen" eine gute Investition ist. SPSS könnt ihr euch immer noch irgendwie beibringen oder Youtube-Tutorials gucken oder Befehlslisten ausdrucken und sowieso und überhaupt, R hingegen ist entsprechend komplexer, also nutzt die Zeit in der euch TutorInnen noch helfen können, bevor ihr dann vor eurem Expra-Datensatz sitzt, mit SPSS nicht weiter kommt und wie der Ochs vor'm Berg an R sitzt.  
+
+Ich betone das übrigens nicht, weil ich SPSS doof finde (was ich tue), oder R so toll finde (was ich tue), sondern tatsächlich aus Erfahrung und Überzeugung.  
+Wenn euch Statistik egal ist und ihr einfach nur bestehen wollt, dann reicht euch vielleicht SPSS. Wenn ihr langfristig gut mit Methodik und quantitativen Methoden arbeiten umgehen können wollt, dann ist R eine gute Investition.
 
 <!-- Fußnoten -->
 [^schnell]: Das mit der Schnelligkeit kommt mit etwas Übung. Wirklich.
