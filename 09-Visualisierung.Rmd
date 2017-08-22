@@ -19,4 +19,12 @@ Der visuelle Kern eines Plots ist die geometrische Verknüpfung eurer Daten auf 
 - `geom_histogram`: Histogramm
 - `geom_col`: Balkendiagramm
 
+```{r barchart}
+library(ggplot2)
+ggplot(data = gotdeaths, aes(x = death_season)) +
+  geom_bar()
+```
+
+
+
 ## Mach mal bunt!
