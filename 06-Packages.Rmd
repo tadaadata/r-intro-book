@@ -1,16 +1,16 @@
 # Packages
 
-Fast jede Software hat Erweiterungen irgendeiner Art. Manche haben *extensions*, andere *plug ins*, wieder andere haben *add-ons*. Unterschiedliche Terminologie für dasselbe Prinzip: Mehr Features durch Erweiterungen anderer Leute.  
-Bei Software heißt sowas meistens *library* oder *package*[^Die Ruby-Leute und ihre *Gems* seien mal dahingestellt].  
+Fast jede Software hat Erweiterungen irgendeiner Art. Manche haben *extensions*, andere *plug-ins*, wieder andere haben *add-ons*. Unterschiedliche Terminologie für dasselbe Prinzip: Mehr Features durch Erweiterungen anderer Leute.  
+Bei Programmiersprachen heißt sowas meistens *library* oder *package*[^ruby].  
 
 R hat sowas natürlich auch, als populäre open-source Software. Hier heißt sowas *packages* und besteht aus Funktionen, die andere Leute für bestimmte Anwendungsfälle geschrieben haben, und durch ein Verteilungssystem verfügbar machen, sodass wir alle sie benutzen können.  
-Der *Kern* von R wird auch **base** genannt und umfasst die wichtigstens Grundfunktionen — mit denen kommen wir auch schon relativ weit, wir können zum Beispiel problemlos diverse Statistiken berechnen und sogar Visualisierungen machen, aber wir eollen natürlich mehr, einfacher, schneller und besser.
+Der *Kern* von R wird auch **base** genannt und umfasst die wichtigstens Grundfunktionen — mit denen kommen wir auch schon relativ weit, wir können zum Beispiel problemlos diverse Statistiken berechnen und sogar Visualisierungen machen, aber wir wollen natürlich mehr, einfacher, schneller und besser.
 
 ## Installieren, Laden, Updaten
 
 Packages ladet ihr aus dem Internet runter, woraufhin sie ggf. kompiliert und in eure R-library eingepflegt werden müssen.  
 Das klingt kompliziert, und deshalb passiert das auch alles automatisch!  
-Nehmen wir als Beispiel-Package mal `tadaatoolbox` — ein Package von Lukas und Tobi, das insbesondere für einige Sachen aus QM geschrieben wurde, um Dinge etwas einfacher oder zumindest schöner zu machen.  
+Nehmen wir als Beispiel-Package mal `tadaatoolbox` — ein Package von Lukas und Tobi, das insbesondere für einige Sachen aus QM2 geschrieben wurde, um Dinge etwas einfacher oder zumindest schöner zu machen.  
 
 Wir installieren das package mit einem einfachen Befehl in der Konsole:
 
@@ -20,7 +20,7 @@ install.packages("tadaatoolbox")
 
 Achtet darauf, dass ihr Groß- und Kleinschreibung beachtet habt, und dass der Name des packages in `" "` steht (wie ein `character`).  
 Wenn ihr Enter gedrückt habt sollte R anfangen loszurödeln, vielelicht gehen auch einige Fenster mit Fortschrittsbalken auf, wenn ihr Windows benutzt.  
-Das schöne an diesem Befehl ist, dass es auch direkt alle packages installiert, die wir in unserem package benutzen: Sogenannte *dependencies*. Eine dependency (*Abhängigkeit*) ist in diesem Kontext ein package, das von einem anderen package gebraucht wird, um zu funktionieren. Wir benutzen im package `tadaatoolbox` zum Beispiel auch die packages `dplyr`, `pixiedust` und `sjlabelled`, deswegen sollte der Befehl diese packages auch gleich mitinstallieren.  
+Das schöne an diesem Befehl ist, dass es auch direkt alle packages installiert, die wir in unserem package benutzen: Sogenannte *dependencies*. Eine dependency (*Abhängigkeit*) ist in diesem Kontext ein package, das von einem anderen package gebraucht wird um zu funktionieren. Wir benutzen im package `tadaatoolbox` zum Beispiel auch die packages `dplyr`, `pixiedust` und `sjlabelled`, deswegen sollte der Befehl diese packages auch gleich mitinstallieren.  
 
 Alternativ könnt ihr rechts in RStudio im "Packages"-Tab den "Install"-Button drücken, den namen des packages (`tadaatoolbox`) eingeben, und dann macht RStudio im Hintergrund genau dasselbe Spielchen mit `install.packages()`.
 
@@ -91,3 +91,5 @@ library("sjPlot")
 Das *tidyverse* ist eine Ansammlung von packages, die alle mehr oder weniger gut miteinander auskommen und auf ähnliche Art zu benutzen sind.  
 Eine Übersicht und ganz viel Dokumentation und Beispiele findet ihr auf <http://tidyverse.org>.
 
+
+[^ruby]: Die Ruby-Leute und ihre *Gems* seien mal dahingestellt
