@@ -13,23 +13,91 @@ Deswegen ist der erste Schritt jeder Datenanalyse ein Plot der Daten in verschie
 
 ## ggplot2
 
-[ggplot2](http://had.co.nz/ggplot2/) ist nicht nur ein R-Packages, es ist auch gleichzeitig eine Implementation des *Grammar of Graphics*. Das klingt fancy (ist es auch), heißt für uns aber in erster Linie nur, dass es gut durchdachter Kram ist.  
+[ggplot2](http://had.co.nz/ggplot2/) ist nicht nur ein R-Packages, es ist auch gleichzeitig eine Implementation des *Grammar of Graphics*. Das klingt fancy (ist es auch), heißt für uns aber in erster Linie nur, dass es gut durchdachter Kram ist. 
+
+```{r}
+library(ggplot2)
+```
+
 
 ## `geom_wtf`
 
 Der visuelle Kern eines Plots ist die geometrische Verknüpfung eurer Daten auf einen *Layer*, sowas wie Punkte, Linien, Balken, ihr wisst schon. Ein Plot braucht mindestens einen *Layer* (ein *geom*) um überhaupt irgendwas anzuzeigen, und die entsprechenden Funktionen sind dankbar einfach benannt:
 
-- `geom_point`: Macht Punkte
+- `geom_point`: Macht Punkte (*Scatterplot*)
 - `geom_line`: Macht Linien
-- `geom_histogram`: Histogramm
-- `geom_col`: Balkendiagramm
+- `geom_boxplot`: Boxplots
+- `geom_histogram`: Histogramm (Häufigkeitsverteilung)
+- `geom_bar`: Balkendiagramm mit Häufigkeiten auf der y-Achse
+- `geom_col`: Balkendiagramm mit frei wählbarer y-Achse
+
+### Barcharts & Histogramme
+
+Eine der einfachsten Anwendungsfälle für Visualisierungen sind Balken- und Histogramme. Der Unterschied zwischen den beiden ist eher subtil: Histogramme haben eine numerische/kontinuierliche Variable auf der x-Achse, und Barcharts haben diskrete Variablen auf der x-Achse. Daraus ergibt sich auch, dass Barcharts immer einen Balken pro Merkmalsausprägung haben.  
+Die y-Achse ist jeweils die Häufigkeit, mit der die jeweilige Variable auftritt. Diese wird in der Regel als absolute Häufigkeit in ggplot2 angezeigt, aber wir können auch relative Häufigkeiten oder *densities* verwenden.
 
 ```{r barchart}
-library(ggplot2)
+# Balkendiagramm
 ggplot(data = gotdeaths, aes(x = death_season)) +
   geom_bar()
+
+# Balken mit relativen Häufigkeiten
+ggplot(data = gotdeaths, aes(x = death_season)) +
+  geom_bar(aes(y = ..prop..))
+```
+
+Das ist zwar schön und gut, aber es sieht noch nicht so wirklich brauchbar aus, und es fehlen vor allem aussagekräftige Beschriftungen. Letztere sind via `labs()` sehr einfach:
+
+```{r}
+ggplot(data = gotdeaths, aes(x = death_season)) +
+  geom_bar() +
+  labs(title = "Game of Thrones: Deaths",
+       subtitle = "Deaths per Season",
+       x = "Season", y = "# of Deaths")
 ```
 
 
 
 ## Mach mal bunt!
+
+### `color` und `fill`
+
+### Themes
+
+Themes verändern nicht die Farbe eurer Punkte/Linien/Balken, aber sie verändern alles andere an eurem Plot, von der Hintergrundfarbe bis zur Schriftart in den Labels.  
+Es gibt viele schöne themes, aber der allgemeine Ratschlag bleibt: Simpel ist besser.  
+
+```{r}
+plot <- ggplot(data = gotdeaths, aes(x = death_season)) +
+  geom_bar() +
+  labs(title = "Game of Thrones: Deaths",
+       subtitle = "Deaths per Season",
+       x = "Season", y = "# of Deaths")
+```
+
+
+```{r}
+library(tadaatoolbox)
+
+plot + theme_tadaa()
+```
+
+Oder auch:
+
+```{r}
+library(hrbrthemes)
+
+plot + theme_ipsum()
+```
+
+Siehe auch: `ggthemes`
+
+```{r}
+library(ggthemes)
+
+plot + theme_gdocs()
+plot + theme_pander()
+plot + theme_fivethirtyeight()
+plot + theme_excel() # Nein.
+plot + theme_economist()
+```
