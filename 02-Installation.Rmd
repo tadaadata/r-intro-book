@@ -37,7 +37,7 @@ knitr::include_graphics("images/install_R_windows_2.png")
 knitr::include_graphics("images/install_R_windows_3.png")
 ```
 
-Da ich akut keinen Windows-Computer zur Hand habe und zu faul bin extra dafür eine VM aufzusetzen, gehe ich einfach davon aus, dass ihr das Prinzip "`.exe`-Datei doppelklicken und alles brav mit `ja` oder `OK` bestätigen" beherrscht.  
+Da ich akut keinen Windows-Computer zur Hand habe, gehe ich einfach davon aus, dass ihr das Prinzip "`.exe`-Datei doppelklicken und alles brav mit `ja` oder `OK` bestätigen" beherrscht. Schafft ihr bei Spotify ja auch.   
 
 Das war die R-Installation!
 
