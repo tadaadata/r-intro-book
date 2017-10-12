@@ -21,6 +21,7 @@ Schön.
 Möglicherweise habt ihr aber nicht die finanziellen Ressourcen für SPSS.  
 Möglicherweise braucht ihr mehr Flexibilität.  
 Vielleicht funktioniert SPSS für euch nur mittels einer Remotedesktop-Verbindung (\*hust hust\*), das heißt sobald ihr irgendwo ohne schnelle Verbindung seid, könnt ihr nicht mehr arbeiten.  
+So sicher wie der Tod und Steuern müsst ihr auch irgendwann ein Expra durchführen, die erhobenen Daten auswerten und darstellen. Solltet ihr das mit SPSS machen, dürft ihr keine der Grafiken oder Tabellen benutzen (außer ihr verzichtet freiwillig auf eine gute Note). Das gleiche gilt in schwächerer Gewichtung für euer Differentielle Projekt und natürlich ggf. in stärkerer Gewichtung für eure Bachelorarbeit.
 
 Vielleicht gefällt euch aber auch nur, dass ihr mit R interaktiv und schnell[^schnell] einfache Dinge ausprobieren könnt. 
 
