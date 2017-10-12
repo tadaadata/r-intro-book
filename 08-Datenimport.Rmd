@@ -90,8 +90,10 @@ Hier habt ihr zwei Möglichkeiten: `.rds` und `.rda` (auch `.RData`): Generell s
 
 Daten einlesen ist simpel:
 
-```r
-datensatz <- readRDS("pfad/zur/Datei.rds")
+```{r}
+qmsurvey <- readRDS("data/qm-survey-2017-R.rds")
+
+head(qmsurvey)
 ```
 
 Daten speichern auch:

@@ -5,6 +5,13 @@ editor_options:
 ---
 # (PART) Der Spaßige Teil {-}
 
+```{r load_fonts, include=FALSE}
+# Fancy font stuff required for hrbrthemes
+library(extrafont)
+loadfonts()
+```
+
+
 # Visualisierung
 
 Es hat ein bisschen gedauert, aber wir mussten uns zuerst erarbeiten, wie wir eigentlich in R mit Daten umgehen können und grob verstehen wie sich R überhaupt verhält, bis wir endlich was spaßiges machen können.  
@@ -57,10 +64,115 @@ ggplot(data = gotdeaths, aes(x = death_season)) +
 ```
 
 
-
 ## Mach mal bunt!
 
-### `color` und `fill`
+Okay, wir wollen also die Balken bunt machen. Es gibt zwei Möglichkeiten: Die `color` und `fill`. Ersteres ist die Farbe (duh), zweiteres die Füllfarbe (duhuh), und unterschiedliche `geoms` haben da entsprechende Unterschiede.
+
+```{r}
+ggplot(data = gotdeaths, aes(x = death_season)) +
+  geom_bar(color = "red") +
+  labs(title = "Game of Thrones: Deaths",
+       subtitle = "Deaths per Season",
+       x = "Season", y = "# of Deaths")
+```
+
+Jetzt haben wir rote Umrandungen. Nicht sehr beeindruckend.
+
+```{r}
+ggplot(data = gotdeaths, aes(x = death_season)) +
+  geom_bar(fill = "red") +
+  labs(title = "Game of Thrones: Deaths",
+       subtitle = "Deaths per Season",
+       x = "Season", y = "# of Deaths")
+```
+
+Ein bisschen grell, aber immerhin rot.
+
+```{r}
+ggplot(data = gotdeaths, aes(x = death_season)) +
+  geom_bar(fill = "darkred", color = "black") +
+  labs(title = "Game of Thrones: Deaths",
+       subtitle = "Deaths per Season",
+       x = "Season", y = "# of Deaths")
+```
+
+Okay, vielleicht ein bisschen Transparenz noch?
+
+```{r}
+ggplot(data = gotdeaths, aes(x = death_season)) +
+  geom_bar(fill = "darkred", color = "black", alpha = 0.75) +
+  labs(title = "Game of Thrones: Deaths",
+       subtitle = "Deaths per Season",
+       x = "Season", y = "# of Deaths")
+```
+
+`alpha` gibt die Durchsichtigkeit des Elements an, von `0` (unsichtbar) bis `1` (keine Transparenz).  
+Was die Farben angeht: R kennt `red` und `darkred` neben etlichen anderen Farben.  Diese Farben könnt ihr euch via `colors()` ausgeben lassen — also zumindest die Namen der Farben.  
+Alternativ könnt ihr Farben auch als Hex-String angeben, rot wäre dann zum Beispiel `#FF0000`. Wenn ihr mal "rgb color picker" googlet, findet ihr auch entsprechende tools, oder ihr installiert das `colorpicker` package und habt dann sowas direkt in RStudio unter "Addins":
+
+```{r, echo=FALSE, out.width="75%", fig.cap="cap"}
+knitr::include_graphics("images/colorpicker.png")
+```
+
+
+### `scale_color_*` und `scale_fill_*`
+
+Wenn wir global die Farbe der Balken ändern wollen, können wir das direkt simpel im `geom_bar()`-Element machen, aber manchmal wollen wir ja auch die Farbe abhängig von einer anderen Variable machen.  
+
+Wenn wir einer *aesthetic* wie `fill` oder `color` eine Variable zuordnen wollen, müssen wir das in `aes()` tun, wo wir auch `x` und `y` definieren. 
+
+```{r}
+ggplot(data = qmsurvey, aes(x = rauchen)) +
+  geom_bar()
+```
+
+```{r}
+ggplot(data = qmsurvey, aes(x = rauchen, fill = gender)) +
+  geom_bar()
+```
+
+```{r}
+ggplot(data = qmsurvey, aes(x = rauchen, fill = gender)) +
+  geom_bar(position = "dodge", color = "black", alpha = .75)
+```
+
+### Zusätzliche Farbpaletten
+
+#### RColorBrewer
+
+```{r}
+# install.packages(RColorBrewer)
+
+ggplot(data = qmsurvey, aes(x = rauchen, fill = gender)) +
+  geom_bar(position = "dodge", color = "black", alpha = .75) +
+  scale_fill_brewer(palette = "Set1")
+```
+
+Übersicht über die Farbpaletten:
+
+```r
+library(RColorBrewer)
+
+display.brewer.all()
+```
+
+```{r, echo=FALSE, out.width="75%", fig.cap="RColorBrewer Paletten"}
+knitr::include_graphics("images/brewer_palettes.png")
+```
+
+
+#### Viridis
+
+Besondere Stärke: Gleicher wahrgenommener Abstand der Farben, demnach besonders gut geeignet für kontinuierliche Fabrskalen. Bonus: Auch noch gut distinguierbar, wenn in schwarzweiß konvertiert.
+
+```{r}
+library(viridis)
+
+ggplot(data = qmsurvey, aes(x = rauchen, fill = gender)) +
+  geom_bar(position = "dodge", color = "black", alpha = .75) +
+  scale_fill_viridis(discrete = TRUE, option = "plasma")
+```
+
 
 ### Themes
 
