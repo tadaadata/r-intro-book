@@ -1,0 +1,23 @@
+# Glossar
+
+Für diejenigen, die in Mathe immer ein bisschen verwirrt waren, sobald Symbole benutzt wurden: Hier ein bisschen Vokabular
+
+## Griechische Buchstaben
+
+Das hier ist kein vollständiges griechisches Alphabet (das könnt ihr gefällist [selber googlen](https://de.wikipedia.org/wiki/Griechisches_Alphabet)), sondern nur ein kleiner Auszug der griechischen Buchstaben, die euch in QM so begegnen können.
+
+Buchstabe | Sprich | Benutzung
+----------|--------|----------
+$\alpha$ | "Alpha" | Testniveau (QM2)
+$\beta$  | "Beta"  | Fehler 2. Art (QM2)
+$\gamma$ | "Gamma" | Teststatistik
+$\delta$, $\Delta$ | "Delta" (kleines, großes) | Effektgröße, allgemein "Unterschied", "Differenz"
+$\eta$ | "Eta" | Teststatistik (QM1, QM2)
+$\lambda$ | "Lambda" | Teststatistik (QM1)
+$\mu$ | "Mü" | Populationsmittelwert; Mittelwert in der Inferenzstatistik
+$\pi$ | "Pi" | Das mit dem Kreis halt. Wisstschon.
+$\rho$ | "Rho" | Statistik; Alternative zu Pearson's r
+$\sigma$, $\Sigma$ | "Sigma" (kleines, großes) | Standardabweichung in der Population
+$\phi$ | "Phi" | Teststatistik (QM1)
+$\chi$ | "Chi" (meistens "tschi") | Teststatistik (QM1, QM2)
+$\omega$, $\Omega$ | Omega (kleines, großes) | Teststärke (QM2)
