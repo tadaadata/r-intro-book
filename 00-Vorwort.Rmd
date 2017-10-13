@@ -30,6 +30,7 @@ get_latest_commit <- function(count = 3) {
   
   name       <- commits$commit$author$name[index]
   name       <- ifelse(name == "jemus42", "Lukas", name)
+  name       <- ifelse(name == "MarauderPixie", "Tobi", name)
   date       <- format(lubridate::ymd_hms(commits$commit$author$date[index], 
                                           tz = "Europe/Berlin", quiet = TRUE), "%F %H:%M")
   url        <- commits$html_url[index]
