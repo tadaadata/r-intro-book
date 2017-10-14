@@ -1,12 +1,25 @@
 # Reproduzierbarkeit
 
-Hier die *Session Info* zum Zeitpunkt des Renderns:
+Hier die *Session Info* zum Zeitpunkt des Renderns.
+
+## Pandoc 
+
+Für HTML/epub output.
 
 ```{r}
-# Pandoc für HTML/epub output
 system(command = "pandoc --version", intern = TRUE)[c(1, 2, 4)]
-# calibre-convert for epub -> PDF
+```
+
+## `calibre-convert`
+
+Für epub -> PDF
+
+```{r}
 system(command = "ebook-convert --version", intern = TRUE)
-# R info
+```
+
+## R session
+
+```{r}
 devtools::session_info()
 ```
