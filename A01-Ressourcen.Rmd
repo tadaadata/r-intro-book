@@ -41,34 +41,39 @@ Andere Quellen:
 
 ## Kurse & Workshops
 
-- RStudio Webinars
-- DataCamp
+- [RStudio Webinars](https://www.rstudio.com/resources/webinars/)
+- [DataCamp](https://www.datacamp.com/)
+- [Code School](http://tryr.codeschool.com/)
+- [Coursera](https://www.coursera.org/learn/r-programming)
 - [LOTR Data](https://github.com/jennybc/lotr-tidy)
 
 ## Vorträge / Lectures
 
-- useR stuff
-- YouTube stuff
+- [useR!](https://user2017.brussels/)
+- YouTube ¯\\\_(ツ)_/¯
 
 ## Blogs
+
+- Aggregator: [R-Bloggers](http://rbloggers.com/)
 
 Siehe auch: [Blogs in `blogdown`](https://github.com/sellorm/awesome-blogdown)
 
 ## Community
 
-- Stackoverflow
-- Twitter: `#rstats`
+- [Stackoverflow](https://stackoverflow.com/questions/tagged/r)
+- [Twitter: `#rstats`](https://twitter.com/search?f=tweets&q=%23rstats)
 - Facebook Gruppen
 
 ## Dokumentation
 
-- R help
-    - vignettes
-- rdrr
-- rdocumentation
-- github
+- [R help](https://cran.r-project.org/doc/manuals/r-release/R-intro.html) (inoffizielle [bookdown-Version](http://colinfay.me/intro-to-r/))
+    - Package Vignettes
+- [rdrr.io](https://rdrr.io/)
+- [rdocumentation](http://www.rdocumentation.org/)
+- GitHub Repositories
 
 - Package-specific
-    - tidyverse.org
+    - [tidyverse.org](https://www.tidyverse.org/)
+    - [Strenge Jacke / sjPlot](http://www.strengejacke.de/sjPlot/)
 
 
