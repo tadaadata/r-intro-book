@@ -12,12 +12,12 @@ $\alpha$ | "Alpha" | Testniveau (QM2)
 $\beta$  | "Beta"  | Fehler 2. Art (QM2)
 $\gamma$ | "Gamma" | Teststatistik
 $\delta$, $\Delta$ | "Delta" (kleines, großes) | Effektgröße, allgemein "Unterschied", "Differenz"
-$\eta$ | "Eta" | Teststatistik (QM1, QM2)
+$\eta$ | "Eta" | Teststatistik, Effektgröße (QM1, QM2)
 $\lambda$ | "Lambda" | Teststatistik (QM1)
 $\mu$ | "Mü" | Populationsmittelwert; Mittelwert in der Inferenzstatistik
 $\pi$ | "Pi" | Das mit dem Kreis halt. Wisstschon.
 $\rho$ | "Rho" | Statistik; Alternative zu Pearson's r
-$\sigma$, $\Sigma$ | "Sigma" (kleines, großes) | Standardabweichung in der Population
+$\sigma$, $\Sigma$ | "Sigma" (kleines, großes) | Standardabweichung in der Population bzw. Summenzeichen ($\sum^n_{i = 1}$)
 $\phi$ | "Phi" | Teststatistik (QM1)
 $\chi$ | "Chi" (meistens "tschi") | Teststatistik (QM1, QM2)
-$\omega$, $\Omega$ | Omega (kleines, großes) | Teststärke (QM2)
+$\omega$, $\Omega$ | Omega (kleines, großes) | Effektgröße (QM2)
