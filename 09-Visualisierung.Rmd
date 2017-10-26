@@ -20,12 +20,35 @@ Deswegen ist der erste Schritt jeder Datenanalyse ein Plot der Daten in verschie
 
 ## ggplot2
 
-[ggplot2](http://had.co.nz/ggplot2/) ist nicht nur ein R-Packages, es ist auch gleichzeitig eine Implementation des *Grammar of Graphics*. Das klingt fancy (ist es auch), heißt für uns aber in erster Linie nur, dass es gut durchdachter Kram ist. 
+[ggplot2](http://had.co.nz/ggplot2/) ist nicht nur ein R-Packages, es ist auch gleichzeitig eine Implementation des *Grammar of Graphics*. Das klingt fancy (ist es auch), heißt für uns aber in erster Linie nur, dass es gut durchdachter Kram ist.  
 
 ```{r}
 library(ggplot2)
 ```
 
+*ggplot2* baut euch einen Plot aus verschiedenen Elementen zusammen, und es hilft durchaus ein grobes Gefühl dafür zu haben, wie das unter der Haube aussieht.
+
+- *geom*: Jedes *geom* ist eine *Lage* des Plots, der Grundlayer ist einfach leer. Jeder weitere Layer enthält `geom`-Elemente, wie Balken, Histogramme, Punkte etc. Ein `geom` ist eine geometrische Darstellungsform, und wenn ihr mehrere Darstellungsformen übereinanderlegen wollt, erstellt ihr damit mehrere *Layer*.
+- `aes`: *Aesthetics*, die Zuordnungen einer Variable mit konkreten Werten zu einem Aspekt des Plots, wie zum Beispiel "Alter auf die x-Achse, Körpergröße auf die y-Achse". 
+- *scales*: Mit *scales* können wir die einzelnen *aesthetics* bearbeiten, so können wir zum Beispiel die Abstände auf der x-Achse anpassen oder die Beschriftung auf der y-Achse.
+- *theme*: Optional können wir jedes optische Element des Plots manuell anpassen, sei es die Schriftart im Titel oder die Farbe des Hintergrunds, die Position der Legende.
+
+Ein Beispiel:
+
+```{r}
+ggplot(data = qmsurvey, aes(x = alter, y = feiern)) +
+  geom_col() +
+  scale_y_continuous(breaks = seq(0, 100, 15), minor_breaks = seq(0, 100, 5)) +
+  labs(title = "Alter und Feiern",
+       subtitle = "“Wie oft gehst du im Monat feiern”",
+       x = "Alter (Jahre)", y = "Tage pro Monat")
+```
+
+Okay, was haben wir da gemacht?  
+`ggplot()` macht erstmal einen neuen Plot auf. Mit `data = qmsurvey` sagen wir, mit welchem Datensatz wir arbeiten, und wo ggplot die Namen der Variablen suchen soll, die wir benutzen. `aes()` macht die Verknüpfung von Skalen (`x`, `y`) zu Variablen, soweit alles erwartungsgemäß, kein fancy Voodoo, nur gewöhnungsbedürftiger Syntax.  
+`geom_col` macht ein Balkendiagramm auf, und wir haben ja bereits definiert welche Variable wo hin soll.  
+In `scale_y_continuous` sagen wir jetzt noch, dass die Achsenabstände in 15er-Schritten liegen sollen, und wir kleinere Abstände (die dünneren weißen Linien) in 5er-Abständen liegen sollen.  
+Als letztes kümmern wir uns ein bisschen um die Kosmetik: Wir beschriften unsere Elemente mit `labs()`, wobei wir Title, Untertitel und Achsen beschreiben.
 
 ## `geom_wtf`
 
@@ -136,6 +159,29 @@ ggplot(data = qmsurvey, aes(x = rauchen, fill = gender)) +
   geom_bar(position = "dodge", color = "black", alpha = .75)
 ```
 
+Jetzt haben wir Balken, gefärbt in Abhängigkeit von der Variable `gender`, in den ggplot2-Standardfarben. 
+Wenn wir bestimmte Farben für die Zuordnung benutzen wollen, müssen wir die entsprechende `scale` manuell bearbeiten.  
+Unter `scale` fällt in ggplot2 jedes Element eines Plots, das sich einer Variable zuordnen lässt, dazu gehören `x` und `y`-Variablen, aber auch die Farbe `color` und Füllfarbe `fill`.  
+Also, ein paar Beispiele:
+
+```{r}
+ggplot(data = qmsurvey, aes(x = rauchen, fill = gender)) +
+  geom_bar() +
+  scale_fill_manual(values = c("red", "blue", "green"))
+```
+
+Oh glob, viel zu grell!
+
+```{r}
+ggplot(data = qmsurvey, aes(x = rauchen, fill = gender)) +
+  geom_bar() +
+  scale_fill_manual(values = c("darkred", "lightblue", "darkgreen"))
+```
+
+Besser, aber auch hässlich, nur anders.   
+Es stellt sich heraus, dass Farben kompliziert sind. Zumindest, wenn man Ansätze von ästhetischem Anspruch hat.  
+Zum Glück sind wir aber nicht auf manuelle Farbauswahl angewiesen, wir können fertige Farbpaletten benutzen, bei denen sich schonmal jemand Gedanken darüber gemacht hat, ob das okay aussieht oder nicht.
+
 ### Zusätzliche Farbpaletten
 
 #### RColorBrewer
@@ -174,7 +220,7 @@ ggplot(data = qmsurvey, aes(x = rauchen, fill = gender)) +
 ```
 
 
-### Themes
+## Themes
 
 Themes verändern nicht die Farbe eurer Punkte/Linien/Balken, aber sie verändern alles andere an eurem Plot, von der Hintergrundfarbe bis zur Schriftart in den Labels.  
 Es gibt viele schöne themes, aber der allgemeine Ratschlag bleibt: Simpel ist besser.  
