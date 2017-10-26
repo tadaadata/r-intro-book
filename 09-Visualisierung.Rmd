@@ -35,12 +35,12 @@ library(ggplot2)
 
 Ein Beispiel:
 
-```{r}
+```{r ggplot_firstlook}
 ggplot(data = qmsurvey, aes(x = alter, y = feiern)) +
   geom_col() +
   scale_y_continuous(breaks = seq(0, 100, 15), minor_breaks = seq(0, 100, 5)) +
   labs(title = "Alter und Feiern",
-       subtitle = "“Wie oft gehst du im Monat feiern”",
+       subtitle = "Wie oft gehst du im Monat feiern",
        x = "Alter (Jahre)", y = "Tage pro Monat")
 ```
 
@@ -78,7 +78,7 @@ ggplot(data = gotdeaths, aes(x = death_season)) +
 
 Das ist zwar schön und gut, aber es sieht noch nicht so wirklich brauchbar aus, und es fehlen vor allem aussagekräftige Beschriftungen. Letztere sind via `labs()` sehr einfach:
 
-```{r}
+```{r barchart_labs}
 ggplot(data = gotdeaths, aes(x = death_season)) +
   geom_bar() +
   labs(title = "Game of Thrones: Deaths",
@@ -91,7 +91,7 @@ ggplot(data = gotdeaths, aes(x = death_season)) +
 
 Okay, wir wollen also die Balken bunt machen. Es gibt zwei Möglichkeiten: Die `color` und `fill`. Ersteres ist die Farbe (duh), zweiteres die Füllfarbe (duhuh), und unterschiedliche `geoms` haben da entsprechende Unterschiede.
 
-```{r}
+```{r colorfill_1}
 ggplot(data = gotdeaths, aes(x = death_season)) +
   geom_bar(color = "red") +
   labs(title = "Game of Thrones: Deaths",
@@ -101,7 +101,7 @@ ggplot(data = gotdeaths, aes(x = death_season)) +
 
 Jetzt haben wir rote Umrandungen. Nicht sehr beeindruckend.
 
-```{r}
+```{r colorfill_2}
 ggplot(data = gotdeaths, aes(x = death_season)) +
   geom_bar(fill = "red") +
   labs(title = "Game of Thrones: Deaths",
@@ -111,7 +111,7 @@ ggplot(data = gotdeaths, aes(x = death_season)) +
 
 Ein bisschen grell, aber immerhin rot.
 
-```{r}
+```{r colorfill_3}
 ggplot(data = gotdeaths, aes(x = death_season)) +
   geom_bar(fill = "darkred", color = "black") +
   labs(title = "Game of Thrones: Deaths",
@@ -121,7 +121,7 @@ ggplot(data = gotdeaths, aes(x = death_season)) +
 
 Okay, vielleicht ein bisschen Transparenz noch?
 
-```{r}
+```{r colorfill_4}
 ggplot(data = gotdeaths, aes(x = death_season)) +
   geom_bar(fill = "darkred", color = "black", alpha = 0.75) +
   labs(title = "Game of Thrones: Deaths",
@@ -144,17 +144,17 @@ Wenn wir global die Farbe der Balken ändern wollen, können wir das direkt simp
 
 Wenn wir einer *aesthetic* wie `fill` oder `color` eine Variable zuordnen wollen, müssen wir das in `aes()` tun, wo wir auch `x` und `y` definieren. 
 
-```{r}
+```{r scales_1}
 ggplot(data = qmsurvey, aes(x = rauchen)) +
   geom_bar()
 ```
 
-```{r}
+```{r scales_2}
 ggplot(data = qmsurvey, aes(x = rauchen, fill = gender)) +
   geom_bar()
 ```
 
-```{r}
+```{r scales_3}
 ggplot(data = qmsurvey, aes(x = rauchen, fill = gender)) +
   geom_bar(position = "dodge", color = "black", alpha = .75)
 ```
@@ -164,7 +164,7 @@ Wenn wir bestimmte Farben für die Zuordnung benutzen wollen, müssen wir die en
 Unter `scale` fällt in ggplot2 jedes Element eines Plots, das sich einer Variable zuordnen lässt, dazu gehören `x` und `y`-Variablen, aber auch die Farbe `color` und Füllfarbe `fill`.  
 Also, ein paar Beispiele:
 
-```{r}
+```{r scales_4}
 ggplot(data = qmsurvey, aes(x = rauchen, fill = gender)) +
   geom_bar() +
   scale_fill_manual(values = c("red", "blue", "green"))
@@ -172,7 +172,7 @@ ggplot(data = qmsurvey, aes(x = rauchen, fill = gender)) +
 
 Oh glob, viel zu grell!
 
-```{r}
+```{r scales_5}
 ggplot(data = qmsurvey, aes(x = rauchen, fill = gender)) +
   geom_bar() +
   scale_fill_manual(values = c("darkred", "lightblue", "darkgreen"))
@@ -186,7 +186,7 @@ Zum Glück sind wir aber nicht auf manuelle Farbauswahl angewiesen, wir können 
 
 #### RColorBrewer
 
-```{r}
+```{r colorbrewer}
 # install.packages(RColorBrewer)
 
 ggplot(data = qmsurvey, aes(x = rauchen, fill = gender)) +
@@ -211,7 +211,7 @@ knitr::include_graphics("images/brewer_palettes.png")
 
 Besondere Stärke: Gleicher wahrgenommener Abstand der Farben, demnach besonders gut geeignet für kontinuierliche Fabrskalen. Bonus: Auch noch gut distinguierbar, wenn in schwarzweiß konvertiert.
 
-```{r}
+```{r viridis}
 library(viridis)
 
 ggplot(data = qmsurvey, aes(x = rauchen, fill = gender)) +
@@ -225,7 +225,7 @@ ggplot(data = qmsurvey, aes(x = rauchen, fill = gender)) +
 Themes verändern nicht die Farbe eurer Punkte/Linien/Balken, aber sie verändern alles andere an eurem Plot, von der Hintergrundfarbe bis zur Schriftart in den Labels.  
 Es gibt viele schöne themes, aber der allgemeine Ratschlag bleibt: Simpel ist besser.  
 
-```{r}
+```{r themes_1}
 plot <- ggplot(data = gotdeaths, aes(x = death_season)) +
   geom_bar() +
   labs(title = "Game of Thrones: Deaths",
@@ -234,7 +234,7 @@ plot <- ggplot(data = gotdeaths, aes(x = death_season)) +
 ```
 
 
-```{r}
+```{r themes_2}
 library(tadaatoolbox)
 
 plot + theme_tadaa()
@@ -242,7 +242,7 @@ plot + theme_tadaa()
 
 Oder auch:
 
-```{r}
+```{r themes_3}
 library(hrbrthemes)
 
 plot + theme_ipsum()
@@ -250,7 +250,7 @@ plot + theme_ipsum()
 
 Siehe auch: `ggthemes`
 
-```{r}
+```{r themes_4}
 library(ggthemes)
 
 plot + theme_gdocs()
