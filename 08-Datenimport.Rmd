@@ -139,7 +139,11 @@ save(datensatz, file = "pfad/zur/Datei.rda")
 ### Excel (`.xlsx`)
 
 - Benötigte packages: `readxl`
-- Anstrengend? Manchmal.
+- Anstrengend? Manchmal. Aber wenn, dann *richtig*.
+
+Wenn ihr ein sauberes (i.e. ohne Schnickschnak) Spreadsheet habt in dem auch wirklich nur eure Werte drinstehen, dann ist das Ganze recht simpel und ihr seid mit `readxl` auch gut bedient.  
+Wenn ihr einen dreckigen Haufen dampfender Menschenverachtung vor euch habt, dann… viel Spaß.  
+Es gibt da [das ein oder andere Projekt](https://github.com/rsheets/rexcel#rexcel) für die komplexeren Fälle, aber wenn ihr die Möglichkeit habt, macht es euch so einfach (und rechteckig) wie möglich.
 
 ### Google Sheets
 
@@ -178,3 +182,6 @@ Mehr Informationen und Beispiele [gibt's in der Vignette](https://rawgit.com/jen
 
 Um festzustellen, ob eure frisch eingelesenen Daten auch brauchbar sind, empfiehlt sich ein Blick in die Daten via `View(daten)` bzw. Über einen Klick auf den Datensatz im *Environment*-Tab von RStudio.  
 Zusätzlich ist auch hier natürlich `str()´ praktisch, um zum Beispiel schnell zu überprüfen, ob eure Variablen auch alle die Klasse haben, die ihr erwartet (alle Zahlen sind *numeric* und Nominaldaten sind *factor* oder wenigstens *character*).
+
+Es gibt da kein one-size-fits-all Rezept zur Datenbereinigung, denn jeder Datensatz ist auf seine eigene Art dreckig. Ihr könnt nur darauf hoffen, dass euer konkreter Anwendungsfall gut googlebar ist, oder ihr sowas ähnliches schonmal gemacht habt.  
+Die gängigsten Probleme sind recoding, umbenennen oder zusammenfassen, und das meiste lässt sich entweder mit `dplyr` oder ggf. noch `tidyr` erledigen. Versucht es erstmal innerhalb des *tidyverse*, das ist vermutlich angenehmer als zusammengehackte Google-Lösungen. Aber auch hier, wie gesagt: Je nachdem was ihr vorhabt. 
