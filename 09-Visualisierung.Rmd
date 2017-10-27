@@ -20,7 +20,7 @@ Deswegen ist der erste Schritt jeder Datenanalyse ein Plot der Daten in verschie
 
 ## ggplot2
 
-[ggplot2](http://had.co.nz/ggplot2/) ist nicht nur ein R-Packages, es ist auch gleichzeitig eine Implementation des *Grammar of Graphics*. Das klingt fancy (ist es auch), heißt für uns aber in erster Linie nur, dass es gut durchdachter Kram ist.  
+[ggplot2](http://ggplot2.tidyverse.org/) ist nicht nur ein R-Packages, es ist auch gleichzeitig eine Implementation des *Grammar of Graphics*. Das klingt fancy (ist es auch), heißt für uns aber in erster Linie nur, dass es gut durchdachter Kram ist.  
 
 ```{r}
 library(ggplot2)
@@ -259,3 +259,10 @@ plot + theme_fivethirtyeight()
 plot + theme_excel() # Nein.
 plot + theme_economist()
 ```
+
+## Learning by Fiddleing
+
+*ggplot2* zu lernen lohnt sich sehr, weil ihr nach einer Weile einfach ein intuitives Gefühl dafür bekommt, wie ihr Daten eim schnellsten und einfachsten schön präsentieren könnt.  
+Der Weg dahin ist voller Googlereien und ihr werde viel Zeit damit verbringen Code von anderen zu copypasten und solange daran herumzuspielen bis es so grob das macht, was ihr wollt.  
+
+Also: Googlet was ihr machen wollt, und bookmarkt [ggplot2.tidyverse.org](http://ggplot2.tidyverse.org/).

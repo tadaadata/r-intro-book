@@ -318,7 +318,7 @@ mean(gruppe1$extra)
 mean(gruppe2$extra)
 ```
 
-Okay, Schritt wir Schritt.  
+Okay, Schritt für Schritt.  
 Hier haben wir unseren ersten logischen vergleich benutzt, um eine Teilmenge der Tabelle zu extrahieren.  
 Das klingt fancy, ist aber ziemlich simpel.  
 In Worten heißt die Zeile `gruppe1 <- sleep[sleep$group == 1]` lediglich:  
@@ -365,7 +365,8 @@ mean(sleep[1])
 
 `sleep[1]` gibt euch zwar auch die Spalte `extra`, aber wie schon gesagt, in `data.frame`-Form, und nicht als Vektor.
 
-Vermutlich verwirrt euch das ganze Geklammere jetzt mehr oder weniger stark, aber glaubt mir, wenn wir erstmal ein Gefühl dafür habt ist es sehr viel Wert diese Grundlagen auf dem Schirm zu haben (oder sie zumindest nachlesen zu können), denn in der ersten Zeit eurer R-Nutzung werdet ihr massenhaft kleinere und größere Fehler in dieser Art machen, wo ihr zwar das richtige *meint*, aber R nicht das richtige *sagt*.
+Vermutlich verwirrt euch das ganze Geklammere jetzt mehr oder weniger stark, aber glaubt mir, wenn wir erstmal ein Gefühl dafür habt ist es sehr viel Wert diese Grundlagen auf dem Schirm zu haben (oder sie zumindest nachlesen zu können), denn in der ersten Zeit eurer R-Nutzung werdet ihr massenhaft kleinere und größere Fehler in dieser Art machen, wo ihr zwar das richtige *meint*, aber R nicht das richtige *sagt*.  
+Die andere Sache ist, dass ihr das mit den eckigen Klammern gar nicht so häufig brauchen werdet, wenn ihr euch erstmal an das *tidyverse* und *dplyr* gewöhnt habt, aber dazu später mehr.
 
 Wir schneiden das Ganze Thema *Subsetting* hier auch erstmal nur an, aber wenn ihr's jetzt schon ganz genau wissen wollt, könnt ihr die Details [hier nachlesen](http://adv-r.hadley.nz/subsetting.html#subsetting-operators)
 
@@ -412,28 +413,28 @@ Was R hier macht nennt sich *Recycling*: In der ersten Zeile im letzten Beispiel
 
 Es gibt eine Reihe *logischer Operatoren* wie hier `>` für *"ist größer als"*, die wichtigsten in Übersicht:  
 
-- `==` (doppeltes Gleichheitszeichen **ohne Leerzeichen dazwischen**):
+- `==` (doppeltes Gleichheitszeichen **ohne Leerzeichen dazwischen**)
     - "Ist gleich"
     - `1 == 2` --> `FALSE`
     - `3 == 3` --> `TRUE`
     - `3 == "Hallo"` --> `FALSE`
-- `!=`:
+- `!=`
     - "ist ungleich"
     - Die *Negation* von `==`, also immer da wo `==` euch `TRUE` zeigt, gibt `!=` euch `FALSE` und andersherum.
     - `pi != 3` --> `TRUE`
     - `"Psychologiestudium" != "Voll gute Idee"`
-- `!` (ja, ein einfaches Ausrufezeichen):
+- `!` (ja, ein einfaches Ausrufezeichen)
     - "Negation"
     - Dreht ein `FALSE` zu einem `TRUE` um und andersherum. Wichtig: Klammern!
     - `!(2 == 3)`
     - `TRUE == !FALSE`
-- `>` und `<` (spitze Klammern):
+- `>` und `<` (spitze Klammern)
     - "ist größer/kleiner als"
     - Da wo die Klamer spitz ist, soll das *kleinere* sein
     - `5 > 4` --> `TRUE`
     - `2^10 < 1000` --> `FALSE`
     - `2 < 5 < 4` --> *Funktioniert nicht!*
-- `>=`, `<=`: 
+- `>=`, `<=`
     - "Größer gleich bzw. kleiner gleich"
     - Ist *Entweder* `a > b` *oder* `a == b`?
     - `5 >= 4`
@@ -441,7 +442,7 @@ Es gibt eine Reihe *logischer Operatoren* wie hier `>` für *"ist größer als"*
 
 Diese Ausdrücke können wir auch auf bestimmte Arten *verknüpfen*:
 
-- `&` (oder auch `&&`): 
+- `&` (oder auch `&&`)
     - "Und"
     - Ist `TRUE`, wenn beide Seiten `TRUE` sind
     - `(1 < 3) & (5 < 10)` --> `TRUE`
@@ -449,13 +450,13 @@ Diese Ausdrücke können wir auch auf bestimmte Arten *verknüpfen*:
     - 1 und 0 werden zu `TRUE` bzw. `FALSE` übersetzt:
         - `1 & (2 == 2)` --> `TRUE`
         - `!(0 & FALSE)` --> `TRUE`
-- `|` (oder auch `||`):
+- `|` (oder auch `||`)
     - "Oder"
     - Ist *entweder* A *oder* B *oder* beides `TRUE`?
     - Da `|` auch wahr ist, wenn nur eine Seite wahr ist, ist es auch Grundlage für etlicher Mathe-/Logikwitze
     - `(1 < 3) | (5 < 10)` --> `TRUE`
     - `(5 < 2) | (2 < 10)` --> `TRUE`
-- `xor()`:
+- `xor()`
     - "Entweder … oder …" (*ausschließend*!)
     - Wenn euch `|` zu unspezifisch ist
     - Ist *nur* war, wenn *eins von beidem* wahr ist, aber nicht, wenn beides wahr ist
@@ -469,7 +470,7 @@ Diese Ausdrücke können wir auch auf bestimmte Arten *verknüpfen*:
 
 Die obigen Operatoren können wir für getrost für Vektorvergleiche benutzen, aber es gibt noch ein paar Sonderfälle. Was zum Beispiel, wenn wir nur generell wissen wollen, ob ein Element wie eine Zahl oder ein String in einem Vektor enthalten ist? Oder was, wenn wir wir auf spezielle Typen oder Klassen testen wollen? Was das im Detail heißt sehen wir in den entsprechenden Abschnitten zu [Datentypen] noch einmal, aber hier schonmal eine Kurzreferenz:
 
-- `%in%` (auch hier, *ohne Leerzeichen* dazwischen!):
+- `%in%` (auch hier, *ohne Leerzeichen* dazwischen!)
     - "Ist in"
     - Mengentheoretisch ist das $x \in X$
     - Ist Element `a` in Element `b`?
