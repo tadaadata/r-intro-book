@@ -453,7 +453,7 @@ Diese Ausdrücke können wir auch auf bestimmte Arten *verknüpfen*:
 - `|` (oder auch `||`)
     - "Oder"
     - Ist *entweder* A *oder* B *oder* beides `TRUE`?
-    - Da `|` auch wahr ist, wenn nur eine Seite wahr ist, ist es auch Grundlage für etlicher Mathe-/Logikwitze
+    - Da `|` auch wahr ist, wenn nur eine Seite wahr ist, ist es auch Grundlage etlicher Mathe-/Logikwitze
     - `(1 < 3) | (5 < 10)` --> `TRUE`
     - `(5 < 2) | (2 < 10)` --> `TRUE`
 - `xor()`
@@ -473,13 +473,14 @@ Die obigen Operatoren können wir für getrost für Vektorvergleiche benutzen, a
 - `%in%` (auch hier, *ohne Leerzeichen* dazwischen!)
     - "Ist in"
     - Mengentheoretisch ist das $x \in X$
-    - Ist Element `a` in Element `b`?
+    - Ist Element `a` in Menge `b`?
     - `5 %in% c(1, 4, 5, 3)` --> `TRUE`
     - `"B" %in% c("a", "b", "c")` --> `FALSE`
     - `"B" %in% c("a", "B", "c")` --> `TRUE`
     - `c(1, 2) %in% 1:5` --> `TRUE`
 - `is.na()`: Testet auf fehlende Werte (*missing values*, `NA`)
 - `is.null()`: Testet auf leere Werte (`NULL`)
+- `is.nan()`: Testet auf `NaN` (*Not a Number*)
 
 ### Indexing: Beispiele
 
