@@ -91,5 +91,29 @@ library("sjPlot")
 Das *tidyverse* ist eine Ansammlung von packages, die alle mehr oder weniger gut miteinander auskommen und auf ähnliche Art zu benutzen sind.  
 Eine Übersicht und ganz viel Dokumentation und Beispiele findet ihr auf <http://tidyverse.org>.
 
+Es gibt ein *catchall* R-package, das die wichtigstens packages für euch installiert:
+
+```
+install.packages("tidyverse")
+```
+
+Ihr könnt danach entweder das package laden und habt damit die wichtigsten Funktionen parat, oder ihr ladet die packages nach Bedarf einzeln.  
+Ich würde zu letzterem raten, weil ihr so eher ein Gefühl dafür bekommt welches package für welche Funktionen zuständig ist, und nebenbei geht es auch ein bisschen schneller.
+
+Hier eine kurze Übersicht über die wichtigsten *tidyverse*-packages/Funktionen für alltägliche Aufgaben:
+
+- `%>%`: Der *pipe*-Operator aus *magrittr*, der von den meisten der packages *re-exportiert* wird
+- **ggplot2**: Für Visualisierungen
+- **dplyr**: Datenmanipulation
+    - `mutate`: Neue Variablen erstellen/  bestehende Verändern
+    - `select`: Variablen auswählen
+    - `filter`: Datensätze filtern
+    - `group_by`: Gruppieren…
+    - `summarize`: Und zusammenfassen
+- **tidyr**: Datenmanipulation
+    - `gather`: Konvertiert von *wide* in *long* format (mehrere Spalten zu zwei zusammenfassen)
+    - `spread`: Gegenstück, konvertiert von *long* in *wide* format
+
+
 
 [^ruby]: Die Ruby-Leute und ihre *Gems* seien mal dahingestellt

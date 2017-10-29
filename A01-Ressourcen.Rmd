@@ -37,7 +37,6 @@ Andere Quellen:
 
 - [R for Dummies](http://www.dummies.com/store/product/R-For-Dummies.productCd-1119962846.html)
 
-
 ### Kollaboration und Organisation
 
 #### Git & GitHub
@@ -68,7 +67,7 @@ Siehe auch: [Blogs in `blogdown`](https://github.com/sellorm/awesome-blogdown)
 
 - [Stackoverflow](https://stackoverflow.com/questions/tagged/r)
 - [Twitter: `#rstats`](https://twitter.com/search?f=tweets&q=%23rstats)
-- Facebook Gruppen
+- Facebook-Gruppen
 
 ## Dokumentation
 

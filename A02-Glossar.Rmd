@@ -1,6 +1,7 @@
 # Glossar
 
-Für diejenigen, die in Mathe immer ein bisschen verwirrt waren, sobald Symbole benutzt wurden: Hier ein bisschen Vokabular.
+Für diejenigen, die in Mathe immer ein bisschen verwirrt waren, sobald Symbole benutzt wurden:  
+Hier ein bisschen Vokabular.
 
 ## Griechische Buchstaben
 
@@ -16,7 +17,7 @@ $\eta$             | "Eta"           | Statistik / Effektgröße (QM1, QM2)
 $\lambda$          | "Lambda"        | Statistik / Effektgröße (QM1)
 $\mu$              | "Mü"            | Populationsmittelwert; Mittelwert in der Inferenzstatistik
 $\pi$              | "Pi"            | Das mit dem Kreis halt. Wisstschon.
-$\rho$             | "Rho"           | Statistik / Effektgröße; Alternative zu Pearson's r
+$\rho$             | "Rho"           | Statistik / Effektgröße; Alternative zu Pearson's $r$
 $\sigma$, $\Sigma$ | "Sigma" (kleines, großes) | Standardabweichung in der Population bzw. Summenzeichen ($\sum^n_{i = 1}$)
 $\phi$             | "Phi"           | Statistik / Effektgröße (QM1)
 $\chi$             | "Chi" (meistens "tschi") | (Test-)Statistik (QM1, QM2)
