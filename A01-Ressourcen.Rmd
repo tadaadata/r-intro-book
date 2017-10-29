@@ -17,6 +17,12 @@ Es gibt viele freie Quellen für schöne Datensätze zum Üben oder rumspielen, 
 - [kaggle](https://www.kaggle.com): Mit Challenges zu den Daten
 - [data.world](https://data.world): Hier kommt z.B. der [*Game of Thrones* deaths](https://data.world/aendrew/game-of-thrones-deaths)-Datensatz her
 
+### Tadaa, Datasets!
+
+Hier liegen diverse Datensätze aus unseren Projekten, wie z.B. die QM-Surveys und die Tutorienteilnahme.
+
+- [public.tadaa-data.de/data/](https://public.tadaa-data.de/data/readme.html)
+
 ## Bücher
 
 <small>(Mit *Bücher* ist meistens kein Totholz, sondern sowas wie dieses hier gemeint)</small>
