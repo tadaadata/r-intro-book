@@ -9,14 +9,77 @@ Wir halten uns (so grob) an die Struktur aus QM1 und QM2, das heißt: Wir kümme
 
 *Univariat* ist *fancy sprech* für "nur eine Variable", das heißt es geht erstmal noch nicht um Zusammenhänge irgendeiner Art, sondern primär darum wie ein Merkmal **verteilt** ist.  
 Die dazugehörigen Kennwerte und Formeln sind sozusagen das kleine 1x1 der Statistik, dementsprechend sind sie auch in R schnell und einfach erreichbar.  
-Als Beispieldatensatz nehmen wir mal den *Game of Thrones Deaths*-Datensatz und den `participation`-Datensatz zur Tutorienteilnahme, beide aus dem Kapitel [Datenimport]:
+Als Beispieldatensatz nehmen wir wieder den *Game of Thrones Deaths*-Datensatz und den `qmsurvey`-Datensatz, beide aus dem Kapitel [Datenimport]:
 
-```{r Ch11_Daten_einlesen, message=FALSE, warning=FALSE}
-participation <- readRDS("data/participation.rds")
-gotdeaths     <- readr::read_csv("data/got_deaths.csv")
+```{r ch11_Daten_einlesen, message=FALSE, warning=FALSE}
+qmsurvey  <- readRDS("data/qm-survey-2017-R.rds")
+gotdeaths <- readr::read_csv("data/got_deaths.csv")
 ```
 
 ### Mittelwert, Median, Modus
 
+Mittelwert und Median sind einfach: 
+
+```{r ch_11_mean_median}
+mean(qmsurvey$zufrieden)
+median(qmsurvey$zufrieden)
+```
+
+Die Funktionen `mean` und `median` sind da wenig überraschend.  
+Aber was machen wir mit dem Modus? In R an sich gibt es keine `modus`-Funktion, deswegen haben wir an dieser Stelle zwei Optionen:
+
+1. Häufigkeitstabelle erstellen und ablesen.
+2. Ein package benutzen, dass eine Funktion für den Modus hat.
+
+Eine Häufigkeitstabelle bekommen wir sehr einfach mit `table`:
+
+```{r freq_table}
+table(qmsurvey$zufrieden)
+```
+
+Das ist zwar optisch wenig beeindruckend, aber wir können immerhin einfach erkennen, dass der Wert `4` die größte absolute Höufigkeit hat. Passt.
+
+Alternativ können wir die `tadaatoolbox` benutzen:
+
+```{r modus_toolbox}
+library(tadaatoolbox)
+
+modus(qmsurvey$zufrieden)
+```
+
+Vollkommen unerwartet kommen wir zum gleichen Ergebnis.  
+Who'da thunk.  
+Für die EnthusiastInnen:  
+Die `modus`-Funktion macht übrigens auch nichts anderes als eine Häufigkeitstabelle via `table`, aus der dann das Maximum extrahiert wird.  
+Praktisch nur `names(table(x)[table(x) == max(table(x))])` mit ein bisschen Glitzer und so.
+
+Wenn wir das jetzt noch in schön und übersichtlich haben wollen, können wir auf `sjPlot` zurückgreifen:
+
+```{r freq_sjt}
+library(sjPlot)
+
+sjt.frq(qmsurvey$zufrieden, emph.md = TRUE, emph.quart = TRUE)
+```
+
+Da fällt eine Tabelle raus, die uns Median, die Häufigkeiten, fehlende Werte und in der Fußzeile gleich auch gesamt-N, Mittelwert und Standardabweichung anzeigt.  
+Über `emph.quart = TRUE` sagen wir auch, dass die Quartile eingezeichnet werden sollen, was in diesem Beispiel etwas versagt.  
+Eine bessere Demonstration:
+
+```{r freq_sjt_2}
+sjt.frq(qmsurvey$alter, emph.md = TRUE, emph.quart = TRUE)
+```
+
+Hier haben wir zwei rote Linien für das 25%- und 75%-Quartile und fett/rote Schrift für den Median.  
+Voll schön.
+
 ### Variabilität und Co
 
+## Bivariate Statistiken
+
+### Nominalskala
+
+### Ordinalskala
+
+### Intervallskala
+
+### Weitere Statistiken
