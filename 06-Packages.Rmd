@@ -125,7 +125,7 @@ Eine Übersicht und ganz viel Dokumentation und Beispiele findet ihr auf <http:/
 
 Es gibt ein *catchall* R-package, das die wichtigstens packages für euch installiert:
 
-```
+```r
 install.packages("tidyverse")
 ```
 
