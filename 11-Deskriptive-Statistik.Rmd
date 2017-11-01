@@ -55,7 +55,7 @@ Praktisch nur `names(table(x)[table(x) == max(table(x))])` mit ein bisschen Glit
 
 Wenn wir das jetzt noch in schön und übersichtlich haben wollen, können wir auf `sjPlot` zurückgreifen:
 
-```{r freq_sjt}
+```{r freq_sjt, warning=FALSE, message=FALSE}
 library(sjPlot)
 
 sjt.frq(qmsurvey$zufrieden, emph.md = TRUE, emph.quart = TRUE)
@@ -72,7 +72,47 @@ sjt.frq(qmsurvey$alter, emph.md = TRUE, emph.quart = TRUE)
 Hier haben wir zwei rote Linien für das 25%- und 75%-Quartile und fett/rote Schrift für den Median.  
 Voll schön.
 
-### Variabilität und Co
+### Variabilität
+
+Hier ist die Situation ähnlich wie im vorigen Abschnitt: Varianz und Standardabweichung sind geschenkt, Variation ist seltsam.
+
+```{r var_sd}
+var(qmsurvey$zufrieden)
+sd(qmsurvey$zufrieden)
+```
+
+Wenig überraschend. Solange ihr euch merken könnt, dass *Standardabweichung* auf englisch ***s**tandard **d**eviation* heißt, sollte das kein Problem sein.  
+Die Variation hingegen wird so selten als Maß benutzt, dass es dafür keine dedizierte Funktion gibt – analog der Modus-Sache von weiter oben. Da das allerdings _wirklich_ kein Mensch braucht, bleibt euch nichts anderes übrig als die Varianz zu berechnen und mit $n-1$ zu multiplizieren.  
+
+¯\\\_(ツ)_/¯
+
+Okay, ihr könnt natürlich auch *ganz cool* sein und euch eine **eigene Funktion** schreiben! Wie die großen!
+
+So etwa:
+
+```{r variation}
+variation <- function(x) {
+  # NA rauskicken
+  x <- x[!is.na(x)]
+  # Variation berechnen
+  variation <- sum((x - mean(x))^2)
+  # Und zurückgeben
+  return(variation)
+}
+```
+
+Das war... Definitiv etwas, das wir gerade getan haben!  
+
+```{r variation_2}
+variation(qmsurvey$zufrieden)
+```
+
+Funktioniert.  
+Braucht nur wie gesagt kein Mensch, aber jetzt habt ihr immerhin mal so grob gesehen, wie Funktionen schreiben in R funktioniert.  
+'Tis not witchcraft.  
+Aber okay, ich schweife ab.
+
+### Variabilität auf Ordinalskala
 
 ## Bivariate Statistiken
 
