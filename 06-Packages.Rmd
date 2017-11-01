@@ -67,6 +67,38 @@ library(devtools)
 install_github("tadaadata/tadaatoolbox")
 ```
 
+### Maintenance
+
+Packages installieren ist einfach, aber wie jede Software wollen auch R-packages auf dem neusten Stand gehalten werden. Oder zumindest auf einem "nicht total veraltet"-Stand.  
+Updaten ist ziemlich einfach:  
+Entweder ihr klickt im "Packages"-Tab von RStudio auf den "Update"-Button, wählt alle Packages aus und installiert die Updates so, oder ihr gebt in der Konsole folgendes ein:
+
+```r
+update.packages(ask = FALSE)
+```
+
+…dann rödelt R die Updates durch. RStudio wird euch an dieser Stelle fragen, ob ihr die R-Session vorher neustarten wollt – das könnt ihr tun, aber er könnt damit auch warten bis ihr alle Updates installiert habt anstatt für jedes einzelne Update die Session neuzustarten.  
+Wichtig ist auf jeden Fall, dass ihr die R-Session neustartet bevor ihr weiter arbeitet.  
+
+```{block2, package-update, type='rmdimportant'}
+Wenn ein package geladen (`library()`) ist während ihr Updates durchführt, **muss** die R-Session danach neugestartet werden! Wenn ein package aktualisiert wird während es geladen ist macht das R sehr traurig und Fehler treten auf.
+
+RStudio --> Session --> Restart R
+```
+
+Solltet ihr mal ein packages löschen wollen, aus welchem Grund auch immer, dann geht das entweder auch über den Package-Tab in RStudio (das Kreuzchen rechts neben dem Namen des packages), oder ihr gebt folgendes in der Konsole ein:
+
+```r
+remove.packages("tadaatoolbox")
+```
+
+…um das package `tadaatoolbox` zu deinstallieren.  
+Aber wieso solltet ihr das tun wollen.  
+Wir haben so viel Arbeit in das package gesteckt.  
+Wieso nur.  
+Ihr Monster.
+
+
 ## sjPlot und Co.
 
 `sjPlot` ist das Aushängeschild der `strengejacke`-Packages von Daniel Lüdecke, und insgesamt sind seine packages _ziemlich ziemlich_ praktisch für die gängigen sozialwissenschaftlichen Analysen.  
