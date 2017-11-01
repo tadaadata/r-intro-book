@@ -93,8 +93,10 @@ Daten einlesen ist simpel:
 ```{r}
 qmsurvey <- readRDS("data/qm-survey-2017-R.rds")
 
-head(qmsurvey)
+tibble::as_tibble(qmsurvey)
 ```
+
+Wir benutzen hier das `tibble` package nur, damit der Datensatz kompakter angezeigt wird. Das ist für euch keine Notwendigkeit, aber ich empfehle es in der Regel gerne, weil euch so nicht die Konsole vollgeklatscht wird, wenn ihr euch euren Datensatz mal schnell anschauen wollt.
 
 Daten speichern auch:
 
@@ -115,8 +117,6 @@ library(readr)
 participation <- read_rds("~/Downloads/participation.rds")
 ```
 
-
-
 #### `.rda`, `.RData`
 
 Bei `.rda` bzw. `.RData`-Dateien ist zu beachten, dass diese den Namen des Objekts gleich mitspeichern, das heißt ihr müsst den eingelesenen Datensatz keinen Namen geben — der kommt schon mit der Datei.  
@@ -127,7 +127,6 @@ load("pfad/zur/datei.rda")
 
 # Oder…
 load("pfad/zur/datei.RData")
-
 ```
 
 Speichern:
@@ -181,7 +180,7 @@ Mehr Informationen und Beispiele [gibt's in der Vignette](https://rawgit.com/jen
 - tidyr
 
 Um festzustellen, ob eure frisch eingelesenen Daten auch brauchbar sind, empfiehlt sich ein Blick in die Daten via `View(daten)` bzw. Über einen Klick auf den Datensatz im *Environment*-Tab von RStudio.  
-Zusätzlich ist auch hier natürlich `str()´ praktisch, um zum Beispiel schnell zu überprüfen, ob eure Variablen auch alle die Klasse haben, die ihr erwartet (alle Zahlen sind *numeric* und Nominaldaten sind *factor* oder wenigstens *character*).
+Zusätzlich ist auch hier natürlich `str()` praktisch, um zum Beispiel schnell zu überprüfen, ob eure Variablen auch alle die Klasse haben, die ihr erwartet (alle Zahlen sind *numeric* und Nominaldaten sind *factor* oder wenigstens *character*).
 
 Es gibt da kein one-size-fits-all Rezept zur Datenbereinigung, denn jeder Datensatz ist auf seine eigene Art dreckig. Ihr könnt nur darauf hoffen, dass euer konkreter Anwendungsfall gut googlebar ist, oder ihr sowas ähnliches schonmal gemacht habt.  
 Die gängigsten Probleme sind recoding, umbenennen oder zusammenfassen, und das meiste lässt sich entweder mit `dplyr` oder ggf. noch `tidyr` erledigen. Versucht es erstmal innerhalb des *tidyverse*, das ist vermutlich angenehmer als zusammengehackte Google-Lösungen. Aber auch hier, wie gesagt: Je nachdem was ihr vorhabt. 
