@@ -1,1 +1,27 @@
 # Statistische Tests
+
+## Tests auf Voraussetzungen
+
+### Tests auf Normalvertielung
+
+### Tests auf Varianzhomogenität
+
+## $\chi^2$
+
+## z- und t-Test
+
+## Varianzanalyse (ANOVA)
+
+### Einfaktorielle ANOVA
+
+### Mehrfaktorielle ANOVA
+
+### ANOVA mit Messwiederholung (rmANOVA)
+
+## Regression
+
+### Einfache Lineare Regression
+
+### Multiple Regression
+
+### Logistische Regression
