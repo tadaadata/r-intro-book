@@ -12,7 +12,7 @@ Die dazugehörigen Kennwerte und Formeln sind sozusagen das kleine 1x1 der Stati
 Als Beispieldatensatz nehmen wir mal den *Game of Thrones Deaths*-Datensatz und den `participation`-Datensatz zur Tutorienteilnahme, beide aus dem Kapitel [[Datenimport]]
 
 ```{r Ch11_Daten_einlesen}
-participation <- readRDS("~/Downloads/participation.rds")
+participation <- readRDS("data/participation.rds")
 gotdeaths     <- readr::read_csv("data/got_deaths.csv")
 ```
 
