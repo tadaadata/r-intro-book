@@ -114,9 +114,110 @@ Aber okay, ich schweife ab.
 
 ### Variabilität auf Ordinalskala
 
+Auf Ordinalskala haben wir den Mittelwert nicht zur Verfügung. Das macht uns alle sehr traurig.  
+Aus diesem Grund müssen wir auf den Median ausweichen, den wir dann noch dezent mit Quantilen garnieren können.  
+Wenn wir nochmal die Variable `Zufriedenheit` aus `qmsurvey` nehmen:
+
+```{r median}
+median(qmsurvey$zufrieden)
+```
+
+Wenig beeindruckend.  
+Für Quantile:
+
+```{r quantiles}
+quantile(qmsurvey$zufrieden)
+```
+
+Wir können auch beliebige andere Quantile berechnen, die `quantile`-Funktion gibt uns nur per default Quartile, weil die am gängigsten sind:
+
+```{r quantiles_2}
+quantile(qmsurvey$alter, probs = c(.333, .666))
+```
+
+Über `probs` geben wir der Funktion einen *Vektor aus Wahrscheinlichkeiten* für die entsprechenden Quantile. Hier haben wir also das 33%- und das 66%-Quantil berechnet.  
+Um beispielsweise Dezile zu erhalten brauchen wir also einen Vektor der Wahrscheinlichkeiten von 0 bis 10 in 10% oder 0.1er Schritten, den wir einfach via `seq` erstellen können:
+
+```{r quantiles_2}
+quantile(qmsurvey$alter, probs = seq(from = 0, to = 1, by = 0.1))
+```
+
+Ein weiteres gängiges Maß für die Variabilität ist die **Spannweite**, die auf Ordinalskala und aufwärts sinnvoll sein kann.  
+Gemeint ist damit nichts anderes als der Abstand vom kleinsten zum größten Wert, also nichts besonders komplexes. In R können wir da die `min` und `max`-Funktionen für die beiden Werte benutzen, oder `range` für beide zusammen:
+
+```{r range}
+min(qmsurvey$alter)
+max(qmsurvey$alter)
+range(qmsurvey$alter)
+
+max(qmsurvey$alter) - min(qmsurvey$alter)
+```
+
+Die Altersspanne in QM (und damit so grob im Psychologiestudiengang) ist also 19 Jahre.  
+Bahnbrechende Erkenntnisse die wir hier einfach so raushauen.
+
 ## Bivariate Statistiken
 
 ### Nominalskala
+
+Auf Nominalskala ist $\chi^2$ unser bester Freund. Leider ist es auch ein etwas übelriechender, buckliger Freund, den wir nur selten zu uns nach Hause einladen – zumindest in Deskriptivstatistikland.
+
+Als Beispiel nehemn wir mal *Geschlecht* und *Cannabiskonsum*:
+
+```{r nomstats_1}
+library(sjPlot)
+
+sjt.xtab(qmsurvey$cannabis, qmsurvey$gender,
+         show.exp = TRUE, show.legend = TRUE)
+```
+
+Die Berechnung in R ist einfach:
+
+```{r nomstats_2}
+chisq.test(qmsurvey$cannabis, qmsurvey$gender)
+# Reihenfolge egal
+chisq.test(qmsurvey$gender, qmsurvey$cannabis)
+```
+
+Das Output ist nicht so hübsch und etwas clunky und beinhaltet auch p-Wert und Freiheitsgrade, die euch eigentlich nur in einem inferenzstatistischen Kontext interessieren.  
+Darüber hinaus kann es sein, dass der berechnete Wert nicht mit händischer Berechnung übereinstimmt.  
+Der Grund dafür ist [Yates' Kontinuitätskorrektor](https://en.wikipedia.org/wiki/Chi-squared_test#Yates.27s_correction_for_continuity), die nur bei 2x2-Tabellen greift. Solltet ihr die Korrektur explizit deaktivieren wollen, könnt ihr das Argument `correct = FALSE` setzen.
+
+Für kompakteres Output haben wir eine entsprechende Funktion in der *tadaatoolbox*:
+
+```{r nomstats_3, message=FALSE}
+library(tadaatoolbox)
+
+nom_chisqu(qmsurvey$gender, qmsurvey$cannabis)
+```
+
+Als nächstes haben wir die auf $\chi^2$-basierenden Statistiken **Phi** ($\phi$) und **Cramer's V**, die entsprechenden Funktionen kommen auch aus der *tadaatoolbox*:
+
+```{r nomstats_4}
+nom_phi(qmsurvey$gender, qmsurvey$cannabis)
+nom_v(qmsurvey$gender, qmsurvey$cannabis)
+```
+
+Oh nein, Phi funktioniert nicht. Wie unerwartet.  
+Ihr mögt euch erinnern, dass Phi nur für 2x2-Tabellen definiert ist, wobei Cramer's V bei beliebigen Tabellendimensionen funktioniert – darüberhinaus sind die beiden Statistiken im Falle von 2x2-Tabellen auch nich identisch, weshalb sich die Frage aufwirft, wieso überhaupt jemand Phi benutzen sollte – aber nun gut, die Funktionen sind da.
+
+Als letztes gibt es noch den **Kontingenzkoeffizient C** – keine Ahnung was der für eine Daseinsberechtigung hat, aber wenn ihr ihn mal braucht:
+
+```{r nomstats_5}
+nom_c(qmsurvey$gender, qmsurvey$cannabis)
+```
+
+Sagte ich *als letztes*? Das war gelogen. Es gibt noch **Lambda** ($\lambda$) in drei Geschmacksrichtungen:
+
+1. "Sorum" (Variablen wie definiert)
+2. "Andersrum" (x- und y-Variable vertauschen)
+3. Symmetrisch
+
+```{r nomstats_6}
+nom_lambda(qmsurvey$gender, qmsurvey$cannabis)
+nom_lambda(qmsurvey$gender, qmsurvey$cannabis, reverse = TRUE)
+nom_lambda(qmsurvey$gender, qmsurvey$cannabis, symmetric = TRUE)
+```
 
 ### Ordinalskala
 
