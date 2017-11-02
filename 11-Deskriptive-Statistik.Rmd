@@ -138,7 +138,7 @@ quantile(qmsurvey$alter, probs = c(.333, .666))
 Über `probs` geben wir der Funktion einen *Vektor aus Wahrscheinlichkeiten* für die entsprechenden Quantile. Hier haben wir also das 33%- und das 66%-Quantil berechnet.  
 Um beispielsweise Dezile zu erhalten brauchen wir also einen Vektor der Wahrscheinlichkeiten von 0 bis 10 in 10% oder 0.1er Schritten, den wir einfach via `seq` erstellen können:
 
-```{r quantiles_2}
+```{r quantiles_3}
 quantile(qmsurvey$alter, probs = seq(from = 0, to = 1, by = 0.1))
 ```
 
