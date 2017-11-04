@@ -33,6 +33,8 @@ Aus der Community:
 - ["Advanced R"](http://adv-r.hadley.nz/) -- Hadley Wickham
 - [ggplot2](http://had.co.nz/ggplot2/) -- Hadley Wickham
 
+- ["Tidyverse Cookbook"](https://bookdown.org/Tazinho/Tidyverse-Cookbook)
+
 Andere Quellen:
 
 - [R for Dummies](http://www.dummies.com/store/product/R-For-Dummies.productCd-1119962846.html)
