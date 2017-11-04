@@ -1,3 +1,8 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
 # (PART) Statistik {-}
 
 # Deskriptive Statistik
@@ -199,7 +204,7 @@ nom_v(qmsurvey$gender, qmsurvey$cannabis)
 ```
 
 Oh nein, Phi funktioniert nicht. Wie unerwartet.  
-Ihr mögt euch erinnern, dass Phi nur für 2x2-Tabellen definiert ist, wobei Cramer's V bei beliebigen Tabellendimensionen funktioniert – darüberhinaus sind die beiden Statistiken im Falle von 2x2-Tabellen auch nich identisch, weshalb sich die Frage aufwirft, wieso überhaupt jemand Phi benutzen sollte – aber nun gut, die Funktionen sind da.
+Ihr mögt euch erinnern, dass Phi nur für 2x2-Tabellen definiert ist, wobei Cramer's V bei beliebigen Tabellendimensionen funktioniert – darüberhinaus sind die beiden Statistiken im Falle von 2x2-Tabellen auch noch identisch, weshalb sich die Frage aufwirft, wieso überhaupt jemand Phi benutzen sollte – aber nun gut, die Funktionen sind da.
 
 Als letztes gibt es noch den **Kontingenzkoeffizient C** – keine Ahnung was der für eine Daseinsberechtigung hat, aber wenn ihr ihn mal braucht:
 
@@ -219,8 +224,141 @@ nom_lambda(qmsurvey$gender, qmsurvey$cannabis, reverse = TRUE)
 nom_lambda(qmsurvey$gender, qmsurvey$cannabis, symmetric = TRUE)
 ```
 
+Es gibt zusätzlich die Funktion `assocstats` aus dem `vcd`-Package. Da gebt ihr allerdings nicht beide Variablen einzeln an, sondern einen `table` der beiden Variablen:
+
+```{r nomstats_7}
+library(vcd)
+
+freq_table <- table(qmsurvey$gender, qmsurvey$cannabis)
+freq_table
+
+assocstats(freq_table)
+```
+So könnt ihr die gängigen Statistiken auf einen Blick sehen.  
+Alternativ haben wir dafür natürlich auch was in der *tadaatoolbox*:
+
+```{r nomstats_8}
+tadaa_nom(qmsurvey$gender, qmsurvey$cannabis, print = "markdown")
+```
+
+Das Argument `print = "markdown"` ist nur für das Output in diesem Buch bzw. in RMarkdown-Dokumenten relevant, für die Nutzung in der Konsole könnt ihr das weglassen.  
+Aber ihr benutzt ja jetzt eh alle brav RMarkdown, seit ihr das entsprechende Kapitel dazu hier überflogen habt, ja?  
+Ja.  
+Brav.
+
 ### Ordinalskala
 
+Auf Ordinalskala haben wir primär **Gamma**, **Somers' d** und eine Handvoll **Tau** abzufrühstücken.  
+Um's einach zu halten bedienen wir uns auch hier wieder der *tadaatoolbox*:
+
+```{r ordstats_1}
+ord_gamma(qmsurvey$lernen, qmsurvey$zufrieden)
+
+ord_somers_d(qmsurvey$lernen, qmsurvey$zufrieden)
+ord_somers_d(qmsurvey$lernen, qmsurvey$zufrieden, reverse = TRUE)
+ord_somers_d(qmsurvey$lernen, qmsurvey$zufrieden, symmetric = TRUE)
+```
+
+Wobei **Somers' d'** analog Lambda drei Geschmacksrichtungen hat.  
+
+Oder auch hier, alle zusammen:
+
+```{r ordstats_2}
+tadaa_ord(qmsurvey$lernen, qmsurvey$zufrieden, print = "markdown")
+```
+
+
+Und was ist mit den **Taus**?  
+Es ist kompliziert.  
+Zum einen sei gesagt, dass wir $\tau_b$ via `cor()` bekommen können:
+
+```{r ordstats_3}
+cor(qmsurvey$lernen, qmsurvey$zufrieden, method = "kendall")
+```
+
+Als nächstes sei gesagt, dass die anderen Taus eh selten benutzt werden.  
+Aber na gut, wir können für den Rest auf das package `DescTools` zurückgreifen:
+
+```{r ordstats_4}
+library(DescTools)
+
+StuartTauC(qmsurvey$lernen, qmsurvey$zufrieden)
+KendallTauA(qmsurvey$lernen, qmsurvey$zufrieden)
+```
+
+…Vermutlich sollten wir die Taus auch noch alle zusammen in eine einzelne `tadaatoolbox`-Funktion stecken, das macht so ja keinen Spaß.  
+
 ### Intervallskala
+
+Hier fangen die spaßigen Dinge an. Korrelationen und so.  
+Und was ist Korrelation?  
+Die standardisierte Kovarianz, nämlich.  
+Und was ist Kovarianz?
+
+```{r intstats}
+cov(qmsurvey$alter, qmsurvey$beziehungen, use = "complete.obs")
+```
+
+Nämlich.  
+`cov` gibt uns die **Kovarianz**, wenig überraschend, und über `use = "complete.obs"` spezifizieren wir, dass Beobachtungspaare mit fehlenden Werten (`NA`) ausgelassen werden sollen. Eine Alternative wäre `"pairwise.complete.obs"`, was in diesem Fall keinen Unterschied macht, aber prinzipiell wollt ihr eins von beidem benutzen um zu verhindern, dass ihr als Ergebnis nur ein trauriges `NA` bekommt.
+
+Als nächstes also die Korrelationskoeffizienten:
+
+- **Pearson's** $r$
+- **Spearman's** $\rho$
+
+Beide bekommen wir mit `cor`, abhängig vom `method`-Argument. Der Default ist `"pearson"`
+
+```{r intstats_3}
+cor(qmsurvey$alter, qmsurvey$beziehungen, use = "complete.obs")
+cor(qmsurvey$alter, qmsurvey$beziehungen, use = "complete.obs", method = "spearman")
+```
+
+Über `method = "kendall"` bekommen wir auch Kendall's $\tau_b$. Just in case.
+
+### Regression <small>Teil 1</small>
+
+Mal angenommen, wir wollen wissen ob bei *Game of Thrones* im Laufe der Serie mehr gestorben wird, sprich wir wollen wissen, ob es einen positiven Zusammenhang zwischen der *Staffel* und der *Anzahl der Tode pro Staffel* gibt. Dafür müssen wir unseren `gotdeaths`-Datensatz etwas umtransformieren:
+
+```{r ch11_regression_1, message=FALSE, warning=FALSE}
+library(dplyr)
+
+gotdeaths_perseason <- gotdeaths %>%
+  group_by(death_season) %>%
+  summarize(deaths = n())
+
+knitr::kable(gotdeaths_perseason)
+```
+
+```{r ch11_regression_plot}
+library(ggplot2)
+
+ggplot(data = gotdeaths_perseason, aes(x = death_season, y = deaths)) +
+  geom_point(size = 3) +
+  geom_smooth(method = lm, se = FALSE, color = "red") +
+  scale_x_continuous(breaks = 1:6) +
+  labs(title = "Game of Thrones", subtitle = "Deaths per Season",
+       x = "Season", y = "Deaths")
+```
+
+
+```{r ch11_regression_2}
+model <- lm(deaths ~ death_season, data = gotdeaths_perseason)
+```
+
+```{r ch11_regression_3}
+summary(model)
+```
+
+```{r ch11_regression_4}
+library(broom)
+
+tidy(model) %>%
+  knitr::kable(digits = 3) # kable wieder nur für die Optik im Buch
+```
+
+```{r ch11_regression_5}
+sjt.lm(model)
+```
 
 ### Weitere Statistiken
