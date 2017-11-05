@@ -267,26 +267,19 @@ Oder auch hier, alle zusammen:
 tadaa_ord(qmsurvey$lernen, qmsurvey$zufrieden, print = "markdown")
 ```
 
-
-Und was ist mit den **Taus**?  
-Es ist kompliziert.  
-Zum einen sei gesagt, dass wir $\tau_b$ via `cor()` bekommen können:
+Da sind dann auch gleich die Taus mit drin. Die könnt ihr auch einzeln bekommen:
 
 ```{r ordstats_3}
-cor(qmsurvey$lernen, qmsurvey$zufrieden, method = "kendall")
+ord_tau(qmsurvey$lernen, qmsurvey$zufrieden, tau = "a")
+ord_tau(qmsurvey$lernen, qmsurvey$zufrieden, tau = "b")
+ord_tau(qmsurvey$lernen, qmsurvey$zufrieden, tau = "c")
 ```
 
-Als nächstes sei gesagt, dass die anderen Taus eh selten benutzt werden.  
-Aber na gut, wir können für den Rest auf das package `DescTools` zurückgreifen:
+Da $\tau_b$ auch als Korrelationskoeffizient durchgeht, gibts's den auch via `cor`:
 
 ```{r ordstats_4}
-library(DescTools)
-
-StuartTauC(qmsurvey$lernen, qmsurvey$zufrieden)
-KendallTauA(qmsurvey$lernen, qmsurvey$zufrieden)
+cor(qmsurvey$lernen, qmsurvey$zufrieden, method = "kendall")
 ```
-
-…Vermutlich sollten wir die Taus auch noch alle zusammen in eine einzelne `tadaatoolbox`-Funktion stecken, das macht so ja keinen Spaß.  
 
 ### Intervallskala
 
