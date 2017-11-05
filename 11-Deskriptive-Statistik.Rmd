@@ -372,9 +372,20 @@ Hier ist `tidy` dazu da, die Koeffizienten als einfachen `data.frame` auszuspuck
 sjt.lm(model)
 ```
 
-Generell würde ich `sjPlot` bzw. `sjt.lm` zur Darstellung von Regressionsmodellen empfehlen: Die Funktion ist von Haus aus auf hübsches Output ausgelegt, und ist ausreichend modifizierbar um das Output so spartanisch oder umfassend wie gewänscht aussehen zu lassen.
+Generell würde ich `sjPlot` bzw. `sjt.lm` zur Darstellung von Regressionsmodellen empfehlen: Die Funktion ist von Haus aus auf hübsches Output ausgelegt, und ist ausreichend modifizierbar um das Output so spartanisch oder umfassend wie gewünscht aussehen zu lassen.
+
+Wenn ihr mit den Innereien eines Regressionsmodells rumspielen möchtet, gibt's da auch was in `broom`:
+
+```{r ch11_regression_6, warning=FALSE, message=FALSE}
+augment(model) %>%
+  knitr::kable(digits = 3)
+```
+
+Hier haben wir für jeden der Ausgangswerte noch den *prognostizierten Wert* `.fitted`, das *Residuum* `.resid` und diverse andere Statistiken, die uns vorerst nicht weiter interessieren.
 
 ### Weitere Statistiken
 
-- Kendall's W
 - Inter-Rater-Reliability-Kram via `irr`
+    - Kendall's W
+    - Cohen's Kappa
+- $\eta^2$
