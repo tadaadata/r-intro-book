@@ -9,31 +9,42 @@ editor_options:
 
 ### Tests auf Normalvertielung
 
+Wenn es um Teststärke geht hat der **Shapiro-Wilk**-Test die Nase vorn, der sollte also so der Standardtest sein, den ihr erstmal probiert. R hat den auch von Haus aus dabei:
+
 ```{r shapiro}
 shapiro.test(qmsurvey$partnerinnen)
 ```
 
+Solltet ihr mal andere Tests brauchen, hat das package `nortest` noch einige andere gängige:
+
 ```{r normtests, warning=FALSE}
 library(nortest)
 
-# Anderson-Darling
+# Anderson-Darling (ganz gut)
 ad.test(qmsurvey$partnerinnen)
-# Shapiro-Francia
+# Lilliefors (okay)
+lillie.test(qmsurvey$partnerinnen)
+# Shapiro-Francia (auch okay)
 sf.test(qmsurvey$partnerinnen)
-# Pearson's Chi^2-Anpassungstest
+# Pearson's Chi^2-Anpassungstest (meh)
 pearson.test(qmsurvey$partnerinnen)
-# Kolmogorov-Smirnoff
+# Kolmogorov-Smirnoff (einfach nicht benutzen)
 ks.test(scale(qmsurvey$partnerinnen), y = pnorm)
 ```
 
 
 ### Tests auf Varianzhomogenität
 
+Der gängigste Test auf *Varianzhomogenität* (oder auch *Homoskedasizität* bzw. analog *Heteroskedastizität* für *Varianzheterogenität*) ist der **Levene Test**, den wir aus dem `car` package holen:
+
 ```{r levene_1}
 library(car)
 
 leveneTest(partnerinnen ~ ons, data = qmsurvey)
 ```
+
+Hier haben wir auf *Varianzheterogenität* getestet in den Gruppen, die durch `ons` (`"Hattest du schon einmal einen One-Night-Stand?"`) entstehen (`Ja` und `Nein`), mit dem abhängigen Merkmal `partnerinnen` (`"Wie viele Sexualpartner*innen hast du bisher gehabt?"`).  
+Beachtet die Tilde (`~`) in der Funktion. Das ist eine von diesen *formulas*, die in R-Modelldefinitionen gerne auftauchen. Erstmal nicht weiter beachten, nur merken: Links steht die abhängige (intervallskalierte) Variable, und rechts steht die *Gruppierungsvariable*, in der Regel nominalskaliert.
 
 ```{r leven_2}
 library(tadaatoolbox)
