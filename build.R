@@ -121,7 +121,7 @@ if (is.na(book_dir)) {
   files <- list.files(path = out_dir, full.names = T)
   status <- file.copy(files, book_dir, overwrite = TRUE, recursive = TRUE)
   if (all(status)) {
-    cat("Worked allright\n")
+    cat("Worked alright\n")
   } else {
     warning("Something didn't work right!")
   }
