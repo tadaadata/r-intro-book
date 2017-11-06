@@ -8,7 +8,45 @@
 
 ## $\chi^2$
 
+```{r chisq_xtab}
+library(sjPlot)
+
+sjt.xtab(qmsurvey$ons, qmsurvey$ernaehrung,
+         show.exp = TRUE, show.legend = TRUE, show.cell.prc = TRUE)
+```
+
+```{r chisq_base_r}
+chisq.test(qmsurvey$ons, qmsurvey$ernaehrung)
+```
+
+
+```{r chisq_test}
+library(tadaatoolbox)
+
+tadaa_chisq(qmsurvey, ons, ernaehrung, print = "markdown")
+```
+
 ## z- und t-Test
+
+### Eine Stichprobe
+
+```{r z-Test}
+tadaa_one_sample(qmsurvey, x = alter, mu = 20, sigma = 3, print = "markdown")
+```
+
+```{r t-test_onesample}
+tadaa_one_sample(qmsurvey, x = alter, mu = 20, print = "markdown")
+```
+
+### Zwei Stichproben
+
+```{r t-test_twosample}
+t.test(partnerinnen ~ ons, data = qmsurvey)
+```
+
+```{r t-test_twosample_tadaa}
+tadaa_t.test(qmsurvey, response = partnerinne, group = ons, paired = FALSE, print = "markdown")
+```
 
 ## Varianzanalyse (ANOVA)
 
