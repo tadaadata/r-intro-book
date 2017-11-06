@@ -13,7 +13,7 @@ editor_options:
 shapiro.test(qmsurvey$partnerinnen)
 ```
 
-```{r normtests}
+```{r normtests, warning=FALSE}
 library(nortest)
 
 # Anderson-Darling
@@ -23,7 +23,7 @@ sf.test(qmsurvey$partnerinnen)
 # Pearson's Chi^2-Anpassungstest
 pearson.test(qmsurvey$partnerinnen)
 # Kolmogorov-Smirnoff
-ks.test(qmsurvey$partnerinnen)
+ks.test(scale(qmsurvey$partnerinnen), y = pnorm)
 ```
 
 
