@@ -35,9 +35,9 @@ ks.test(scale(qmsurvey$partnerinnen), y = pnorm)
 
 ### Tests auf Varianzhomogenität
 
-Der gängigste Test auf *Varianzhomogenität* (oder auch *Homoskedasizität* bzw. analog *Heteroskedastizität* für *Varianzheterogenität*) ist der **Levene Test**, den wir aus dem `car` package holen:
+Der gängigste Test auf *Varianzhomogenität* (oder auch *Homoskedastizität* bzw. analog *Heteroskedastizität* für *Varianzheterogenität*[^sked]) ist der **Levene Test**, den wir aus dem `car` package holen:
 
-```{r levene_1}
+```{r levene_1, message=FALSE, warning=FALSE}
 library(car)
 
 leveneTest(partnerinnen ~ ons, data = qmsurvey)
@@ -98,7 +98,8 @@ R bringt die t-Test-Funktion von Haus aus mit, die ist zwar nicht besonders sch�
 t.test(partnerinnen ~ ons, data = qmsurvey)
 ```
 
-Wichtige Argumente:
+**Wichtige Argumente**:
+
 - `var.equal`: Varianzen gleich? `TRUE`/`FALSE`, für Varianzhomogenität
     - Im Zweifelsfall lieber auf `FALSE` (default) lassen, sicherheitshalber.
 - `paired`: Wenn `TRUE` wird ein *abhängiger* t-Test gemacht, bei `FALSE` (default) ein *unabhängiger*.
@@ -109,7 +110,8 @@ Alternativ haben wir da was in der toolbox:
 tadaa_t.test(qmsurvey, response = partnerinnen, group = ons, paired = FALSE, print = "markdown")
 ```
 
-Die Funktion macht im Vergleich zu `t.test()` noch folgendes:
+Die Funktion macht im Vergleich zu `t.test()` noch folgendes:  
+
 - Automatische Varianzhomogenitätserkennung via eingebautem Levene-Test
 - Automatische Effektgrößenberechnung (*Cohen's d*)
 - Automatische Teststärkenberechnung via `pwr`-package (Spalte `Power`)
@@ -129,3 +131,6 @@ Die Funktion macht im Vergleich zu `t.test()` noch folgendes:
 ### Multiple Regression
 
 ### Logistische Regression
+
+<!-- Footnotes -->
+[^sked]: Die Namensgebung ist etwas irritierend, ja. Einfach merken: "homo" = "gleich", "hetero" = "unterschiedlich", und anscheinend für diesen Kontext: "Varianz" $\approx$ "Skedastizität"
