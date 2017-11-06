@@ -45,7 +45,7 @@ t.test(partnerinnen ~ ons, data = qmsurvey)
 ```
 
 ```{r t-test_twosample_tadaa}
-tadaa_t.test(qmsurvey, response = partnerinne, group = ons, paired = FALSE, print = "markdown")
+tadaa_t.test(qmsurvey, response = partnerinnen, group = ons, paired = FALSE, print = "markdown")
 ```
 
 ## Varianzanalyse (ANOVA)
