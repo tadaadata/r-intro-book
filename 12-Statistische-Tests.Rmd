@@ -22,10 +22,10 @@ library(nortest)
 
 # Anderson-Darling (ganz gut)
 ad.test(qmsurvey$partnerinnen)
+# Shapiro-Francia (auch ganz gut)
+sf.test(qmsurvey$partnerinnen)
 # Lilliefors (okay)
 lillie.test(qmsurvey$partnerinnen)
-# Shapiro-Francia (auch okay)
-sf.test(qmsurvey$partnerinnen)
 # Pearson's Chi^2-Anpassungstest (meh)
 pearson.test(qmsurvey$partnerinnen)
 # Kolmogorov-Smirnoff (einfach nicht benutzen)
@@ -55,6 +55,8 @@ tadaa_levene(qmsurvey, partnerinnen ~ ons, print = "markdown")
 
 ## $\chi^2$
 
+Zu einem sauberen $\chi^2$-Test gehört auch immer eine saubere Kontingenztabelle, und da greifen wir wie gehabt auf `sjPlot` zurück:
+
 ```{r chisq_xtab}
 library(sjPlot)
 
@@ -62,10 +64,13 @@ sjt.xtab(qmsurvey$ons, qmsurvey$ernaehrung,
          show.exp = TRUE, show.legend = TRUE, show.cell.prc = TRUE)
 ```
 
+Den $\chi^2$-Test finden wir dann in *base R*, no packages required:
+
 ```{r chisq_base_r}
 chisq.test(qmsurvey$ons, qmsurvey$ernaehrung)
 ```
 
+Wenn ihr dasselbe Ergebnis nur in ein bisschen aufgeräumt und mit bonus-Cramer's-V als Effektgröße haben wollt, haben wir da was in der toolbox:
 
 ```{r chisq_test}
 library(tadaatoolbox)
@@ -87,13 +92,27 @@ tadaa_one_sample(qmsurvey, x = alter, mu = 20, print = "markdown")
 
 ### Zwei Stichproben
 
+R bringt die t-Test-Funktion von Haus aus mit, die ist zwar nicht besonders schön, aber sie macht alles wichtige:
+
 ```{r t-test_twosample}
 t.test(partnerinnen ~ ons, data = qmsurvey)
 ```
 
+Wichtige Argumente:
+- `var.equal`: Varianzen gleich? `TRUE`/`FALSE`, für Varianzhomogenität
+    - Im Zweifelsfall lieber auf `FALSE` (default) lassen, sicherheitshalber.
+- `paired`: Wenn `TRUE` wird ein *abhängiger* t-Test gemacht, bei `FALSE` (default) ein *unabhängiger*.
+
+Alternativ haben wir da was in der toolbox:
+
 ```{r t-test_twosample_tadaa}
 tadaa_t.test(qmsurvey, response = partnerinnen, group = ons, paired = FALSE, print = "markdown")
 ```
+
+Die Funktion macht im Vergleich zu `t.test()` noch folgendes:
+- Automatische Varianzhomogenitätserkennung via eingebautem Levene-Test
+- Automatische Effektgrößenberechnung (*Cohen's d*)
+- Automatische Teststärkenberechnung via `pwr`-package (Spalte `Power`)
 
 ## Varianzanalyse (ANOVA)
 
