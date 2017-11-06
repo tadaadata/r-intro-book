@@ -1,10 +1,46 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
 # Statistische Tests
 
 ## Tests auf Voraussetzungen
 
 ### Tests auf Normalvertielung
 
+```{r shapiro}
+shapiro.test(qmsurvey$partnerinnen)
+```
+
+```{r normtests}
+library(nortest)
+
+# Anderson-Darling
+ad.test(qmsurvey$partnerinnen)
+# Shapiro-Francia
+sf.test(qmsurvey$partnerinnen)
+# Pearson's Chi^2-Anpassungstest
+pearson.test(qmsurvey$partnerinnen)
+# Kolmogorov-Smirnoff
+ks.test(qmsurvey$partnerinnen)
+```
+
+
 ### Tests auf Varianzhomogenität
+
+```{r levene_1}
+library(car)
+
+leveneTest(partnerinnen ~ ons, data = qmsurvey)
+```
+
+```{r leven_2}
+library(tadaatoolbox)
+
+tadaa_levene(qmsurvey, partnerinnen ~ ons, print = "markdown")
+```
+
 
 ## $\chi^2$
 
