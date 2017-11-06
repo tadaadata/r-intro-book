@@ -34,6 +34,7 @@ Aus der Community:
 - [ggplot2](http://had.co.nz/ggplot2/) -- Hadley Wickham
 
 - ["Tidyverse Cookbook"](https://bookdown.org/Tazinho/Tidyverse-Cookbook)
+- ["Top 50 ggplot2 Visualizations"](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html)
 
 Andere Quellen:
 
