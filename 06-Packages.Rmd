@@ -1,3 +1,8 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
 # Packages
 
 Fast jede Software hat Erweiterungen irgendeiner Art. Manche haben *extensions*, andere *plug-ins*, wieder andere haben *add-ons*. Unterschiedliche Terminologie für dasselbe Prinzip: Mehr Features durch Erweiterungen anderer Leute.  
@@ -111,12 +116,101 @@ install.packages("sjmisc")
 install.packages("sjstats")
 install.packages("sjlabelled")
 ```
+### sjPlot 
 
 Das wichtigste package ist wie erwähnt `sjPlot`, also laden wir das erstmal:
 
-```r
+```{r, warning=FALSE, message=FALSE, error=FALSE}
 library("sjPlot")
 ```
+
+*sjPlot* ist ziemlich praktisch wenn ihr mal schnell relativ komplexe Dinge erreichen wollt, in erster Linie Plots und Tabellen.  
+Die Funktionen im package sind nach ihrem Präfix sortiert:  
+
+- `sjt.` für Funktionen, die *Tabellen* produzieren
+- `sjp.` für Funktionen, die *Plots* produzieren
+
+Ein paar Beispiele anhand unseres `qmsurvey`-Datensatzes:
+
+```{r sjplot_1}
+qmsurvey <- readRDS("data/qm-survey-2017-R.rds")
+```
+
+#### Tabellen
+
+Für Kreuztabellen, wie wir sie relativ häufig in QM1 brauchen für unsere nominal- und ordinalskalierten Statistiken:
+
+```{r sjplot_tables_1}
+sjt.xtab(qmsurvey$ernaehrung, qmsurvey$gender)
+
+sjt.xtab(qmsurvey$ernaehrung, qmsurvey$gender,
+         title = "Kontigenztabelle",
+         show.cell.prc = TRUE, show.exp = TRUE, show.legend = TRUE)
+```
+
+Oder einfache Häufigkeitstabellen:
+
+```{r sjplot_tables_2}
+sjt.frq(qmsurvey$ernaehrung, 
+        string.val = "Ernährungstyp", altr.row.col = TRUE)
+```
+
+Und für lineare Modelle, in deutlich schöner als `summary()`:
+
+```{r sjplot_tables_3}
+model <- lm(zufrieden ~ alter * berufsvorstellung, data = qmsurvey)
+
+sjt.lm(model, show.std = TRUE)
+```
+
+
+#### Plots
+
+Klassiker: Histogramm mit Normalverteilungskurve:
+
+```{r sjplot_plots_1}
+sjp.frq(qmsurvey$alter, type = "histogram", 
+        show.mean = TRUE, normal.curve = TRUE)
+```
+
+Oder für eine graphische Version einer Kontingenztabelle:
+
+```{r sjplot_plots_2}
+sjp.xtab(qmsurvey$ernaehrung, qmsurvey$gender, type = "bar", 
+         show.summary = TRUE)
+```
+
+### sjmisc
+
+*sjmisc* ist mehr so ein package für Datenbearbeitung, deshalb fällt es mir schwer da demonstrativ eine Funktion rauszuziehen. Im Fokus liegt unter Anderem *variable recoding*, das heißt falls ihr mal eine Variable klassieren müsst, könnte das mit *sjmisc* ganz dankbar werden.  
+Wenn wir `alter` in 3 Klassen umwandeln wollen, sähe das also zum Beispiel so aus:
+
+```{r sjmisc_1}
+library(sjmisc)
+
+rec(qmsurvey$alter, rec = "min:22=1; 23:28=2; 29:max=3")
+```
+
+Um die rekodierte Variable dann in unserem Datensatz zu speichern sähe das dann mit Hilfe von `dplyr` so aus:
+
+```r
+library(dplyr)
+
+qmsurvey <- qmsurvey %>%
+  mutate(alter_klassiert = rec(qmsurvey$alter, rec = "min:22=1; 23:28=2; 29:max=3"))
+```
+
+### sjlabelled
+
+Wenn ihr Daten aus SPSS einlest (oder ihr auf *labelled data* steht), dann haben eure Datensätze vermutlich *labels*. In *base R* ist das generell nicht so gängig, aber seit einiger Zeit sind die Tools dafür recht populär geworden. Labels sind zum Beispiel dafür zuständig, dass in eurer Variablenansicht jede Spalte eine Beschreibung hat, was im Falle der `sjt.*`-Funktionen auch dafür sorgt, dass eure Tabellen sauber beschriftet sind.  
+Ihr müsst *sjlabelled* in der Regel nicht explizit laden, *sjPlot* benutzt das unter der Haube sowieso, aber wenn ihr eure Labels mal ändern wollte oder ihr einen neuen Datensatz zusammensteckt, wo ihr eure Variablen labeln wollt, dann ist das package euer Freund.
+
+Die Funktionen dafür sind folgende:
+
+- `set_label`: Für *Variablenlabels*
+- `set_labels`: Füe *Value labels*, sprich einzelne Merkmalsausprägung (`1` = "niedrig" etc.)
+- `get_label`: *Variablenlabels* anzeigen
+- `get_labels`: *Value labels* anzeigen
 
 ## Das `tidyverse` <small class="subtitle">Hail Hadley!</small>
 
