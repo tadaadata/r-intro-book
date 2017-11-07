@@ -13,6 +13,8 @@ link-citations: yes
 github-repo: 'tadaa-data/r-intro-book'
 url: 'https\://r-intro.tadaa-data.de/book/'
 description: "Eine Einführung in R für Menschen so ganz ohne Vorkenntnisse"
+editor_options: 
+  chunk_output_type: console
 ---
 
 ```{r setup, include=FALSE, cache=FALSE}
@@ -95,3 +97,18 @@ Die primäre Motivation und Zielgruppe für diese Einführung sind die Studieren
 Wir gehen anfangs sehr kleinschrittig vor und versuchen gängige Konzepte wie Datentypen/-klassen, Datenstrukturen, Syntax von Grund auf zu erklären.  
 
 Solltet ihr bei Begriffen wie "funktionale Programmiersprache", "generics", "functionals" und "Attribute" ein grobes Bild im Kopf haben, dann empfehle ich euch einen Blick in das weiter oben erwähnte [**R for Data Science**](http://r4ds.had.co.nz/). Also generell würde ich allen interessierten dieses Buch/Seite empfehlen, aber ich vermute, dass es für einen absoluten Sprung ins kalte Wasser R nur dann geeignet ist, wenn man entweder sehr viel Motivation oder ein entsprechendes Vorwissen mitbringt.
+
+
+## Datensätze {-}
+
+Wir brauchen den ein oder anderen Datensatz für Übungszwecke und zu beispielhaften Veranschaulichung, und da es langweilig wird wenn wir immer wieder auf *NGO* zurückgreifen, haben wir auf [dieser netten Übersichtsseite](https://public.tadaa-data.de/data/readme.html) einige Datensätze bereitgestellt, die ihr euch runterladen könnt. Wie ihr die einlest, erfahrt ihr im Kapitel [Datenimport].
+
+Als kleinen Spoiler ist hier der "mach, dass es funktioniert"-Code:
+
+```{r intro_sampledata, warning=FALSE, message=FALSE, error=FALSE}
+qmsurvey      <- readRDS("data/qm-survey-2017-R.rds")
+gotdeaths     <- readr::read_csv("data/got_deaths.csv")
+participation <- readRDS("data/participation.rds")
+```
+
+…unter der Annahme, dass ihr die Datensätze in einem `data` Unterordner eures aktuellen Projekts abgelegt habt.
