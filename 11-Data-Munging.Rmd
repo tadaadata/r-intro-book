@@ -1,0 +1,18 @@
+# Data Munging
+
+Ah ja, die wunderbare Welt des *Data Munging* – dem Dammelbegriff für "*Zeug mit Daten machen damit wir da besser mit arbeiten können oder so*". Hierzu gehören so spaßige Themen wie "recoding", "reformatting", "restructuring", "labelling", "transforming", "reshaping" und viele andere lustige Begriffe die teilweise kongruent sind, und auch sonst ist das eher so ein Bereich á la *learning by doing*.  
+
+Wie schon beim [Datenimport] erwähnt gibt es in der Regel kein Patentrezept zru Datenbereinigung, aber es *gibt* gängige Anwendungsfälle, und dementsprechend auch populäre Lösungswege für selbige Fälle.  
+In diesem Kapitel widmen wir uns also einigen dieser gängigen Aufgaben und probieren das Ganze anhand unserer Beispieldatensätze aus.
+
+## Vorab: Pipes!
+
+### Der `dplyr`-Workflow
+
+### `magrittr`-Boni
+
+## Variablen verändern oder anlegen 
+
+## Summary Statistics
+
+## Format: Wide vs. Long
