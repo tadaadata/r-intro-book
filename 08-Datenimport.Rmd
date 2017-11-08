@@ -66,7 +66,7 @@ Zum lesen und schreiben empfehle ich herzlichst das `readr`-package mit den Funk
 
 Als Beispiel laden wir mal [diesen schönen *Game of Thrones*-Datensatz](https://data.world/aendrew/game-of-thrones-deaths):
 
-```{r}
+```{r, message=FALSE, error=FALSE, warning=FALSE}
 library(readr)
 gotdeaths <- read_csv("data/got_deaths.csv")
 
@@ -172,15 +172,10 @@ gs_ls()
 Mit diesem Befehl zeigt euch das package all eure Google Sheets an nachdem es euch nach einem Login gefragt hat, von da aus könnt ihr dann weiterarbeiten. 
 Mehr Informationen und Beispiele [gibt's in der Vignette](https://rawgit.com/jennybc/googlesheets/master/vignettes/basic-usage.html).
 
+## Daten angucken & sauber machen
 
-## Sauber machen
-
-- `names`
-- dplyr: `mutate`, `recode[_factor]`
-- tidyr
-
-Um festzustellen, ob eure frisch eingelesenen Daten auch brauchbar sind, empfiehlt sich ein Blick in die Daten via `View(daten)` bzw. Über einen Klick auf den Datensatz im *Environment*-Tab von RStudio.  
+Um festzustellen, ob eure frisch eingelesenen Daten auch brauchbar sind, empfiehlt sich ein Blick in die Daten via `View(daten)` bzw. Über einen Klick auf den Datensatz im *Environment*-Tab von RStudio (das da oben rechts).  
 Zusätzlich ist auch hier natürlich `str()` praktisch, um zum Beispiel schnell zu überprüfen, ob eure Variablen auch alle die Klasse haben, die ihr erwartet (alle Zahlen sind *numeric* und Nominaldaten sind *factor* oder wenigstens *character*).
 
 Es gibt da kein one-size-fits-all Rezept zur Datenbereinigung, denn jeder Datensatz ist auf seine eigene Art dreckig. Ihr könnt nur darauf hoffen, dass euer konkreter Anwendungsfall gut googlebar ist, oder ihr sowas ähnliches schonmal gemacht habt.  
-Die gängigsten Probleme sind recoding, umbenennen oder zusammenfassen, und das meiste lässt sich entweder mit `dplyr` oder ggf. noch `tidyr` erledigen. Versucht es erstmal innerhalb des *tidyverse*, das ist vermutlich angenehmer als zusammengehackte Google-Lösungen. Aber auch hier, wie gesagt: Je nachdem was ihr vorhabt. 
+Die gängigsten Probleme sind recoding, umbenennen oder zusammenfassen, und das meiste lässt sich entweder mit `dplyr`, `sjmisc` oder ggf. `tidyr` erledigen. Versucht es erstmal innerhalb des *tidyverse*, das ist vermutlich angenehmer als zusammengehackte Google-Lösungen. Aber auch hier, wie gesagt: Je nachdem was ihr vorhabt. Mehr dazu findet sich in [Data Munging].
