@@ -127,6 +127,12 @@ if (is.na(book_dir)) {
   }
 }
 
+#### Final Cleanup ####
+if (file.exists("_bookdown_files")) {
+  cat("Removing \"_bookdown_files\"…\n")
+  system(command = "rm -r _bookdown_files")
+}
+
 #### Done ####
 cat("\nAll done!\n")
 t_finish <- Sys.time()
