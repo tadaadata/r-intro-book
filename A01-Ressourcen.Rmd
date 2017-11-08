@@ -34,6 +34,8 @@ Aus der Community:
 - [ggplot2](http://had.co.nz/ggplot2/) -- Hadley Wickham
 
 - ["Tidyverse Cookbook"](https://bookdown.org/Tazinho/Tidyverse-Cookbook)
+- ["R Programming for Data Science"](https://bookdown.org/rdpeng/rprogdatascience/) -- Roger Peng
+- ["Exploratory Data Analysis with R"](https://bookdown.org/rdpeng/exdata/) -- Roger Peng
 - ["Top 50 ggplot2 Visualizations"](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html)
 
 Andere Quellen:
