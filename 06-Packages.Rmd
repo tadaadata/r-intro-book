@@ -240,6 +240,12 @@ Hier eine kurze Übersicht über die wichtigsten *tidyverse*-packages/Funktionen
     - `gather`: Konvertiert von *wide* in *long* format (mehrere Spalten zu zwei zusammenfassen)
     - `spread`: Gegenstück, konvertiert von *long* in *wide* format
 
+## Die `tadaatoolbox`
 
+Die `tadaatoolbox` ist das Produkt von Lukas' und Tobis langjähriger Frustration mit diversem Kleinkram in R, wie etwa der Optik von statistischen Testoutput.  
+Im Fokus steht in erster Linie schnelles, einfaches Output mit möglichst wenig Aufwand. Zusätzlich bietet die Toolbox einige Sammelfunktionen um beispielsweise diverse nominal- oder ordinalskalierte Statistiken auf einen Rutsch anzuzeigen, optimiert auf Output in RMarkdown-Dokumenten (Siehe [Berichte]).  
+
+Eine Übersicht gibt es auf der Seite der Toolbox: <http://tadaatoolbox.tadaa-data.de>  
+Beispielhaftes Testoutput finfet sich [dort](http://tadaatoolbox.tadaa-data.de/articles/test_output.html), und eine Funktionsreferenz [gibt's da auch](http://tadaatoolbox.tadaa-data.de/reference/).
 
 [^ruby]: Die Ruby-Leute und ihre *Gems* seien mal dahingestellt
