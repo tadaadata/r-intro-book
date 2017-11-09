@@ -68,10 +68,13 @@ Als Beispiel laden wir mal [diesen schönen *Game of Thrones*-Datensatz](https:/
 
 ```{r, message=FALSE, error=FALSE, warning=FALSE}
 library(readr)
-gotdeaths <- read_csv("data/got_deaths.csv")
+gotdeaths <- read_csv("data/got_deaths.csv", col_types = cols())
 
 head(gotdeaths)
 ```
+
+Hier habe ich `col_types = cols()` nur benutzt, um das Output zu unterdrücken. Ihr könnt über dieses Argument aber auch manuell spezifizieren, welchen Typ jede Spalte haben soll, damit eure Daten explizit so eingelesen werden, wie ihr sie erwartet.  
+Die schmutzigen Details gibt's natürlich in der Hilfe: `?read_csv` und [online](http://readr.tidyverse.org/).
 
 ### SPSS (`.sav`)
 

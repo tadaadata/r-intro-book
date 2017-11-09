@@ -17,8 +17,9 @@ Die dazugehörigen Kennwerte und Formeln sind sozusagen das kleine 1x1 der Stati
 Als Beispieldatensatz nehmen wir wieder den *Game of Thrones Deaths*-Datensatz und den `qmsurvey`-Datensatz, beide aus dem Kapitel [Datenimport]:
 
 ```{r ch12_Daten_einlesen, message=FALSE, warning=FALSE}
+library(readr)
 qmsurvey  <- readRDS("data/qm-survey-2017-R.rds")
-gotdeaths <- readr::read_csv("data/got_deaths.csv")
+gotdeaths <- read_csv("data/got_deaths.csv", col_types = cols())
 ```
 
 ### Mittelwert, Median, Modus

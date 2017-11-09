@@ -106,9 +106,11 @@ Wir brauchen den ein oder anderen Datensatz für Übungszwecke und zu beispielha
 Als kleinen Spoiler ist hier der "mach, dass es funktioniert"-Code:
 
 ```{r intro_sampledata, warning=FALSE, message=FALSE, error=FALSE}
-qmsurvey      <- readRDS("data/qm-survey-2017-R.rds")
-gotdeaths     <- readr::read_csv("data/got_deaths.csv")
-participation <- readRDS("data/participation.rds")
+library(readr)
+qmsurvey        <- read_rds("data/qm-survey-2017-R.rds")
+gotdeaths       <- read_csv("data/got_deaths.csv", col_types = cols())
+participation   <- read_rds("data/participation.rds")
+gotdeaths_books <- read_csv("data/got_character-deaths.csv", col_types = cols())
 ```
 
 …unter der Annahme, dass ihr die Datensätze in einem `data` Unterordner eures aktuellen Projekts abgelegt habt.
