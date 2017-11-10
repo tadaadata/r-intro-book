@@ -24,6 +24,11 @@ bookdown::gitbook:
     scroll_highlight: yes
     search: yes
     language: de
+    sharing:
+      facebook: yes
+      twitter: yes
+      google: yes
+      github: yes
   md_extension: "+emoji"
 bookdown::epub_book:
   dev: svglite
@@ -32,4 +37,3 @@ bookdown::epub_book:
   toc_depth: 2
   metadata: epub_metadata.xml
   md_extension: "+emoji"
-
