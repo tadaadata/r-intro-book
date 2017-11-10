@@ -116,21 +116,5 @@ Die Funktion macht im Vergleich zu `t.test()` noch folgendes:
 - Automatische Effektgrößenberechnung (*Cohen's d*)
 - Automatische Teststärkenberechnung via `pwr`-package (Spalte `Power`)
 
-## Varianzanalyse (ANOVA)
-
-### Einfaktorielle ANOVA
-
-### Mehrfaktorielle ANOVA
-
-### ANOVA mit Messwiederholung (rmANOVA)
-
-## Regression
-
-### Einfache Lineare Regression
-
-### Multiple Regression
-
-### Logistische Regression
-
 <!-- Footnotes -->
 [^sked]: Die Namensgebung ist etwas irritierend, ja. Einfach merken: "homo" = "gleich", "hetero" = "unterschiedlich", und anscheinend für diesen Kontext: "Varianz" $\approx$ "Skedastizität"

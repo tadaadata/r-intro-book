@@ -1,0 +1,80 @@
+# Regression
+
+Regression ist ein _riesiges_ Thema, und der Umstand, dass ich ein 600-seitiges Buch dazu habe, sollte euch ein grobes Gefühl dafür geben, _wie_ umfangreich es sein kann.  
+In QM1 schauen wir uns die Regression nur in einem relativ simplen Kontext an: Lineare Regression.  
+Weiterhin interessieren wir uns (vorerst) noch nicht für p-Werte, t-Statistiken und Signifikanz, und auch Modellgütekriterien sind erstmal uninteressant.  
+Wir benutzen Regression hier erstmal ausschließlich zur Evaluation linearer Zusammenhänge. 
+Also los.
+
+## Einfache Lineare Regression
+
+Mal angenommen, wir wollen wissen ob bei *Game of Thrones* im Laufe der Serie mehr gestorben wird, sprich wir wollen wissen, ob es einen positiven Zusammenhang zwischen der *Staffel* und der *Anzahl der Tode pro Staffel* gibt. Dafür müssen wir unseren `gotdeaths`-Datensatz etwas umtransformieren:
+
+```{r reg__regression_1, message=FALSE, warning=FALSE}
+library(dplyr)
+
+gotdeaths_perseason <- gotdeaths %>%
+  group_by(death_season) %>%
+  summarize(deaths = n())
+
+knitr::kable(gotdeaths_perseason)
+```
+
+Jetzt haben wir zwei simple Variablen: Die Staffel und die Anzahl der Tode pro Staffel. Damit lässt sich arbeiten. Vorher wollen wir uns das aber erstmal kurz anschauen:
+
+```{r reg__regression_plot}
+library(ggplot2)
+
+ggplot(data = gotdeaths_perseason, aes(x = death_season, y = deaths)) +
+  geom_point(size = 3) +
+  geom_smooth(method = lm, se = FALSE, color = "red") +
+  scale_x_continuous(breaks = 1:6) +
+  labs(title = "Game of Thrones", subtitle = "Deaths per Season",
+       x = "Season", y = "Deaths")
+```
+
+In diesem einfachen Scatterplot haben wir auch gleich eine *Regressionsgerade* via `geom_smooth(method = lm)`,
+das ist die gleiche Gerade, die durch unsere Regressionkoeffizienten definiert wird.  
+Und wo kommen die her?  
+Aus `lm` – der Funktion, mit der wir *lineare Modelle* erstellen:
+
+```{r reg__regression_2}
+model <- lm(deaths ~ death_season, data = gotdeaths_perseason)
+```
+
+In den meisten Quellen zum Thema werdet ihr vermutlich jetzt darauf gestoßen, das Output von `lm` in `summary` zu stecken, was zwar die relevanten Ergebnisse liefert, dabei aber leider unschön aussieht:
+
+```{r reg__regression_3}
+summary(model)
+```
+
+Eine kompaktere Variante finden wie im package `broom`:
+
+```{r reg__regression_4}
+library(broom)
+
+tidy(model) %>%
+  knitr::kable(digits = 3) # kable wieder nur für die Optik im Buch
+```
+
+Hier ist `tidy` dazu da, die Koeffizienten als einfachen `data.frame` auszuspucken, das sich besser zur Darstellung in einer Tabelle eignet. Hier fehlt uns jetzt aber beispielsweise das $R^2$, aber natürlich gibt's auch da was:
+
+```{r reg__regression_5}
+sjt.lm(model)
+```
+
+Generell würde ich `sjPlot` bzw. `sjt.lm` zur Darstellung von Regressionsmodellen empfehlen: Die Funktion ist von Haus aus auf hübsches Output ausgelegt, und ist ausreichend modifizierbar um das Output so spartanisch oder umfassend wie gewünscht aussehen zu lassen.
+
+Wenn ihr mit den Innereien eines Regressionsmodells rumspielen möchtet, gibt's da auch was in `broom`:
+
+```{r reg__regression_6, warning=FALSE, message=FALSE}
+augment(model) %>%
+  knitr::kable(digits = 3)
+```
+
+Hier haben wir für jeden der Ausgangswerte noch den *prognostizierten Wert* `.fitted`, das *Residuum* `.resid` und diverse andere Statistiken, die uns vorerst nicht weiter interessieren.
+
+## Multiple Regression
+
+## Logistische Regression
+

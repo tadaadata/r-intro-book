@@ -1,0 +1,7 @@
+# Varianzanalyse (ANOVA)
+
+## Einfaktorielle ANOVA
+
+## Mehrfaktorielle ANOVA
+
+## ANOVA mit Messwiederholung (rmANOVA)
