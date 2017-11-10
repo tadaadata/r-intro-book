@@ -7,12 +7,88 @@ In diesem Kapitel widmen wir uns also einigen dieser gängigen Aufgaben und prob
 
 ## Vorab: Pipes!
 
-### Der `dplyr`-Workflow
+Lasst mich euch euer neues Stück Lieblingsyntax vorstellen: ` %>% `.  
+Das ist die *pipe*, im Code gesprochen als "*dann*". Nichts verbessert die Lesbarkeit und Nachvollziehbarkeit von Code so nachhaltig wie großzügige Verwendungen dieses kleinen Operators.
+
+Die pipe steht zwischen zwei Funktionen, und setzt das linke Element als erstes Argument in die rechte Funktion. Sprich: `f(x) %>% g()` ist äquivalent zu `g(f(x))`.  
+Ich sehe schon, wir brauchen Beispiele:
+
+Mal angenommen wir haben einen Vektor von Zahlen, und wollen diese zuerst quadrieren, dann aufsummieren, dann die Wurzel aus dem Ergebnis ziehen und dann auf zwei Nachkommastellen runden. Wieso sollten wir das tun? Für Übungszwecke. Alles andere wäre ja albern. 
+
+```{r pipe_1}
+x <- c(1, 2, 5, 4, 3, 7, 6, 8, 4, 3, 5, 7, 8)
+
+round(sqrt(sum(x^2)), 2)
+```
+
+Das sieht ziemlich unübersichtlich aus, oder? Wir müssen den Code praktisch von `x` angefangen von innen nach außen lesen, um zu verstehen, was da eigentlich passiert.  
+Eine Möglichkeit das zu umgehen, wäre die Erstellung von Zwischenergebnissen:
+
+```{r pipes_2}
+x <- x^2
+x <- sum(x)
+x <- sqrt(x)
+x <- round(x, 2)
+```
+
+Das ist… möglich, aber auch das wird irgendwann unübersichtlich, und solange ihr nicht jedem Zwischenergebnis einen anderen Namen gebt, wird das auch irgendwann schwer nachvollziehbar, insbesondere wenn ihr einen Fehler in eurem Code habt und Zwischenergebnisse nachvollziehen wollt.  
+
+Mit der pipe sähe das dann so aus:
+
+```{r pipe_3}
+library(magrittr)
+
+x^2 %>% sum() %>% sqrt() %>% round(2)
+```
+
+
+Das sieht jetzt erstmal noch nicht so besonders nach Verbesserung aus, aber achtet darauf, wie wir den Prozess jetzt ganz einfach von links nach rechts lesen können, oder mit mehrzeiliger Formatierung:
+
+```{r pipe_4}
+x^2 %>% 
+  sum() %>% 
+  sqrt() %>% 
+  round(2)
+```
+
+Pipelines in dieser Art werdet ihr noch sehr viele sehen, und früher oder später werdet ihr sie zu schätzen lernen, just trust me on this one.
+
+Ein komplexeres Beispiel aus einem meiner alten Projekte sieht etwa so aus: 
+
+```{r pipe_advanced_example, eval=FALSE}
+library(rvest)
+library(dplyr)
+library(stringr)
+
+happiness <- read_html("https://en.wikipedia.org/wiki/World_Happiness_Report") %>%
+               html_table(fill = TRUE, trim = TRUE) %>%
+               extract2(1) %>%
+               select(Country, Score) %>%
+               mutate(Country = str_trim(Country, "both")) %>%
+               set_colnames(c("country", "happiness_score"))
+```
+
+Was da passiert ist etwas Folgendes:
+
+1. Wir erstellen ein Objekt `happiness`, dann…
+2. lesen eine Wikipedia-Seite ein via `read_html`, dann…
+3. holen wir da Tabellen raus mit `html_table`, dann…
+4. extrahieren wir das erste Element via `extract2`, dann…
+5. wählen wir via `select` zwei Spalten der Tabelle aus, dann…
+6. wenden wir `str_trim` auf eine Variable an in `mutate`, dann…
+7. setzen wir die Variablennamen via `set_colnames`.
+
+Fertig!  
+Und das alles in nur einer Pipeline.  
+Ihr müsst den Code oben nicht inhaltlich nachvollziehen können, aber ihr seht vermutlich, dass die Struktur deutlich einfacher zu verstehen ist, als eine lange Verschachtelung mehrer Funktionen oder eine Reihe von Befehlen mit mehreren Zwischenschritten.  
+Und _das_ ist die Stärke der pipe, und _das_ ist das zentrale Prinzip in allen `tidyverse`-packages.
 
 ### `magrittr`-Boni
 
 ## Variablen verändern oder anlegen 
 
 ## Summary Statistics
+
+## Der `dplyr`-Workflow
 
 ## Format: Wide vs. Long
