@@ -82,13 +82,26 @@ tadaa_chisq(qmsurvey, ons, ernaehrung, print = "markdown")
 
 ### Eine Stichprobe
 
+Einstichprobentests sind… sagen wir mal, _unüblich_.  
+Solltet ihr doch mal in die Verlegenheit kommen einen **z-Test** mit bekannter Streuung durchführen zu müssen, so seid ihr vermutlich aus Versehen in der Epidemiologie gelandet.  
+In R gibt's dafür jedenfalls von Haus aus keine Funktion (von der ich weiß), deswegen haben wir den Anwendungsfall auch in der `tadaatoolbox` abgedeckt:
+
 ```{r z-Test}
 tadaa_one_sample(qmsurvey, x = alter, mu = 20, sigma = 3, print = "markdown")
 ```
 
+Hier testen wir die Variable `alter` auf die Mitte $\mu = 20$ mit einer angenommenen Streuung von $\sigma = 3$.  
+Ist das sinnvoll?  
+Keine Ahnung, es ist ein Beispiel.  
+
+Eine etwas gängigere Version ist ein Einstichproben-t-Test.  
+Wieso auch nicht.  
+
 ```{r t-test_onesample}
 tadaa_one_sample(qmsurvey, x = alter, mu = 20, print = "markdown")
 ```
+
+Wir hätten den t-Test auch mit der R-eigenen `t.test`-Funktion machen können, die gucken wir uns als nächstes an.
 
 ### Zwei Stichproben
 
@@ -104,6 +117,9 @@ t.test(partnerinnen ~ ons, data = qmsurvey)
     - Im Zweifelsfall lieber auf `FALSE` (default) lassen, sicherheitshalber.
 - `paired`: Wenn `TRUE` wird ein *abhängiger* t-Test gemacht, bei `FALSE` (default) ein *unabhängiger*.
 
+Beachtet bei der Funktion die Verwendung der Tilde: `~`, die zur *Modelldefinition* verwendet wird.  
+In diesem Fall haben wir ein intervallskaliertes Merkmal (links von der Tilde), und das unabhängige nominalskalierte Merkmal (rechts von der Tilde). Die Tilde raucht in der [Regression] und [ANOVA] nochmal auf, da gehen wir stärker auf Modelldefinition ein.
+
 Alternativ haben wir da was in der toolbox:
 
 ```{r t-test_twosample_tadaa}
@@ -115,6 +131,42 @@ Die Funktion macht im Vergleich zu `t.test()` noch folgendes:
 - Automatische Varianzhomogenitätserkennung via eingebautem Levene-Test
 - Automatische Effektgrößenberechnung (*Cohen's d*)
 - Automatische Teststärkenberechnung via `pwr`-package (Spalte `Power`)
+
+## Nichtparametrische Alternative
+
+Sollte euch mal ein Skalenniveau verloren gehen oder eure Annahmen kaputtgegangen sein, könnt ihr immer noch auf *nichtparametrische Tests* umsteigen. Die spielen zwar in der Regel nicht bei den coolen Kindern mit, aber naja, sie sind da.
+
+### Wilcoxon & Mann-Whitney
+
+Die nichtparametrischen Alternativen zu abhängigen und unabhängigen t-Tests sind von Haus aus dabei mit der Funktion `wilcox.test`:
+
+```{r wilcox_test}
+wilcox.test(partnerinnen ~ ons, data = qmsurvey, paired = FALSE)
+```
+
+Und schon haben wir einen Rangsummentest gemacht.  
+Wow.  
+Wollt ihr einen Wilcoxon-Vorzeichentest? Dann tauscht `paired = FALSE` durch `paired = TRUE` aus.  
+Kabläm.  
+Die restlichen Argumente sind mehr oder weniger analog zu `t.test` und können der Hilfe unter `?wilcox.test` entnommen werden.  
+
+Wenn ihr auch hier die *Tadaa!*-Variante wollt:
+
+```{r wilcox_tadaa}
+library(tadaatoolbox)
+
+tadaa_wilcoxon(qmsurvey, response = partnerinnen, group = ons, paired = FALSE, print = "markdown")
+```
+
+### Kruskal-Wallis
+
+Falls euch die ANOVA zu parametrisch ist, ist der Kruskall-Wallis praktisch wie für euch gemacht.  
+Ich meine, es ist ja nicht so als ob ein sauberes Regressionsmodell nicht auch meistens ausreichen würde, aber naja, hier so:
+
+```{r kruskal}
+kruskal.test(partnerinnen ~ rauchen, data = qmsurvey)
+```
+
 
 <!-- Footnotes -->
 [^sked]: Die Namensgebung ist etwas irritierend, ja. Einfach merken: "homo" = "gleich", "hetero" = "unterschiedlich", und anscheinend für diesen Kontext: "Varianz" $\approx$ "Skedastizität"
