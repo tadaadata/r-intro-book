@@ -5,9 +5,21 @@ editor_options:
 ---
 # Statistische Tests
 
+Hier kümmern wir uns um die meisten gängigen statistischen Tests aus QM2.  
+Es sollte dazugesagt werden, dass wir Regression und ANOVA ausgeklammert haben um ihnen eigene Kapitel zu spendieren, der Kram ist nämlich einen Tacken komplexer als ein simpler t-Test.  
+Als nächstes solltet ihr wissen, dass das hier nur ein *Auszug* aus gängigen statistischen Verfahren ist.  Was wir hier machen fällt unter *frequentistische Statistik*, und die coolen Kinder drüben in der *Bayesian*-Ecke finden das ziemlich langweilig.  
+Und irgendwann, wenn die Autoren dieses Werks verstanden haben wie *Bayesian* Kram funktioniert, dann ergänzen wir das hier vermutlich auch noch.
+
 ## Tests auf Voraussetzungen
 
+Die meisten der Tests hier setzen *Normalverteilung* und/oder *Varianzhomogenität* (aka *Homoskedastizität*) voraus, und auch wenn man diese Annahmen entweder mit *Robustheit* wegargumentieren oder im Falle der Normalverteilungsannahme mit ausreichend großem $N$ und dem zentralen Grenwzertsatz dezent ignorieren kann, gibt es natürlich auch Tests dafür.  
+Weil eine mehr oder weniger objektive Testentscheidung immer dankbar ist.  
+
 ### Tests auf Normalvertielung
+
+Normalverteilungstests testen eure empirische Verteilung auf Ähnlickeit zur Normalverteilung. Wer hätte das gedacht. Es gibt einen großen Haufen dieser Tests, und einige davon sind sogar richtig blöd.  
+Dazu gehört zum Beispiel der *Kolmogorov-Smirnoff-Test*, der zwar richtig richtig kacke ist, aber da es der einzige Normalverteilungstest ist, den SPSS ohne manuellen Aufwand anbietet, ist er lächerlich weit verbreitet.  
+Ja. Wenn ihr aus diesem Kapitel eins mitnehmt: Benutzt nicht den Kolmogorov-Smirnoff.
 
 Wenn es um Teststärke geht hat der **Shapiro-Wilk**-Test die Nase vorn, der sollte also so der Standardtest sein, den ihr erstmal probiert. R hat den auch von Haus aus dabei:
 
@@ -17,10 +29,10 @@ shapiro.test(qmsurvey$partnerinnen)
 
 Solltet ihr mal andere Tests brauchen, hat das package `nortest` noch einige andere gängige:
 
-```{r normtests, warning=FALSE}
+```{r normtests, eval=FALSE}
 library(nortest)
 
-# Anderson-Darling (ganz gut)
+# Anderson-Darling (auch sehr gut)
 ad.test(qmsurvey$partnerinnen)
 # Shapiro-Francia (auch ganz gut)
 sf.test(qmsurvey$partnerinnen)
@@ -31,7 +43,6 @@ pearson.test(qmsurvey$partnerinnen)
 # Kolmogorov-Smirnoff (einfach nicht benutzen)
 ks.test(scale(qmsurvey$partnerinnen), y = pnorm)
 ```
-
 
 ### Tests auf Varianzhomogenität
 
@@ -118,7 +129,7 @@ t.test(partnerinnen ~ ons, data = qmsurvey)
 - `paired`: Wenn `TRUE` wird ein *abhängiger* t-Test gemacht, bei `FALSE` (default) ein *unabhängiger*.
 
 Beachtet bei der Funktion die Verwendung der Tilde: `~`, die zur *Modelldefinition* verwendet wird.  
-In diesem Fall haben wir ein intervallskaliertes Merkmal (links von der Tilde), und das unabhängige nominalskalierte Merkmal (rechts von der Tilde). Die Tilde raucht in der [Regression] und [ANOVA] nochmal auf, da gehen wir stärker auf Modelldefinition ein.
+In diesem Fall haben wir ein intervallskaliertes Merkmal (links von der Tilde), und das unabhängige nominalskalierte Merkmal (rechts von der Tilde). Die Tilde raucht in der [Regression] und [ANOVA](#ANOVA) nochmal auf, da gehen wir stärker auf Modelldefinition ein.
 
 Alternativ haben wir da was in der toolbox:
 
