@@ -249,7 +249,7 @@ Auch hier gilt:
 Die F-Verteilung ist für die Veranstaltung eher indirekt wichtig, aber dennoch kann es ja nicht schaden im Zweifelsfall damit umgehen zu können. Siehe auch: `?FDist`
 
 * `df` gibt die Dichtefunktion (relevant um die Funktion zu plotten)
-    * `df(5, pt(1, df1 = 5, df2 = 20))` = Funktionswert der tualverteilung bei x = 5 und $df_1 = 5$ (Zähler) und $df_2 = 20$ (Nenner) (0.0039251)
+    * `df(5, df1 = 5, df2 = 20)` = Funktionswert der F-verteilung bei x = 5 und $df_1 = 5$ (Zähler) und $df_2 = 20$ (Nenner) (0.0039251)
 * `pf` die Wahrscheinlichkeitsfunktion (relevant für die Berechnung von Signifikanzniveaus)
     * **Kumulative Wahrscheinlichkeit**, im Grunde das Integral der Dichtefunktion
     * `pf(1, df1 = 5, df2 = 20)` = Wahrscheinlichkeit von $x = 0$ bis $x = 1$ bei $df_1 = 5$ (Zähler) und $df_2 = 20$ (Nenner)
