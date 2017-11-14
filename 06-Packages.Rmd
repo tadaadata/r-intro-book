@@ -248,4 +248,63 @@ Im Fokus steht in erster Linie schnelles, einfaches Output mit möglichst wenig 
 Eine Übersicht gibt es auf der Seite der Toolbox: <http://tadaatoolbox.tadaa-data.de>  
 Beispielhaftes Testoutput finfet sich [dort](http://tadaatoolbox.tadaa-data.de/articles/test_output.html), und eine Funktionsreferenz [gibt's da auch](http://tadaatoolbox.tadaa-data.de/reference/).
 
+## Addendum: "Installier mal alles"
+
+Hier ein Stück Code, das ihr im Zweifelsfall einfach copypasten könnt.  
+Es sollte euch so ziemlich alles oder zumindest das meiste an (vorerst) relevanten packages installieren, und dient mehr so der Vollständigkeit.
+
+```r
+install.packages("magrittr")
+install.packages("ggplot2")
+install.packages("dplyr")
+install.packages("tidyr")
+install.packages("stringr")
+install.packages("devtools")
+install.packages("forcats")
+install.packages("readr")
+install.packages("lubridate")
+install.packages("purrr")
+install.packages("readxl")
+install.packages("haven")
+install.packages("rvest")
+install.packages("scales")
+
+
+install.packages("sjmisc")
+install.packages("sjstats")
+install.packages("sjlabelled")
+install.packages("sjPlot")
+
+install.packages("tadaatoolbox")
+install.packages("cowplot")
+install.packages("ggrepel")
+install.packages("psych")
+install.packages("DescTools")
+install.packages("ggthemes")
+install.packages("hrbrthemes")
+install.packages("rmarkdown")
+install.packages("knitr")
+install.packages("mosaic")
+install.packages("htmlwidgets")
+install.packages("DT")
+install.packages("viridis")
+install.packages("RColorBrewer")
+install.packages("nortest")
+install.packages("pixiedust")
+install.packages("plotly")
+install.packages("revealjs")
+install.packages("rpivotTable")
+install.packages("artyfarty")
+install.packages("car")
+install.packages("colourpicker")
+install.packages("dygraphs")
+install.packages("lsr")
+install.packages("vcd")
+install.packages("ryouready")
+install.packages("esc")
+install.packages("ez")
+install.packages("afex")
+```
+
+
 [^ruby]: Die Ruby-Leute und ihre *Gems* seien mal dahingestellt
