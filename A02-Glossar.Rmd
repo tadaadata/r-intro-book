@@ -27,10 +27,12 @@ $\omega$, $\Omega$ | Omega (kleines, großes)  | Effektgröße (QM2)
 
 ### Tasten
 
-- [*Control*/*Steuerung*](https://duckduckgo.com/?q=strg+taste&t=hg&iax=images&ia=images)
+- [*Control* (deutsch: *Steuerung*), Strg, ctrl](https://duckduckgo.com/?q=strg+taste&t=hg&iax=images&ia=images)
+- [*Command* (auf Macs)](https://duckduckgo.com/?q=command+key+mac&t=hg&iax=images&ia=images)
 - [*Shift*](https://duckduckgo.com/?q=shift+taste+auf+tastatur&t=hg&iar=images&iax=images&ia=images)
 - [*Tab*](https://duckduckgo.com/?q=tab+taste&t=hg&iar=images&iax=images&ia=images)
 - [*Alt*](https://duckduckgo.com/?q=alt+taste&t=hg&iar=images&iax=images&ia=images)
+- [*Alt Gr* (nicht auf Macs)](https://duckduckgo.com/?q=alt+gr+key&t=hg&iax=images&ia=images)
 - [*Enter*](https://duckduckgo.com/?q=entertaste&t=hg&iar=images&iax=images&ia=images)
 - [*Backspace*](https://duckduckgo.com/?q=backspace+key&t=hg&iar=images&iax=images&ia=images)
 
