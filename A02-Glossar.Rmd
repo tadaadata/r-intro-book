@@ -50,7 +50,7 @@ Die Zeichen findet ihr alle auf eurer Tastatur. Wenn ihr nicht wisst wie ihr sie
     - `< >`: Spitze Klammern / auch "größer" bzw. "kleiner" Zeichen
     
 - Anführungszeichen:
-    - \` \`: Backticks, Akzent
+    - <code>` `</code>: Backticks, Akzent
     - `" "`: Doppelte Anführungszeichen / Double Quotes
     - `' '`: Einfache Anführungszeichen / Single Quotes / Meistens als Apostroph benutzt
 
