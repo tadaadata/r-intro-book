@@ -10,7 +10,7 @@ Also los.
 
 Mal angenommen, wir wollen wissen ob bei *Game of Thrones* im Laufe der Serie mehr gestorben wird, sprich wir wollen wissen, ob es einen positiven Zusammenhang zwischen der *Staffel* und der *Anzahl der Tode pro Staffel* gibt. Dafür müssen wir unseren `gotdeaths`-Datensatz etwas umtransformieren:
 
-```{r reg__regression_1, message=FALSE, warning=FALSE}
+```{r regression_dataprep, message=FALSE, warning=FALSE}
 library(dplyr)
 
 gotdeaths_perseason <- gotdeaths %>%
@@ -22,7 +22,7 @@ knitr::kable(gotdeaths_perseason)
 
 Jetzt haben wir zwei simple Variablen: Die Staffel und die Anzahl der Tode pro Staffel. Damit lässt sich arbeiten. Vorher wollen wir uns das aber erstmal kurz anschauen:
 
-```{r reg__regression_plot}
+```{r regression_plot}
 library(ggplot2)
 
 ggplot(data = gotdeaths_perseason, aes(x = death_season, y = deaths)) +
@@ -36,21 +36,25 @@ ggplot(data = gotdeaths_perseason, aes(x = death_season, y = deaths)) +
 In diesem einfachen Scatterplot haben wir auch gleich eine *Regressionsgerade* via `geom_smooth(method = lm)`,
 das ist die gleiche Gerade, die durch unsere Regressionkoeffizienten definiert wird.  
 Und wo kommen die her?  
-Aus `lm` – der Funktion, mit der wir *lineare Modelle* erstellen:
+Aus `lm` – der Funktion, mit der wir *lineare Modelle* erstellen.
 
-```{r reg__regression_2}
+### Modelle erstellen
+
+```{r regression_models_1}
 model <- lm(deaths ~ death_season, data = gotdeaths_perseason)
 ```
 
+### Das Modell-Objekt
+
 In den meisten Quellen zum Thema werdet ihr vermutlich jetzt darauf gestoßen, das Output von `lm` in `summary` zu stecken, was zwar die relevanten Ergebnisse liefert, dabei aber leider unschön aussieht:
 
-```{r reg__regression_3}
+```{r regression_output_1}
 summary(model)
 ```
 
 Eine kompaktere Variante finden wie im package `broom`:
 
-```{r reg__regression_4}
+```{r regression_output_2}
 library(broom)
 
 tidy(model) %>%
@@ -59,7 +63,7 @@ tidy(model) %>%
 
 Hier ist `tidy` dazu da, die Koeffizienten als einfachen `data.frame` auszuspucken, das sich besser zur Darstellung in einer Tabelle eignet. Hier fehlt uns jetzt aber beispielsweise das $R^2$, aber natürlich gibt's auch da was:
 
-```{r reg__regression_5}
+```{r regression_output_vis_1}
 sjt.lm(model)
 ```
 
