@@ -27,6 +27,8 @@ $\omega$, $\Omega$ | Omega (kleines, großes)  | Effektgröße (QM2)
 
 ### Tasten
 
+Wikipedia hat [da was für euch](https://de.wikipedia.org/wiki/Tastaturbelegung#Beschreibung_der_Tasten).
+
 - [*Control* (deutsch: *Steuerung*), Strg, ctrl](https://duckduckgo.com/?q=strg+taste&t=hg&iax=images&ia=images)
 - [*Command* (auf Macs)](https://duckduckgo.com/?q=command+key+mac&t=hg&iax=images&ia=images)
 - [*Shift*](https://duckduckgo.com/?q=shift+taste+auf+tastatur&t=hg&iar=images&iax=images&ia=images)
@@ -37,6 +39,9 @@ $\omega$, $\Omega$ | Omega (kleines, großes)  | Effektgröße (QM2)
 - [*Backspace*](https://duckduckgo.com/?q=backspace+key&t=hg&iar=images&iax=images&ia=images)
 
 ### Zeichen
+
+Wenn wir von bestimmten Zeichen reden, ist es gut, wenn ihr wisst wovon wir reden.  
+Die Zeichen findet ihr alle auf eurer Tastatur. Wenn ihr nicht wisst wie ihr sie eingebt, dann googlet ihr "Wie gebe ich XYZ ein". Die Mac-UserInnen hängen noch "auf Mac" an die Suchanfrage.  
 
 - Klammern:
     - `( )`: Runde Klammern / Parentheses / Round Parentheses
