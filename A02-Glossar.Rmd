@@ -22,3 +22,50 @@ $\sigma$, $\Sigma$ | "Sigma" (kleines, großes) | Standardabweichung in der Popu
 $\phi$             | "Phi"           | Statistik / Effektgröße (QM1)
 $\chi$             | "Chi" (meistens "tschi") | (Test-)Statistik (QM1, QM2)
 $\omega$, $\Omega$ | Omega (kleines, großes)  | Effektgröße (QM2)
+
+## "Was für eine Taste?"
+
+### Tasten
+
+- [*Control*/*Steuerung*](https://duckduckgo.com/?q=strg+taste&t=hg&iax=images&ia=images)
+- [*Shift*](https://duckduckgo.com/?q=shift+taste+auf+tastatur&t=hg&iar=images&iax=images&ia=images)
+- [*Tab*](https://duckduckgo.com/?q=tab+taste&t=hg&iar=images&iax=images&ia=images)
+- [*Alt*](https://duckduckgo.com/?q=alt+taste&t=hg&iar=images&iax=images&ia=images)
+- [*Enter*](https://duckduckgo.com/?q=entertaste&t=hg&iar=images&iax=images&ia=images)
+- [*Backspace*](https://duckduckgo.com/?q=backspace+key&t=hg&iar=images&iax=images&ia=images)
+
+### Zeichen
+
+- Klammern:
+    - `( )`: Runde Klammern / Parentheses / Round Parentheses
+    - `{ }`: Geschweifte Klammern / Curly Braces
+    - `[ ]`: Eckige Klammern / Brackets 
+    - `< >`: Spitze Klammern / auch "größer" bzw. "kleiner" Zeichen
+    
+- Anführungszeichen:
+    - \` \`: Backticks, Akzent
+    - `" "`: Doppelte Anführungszeichen / Double Quotes
+    - `' '`: Einfache Anführungszeichen / Single Quotes / Meistens als Apostroph benutzt
+
+- Rechenzeichen
+    - `+`: Plus
+    - `-`: Minus, Bindestrich. Kein Unterstrich. Bindestrich.
+    - `/`: Geteilt durch, *Slash*
+    - `^`: Hoch / Circumflex
+
+- Logische Operatoren
+    - `==`: Doppeltes `=` Zeichen **Ohne Leerzeichen dazwischen**
+    - `!=`: Nicht gleich, Ausrufezeichen und Gleicheitszeichen **Ohne Leerzeichen dazwischen**
+    - `|`: Gerader Strich, auch "Pipe"
+    - `>`: Größer als
+    - `<`: Kleiner als
+    - `>=`: Größer gleich **Ohne Leerzeichen dazwischen**
+    - `<=`: Kleiner gleich **Ohne Leerzeichen dazwischen**
+    
+- Andere Zeichen:
+    - `!`: Ausrufezeichen
+    - `$`: Dollar-Zeichen. **Nicht §**. Das ist was anderes. 
+    - `/`: Slash, "Geteilt durch"
+    - `\`: Backslash. Gegenstück zu `/`. Teilt *nicht*.
+    - `-`: Bindestrich, Minus
+
