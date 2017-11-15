@@ -8,7 +8,11 @@ Es gibt viele freie Quellen für schöne Datensätze zum Üben oder rumspielen, 
 
 ### In R / Packages
 
-- `iris`, `sleep`, `mtcars`: Gängige Standarddatensätze
+- Gängige Standarddatensätze:
+    - `iris`
+    - `mtcars`
+    - `sleep`
+    - `attitude`
 - `dplyr::starwars`: *Star Wars*-stuff mit *list-columns*
 - `babynames::babynames`: Naja, baby names.
 
