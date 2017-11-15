@@ -121,12 +121,13 @@ Ihr habt an dieser Stelle zwei Möglichkeiten:
 
 ## Text Editor
 
-Alles was in der Konsole passiert ist schön und gut, aber es ist flüchtig. Stellt es euch vor wie eine Timeline auf Facebook, Twitter, Instagram oder was auch immer diese jungen Leute heutzutage benutzen.  
+Alles was in der Konsole passiert ist schön und gut, aber es ist flüchtig. Stellt es euch vor wie eine Timeline auf Twitter oder ein Snapchat… Snapchat Dings oder was auch immer diese jungen Leute heutzutage benutzen.  
 Sobald ihr mehr als vier oder fünf Befehle eingegeben habt, müsst ihr hochscrollen, um eure alten Ergebnisse wieder zu finden. Das ist vollkommen okay um mal schnell etwas auszuprobieren, aber eher unpraktisch für eure Arbeit, die in der Regel sowas wie Reproduzierbarkeit erfordert.
 
 Dazu gibt es Scripte. Scripte sind im Grunde nur Textdateien, in die ihr R-Befehle eingebt.  
 Schön brav einen Befehl pro Zeile, wie in der Konsole.  
 Scripte könnt ihr speichern und an andere Leute verschicken oder hochladen oder euch ausdrucken und an die Backe tackern — der Kreativität sind keine Grenzen gesetzt!
+Scripte schreibt und speichert ihr, um eure Befehle / Auswertung / Code später wiederzufinden und nachvollziehen zu können. Ergebnisse reproduzieren könnt ihr indem ihr den Code aus dem Script nochmal ausführt.  
 
 Um euer erstes Script zu erstellen klickt ihr in RStudio oben links den Button, der nach _"neuer Datei"_ aussieht:
 
@@ -154,7 +155,7 @@ Etwas ähnliches gilt auch für den Text in eurem Script:
 Vermeidet nach Möglichkeit besondere Zeichen wie Emoji ![](images/smile.png) (auch wenn die theoretisch korrekt angezeigt werden). Leerzeichen sind kein Problem, und sollten sogar der besseren Lesbarkeit halber großzügig eingesetzt werden.
 
 Was der Lesbarkeit auch sehr hilft: Kommentare.  
-R ignoriert in Scripten sowie in der Konsole generell alles, was links neben einem `#` steht. Wir nennen dieses Zeichen übrigens entweder *Raute*, *Lattenzaun* oder [*Octothorpe*](https://en.wiktionary.org/wiki/octothorpe). Wer es *hashtag* nennt muss leider 5€ in die Millenial-Dose werfen.
+R ignoriert in Scripten sowie in der Konsole generell alles, was rechts neben einem `#` steht. Wir nennen dieses Zeichen übrigens entweder *Raute*, *Lattenzaun* oder [*Octothorpe*](https://en.wiktionary.org/wiki/octothorpe). Wer es *hashtag* nennt muss leider 5€ in die Millenial-Dose werfen.
 
 Damit können wir sowas machen:
 
@@ -173,10 +174,9 @@ Wenn ihr dann ein paar Zeilen Code angesammelt habt, könnt ihr euer Script ausf
 Ein Script wird von oben nach unten (und von links nach rechts) ausgeführt, wenn ihr auf "`Source`" klickt oder `Shift + STRG + Enter` drückt (auf dem Mac `Shift + cmd + Enter`).  
 Wenn ihr nur die aktuelle Zeile (da wo euer Cursor gerade ist, ist "aktuell") ausführen wollt, reicht `STRG + R` (Mac: `cmd + R`).
 
-
 ## Und das da rechts?
 
-Auf der rechten Seite in RStudio findet ihr unter Anderem die Hilfe, die Dateien in eurem Projektordner, eine Übersicht der installierten packages, eine Variablenübersicht und noch etwas mehr.  
+Auf der rechten Seite in RStudio findet ihr unter Anderem die Hilfe (*Help*), die Dateien in eurem Projektordner (*Files*), eine Übersicht der installierten packages (*Packages*), eine Variablenübersicht (*Environment*) und von euch erstelle Graphiken (*Plots*).
 Wenn ihr das hier in der richtigen Reihenfolge lest, habt ihr vermutlich keine Ahnung was das alles heißen soll — und genau deswegen wenden wir uns dem Ganzen auch Schritt wir Schritt in späteren Abschnitten zu, wenn ihr ein bisschen mehr Übersicht über die Grundlagen habt.
 
 <!-- Footnotes -->
