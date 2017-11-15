@@ -1,4 +1,4 @@
-# Varianzanalyse (ANOVA)
+# Varianzanalyse (ANOVA) {#ANOVA}
 
 ## Einfaktorielle ANOVA
 
