@@ -23,7 +23,12 @@ Wir installieren das package mit einem einfachen Befehl in der Konsole:
 install.packages("tadaatoolbox")
 ```
 
-Achtet darauf, dass ihr Groß- und Kleinschreibung beachtet habt, und dass der Name des packages in `" "` steht (wie ein `character`).  
+```{block2, packages_antivir, type="rmdimportant"}
+Windows-BenutzerInnen: Wenn ihr Antivirus-Software benutzt (Norton, Kaspersky, whatever) **kann es sein** dass diese euch beim installieren stört. Ihr bekommt dann wenig aussagekräftige Fehler. **Schaltet eure Antivirus-Software aus** wenn ihr Probleme bei der Installation habt.
+```
+
+
+Achtet darauf, dass ihr **Groß- und Kleinschreibung beachtet** habt, und dass der Name des packages in `" "` steht (wie ein `character`).  
 Wenn ihr Enter gedrückt habt sollte R anfangen loszurödeln, vielelicht gehen auch einige Fenster mit Fortschrittsbalken auf, wenn ihr Windows benutzt.  
 Das schöne an diesem Befehl ist, dass es auch direkt alle packages installiert, die wir in unserem package benutzen: Sogenannte *dependencies*. Eine dependency (*Abhängigkeit*) ist in diesem Kontext ein package, das von einem anderen package gebraucht wird um zu funktionieren. Wir benutzen im package `tadaatoolbox` zum Beispiel auch die packages `dplyr`, `pixiedust` und `sjlabelled`, deswegen sollte der Befehl diese packages auch gleich mitinstallieren.  
 
