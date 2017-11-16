@@ -1,3 +1,9 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
 ```{r}
 knitr::opts_knit$set(unnamed.chunk.label = "data_munging_")
 ```
@@ -107,7 +113,7 @@ Die Funktionen `add`, `divide_by` und `raise_to_power` sind nur andere Versionen
 Als Beispiel lesen wir mal den `gotdeaths_books`-Datensatz ein:
 
 ```{r}
-library(reader)
+library(readr)
 gotdeaths_books <- read_csv("data/got_character-deaths.csv")
 ```
 
