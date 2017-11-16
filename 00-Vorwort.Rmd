@@ -34,13 +34,6 @@ Das ganze ist so dermaßen work in progress, dass ich sogar das hier eingebaut h
 get_latest_commit(5)
 ```
 
-
-## Für TutorInnen und Leute mit zu viel Motivation {-}
-
-Wenn ihr noch keine Ahnung habt wie R funktioniert, wie man einen Computer bedient oder was Versionskontrollsysteme sein sollen, dann könnt ihr das hier überspringen. Wenn ihr aber Ergänzungen oder Korrekturen machen wollt, dann ist das auch möglich!
-
-Um an diesem Projekt mitzuarbeiten könnt ihr entweder den *edit* (<i class="fa fa-edit fa-lg"></i>) button auf der Web-Version oben in der Leiste klicken, oder direkt auf das [GitHub repository](https://github.com/tadaadata/r-intro-book) gehen und dort entweder Issues erstellen oder direkt Pull Requests machen.
-
 ## Über diese Einführung {-}
 
 Tobi und Lukas haben <s>zwei</s> drei Jahre lang die R-Einführung in QM gehalten, anfangs basierend auf den Folien, die Lukas unter Anderem auch als Nachschlagwerk gedacht hatte.  
@@ -88,3 +81,9 @@ gotdeaths_books <- read_csv("data/got_character-deaths.csv", col_types = cols())
 ```
 
 …unter der Annahme, dass ihr die Datensätze in einem `data` Unterordner eures aktuellen Projekts abgelegt habt.
+
+## Für TutorInnen und Leute mit zu viel Motivation {-}
+
+Wenn ihr noch keine Ahnung habt wie R funktioniert, wie man einen Computer bedient oder was Versionskontrollsysteme sein sollen, dann könnt ihr das hier überspringen. Wenn ihr aber Ergänzungen oder Korrekturen machen wollt, dann ist das auch möglich!
+
+Um an diesem Projekt mitzuarbeiten könnt ihr entweder den *edit* (<i class="fa fa-edit fa-lg"></i>) button auf der Web-Version oben in der Leiste klicken, oder direkt auf das [GitHub repository](https://github.com/tadaadata/r-intro-book) gehen und dort entweder Issues erstellen oder direkt Pull Requests machen.
