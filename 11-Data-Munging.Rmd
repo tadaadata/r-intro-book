@@ -1,3 +1,7 @@
+```{r}
+knitr::opts_knit$set(unnamed.chunk.label = "data_munging_")
+```
+
 # Data Munging
 
 Ah ja, die wunderbare Welt des *Data Munging* – dem Dammelbegriff für "*Zeug mit Daten machen damit wir da besser mit arbeiten können oder so*". Hierzu gehören so spaßige Themen wie "recoding", "reformatting", "restructuring", "labelling", "transforming", "reshaping" und viele andere lustige Begriffe die teilweise kongruent sind, und auch sonst ist das eher so ein Bereich á la *learning by doing*.  
@@ -85,10 +89,182 @@ Und _das_ ist die Stärke der pipe, und _das_ ist das zentrale Prinzip in allen 
 
 ### `magrittr`-Boni
 
+Der `%>%`-Operator kommt ja ursprünglich aus dem `magrittr`-package, und auch wenn viele packages wie `dplyr`, `tidyr` oder auch `tadaatoolbox` den Operator auch mitbringen, hat *pures* `magrittr` noch einige nette Boni für Pipe-Konstruktionen
+
+```{r pipe_boni_1}
+library(magrittr)
+
+c(1, 4, 7, 4, 8, 19, 33, 42, 12, 4, 16) %>%
+  divide_by(5) %>%
+  add(9) %>%
+  raise_to_power(2)
+```
+
+Die Funktionen `add`, `divide_by` und `raise_to_power` sind nur andere Versionen der Rechenoperatoren mit entsprechenden Namen, `+`, `/` und `^`, die sich besser für Pipelines eignen.  
+
 ## Variablen verändern oder anlegen 
+
+Als Beispiel lesen wir mal den `gotdeaths_books`-Datensatz ein:
+
+```{r}
+library(reader)
+gotdeaths_books <- read_csv("data/got_character-deaths.csv")
+```
+
+Ihr seht, dass Spalten Namen haben wie `Death Year`, was wegen des Leerzeichens dazwischen etwas unhandlich ist. Zusätzlich haben wir Spalten `Gender` und `Nobility`, die mit `1` und `0` kodiert sind, die wären mit Labels lesbarer.
+
+### Spaltennamen
+
+Spaltennamen lassen sich einfach mit `names()` anzeigen und ändern:
+
+```r
+# Spaltennamen anzeigen
+names(gotdeaths_books)
+
+# Spaltennamen ändern
+names(gotdeaths_books) <- c("Name", "Allegiances", "Death_Year", "Book_of_Death",
+                            "Death_Chapter", "Book_Introduced", "Gender", "Nobility",
+                            "GameOfThrones", "ClashOfKings", "SongOfStorms", "FeastForCrows",
+                            "DanceWithDragons")
+```
+
+...aber so müssen wir einen neuen Vektor mit der gleichen Anzahl an Elementen wie Spalten im Datensatz angeben, das ist ziemlich nervig, wenn wir nur einzelne Spalten umbenennen wollen.  
+Zum glück gibt's da was von `dplyr`:
+
+```{r}
+library(dplyr)
+
+gotdeaths_books <- gotdeaths_books %>%
+                      rename(Death_Year    = 'Death Year',
+                             Death_Chapter = 'Death Chapter',
+                             Death_Book    = 'Book of Death',
+                             Book_Intro    = 'Book Intro Chapter')
+```
+
+So müssen wir nur die Variablen angeben, die wir umbenennen wollen. Der neue Variablennamen steht links in `rename`, dann rechts der Name der aktuellen Variable, in diesem Fall in `' '` wegen der Leerzeichen.  
+Wir speichern das Ganze auch gleich wieder via `gotdeaths_books <- ` in das gleiche Objekt.
+
+### Rekodieren
+
+Als nächsten wollen wir die Variablen `Gender` und `Nobility` rekodieren, damit die numerischen Werte durch was aussagekräftigeres ersetzt werden. Das können wir am einfachsten mit `mutate` aus `dplyr` machen:
+
+```{r}
+gotdeaths_books <- gotdeaths_books %>%
+  mutate(Gender   = factor(Gender, levels = c(0, 1), labels = c("Female", "Male")),
+         Nobility = factor(Nobility, levels = c(0, 1), labels = c("No", "Yes")))
+```
+
+Die Funktion `mutate` funktioniert nach dem gleichen Schema wie `rename`: Links steht der Namen der Spalte die wir erstellen (in diesem Fall überschreiben) wollen, und rechts neben dem `=` steht ein Ausdruck, der eine Variable mit gleicher Anzahl an Elementen zurückgibt. In diesem Fall ist die Funktion `factor`, angewandt auf die jeweils zu rekodierende Variable.  
+`factor()` erstellt einen Vektor des Typs, well, `factor`, mit numerischen Werten (`levels`), praktisch den Merkmalsausprägungen, und mit `character` Labels (`labels`). Beide nennen wir in der Funktion explizit. Das Resultat ist, dass die Variable `Gender` immer noch die `levels` `0, 1` hat, aber jetzt zusätzlich die `labels` `"Männlich", "Weiblich"`.  
+
+Nachdem wir den Befehl oben ausgeführt haben können wir uns die Variablen in der Konsole angucken:
+
+```{r}
+class(gotdeaths_books$Gender)
+class(gotdeaths_books$Nobility)
+
+# Ganzer Datensatz:
+gotdeaths_books
+```
+
+Dann ist da noch eine Sache mit den `Allegiances`. Wenn ihr euch die Variable anschaut, seht ihr, dass da manchmal "Stark" und manchmal "House Stark" etc. steht. Wenn wir jetzt aber nach der Zugehörigkeit gruppieren wollen in Tabellen und Plots, dann wären das ja Duplikate.  
+Das zu beheben ist leider etwas komplizierter, wenn wir's sauber machen wollen, aber haltet durch.
+
+```{r}
+library(stringr)
+
+gotdeaths_books <- gotdeaths_books %>%
+  mutate(Allegiances = str_replace(Allegiances, pattern = "House\\ ", replacement = ""))
+```
+
+Fixed it.  
+Okay, was ist da passiert?  
+
+1. Anwendung von `mutate` so wie eben. Variable `Allegiances` ersetzen durch eine modifizierte Version
+2. Wir haben das package `stringr` geladen und benutzt für die Funktion `str_replace`, darin...
+    2.1 Benutzen wir die Variable `Allegiances`...
+    2.2 Suchen das "Muster" `"House\\ "`, das steht für "Das wort `House` mit einem Leerzeichen danach"
+    2.3 Ersetzen das gesuchte Muster durch `""`, also leeren Text
+3. Das Resultat ist die Variable `Allegiances`, aber überall wurde `House ` entfernt
+
+Das was wir hier gemacht haben fällt unter die Themen *string manipulation* und *regular expressions*.  
+Das müsst ihr nicht sofort verstehen oder jetzt recherschieren, aber es kann helfen das zu können. Kommt alles mit der Zeit und lässt sich prima googlen, weil das in vielen Bereichen häufig vorkommt.
+
+### Klassieren
+
+Für diesen Anwendungsfall nehmen wir am besten wieder den `qmsurvey`-Datensatz, weil es bei den *Game of Thrones*-Daten so wenig zu klassieren gibt.
+
+```{r}
+qmsurvey <- readRDS("data/qm-survey-2017-R.rds")
+```
+
+Zum klassieren (also Sonderfall des Rekodierens) haben wir mehrere Optionen in R.  
+Die erste ist aus `car`:
+
+```{r}
+library(car)
+
+qmsurvey <- qmsurvey %>%
+  mutate(schlaf_k = recode(schlafstunden, "lo:7 = 1; 7.5:9 = 2; 9:hi = 3"))
+```
+
+Leider benutzt sich `recode` etwas umständlich, aber der Befehl liest sich etwa so:
+
+- "Alle Werte vom niedrigsten (`lo`, sprich "low") bis `7` sollen zu `1` werden"
+- "Alle Werte von `7.5` bis `9` sollen zu `2` werden"
+- "Alle Werte von `9` bis zum höchsten (`hi`, sprich "high") sollen zu `3` werden"
+
+Eine Alternative Möglichkeit aus `sjmisc` ist `split_var`:
+
+```{r}
+library(sjmisc)
+
+qmsurvey <- qmsurvey %>%
+  mutate(schlaf_k = split_var(schlafstunden, n = 3))
+```
+
+Hier steht `n = 3` für die Anzahl der Gruppen, die wir gerne hätten. Das Resultat hat in diesem Fall allerdings nur 2 Gruppen, vermutlich weil die Spannweite der Werte relativ klein ist.  
+
+Eine *dritte* Variante wäre `dplyr` mit `case_when`, und erfordert Logik:
+
+```{r}
+qmsurvey <- qmsurvey %>%
+  mutate(schlaf_k = case_when(
+    schlafstunden >= 9 ~ 3,
+    schlafstunden < 9 ~ 2,
+    schlafstunden <= 7 ~ 1
+  ))
+```
+
+Das liest sich so:
+
+- Alle Werte *größer gleich* `9` sollen zu `3` werden
+- Alle Werte *kleiner als* `9` sollen zu `2` werden
+- Alle Werte *kleiner gleich* `7` sollen zu `1` werden
+
+Benutzt eine diese Varianten, je nachdem welche ihr am Verständlichsten findet.  
+Und ja, es gibt noch viele andere Möglichkeiten, aber irgendwann ist auch mal gut.
 
 ## Summary Statistics
 
+```{r}
+qmsurvey %>%
+  group_by(rauchen) %>%
+  summarize(m_alter = mean(alter))
+```
+
+
 ## Der `dplyr`-Workflow
+
+```{r, eval = FALSE}
+gotdeaths_books %>% 
+  filter(!is.na(Death_Year)) %>% 
+  group_by(Allegiances) %>% 
+  tally() %>%
+  ggplot(aes(x = reorder(Allegiances, n), y = n)) +
+  geom_col() +
+  coord_flip()
+```
+
 
 ## Format: Wide vs. Long
