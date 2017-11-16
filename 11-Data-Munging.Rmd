@@ -4,8 +4,12 @@ editor_options:
   chunk_output_type: console
 ---
 
-```{r}
+```{r, include = FALSE}
 knitr::opts_knit$set(unnamed.chunk.label = "data_munging_")
+knitr::opts_chunk$set(comment = "", warning = FALSE, error = FALSE)
+
+library(dplyr)
+library(car)
 ```
 
 # Data Munging
@@ -169,8 +173,8 @@ Nachdem wir den Befehl oben ausgeführt haben können wir uns die Variablen in d
 class(gotdeaths_books$Gender)
 class(gotdeaths_books$Nobility)
 
-# Ganzer Datensatz:
-gotdeaths_books
+# Spalten anzeigen:
+gotdeaths_books %>% select(Gender, Nobility)
 ```
 
 Dann ist da noch eine Sache mit den `Allegiances`. Wenn ihr euch die Variable anschaut, seht ihr, dass da manchmal "Stark" und manchmal "House Stark" etc. steht. Wenn wir jetzt aber nach der Zugehörigkeit gruppieren wollen in Tabellen und Plots, dann wären das ja Duplikate.  
@@ -261,6 +265,16 @@ qmsurvey %>%
 
 
 ## Der `dplyr`-Workflow
+
+
+```{r}
+gotdeaths_books %>% 
+  filter(!is.na(Death_Year)) %>% 
+  group_by(Allegiances) %>% 
+  tally()
+```
+
+Als plot:
 
 ```{r, eval = FALSE}
 gotdeaths_books %>% 
