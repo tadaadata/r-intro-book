@@ -188,7 +188,7 @@ Das *non-numeric argument* hier ist die `"5"`. Merken: `5` ist **numerisch**, ab
 Der *binary operator* an dieser Stelle ist übrigens das `+`. Ein **Operator**, weil es, äh… operiert? Naja, es tut Dinge, und wenn etwas in R Dinge tut, ist es meistens ein Operator in irgendeinem Sinne. Das *binary* heißt, dass es **zwei** (bi, binär, binary, zwei halt) Argumente nimmt.  
 Wie schon gesagt, Argumente sind die Dinge, die wir an Funktionen übergeben, und wenn wir an eine Funktion wie `+` oder auch `mean()` ein Argument übergeben, mit denen sie nichts anfangen können, dann beschwert sich R weil es nicht weiß was zum Geier ihr da vorhabt.  
 
-```{r}
+```{r, error=FALSE, warning=FALSE}
 namen <- c("Tobi", "Lukas", "Nadja", "Christoph")
 
 fib <- c(1, 1, 2, 3, 5, 8, 13, 21) 
@@ -349,7 +349,7 @@ Die allgemeine Form ist `tabelle[Zeilennummer, Spaltennumer]`, und jetzt fragt i
 Bei einer Tabelle ist es nützlich mit Zeilen und Spalten zu arbeiten, um die gewünschten Werte rauszuholen, aber bei einem Vektor gibt es in diesem Sinne nur eine Dimension.  
 Sinn der Sache ist, dass wir Funktionen wie `mean` oder `sd` nur auf Vektoren anwenden können, was auch intuitiv irgendwie sinnvoll scheint, denn der Mittelwert einer ganzen Tabelle mit mehreren Variablen ist ja konzeptionell etwas… schwierig.
 
-```{r}
+```{r, error=FALSE, warning=FALSE}
 # Okay
 mean(sleep$extra)
 

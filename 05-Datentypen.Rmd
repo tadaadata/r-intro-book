@@ -1,3 +1,7 @@
+```{r}
+knitr::opts_knit$set(unnamed.chunk.label = "datentypen_")
+```
+
 # Datentypen
 
 Es gibt eine Reihe von Unterscheidungsmöglichkeiten zwischen verschiedenen Arten von Daten.  

@@ -9,6 +9,8 @@ editor_options:
 # Fancy font stuff required for hrbrthemes
 library(extrafont)
 loadfonts()
+
+knitr::opts_knit$set(unnamed.chunk.label = "visualisierung_")
 ```
 
 

@@ -2,7 +2,7 @@
 
 t_start <- Sys.time()
 
-#### Check dependencies ####
+# Check dependencies ----
 cat("\n\nChecking if required stuff is installed…\n")
 
 pkgs <- c("bookdown", "svglite", "tadaatoolbox", "sjPlot", "sjmisc", "devtools",
@@ -22,7 +22,8 @@ if (all(status)) {
   cat("Successfully checked dependencies!\n")
 }
 
-#### Save config for stuff ####
+
+# Save config for stuff ----
 bookdown_yml <- yaml::yaml.load_file(rprojroot::find_rstudio_root_file("_bookdown.yml"))
 
 out_dir   <- bookdown_yml$output_dir
@@ -35,7 +36,7 @@ if (!file.exists(out_dir)) {
   dir.create(out_dir)
 }
 
-#### Clean up artifacts that cause problems ####
+# Clean up artifacts that cause problems ----
 cat("Cleaning up potential debug files…\n")
 
 if (file.exists(debug_out)) {
@@ -57,7 +58,7 @@ if (length(htmls) != 0) {
 }
 rm(htmls)
 
-#### Move images/CSS dir to output ####
+# Move images/CSS dir to output ----
 cat("Moving images and CSS directory to output dir\n")
 status <- file.copy("css", out_dir, overwrite = T, recursive = T)
 if (all(status)) {
@@ -72,14 +73,14 @@ if (all(status)) {
   warning("Something didn't work right!")
 }
 
-#### Render things ####
+# Render things ----
 cat("\nRendering things\n")
 
 # Build Website
 cat("Rendering website…\n")
 bookdown::render_book(input = ".",
                       output_format = "bookdown::gitbook",
-                      clean_envir = F, quiet = TRUE)
+                      clean_envir = FALSE, quiet = TRUE)
 
 # Build EPUB
 if (file.exists(out_epub)) {
@@ -98,7 +99,7 @@ if (is.null(age) || age > 12) {
 }
 cat("Done rendering\n")
 
-#### Prepare to copy to output ####
+# Prepare to copy to output ----
 cat("\nChecking who you are…\n")
 current_user <- Sys.info()[["user"]]
 cat(paste0("I hope you're really ", current_user), "\n")
@@ -111,7 +112,7 @@ if (current_user == "Lukas") {
   book_dir <-  NA
 }
 
-#### Copy to output ####
+# Copy to output ----
 cat("\nCopying stuff…\n")
 
 if (is.na(book_dir)) {
@@ -127,20 +128,20 @@ if (is.na(book_dir)) {
   }
 }
 
-#### Final Cleanup ####
+# Final Cleanup ----
 if (file.exists("_bookdown_files")) {
   cat("Removing \"_bookdown_files\"…\n")
   system(command = "rm -r _bookdown_files")
 }
 
-#### Done ####
+# Done ----
 cat("\nAll done!\n")
 t_finish <- Sys.time()
 t_diff   <- round(as.numeric(difftime(t_finish, t_start, "s")), 0)
 cat("Took about", t_diff, "seconds", "\n")
 timestamp()
 
-# Cleanup, just in case
+# Cleanup, just in case ----
 rm(pkgs, bookdown_yml, out_dir, status, debug_out,
    current_user, t_diff, t_start, t_finish,
    out_epub, out_pdf)
