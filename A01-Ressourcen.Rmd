@@ -15,6 +15,7 @@ Es gibt viele freie Quellen für schöne Datensätze zum Üben oder rumspielen, 
     - `attitude`
 - `dplyr::starwars`: *Star Wars*-stuff mit *list-columns*
 - `babynames::babynames`: Naja, baby names.
+- `tadaatoolbox::ngo`: NGO-Datensatz aus QM (bzw. aus dem *Kähler*)
 
 ### In der freien Wildbahn
 
@@ -41,6 +42,8 @@ Aus der Community:
 - ["R Programming for Data Science"](https://bookdown.org/rdpeng/rprogdatascience/) -- Roger Peng
 - ["Exploratory Data Analysis with R"](https://bookdown.org/rdpeng/exdata/) -- Roger Peng
 - ["Top 50 ggplot2 Visualizations"](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html)
+- ["R Cookbook"](http://www.cookbook-r.com/)
+- [Mehr Bücher](https://bookdown.org/)
 
 Andere Quellen:
 
@@ -77,6 +80,11 @@ Siehe auch: [Blogs in `blogdown`](https://github.com/sellorm/awesome-blogdown)
 - [Stackoverflow](https://stackoverflow.com/questions/tagged/r)
 - [Twitter: `#rstats`](https://twitter.com/search?f=tweets&q=%23rstats)
 - Facebook-Gruppen
+
+### Websites / Misc
+
+- [r4stats](http://r4stats.com/)
+- [r-statistics.co](http://r-statistics.co/)
 
 ## Dokumentation
 

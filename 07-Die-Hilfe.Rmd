@@ -25,4 +25,6 @@ Die Dokumentation von Funktionen hat immer das gleiche Format mit bestimmtem Pfl
 
 Die R-Hilfe ist primär auf englisch verfügbar.   
 Wenn euch das überrascht, dann geht mal vor die Tür.  
-Zusätzlich ist die Hilfe meistens den AutorInnen der jeweiligen Packages/Funktionen geschrieben, was zwar den Vorteil hat, dass sie in der Regel zumindest inhaltlich korrekt ist, aber für Laien manchmal nur so mäßig verständlich ist, was da jetzt eigentlich genau gesagt wird.
+Zusätzlich ist die Hilfe meistens von den AutorInnen der jeweiligen Packages/Funktionen geschrieben, was zwar den Vorteil hat, dass sie in der Regel zumindest inhaltlich korrekt ist, aber für Laien manchmal nur so mäßig verständlich ist, was da jetzt eigentlich genau gesagt wird.  
+
+Häufig werden Begriffe verwendet, die für euch womöglich eher fremd erscheinen, weil ihr vermutlich keinen Hintergrund in der Programmierung / Numerik / whatever habt, aber keine Angst. Früher oder später lernt ihr die Begriffe, die relevant sind, und wenn ihr mal was so *gar nicht* versteht, dann fragt ihr eben einfach bei TutorInnen nach, googlet den Quatsch, oder ignoriert es einfach und versucht halt so weiter zu kommen.
