@@ -312,7 +312,41 @@ cor(qmsurvey$alter, qmsurvey$beziehungen, use = "complete.obs", method = "spearm
 
 ### Weitere Statistiken
 
-- Inter-Rater-Reliability-Kram via `irr`
-    - Kendall's W
-    - Cohen's Kappa
-- $\eta^2$
+Es gibt noch viele andere Statistiken, die für euch mehr oder weniger spannend sind. Viele andere sind für euch sogar vollkommen irrelevant.  
+Point being: Das hier 
+
+#### $\eta^2$
+
+Ihr lernt $\eta^2$ in QM1 als deskriptive Statistik kennen, wo es als nicht-lineare Alternative zu $r$ oder $\rho$ verwendet wird. Das ist auch okay so, aber generell findet $\eta^2$ eher als Effektgröße bei der [ANOVA](#ANOVA) Anwendung, weshalb auch R eher diesen Kontext erwartet.  
+
+Wenn ihr $\eta^2$ aber "einfach so" haben wollt, braucht ihr etwas Umweg:
+
+```{r}
+library(sjstats)
+
+anova <- aov(alter ~ alkohol, data = qmsurvey)
+eta_sq(anova)
+```
+
+Wir haben hier zuerst ein *ANOVA*-Modell mittels `aov` erstellt, wo wir die Variable `alter` aufgeteilt haben in Gruppen abhängig von der Variable `alkohol`. Dann haben wir `eta_sq` aus `sjstats` für die Berechnung von $\eta^2$ benutzt, und... sind damit fertig.
+
+#### Cohen's Kappa ($\kappa$)
+
+```{r}
+library(irr)
+data(anxiety) # Beispieldatensatz aus irr package laden
+
+# Nur zwei Spalten / Rater für Kappa
+anxiety_2 <- anxiety[c(1, 2)]
+
+kappa2(anxiety_2)
+```
+
+#### Kendall's $W$
+
+```{r}
+library(irr)
+
+kendall(anxiety)
+```
+
