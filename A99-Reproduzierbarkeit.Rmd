@@ -20,6 +20,8 @@ system(command = "ebook-convert --version", intern = TRUE)
 
 ## R session
 
+RStudio version `r readLines("/Applications/RStudio.app/Contents/Resources/VERSION")`
+
 ```{r}
 devtools::session_info()
 ```
