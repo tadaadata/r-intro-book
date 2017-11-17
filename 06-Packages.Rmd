@@ -251,7 +251,7 @@ Die `tadaatoolbox` ist das Produkt von Lukas' und Tobis langjähriger Frustratio
 Im Fokus steht in erster Linie schnelles, einfaches Output mit möglichst wenig Aufwand. Zusätzlich bietet die Toolbox einige Sammelfunktionen um beispielsweise diverse nominal- oder ordinalskalierte Statistiken auf einen Rutsch anzuzeigen, optimiert auf Output in RMarkdown-Dokumenten (Siehe [Berichte]).  
 
 Eine Übersicht gibt es auf der Seite der Toolbox: <http://tadaatoolbox.tadaa-data.de>  
-Beispielhaftes Testoutput finfet sich [dort](http://tadaatoolbox.tadaa-data.de/articles/test_output.html), und eine Funktionsreferenz [gibt's da auch](http://tadaatoolbox.tadaa-data.de/reference/).
+Beispielhaftes Testoutput findet sich [dort](http://tadaatoolbox.tadaa-data.de/articles/test_output.html), und eine Funktionsreferenz [gibt's da auch](http://tadaatoolbox.tadaa-data.de/reference/).
 
 ## Addendum: "Installier mal alles"
 

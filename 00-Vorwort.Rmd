@@ -25,7 +25,7 @@ source("setup.R")
 
 Das hier wird gerade eine R-Einführung für Psychologiestudierende so mit ganz ohne Vorwissen im Bereich Software oder Programmierung.
 
-Die grobe Idee ist es, eine Präsentaion für die Übung zu haben, und zusätzlich eine long-form Intro als Nachschlagwerk und vertiefendes Material.  
+Die grobe Idee ist es, eine Präsentaion für die Übung zu haben, und zusätzlich eine long-form Intro als Nachschlagwerk und vertiefendes Material (das hier).  
 Beides sollte ausreichend mit Screenshots/Beispielen ausgefüttert sein um auch die verunsichertesten Neulinge bei der Stange zu halten.
 
 Das ganze ist so dermaßen work in progress, dass ich sogar das hier eingebaut habe:
@@ -42,7 +42,7 @@ Das Resultat ist/wird zum Einen diese Website/Buch/Dings, und zum Anderen die [F
 
 Diese Einführung hier wird deutlich stärker ins Detail gehen, und soll auf kurz oder lang so ziemlich alles abdecken, was ihr in zwei Semestern *Quantitative Methoden* brauchen werdet.  
 Okay, ihr werdet das Ganze auch in *Methodenlehre* brauchen.  
-Und in *Diffenzielle*.  
+Und in *Differenzielle*.  
 Und im *Expra*.  
 Und vermutlich danach auch. 
 
