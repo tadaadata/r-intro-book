@@ -282,6 +282,7 @@ install.packages("sjPlot")
 
 install.packages("tadaatoolbox")
 install.packages("cowplot")
+install.packages("waffle")
 install.packages("ggrepel")
 install.packages("psych")
 install.packages("DescTools")
