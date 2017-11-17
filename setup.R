@@ -1,11 +1,15 @@
 # Set basic things up ----
+suppressPackageStartupMessages(library(knitr))
+suppressPackageStartupMessages(library(dplyr))
+suppressPackageStartupMessages(library(readr))
+suppressPackageStartupMessages(library(tidyr))
+suppressPackageStartupMessages(library(car))
 
 knitr::opts_knit$set(unnamed.chunk.label = "chunk_")
 
 knitr::opts_chunk$set(comment = "")
 
 # Read data used throughout tutorial ----
-library(readr)
 qmsurvey        <- read_rds("data/qm-survey-2017-R.rds")
 gotdeaths       <- read_csv("data/got_deaths.csv", col_types = cols())
 participation   <- read_rds("data/participation.rds")
