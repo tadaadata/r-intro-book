@@ -10,6 +10,9 @@ knitr::opts_chunk$set(comment = "", warning = FALSE, error = FALSE)
 
 library(dplyr)
 library(car)
+library(tidyr)
+library(ggplot2)
+library(sjmisc)
 ```
 
 # Data Munging
@@ -287,3 +290,75 @@ gotdeaths_books %>%
 
 
 ## Format: Wide vs. Long
+
+
+### Beispiel 1
+
+```{r}
+gotdeaths_books %>%
+  select(GoT, CoK, SoS, FfC, DwD)
+```
+
+```{r}
+library(tidyr)
+
+gotdeaths_books %>%
+  select(GoT, CoK, SoS, FfC, DwD) %>%
+  gather(key = Book, value = Appearance)
+```
+
+```{r}
+gotdeaths_books %>%
+  select(GoT, CoK, SoS, FfC, DwD) %>%
+  gather(key = Book, value = Appearance) %>%
+  filter(Appearance > 0)
+```
+
+```{r}
+gotdeaths_books %>%
+  select(GoT, CoK, SoS, FfC, DwD) %>%
+  gather(key = Book, value = Appearance) %>%
+  filter(Appearance > 0) %>%
+  group_by(Book) %>%
+  summarize(Character_Appearances = sum(Appearance))
+```
+
+```{r}
+library(ggplot2)
+
+gotdeaths_books %>%
+  select(GoT, CoK, SoS, FfC, DwD) %>%
+  gather(key = Book, value = Appearance) %>%
+  filter(Appearance > 0) %>%
+  group_by(Book) %>%
+  summarize(Appearances = sum(Appearance)) %>%
+  ggplot(aes(x = reorder(Book, Appearances), y = Appearances)) +
+  geom_col(color = "black", alpha = .75) +
+  labs(title = "A Song of Ice and Fire",
+       subtitle = "Character Appearances per Book",
+       x = "Book", y = "Character Appearances")
+```
+
+
+#### Beispiel 2
+
+```{r}
+gotdeaths_books %>%
+  gather(key = Book, value = Appearance, GoT, CoK, SoS, FfC, DwD) %>%
+  select(Name, Book, Appearance)
+```
+
+```{r}
+gotdeaths_books %>%
+  gather(key = Book, value = Appearance, GoT, CoK, SoS, FfC, DwD) %>%
+  filter(Appearance > 0) %>%
+  group_by(Name) %>%
+  summarize(Appearances = sum(Appearance)) %>%
+  ggplot(aes(x = Appearances)) +
+  geom_bar(alpha = .75, color = "black") +
+  scale_y_continuous(breaks = seq(0, 1000, 100),
+                     minor_breaks = seq(0, 1000, 50)) +
+  labs(title = "A Song of Ice and Fire",
+       subtitle = "Number of Books Characters Appear in",
+       x = "Number of Books", y = "Abs. Frequency")
+```
