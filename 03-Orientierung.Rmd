@@ -4,13 +4,9 @@
 library(knitr)
 knitr::opts_chunk$set(echo=F,
                       out.width="90%")
-
-knitr::opts_knit$set(unnamed.chunk.label = "orientierung_")
 ```
 
-
 Wenn ihr vorher noch nie eine Programmiersprache benutzt habt… ist das auch eigentlich gar nicht so schlimm, denn R verhält sich sowieso für den Einstieg etwas anders.  
-
 "Programmiersprache" klingt so abschreckend, weil es nach kompliziertem Informatikkram klingt, aber wenn ihr es in eurer Schulzeit geschafft habt einen Taschenrechner zu bedienen, dann bekommt ihr auch den Einstieg in R hin.  
 Was der Begriff "Programmiersprache" für uns heißt ist recht simpel:  
 R folgt Anweisungen. Anweisungen, die wir entweder in die Konsole (in RStudio das Fenster unten links) schreiben können, und dann mit der Entertaste bestätigt werden. R guckt dann, ob es weiß wovon ihr redet, und rödelt dann los — und wenn es weiß was es mit eurem Befehl anfangen soll, gibt es euch auch direkt eine Antwort.  

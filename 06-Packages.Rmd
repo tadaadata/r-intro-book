@@ -60,10 +60,10 @@ Es gibt *tausende* R-packages, und die meisten davon sind für euch vollkommen u
 ### Quellen
 
 Die wichtigste Quelle für R-packages ist das erwähnte *CRAN*, kurz für *"**C**omprehensive **R** **A**rchive **N**etwork"*. Packages müssen diverse Anforderungen erfüllen, um auf CRAN publiziert zu werden, was eine gewisse Hürde darstellt. Deswegen gibt es diverse packages, die gerade in frühen, potenziell noch nicht ausgereiften Versionen an anderen Stellen verfügbar gemacht werden.  
-Die wohl populärster dieser Sekundärquellen ist [GitHub](https://github.com).  
+Die wohl populärster dieser Sekundärquellen ist [**GitHub**](https://github.com).  
 Auf GitHub findet ihr zum Beispiel auch [den Quelltext der `tadaatoolbox`](https://github.com/tadaadata/tadaatoolbox).  
 
-Optional könnt ihr packages auch direkt von GitHub installieren, was insbesondere dann interessant ist, wenn das package noch jung und experimentell ist.  
+Optional könnt ihr packages auch direkt von *GitHub* installieren, was insbesondere dann interessant ist, wenn das package noch jung und experimentell ist.  
 In euren normalen Projekten solltet ihr euch nicht auf GitHub-packages verlassen, sondern nach Möglichkeit ausschließlich packages von CRAN benutzen, aber wenn euch nach Abenteuer ist, dann fühlt euch frei:
 
 ```r
