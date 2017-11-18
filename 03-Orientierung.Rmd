@@ -1,14 +1,11 @@
-```{r}
-knitr::opts_knit$set(unnamed.chunk.label = "orientierung_")
-```
-
-
 # Orientierung
 
 ```{r setup_orientierung, include=FALSE}
 library(knitr)
 knitr::opts_chunk$set(echo=F,
                       out.width="90%")
+
+knitr::opts_knit$set(unnamed.chunk.label = "orientierung_")
 ```
 
 

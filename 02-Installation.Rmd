@@ -1,3 +1,8 @@
+---
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
 # Installation
 
 Hier eine kurze Anleitung um R und RStudio zu installieren.  
@@ -39,7 +44,8 @@ knitr::include_graphics("images/install_R_windows_3.png")
 
 Da ich akut keinen Windows-Computer zur Hand habe, gehe ich einfach davon aus, dass ihr das Prinzip "`.exe`-Datei doppelklicken und alles brav mit `ja` oder `OK` bestätigen" beherrscht. Schafft ihr bei Spotify ja auch.   
 
-Das war die R-Installation!
+Das war die R-Installation!  
+Und _jetzt_ installiert ihr [RStudio](#rstudio-install)
 
 ### Mac OS X (macOS) {#mac}
 
@@ -52,7 +58,8 @@ knitr::include_graphics("images/install_R_mac.png")
 - Wenn euer Betriebssystem auf dem aktuellen Stand ist, benutzt die aktuelle Version des R-installers.  
 - Wenn ihr aus unerfindlichen Gründen noch eine sehr alte OS X version laufen habt:
     a) Möge die Deität eurer Wahl euch beistehen
-    b) Müsst ihr vermutlich den Installer mit `snowleopard` im Namen  benutzen 
+    b) Aktualisiert euer Betriebssystem, oder wenn das nicht möglich ist...
+    c) ...müsst ihr vermutlich den Installer mit `snowleopard` im Namen  benutzen 
 - Wenn ihr nicht wisst, welche OS X Version ihr benutzt: Versucht's erstmal mit dem aktuellen Installer, wenn das nicht funktioniert, versucht den älteren. Ansonsten: Googlet.
 
 Ansonsten braucht ihr nichts runterzuladen. Den Installer (die `.pkg`-Datei) einfach doppelklicken und alles brav bejahen.  
@@ -68,7 +75,7 @@ Wenn ihr nicht wisst, was `https://<my.favorite.cran.mirror>/bin/linux/ubuntu` s
 - `deb https://cloud.r-project.org/bin/linux/ubuntu xenial/`
 - Oder: `deb http://cloud.r-project.org/bin/linux/ubuntu xenial/`
 
-## RStudio installieren
+## RStudio installieren {#rstudio-install}
 
 RStudio bekommt ihr hier: <https://www.rstudio.com/products/rstudio/download/#download>
 
