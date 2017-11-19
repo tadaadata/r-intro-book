@@ -140,7 +140,7 @@ include_graphics("images/text_editor_2.png")
 ```
 
 Im Moment heißt euer Script noch `Untitled1` — das heißt, euer Script hat noch keinen Namen und ist **noch nicht gespeichert**. Letzteres wollt ihr umgehend ändern, weil all eure schönen Befehle für die Katz sind, wenn ihr euren Kram nicht speichert.  
-Ihr könnt zum speichern entweder den anachronistischen Diskettenbutton klicken und eurem Script einen schönen Namen geben, oder ihr drückt `STRG + S` oder auf dem Mac `cmd + S` — der wohl wichtigste Keyboard-Shortcut der Welt.
+Ihr könnt zum speichern entweder den anachronistischen Diskettenbutton klicken und eurem Script einen schönen Namen geben, oder ihr drückt `STRG + S` oder auf dem Mac `cmd + S` — der wohl wichtigste Keyboard-Shortcut der Welt. Wenn ihr Probleme habt eure Tasten zu finden oder zu benennen, dann guckt im [Glossar](#tasten) oder googlet halt.
 
 ```{r fig.cap="Der \"Datei speichern…\"-Dialog"}
 include_graphics("images/text_editor_3.png")
@@ -170,7 +170,7 @@ Kommentare sind auch praktisch, wenn ihr ein längere Script ausführt, aber ein
 
 Wenn ihr dann ein paar Zeilen Code angesammelt habt, könnt ihr euer Script ausführen.  
 Ein Script wird von oben nach unten (und von links nach rechts) ausgeführt, wenn ihr auf "`Source`" klickt oder `Shift + STRG + Enter` drückt (auf dem Mac `Shift + cmd + Enter`).  
-Wenn ihr nur die aktuelle Zeile (da wo euer Cursor gerade ist, ist "aktuell") ausführen wollt, reicht `STRG + R` (Mac: `cmd + R`).
+Wenn ihr nur die aktuelle Zeile (da wo euer Cursor gerade ist, ist "aktuell") ausführen wollt, reicht `STRG + R` (Mac: `cmd + R`). Auch hier kann das [Glossar](#tasten) helfen.
 
 ## Und das da rechts?
 

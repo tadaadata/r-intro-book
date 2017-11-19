@@ -94,7 +94,7 @@ Hier habt ihr zwei Möglichkeiten: `.rds` und `.rda` (auch `.RData`): Generell s
 Daten einlesen ist simpel:
 
 ```{r}
-qmsurvey <- readRDS("data/qm-survey-2017-R.rds")
+qmsurvey <- readRDS("data/qm_survey_ss2017.rds")
 
 tibble::as_tibble(qmsurvey)
 ```
@@ -182,3 +182,14 @@ Zusätzlich ist auch hier natürlich `str()` praktisch, um zum Beispiel schnell 
 
 Es gibt da kein one-size-fits-all Rezept zur Datenbereinigung, denn jeder Datensatz ist auf seine eigene Art dreckig. Ihr könnt nur darauf hoffen, dass euer konkreter Anwendungsfall gut googlebar ist, oder ihr sowas ähnliches schonmal gemacht habt.  
 Die gängigsten Probleme sind recoding, umbenennen oder zusammenfassen, und das meiste lässt sich entweder mit `dplyr`, `sjmisc` oder ggf. `tidyr` erledigen. Versucht es erstmal innerhalb des *tidyverse*, das ist vermutlich angenehmer als zusammengehackte Google-Lösungen. Aber auch hier, wie gesagt: Je nachdem was ihr vorhabt. Mehr dazu findet sich in [Data Munging].
+
+> Happy families are all alike; every unhappy family is unhappy in its own way.
+>
+> --- Leo Tolstoy
+
+> and every messy data is messy in its own way - it's easy to define the characteristics of a clean dataset 
+> (rows are observations, columns are variables, columns contain values of consistent types). 
+> If you start to look atreal life
+> data you'll see every way you can imagine data being messy (and many that you can't)!
+>
+> --- Hadley Wickham (answering 'in what way messy data sets are messy') R-help (January 2008)

@@ -208,7 +208,7 @@ Das müsst ihr nicht sofort verstehen oder jetzt recherschieren, aber es kann he
 Für diesen Anwendungsfall nehmen wir am besten wieder den `qmsurvey`-Datensatz, weil es bei den *Game of Thrones*-Daten so wenig zu klassieren gibt.
 
 ```{r}
-qmsurvey <- readRDS("data/qm-survey-2017-R.rds")
+qmsurvey <- readRDS("data/qm_survey_ss2017.rds")
 ```
 
 Zum klassieren (also Sonderfall des Rekodierens) haben wir mehrere Optionen in R.  

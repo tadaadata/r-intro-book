@@ -138,7 +138,7 @@ Die Funktionen im package sind nach ihrem Präfix sortiert:
 Ein paar Beispiele anhand unseres `qmsurvey`-Datensatzes:
 
 ```{r sjplot_1}
-qmsurvey <- readRDS("data/qm-survey-2017-R.rds")
+qmsurvey <- readRDS("data/qm_survey_ss2017.rds")
 ```
 
 #### Tabellen

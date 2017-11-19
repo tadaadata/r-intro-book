@@ -10,7 +10,7 @@ knitr::opts_knit$set(unnamed.chunk.label = "chunk_")
 knitr::opts_chunk$set(comment = "")
 
 # Read data used throughout tutorial ----
-qmsurvey        <- read_rds("data/qm-survey-2017-R.rds")
+qmsurvey        <- read_rds("data/qm_survey_ss2017.rds")
 gotdeaths       <- read_csv("data/got_deaths.csv", col_types = cols())
 participation   <- read_rds("data/participation.rds")
 gotdeaths_books <- read_csv("data/got_character-deaths.csv", col_types = cols())

@@ -23,7 +23,7 @@ $\phi$             | "Phi"           | Statistik / Effektgröße (QM1)
 $\chi$             | "Chi" (meistens "tschi") | (Test-)Statistik (QM1, QM2)
 $\omega$, $\Omega$ | Omega (kleines, großes)  | Effektgröße (QM2)
 
-## "Was für eine Taste?"
+## "Was für eine Taste?" {#tasten}
 
 ### Tasten
 
