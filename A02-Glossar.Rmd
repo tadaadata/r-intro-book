@@ -75,4 +75,4 @@ Die Zeichen findet ihr alle auf eurer Tastatur. Wenn ihr nicht wisst wie ihr sie
     - `/`: Slash, "Geteilt durch"
     - `\`: Backslash. Gegenstück zu `/`. Teilt *nicht*.
     - `-`: Bindestrich, Minus
-
+    - `#`: Für Kommentare. Raute, Lattenzaun, [Octothorpe](https://en.wikipedia.org/wiki/Number_sign#Other_names_in_English). Nein, kein Hashtag.

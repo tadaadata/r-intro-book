@@ -1,6 +1,6 @@
 # Datentypen
 
-```{r}
+```{r, include=FALSE}
 knitr::opts_knit$set(unnamed.chunk.label = "datentypen_")
 ```
 
