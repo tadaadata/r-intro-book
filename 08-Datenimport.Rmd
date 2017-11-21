@@ -270,15 +270,6 @@ ngo$hausauf  <- set_label(ngo$hausauf,  "Hausaufgaben")
 
 ...Wir könnten noch mehr Labels verteilen, aber das sind so die Variablen, die am ehesten in Kontingenztabellen auftauchen, von daher reicht mir das so.  
 
-Okay, ein letzter Schritt: Wir wollen den Datensatz als `tibble` vorliegen haben. Das ist inhaltlich kein großer unterschied zu `data.frame`, aber sieht in der Konsole kompakter aus:
-
-```{r ngo_tibble}
-library(tibble)
-ngo <- as_tibble(ngo)
-
-ngo
-```
-
 Fertig.  
 Sauber.  
 Wenn ihr den Datensatz so als Datei wegspeicher wollt, geht das einfach mit:
@@ -320,9 +311,6 @@ ngo$geschl   <- set_label(ngo$geschl,   "Geschlecht")
 ngo$abschalt <- set_label(ngo$abschalt, "Abschalten")
 ngo$jahrgang <- set_label(ngo$jahrgang, "Jahrgang")
 ngo$hausauf  <- set_label(ngo$hausauf,  "Hausaufgaben")
-
-# Speichern als tibble
-ngo <- as_tibble(ngo)
 
 # Speichern als Datei
 saveRDS(ngo, "ngo.rds")
