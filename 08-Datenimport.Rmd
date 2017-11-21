@@ -232,13 +232,13 @@ head(ngo)
 Besser. Als nächstes wollen wir unsere Variablen labeln, zum Beispiel soll `geschl` nicht `1` oder `2` sagen, sondern `Männlich` und `Weiblich`.
 
 ```{r ngo_recode}
-ngo$geschl   <- factor(ngo$geschl,   labels = c("Männlich", "Weiblich"))
-ngo$jahrgang <- factor(ngo$jahrgang, labels = c("11", "12", "13"), ordered = TRUE)
-ngo$abschalt <- factor(ngo$abschalt, labels = c("Ja", "Nein"))
-
 # Falls NA noch nicht korrekt kodiert:
 ngo$hausauf  <- ifelse(ngo$hausauf  == 0, NA, ngo$hausauf)
 ngo$abschalt <- ifelse(ngo$abschalt == 0, NA, ngo$abschalt)
+
+ngo$geschl   <- factor(ngo$geschl,   labels = c("Männlich", "Weiblich"))
+ngo$jahrgang <- factor(ngo$jahrgang, labels = c("11", "12", "13"), ordered = TRUE)
+ngo$abschalt <- factor(ngo$abschalt, labels = c("Ja", "Nein"))
 
 head(ngo)
 ```
@@ -298,13 +298,14 @@ ngo <- ngo %>%
 names(ngo) <- tolower(names(ngo))
 
 # Recoding
+
+## Falls NA noch nicht korrekt kodiert:
+ngo$hausauf  <- ifelse(ngo$hausauf  == 0, NA, ngo$hausauf)
+ngo$abschalt <- ifelse(ngo$abschalt == 0, NA, ngo$abschalt)
+
 ngo$geschl   <- factor(ngo$geschl,   labels = c("Männlich", "Weiblich"))
 ngo$jahrgang <- factor(ngo$jahrgang, labels = c("11", "12", "13"), ordered = TRUE)
 ngo$abschalt <- factor(ngo$abschalt, labels = c("Ja", "Nein"))
-
-#### Falls NA noch nicht korrekt kodiert:
-ngo$hausauf  <- ifelse(ngo$hausauf  == 0, NA, ngo$hausauf)
-ngo$abschalt <- ifelse(ngo$abschalt == 0, NA, ngo$abschalt)
 
 # Value labelling
 ngo$hausauf  <- set_labels(ngo$hausauf,
