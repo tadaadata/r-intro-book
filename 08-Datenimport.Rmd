@@ -284,9 +284,15 @@ Der ganze Code zum Saubermachen in einem großen Blob:
 library(haven)
 library(sjlabelled)
 library(tibble)
+library(dplyr)
 
 # Einlesen
 ngo <- read_sav("data/NGO.SAV")
+
+# Variablen rauskicken
+ngo <- ngo %>%
+  select(-ZENG, -ZDEUTSCH, -ZMATHE, -INDEX, -LEIST)
+
 
 # Variablennamen in lower case
 names(ngo) <- tolower(names(ngo))
