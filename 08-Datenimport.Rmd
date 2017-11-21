@@ -177,14 +177,6 @@ Mehr Informationen und Beispiele [gibt's in der Vignette](https://rawgit.com/jen
 
 ## Daten angucken & sauber machen
 
-Um festzustellen, ob eure frisch eingelesenen Daten auch brauchbar sind, empfiehlt sich ein Blick in die Daten via `View(daten)` bzw. Über einen Klick auf den Datensatz im *Environment*-Tab von RStudio (das da oben rechts).  
-Zusätzlich ist auch hier natürlich `str()` praktisch, um zum Beispiel schnell zu überprüfen, ob eure Variablen auch alle die Klasse haben, die ihr erwartet (alle Zahlen sind *numeric* und Nominaldaten sind *factor* oder wenigstens *character*).
-
-Es gibt da kein one-size-fits-all Rezept zur Datenbereinigung, denn jeder Datensatz ist auf seine eigene Art dreckig. Ihr könnt nur darauf hoffen, dass euer konkreter Anwendungsfall gut googlebar ist, oder ihr sowas ähnliches schonmal gemacht habt.  
-Die gängigsten Probleme sind recoding, umbenennen oder zusammenfassen, und das meiste lässt sich entweder mit `dplyr`, `sjmisc` oder ggf. `tidyr` erledigen. Versucht es erstmal innerhalb des *tidyverse*, das ist vermutlich angenehmer als zusammengehackte Google-Lösungen. Aber auch hier, wie gesagt: Je nachdem was ihr vorhabt. Mehr dazu findet sich in [Data Munging].
-
-### Datenimport: Beispiele 
-
 > Happy families are all alike; every unhappy family is unhappy in its own way.
 >
 > --- Leo Tolstoy
@@ -196,9 +188,15 @@ Die gängigsten Probleme sind recoding, umbenennen oder zusammenfassen, und das 
 >
 > --- Hadley Wickham (answering 'in what way messy data sets are messy') R-help (January 2008)
 
+Um festzustellen, ob eure frisch eingelesenen Daten auch brauchbar sind, empfiehlt sich ein Blick in die Daten via `View(daten)` bzw. Über einen Klick auf den Datensatz im *Environment*-Tab von RStudio (das da oben rechts).  
+Zusätzlich ist auch hier natürlich `str()` praktisch, um zum Beispiel schnell zu überprüfen, ob eure Variablen auch alle die Klasse haben, die ihr erwartet (alle Zahlen sind *numeric* und Nominaldaten sind *factor* oder wenigstens *character*).
+
+Es gibt da kein one-size-fits-all Rezept zur Datenbereinigung, denn jeder Datensatz ist auf seine eigene Art dreckig. Ihr könnt nur darauf hoffen, dass euer konkreter Anwendungsfall gut googlebar ist, oder ihr sowas ähnliches schonmal gemacht habt.  
+Die gängigsten Probleme sind recoding, umbenennen oder zusammenfassen, und das meiste lässt sich entweder mit `dplyr`, `sjmisc` oder ggf. `tidyr` erledigen. Versucht es erstmal innerhalb des *tidyverse*, das ist vermutlich angenehmer als zusammengehackte Google-Lösungen. Aber auch hier, wie gesagt: Je nachdem was ihr vorhabt. Mehr dazu findet sich in [Data Munging].
+
 Datenbereinigung ist entweder sehr einfach oder sehr komplex, oder irgendwo dazwischen. In diesem Sinne: Learning by example und so.
 
-#### Der NGO Datensatz
+### Der NGO Datensatz
 
 Der **NGO**-Datensatz aus dem *Kähler* ist seit längere _der_ default Übungsdatensatz und dementsprechend auch unfassbar langweilig für VeteranInnen. Zudem haben wir den Datensatz in sauber auch schon in der `tadaatoolbox`, das heißt, wenn ihr die toolbox ladet könnt ihr `ngo` direkt benutzen.  
 In der Vorlesung schwirrt darüberhinaus vermutlich eine SPSS (`.sav`)-Version des Datensatzes rum, die wir hier mal beispielshalber einlesen und bearbeiten, bis sie identisch zur `tadaatoolbox`-Version ist.
@@ -246,7 +244,7 @@ head(ngo)
 Besser.  
 Hier haben wir `jahrgang` auch gleich zu einem `ordered factor` gemacht, damit die Reihenfolge der Merkmalsausprägungen immer intakt bleibt. Gegebenenfalls müssen wir das beachten, falls wir damit mal 'ne [ANOVA](#ANOVA) machen wollen, aber erstmal finden wir das so gut.
 
-Als nächstes können wir noch *labels* setzen, die dann in `sjPlot`-Plots und Tabellen angezeigt werden. Bei unseren frisch erstellten `factor`-Variablen ist das nicht mehr nötig, aber `hausauf` könnte welche gebrauchen:
+Als nächstes können wir noch *value labels* setzen, die dann in `sjPlot`-Plots und Tabellen angezeigt werden. Bei unseren frisch erstellten `factor`-Variablen ist das nicht mehr nötig, aber `hausauf` könnte welche gebrauchen:
 
 ```{r ngo_label_sj}
 library(sjlabelled)
@@ -272,7 +270,7 @@ ngo$hausauf  <- set_label(ngo$hausauf,  "Hausaufgaben")
 
 Fertig.  
 Sauber.  
-Wenn ihr den Datensatz so als Datei wegspeicher wollt, geht das einfach mit:
+Wenn ihr den Datensatz so als Datei wegspeichern wollt, geht das einfach mit:
 
 ```r
 saveRDS(ngo, "ngo.rds")
@@ -293,13 +291,12 @@ ngo <- read_sav("data/NGO.SAV")
 ngo <- ngo %>%
   select(-ZENG, -ZDEUTSCH, -ZMATHE, -INDEX, -LEIST)
 
-
 # Variablennamen in lower case
 names(ngo) <- tolower(names(ngo))
 
 # Recoding
 
-## Falls NA noch nicht korrekt kodiert:
+# Falls NA noch nicht korrekt kodiert:
 ngo$hausauf  <- ifelse(ngo$hausauf  == 0, NA, ngo$hausauf)
 ngo$abschalt <- ifelse(ngo$abschalt == 0, NA, ngo$abschalt)
 
