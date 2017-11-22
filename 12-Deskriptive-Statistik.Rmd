@@ -9,6 +9,7 @@ editor_options:
 
 ```{r include=FALSE}
 knitr::opts_knit$set(unnamed.chunk.label = "descriptives_")
+knitr::opts_chunk$set(error = FALSE, warning = FALSE, message = FALSE)
 library(tadaatoolbox)
 library(irr)
 library(sjstats)
