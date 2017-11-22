@@ -181,16 +181,16 @@ Als Beispiel nehemn wir mal *Geschlecht* und *Cannabiskonsum*:
 ```{r nomstats_1}
 library(sjPlot)
 
-sjt.xtab(qmsurvey$cannabis, qmsurvey$gender,
+sjt.xtab(qmsurvey$cannabis, qmsurvey$behandlung,
          show.exp = TRUE, show.legend = TRUE)
 ```
 
 Die Berechnung in R ist einfach:
 
 ```{r nomstats_2}
-chisq.test(qmsurvey$cannabis, qmsurvey$gender)
+chisq.test(qmsurvey$cannabis, qmsurvey$behandlung)
 # Reihenfolge egal
-chisq.test(qmsurvey$gender, qmsurvey$cannabis)
+chisq.test(qmsurvey$behandlung, qmsurvey$cannabis)
 ```
 
 Das Output ist nicht so hübsch und etwas clunky und beinhaltet auch p-Wert und Freiheitsgrade, die euch eigentlich nur in einem inferenzstatistischen Kontext interessieren.  
@@ -202,14 +202,14 @@ Für kompakteres Output haben wir eine entsprechende Funktion in der *tadaatoolb
 ```{r nomstats_3, message=FALSE}
 library(tadaatoolbox)
 
-nom_chisqu(qmsurvey$gender, qmsurvey$cannabis)
+nom_chisqu(qmsurvey$behandlung, qmsurvey$cannabis)
 ```
 
 Als nächstes haben wir die auf $\chi^2$-basierenden Statistiken **Phi** ($\phi$) und **Cramer's V**, die entsprechenden Funktionen kommen auch aus der *tadaatoolbox*:
 
 ```{r nomstats_4}
-nom_phi(qmsurvey$gender, qmsurvey$cannabis)
-nom_v(qmsurvey$gender, qmsurvey$cannabis)
+nom_phi(qmsurvey$behandlung, qmsurvey$cannabis)
+nom_v(qmsurvey$behandlung, qmsurvey$cannabis)
 ```
 
 Oh nein, Phi funktioniert nicht. Wie unerwartet.  
@@ -218,7 +218,7 @@ Ihr mögt euch erinnern, dass Phi nur für 2x2-Tabellen definiert ist, wobei Cra
 Als letztes gibt es noch den **Kontingenzkoeffizient C** – keine Ahnung was der für eine Daseinsberechtigung hat, aber wenn ihr ihn mal braucht:
 
 ```{r nomstats_5}
-nom_c(qmsurvey$gender, qmsurvey$cannabis)
+nom_c(qmsurvey$behandlung, qmsurvey$cannabis)
 ```
 
 Sagte ich *als letztes*? Das war gelogen. Es gibt noch **Lambda** ($\lambda$) in drei Geschmacksrichtungen:
@@ -228,9 +228,9 @@ Sagte ich *als letztes*? Das war gelogen. Es gibt noch **Lambda** ($\lambda$) in
 3. Symmetrisch
 
 ```{r nomstats_6}
-nom_lambda(qmsurvey$gender, qmsurvey$cannabis)
-nom_lambda(qmsurvey$gender, qmsurvey$cannabis, reverse = TRUE)
-nom_lambda(qmsurvey$gender, qmsurvey$cannabis, symmetric = TRUE)
+nom_lambda(qmsurvey$behandlung, qmsurvey$cannabis)
+nom_lambda(qmsurvey$behandlung, qmsurvey$cannabis, reverse = TRUE)
+nom_lambda(qmsurvey$behandlung, qmsurvey$cannabis, symmetric = TRUE)
 ```
 
 Es gibt zusätzlich die Funktion `assocstats` aus dem `vcd`-Package. Da gebt ihr allerdings nicht beide Variablen einzeln an, sondern einen `table` der beiden Variablen:
@@ -238,7 +238,7 @@ Es gibt zusätzlich die Funktion `assocstats` aus dem `vcd`-Package. Da gebt ihr
 ```{r nomstats_7}
 library(vcd)
 
-freq_table <- table(qmsurvey$gender, qmsurvey$cannabis)
+freq_table <- table(qmsurvey$behandlung, qmsurvey$cannabis)
 freq_table
 
 assocstats(freq_table)
@@ -247,7 +247,7 @@ So könnt ihr die gängigen Statistiken auf einen Blick sehen.
 Alternativ haben wir dafür natürlich auch was in der *tadaatoolbox*:
 
 ```{r nomstats_8}
-tadaa_nom(qmsurvey$gender, qmsurvey$cannabis, print = "markdown")
+tadaa_nom(qmsurvey$behandlung, qmsurvey$cannabis, print = "markdown")
 ```
 
 Das Argument `print = "markdown"` ist nur für das Output in diesem Buch bzw. in RMarkdown-Dokumenten relevant, für die Nutzung in der Konsole könnt ihr das weglassen.  

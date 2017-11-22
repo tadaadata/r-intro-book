@@ -78,14 +78,14 @@ Zu einem sauberen $\chi^2$-Test gehört auch immer eine saubere Kontingenztabell
 ```{r chisq_xtab, message=FALSE, warning=FALSE}
 library(sjPlot)
 
-sjt.xtab(qmsurvey$ons, qmsurvey$ernaehrung,
+sjt.xtab(qmsurvey$ons, qmsurvey$behandlung,
          show.exp = TRUE, show.legend = TRUE, show.cell.prc = TRUE)
 ```
 
 Den $\chi^2$-Test finden wir dann in *base R*, no packages required:
 
 ```{r chisq_base_r, message=FALSE, warning=FALSE}
-chisq.test(qmsurvey$ons, qmsurvey$ernaehrung)
+chisq.test(qmsurvey$ons, qmsurvey$behandlung)
 ```
 
 Wenn ihr dasselbe Ergebnis nur in ein bisschen aufgeräumt und mit bonus-Cramer's-V als Effektgröße haben wollt, haben wir da was in der toolbox:
@@ -93,7 +93,7 @@ Wenn ihr dasselbe Ergebnis nur in ein bisschen aufgeräumt und mit bonus-Cramer'
 ```{r chisq_test, message=FALSE, warning=FALSE}
 library(tadaatoolbox)
 
-tadaa_chisq(qmsurvey, ons, ernaehrung, print = "markdown")
+tadaa_chisq(qmsurvey, ons, behandlung, print = "markdown")
 ```
 
 ## z- und t-Test
