@@ -201,7 +201,7 @@ Datenbereinigung ist entweder sehr einfach oder sehr komplex, oder irgendwo dazw
 Der **NGO**-Datensatz aus dem *Kähler* ist seit längere _der_ default Übungsdatensatz und dementsprechend auch unfassbar langweilig für VeteranInnen. Zudem haben wir den Datensatz in sauber auch schon in der `tadaatoolbox`, das heißt, wenn ihr die toolbox ladet könnt ihr `ngo` direkt benutzen.  
 In der Vorlesung schwirrt darüberhinaus vermutlich eine SPSS (`.sav`)-Version des Datensatzes rum, die wir hier mal beispielshalber einlesen und bearbeiten, bis sie identisch zur `tadaatoolbox`-Version ist.
 
-```{r ngo_einlese}
+```{r ngo_einlesen}
 library(haven)
 ngo <- read_sav("data/NGO.SAV")
 

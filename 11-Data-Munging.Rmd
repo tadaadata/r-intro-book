@@ -215,7 +215,8 @@ Zum klassieren (also Sonderfall des Rekodierens) haben wir mehrere Optionen in R
 Die erste ist aus `car`:
 
 ```{r}
-library(car)
+library(dplyr) # Für mutate und %>%
+library(car)   # Für recode
 
 qmsurvey <- qmsurvey %>%
   mutate(schlaf_k = recode(schlafstunden, "lo:7 = 1; 7.5:9 = 2; 9:hi = 3"))
