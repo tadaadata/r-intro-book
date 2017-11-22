@@ -26,7 +26,6 @@ Das rot umrandete ist der Pfad zum Projektordner, in R würde ich den also so ei
 
 Wobei die Tilde `~` eine Abkürzung für das Home-Verzeichnis ist.
 
-
 ## Quellen
 
 Da in QM nur SPSS und R benutzt werden, werdet ihr vermutlich meistens auf Datensätze aus SPSS (`.sav`) stoßen. R kann zwar SPSS-Daten einlesen, aber SPSS kann mit R-Daten nichts anfangen. Außerdem beinhalten SPSS-Datensätze auch ein bisschen Metadaten, wie zum Beispiel Labels für eure Variablen oder nominalskalierte Variablen, die wir in R dann für bessere Optik benutzen können — andere Formate wie Textdateien (`.csv`, `.txt`, *plain text*) sind spartanischer und haben sowas nicht.    
@@ -46,7 +45,7 @@ Eine Sache noch zum Encoding: Um kaputte Umlaute und andere Krämpfe zu vermeide
 - Benötigte packages: `readr`
 - Anstrengend? Entweder alles super oder Riesenkrampf
 
-Einfacher Text (*plain text*) ist die einfachste Möglichkeit Datensätze zu speichern bzw. zu übertragen, da Text so ziemlich der kleinste gemeinsame Nenner jeder gängigen Software ist.  **CSV** heißt auch nur *"comma separated values"*, und wird euch vermutlich noch häufiger begegnen. Eine CSV-Datei könnt ihr mit jedem beliebigen Texteditor öffnen (ihr müsst dafür kein Office rauskramen, auf Windows tut es auch das Notepad), und ihr seht dann vermutlich sowas in der Art:
+Einfacher Text (*plain text*) ist die einfachste Möglichkeit Datensätze zu speichern bzw. zu übertragen, da Text so ziemlich der kleinste gemeinsame Nenner jeder gängigen Software ist. **CSV** heißt auch nur *"comma separated values"*, und wird euch vermutlich noch häufiger begegnen. Eine CSV-Datei könnt ihr mit jedem beliebigen Texteditor öffnen (ihr müsst dafür kein Office rauskramen, auf Windows tut es auch das Notepad), und ihr seht dann vermutlich sowas in der Art:
 
 ```csv
 "extra","group","ID"
@@ -113,7 +112,7 @@ Hier zum Beispiel der Datensatz zur Tutoriumsteilnahme, den ihr von <https://pub
 participation <- readRDS("~/Downloads/participation.rds")
 ```
 
-Alternativ könnt ihr das `readr`-package benutzen. Die Funktion daraus sieht fast gleich aus, ist aber theoretisch etwas schneller — unabhängig davon welche Funktion besser ist, wisst ihr jetzt zumindest, dass es zwei Möglichkeiten gibt.
+Alternativ könnt ihr das `readr`-package benutzen. Die Funktion daraus sieht fast gleich aus, und macht auch exakt das gleiche wie `readRDS`. Der einzige Grund für `read_rds` ist die Konsistenz der Funktionsnamen.
 
 ```r
 library(readr)

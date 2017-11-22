@@ -293,7 +293,7 @@ Und dann ist da noch die Sache mit `NaN`.
 Das ist mathematisch nicht definiert, und wieso das so ist und mehr dazu findet ihr zum Beispiel bei [Numberphile](https://www.youtube.com/watch?v=BRRolKTlF6Q) gut erklärt.  
 Hier solltet ihr auch nur wissen, dass es das gibt und dass ihr es im Zweifelsfall vermeiden wollt, wenn es in euren Ergebnissen auftaucht.
 
-## Tabellen <small class="subtitle">(Just a bunch of vectors)</small>
+## Tabellen: `data.frame`
 
 All eure Datensätze im Studium kommen in Tabellenform.  
 Tabellen in R sind im Grunde nichts anderes als Listen von Vektoren mit gleiche Länge: Der `sleep`-Datensatz zum Beispiel besteht aus drei Vektoren der Länge 20, und jede Spalte verhält sich wie ein Vektor mit bestimmten Typen.  

@@ -185,7 +185,7 @@ Ich meine, es ist ja nicht so als ob ein sauberes Regressionsmodell nicht auch m
 kruskal.test(partnerinnen ~ rauchen, data = qmsurvey)
 ```
 
-…und ja, natprlich gibt es eine Alternative in der toolbox:
+…und ja, natürlich gibt es eine Alternative in der toolbox:
 
 ```{r kruskal_tadaa}
 tadaa_kruskal(partnerinnen ~ rauchen, data = qmsurvey, print = "markdown")
