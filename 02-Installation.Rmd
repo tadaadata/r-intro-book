@@ -75,6 +75,17 @@ Wenn ihr nicht wisst, was `https://<my.favorite.cran.mirror>/bin/linux/ubuntu` s
 - `deb https://cloud.r-project.org/bin/linux/ubuntu xenial/`
 - Oder: `deb http://cloud.r-project.org/bin/linux/ubuntu xenial/`
 
+Zusätzlich solltet ihr vermutlich einige Systempakete (also außerhalb R) installieren, für den Fall der Fälle.
+
+Für Ubunut im Speziellen: 
+
+```bash
+sudo apt install libcurl4-openssl-dev curl git libxml2-dev libcairo2-dev
+```
+
+Damit installiert ihr ein paar Pakete, die ihr für manche R-packages als Depdendency benötigt.  
+Die Liste ist nicht vollständig für _alle_ möglichen R packages, aber zumindest alle, die wir im Laufe dieser Intro benutzen oder benutzen *könnten* sollten damit abgedeckt sein.
+
 ## RStudio installieren {#rstudio-install}
 
 RStudio bekommt ihr hier: <https://www.rstudio.com/products/rstudio/download/#download>
