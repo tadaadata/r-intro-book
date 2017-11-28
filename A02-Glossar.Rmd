@@ -82,7 +82,7 @@ Die Zeichen findet ihr alle auf eurer Tastatur. Wenn ihr nicht wisst wie ihr sie
 
 In _**all**_ den Kapiteln werden ein großer Haufen Funktionen bereits vorgestellt, genutzt und erklärt. Eine kurze Übersicht ist dennoch, oder daher, bestimmt nicht verkehrt.
 
-#### Statistiken
+### Statistiken
 
 Für einen kurzen Blick auf die Daten:
 
@@ -96,13 +96,13 @@ Funktionsname | macht:                | Paket     | Beispiel
 `table()`     | einfache Häufigkeits- oder Kontingenztabelle  |         | `table(qm$gender, qm$ons)`
 `summary()`   | einfache Übersicht eines Objekts              |         | `summary(qm)`, `summary(qm$alter)`
 
-#### Zahlenreihen
+### Zahlenreihen
 
 Manchmal braucht man einfach 100x abwechselnd 1 und 2, eine einfache Durchnummerierung oder eine Hand voll normal-/t-/$chi^2$/etc.-verteilter Zufallszahlen.
 
 Funktionsname | macht:                            | Beispiel
 --------------|-----------------------------------|-----------------
-`a:b`        | Sequenz von a bis b                | 1:10
+`a:b`         | Sequenz von a bis b               | 1:10
 `seq()`       | gibt eine beliebige Sequenz aus   | `seq(from = 10, to = 91, by = 9)`
 `seq_len()`   | zählt von 1 bis _Argument_        | `seq_len(20)`
 `seq_along()` | wie `seq_len()`, nur entlang eines Vektors    | `seq_along(qm$gender)`
