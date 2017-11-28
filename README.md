@@ -8,3 +8,15 @@ Das Format ist [bookdown](https://bookdown.org/yihui/bookdown/usage.html), und z
 Installation via `install.packages("bookdown")`.  
 
 Wenn du entweder ich oder Tobi bist, sollte ein `build` reichen um ein Update auf die Website zu starten, ansonsten, äh… tu Dinge mit git und mach einen Pull Request oder sowas. You get the idea.
+
+## Build
+
+Das build script (`build.R`) sollte die notwendigen R-packages installieren, aber system dependencies werden da nicht abgefrühstückt.
+
+Um das Ganze auf Ubuntu zu bauen, sollten ein paar dependencies gegeben sein:
+
+```bash
+sudo apt install libcurl4-openssl-dev curl git libxml2-dev libcairo2-dev xvfb calibre
+```
+
+Auf macOS sollte zumindest `calibre` installiert sein (ich hab keinen clean install getestet).
