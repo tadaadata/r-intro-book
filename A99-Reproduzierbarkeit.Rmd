@@ -7,7 +7,7 @@ Hier die *Session Info* zum Zeitpunkt des Renderns.
 Für HTML/epub output.
 
 ```{r}
-system(command = "pandoc --version", intern = TRUE)[c(1, 2, 4)]
+rmarkdown::pandoc_version()
 ```
 
 ## `calibre-convert`
