@@ -77,7 +77,7 @@ Wenn ihr nicht wisst, was `https://<my.favorite.cran.mirror>/bin/linux/ubuntu` s
 
 Zusätzlich solltet ihr vermutlich einige Systempakete (also außerhalb R) installieren, für den Fall der Fälle.
 
-Für Ubunut im Speziellen: 
+Für Ubuntu im Speziellen: 
 
 ```bash
 sudo apt install libcurl4-openssl-dev curl git libxml2-dev libcairo2-dev
