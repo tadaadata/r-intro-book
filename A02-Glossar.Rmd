@@ -115,3 +115,13 @@ Funktionsname | macht:                            | Beispiel
 `rbeta()`     | beta-verteilte...                             |
 `rpois()`     | poisson-verteilte...                          |
 ...           | $\rightarrow$ siehe `?Distributions`          |
+
+### Arithmetik ("rechnen")
+
+Und manchmal möchte man einfach nur ein bisschen was ausrechnen.
+
+Funktionsname | macht:                                      | Beispiel
+:-------------|:--------------------------------------------|:-----------------------
+`sum()`       | Summe bilden                                | `sum(qmsurvey$arbeit)`
+`cumsum()`    | Kumulierte Häufigkeiten bilden              | `cumsum(qmsurvey$arbeit)`
+`diff()`      | Differenzen bilden                          | `diff(qmsurvey$arbeit)`
