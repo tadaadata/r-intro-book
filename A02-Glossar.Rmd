@@ -98,11 +98,11 @@ Funktionsname | macht:                | Paket     | Beispiel
 
 ### Zahlenreihen
 
-Manchmal braucht man einfach 100x abwechselnd 1 und 2, eine einfache Durchnummerierung oder eine Hand voll normal-/t-/$chi^2$/etc.-verteilter Zufallszahlen.
+Manchmal braucht man einfach 100x abwechselnd 1 und 2, eine einfache Durchnummerierung oder eine Hand voll normal-/t-/$\chi^2$/etc.-verteilter Zufallszahlen.
 
 Funktionsname | macht:                            | Beispiel
 --------------|-----------------------------------|-----------------
-`a:b`         | Sequenz von a bis b               | 1:10
+`a:b`         | Sequenz von a bis b               | `1:1`  
 `seq()`       | gibt eine beliebige Sequenz aus   | `seq(from = 10, to = 91, by = 9)`
 `seq_len()`   | zählt von 1 bis _Argument_        | `seq_len(20)`
 `seq_along()` | wie `seq_len()`, nur entlang eines Vektors    | `seq_along(qm$gender)`
@@ -111,7 +111,7 @@ Funktionsname | macht:                            | Beispiel
               | `each` sagt, wie oft **jedes Einzelne**       | `rep(c("fuck", "yeah"), each = 3)`
 `rnorm()`     | erstellt _n_ normalverteilte Zufallszahlen    | `rnorm(n = 30, mean = 100, sd = 15)`
 `rt()`        | erstellt _n_ t-verteilte...                   | `rt(n = 30, df = 12)`
-`rchisq()`    | $\chi^2$-verteilte...                          |
+`rchisq()`    | $\chi^2$-verteilte...                         |
 `rbeta()`     | beta-verteilte...                             |
 `rpois()`     | poisson-verteilte...                          |
               | $\rightarrow$ siehe `?Distributions`          |
