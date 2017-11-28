@@ -5,6 +5,9 @@ t_start <- Sys.time()
 # Check dependencies ----
 cat("\n\nChecking if required stuff is installed...\n")
 
+# Set mirror, just in case
+options(repos = c(CRAN = "https://cloud.r-project.org"))
+
 pkgs <- c("bookdown", "svglite", "tadaatoolbox", "sjPlot", "sjmisc", "devtools",
           "haven", "readr", "dplyr", "ggplot2", "scales", "RColorBrewer", "viridis",
           "readxl", "googlesheets", "rpivotTable", "stringr", "tibble", "tidyr", "waffle",
