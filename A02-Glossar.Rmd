@@ -76,3 +76,21 @@ Die Zeichen findet ihr alle auf eurer Tastatur. Wenn ihr nicht wisst wie ihr sie
     - `\`: Backslash. Gegenstück zu `/`. Teilt *nicht*.
     - `-`: Bindestrich, Minus
     - `#`: Für Kommentare. Raute, Lattenzaun, [Octothorpe](https://en.wikipedia.org/wiki/Number_sign#Other_names_in_English). Nein, kein Hashtag.
+
+
+## Übersicht: Grundfunktionen
+
+In _**all**_ den Kapiteln werden ein großer Haufen Funktionen bereits vorgestellt, genutzt und erklärt. Eine kurze Übersicht ist dennoch, oder daher, bestimmt nicht verkehrt.
+
+
+Funktionsname | macht:                | Paket     | Beispiel
+--------------|-----------------------|-----------|-----------------
+`mean()`      | Mittelwert berechnen  |           | `mean(qm$alter, na.rm = T)`
+`median()`    | Median berechnen      |           | `median(qm$alter, na.rm = T)`
+`sd()`        | Standardabweichung    |           | `sd(qm$alter, na.rm = T)`
+`var()`       | Varianz               |           | `var(qm$alter, na.rm = T)`
+`table()`     | einfache Häufigkeits- oder Kontingenztabelle  |         | `table(qm$gender, qm$ons)`
+`summary()`   | einfache Übersicht eines Objekts              |         | `summary(qm)`, `summary(qm$alter)`
+
+
+
