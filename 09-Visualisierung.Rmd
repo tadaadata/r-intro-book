@@ -52,7 +52,10 @@ Okay, was haben wir da gemacht?
 In `scale_y_continuous` sagen wir jetzt noch, dass die Achsenabstände in 15er-Schritten liegen sollen, und wir kleinere Abstände (die dünneren weißen Linien) in 5er-Abständen liegen sollen.  
 Als letztes kümmern wir uns ein bisschen um die Kosmetik: Wir beschriften unsere Elemente mit `labs()`, wobei wir Title, Untertitel und Achsen beschreiben.
 
-## `geom_wtf`
+Im Folgenden kommen einige Beispiele, aber grundsätzlich könnt ihr euch alles auch auf der offiziellen Seite unter <http://ggplot2.tidyverse.org> anschauen, wo es auch eine [Referenz aller Funktionen mit Anwendungsbeispielen gibt](http://ggplot2.tidyverse.org/reference/index.html). Ich für meinen Teil habe am Anfang (und auch immer noch) viel Zeit damit verbracht, die Referenz nach etwas zu durchsuchen, dass so grob nach dem aussieht, was ich gerne hätte -- und das dann so lange zu tweaken bis es funktioniert.  
+Das Erfolgserlebnis nach ewigem Rungefummel ist nicht zu unterschätzen, aber natürlich ist es hilfreich, wenn man erstmal die Grundlagen erklärt bekommt.
+
+## Layer: `geom_wtf`
 
 Der visuelle Kern eines Plots ist die geometrische Verknüpfung eurer Daten auf einen *Layer*, sowas wie Punkte, Linien, Balken, ihr wisst schon. Ein Plot braucht mindestens einen *Layer* (ein *geom*) um überhaupt irgendwas anzuzeigen, und die entsprechenden Funktionen sind dankbar einfach benannt:
 
@@ -86,6 +89,36 @@ ggplot(data = gotdeaths, aes(x = death_season)) +
   labs(title = "Game of Thrones: Deaths",
        subtitle = "Deaths per Season",
        x = "Season", y = "# of Deaths")
+```
+
+#### `geom_bar` vs. `geom_col` vs `geom_histogram`
+
+Diese drei `geom`s machen *ähnliche* Dinge, nämlich *irgendwas mit Balken(ish)*, aber sie sind nicht beliebig austauschbar.  
+In Kürze:
+
+- `geom_histogram`: Histogramm für **numerische, stetige** Variablen
+- `geom_bar`: Häufigkeitsverteilung in Balkenform für **diskrete** Variablen (numerisch oder kategorial)
+- `geom_col`: Für bivariate Plots mit einem **diskreten** Merkmal auf der *x-Achse* und einer **numerischen** Variable auf der **y-Achse**
+
+### Boxplots und Errorbars
+
+### Scatterplots und Regressionsgerade
+
+### Facetting
+
+### Spaßiger Kram
+
+Via <https://fronkonstin.com/>
+
+```{r plotting_fun_1, cache = TRUE}
+library(dplyr)
+library(ggplot2)
+
+seq(from = -10, to = 10, by = 0.05) %>%
+expand.grid(x = ., y = .) %>%
+ggplot(aes(x = (x + pi * sin(y)), y = (y + pi * sin(x)))) +
+  geom_point(alpha = .1, shape = 20, size = 1, color = "black") + 
+  theme_void()
 ```
 
 
@@ -133,7 +166,7 @@ ggplot(data = gotdeaths, aes(x = death_season)) +
 
 `alpha` gibt die Durchsichtigkeit des Elements an, von `0` (unsichtbar) bis `1` (keine Transparenz).  
 Was die Farben angeht: R kennt `red` und `darkred` neben etlichen anderen Farben.  Diese Farben könnt ihr euch via `colors()` ausgeben lassen — also zumindest die Namen der Farben.  
-Alternativ könnt ihr Farben auch als Hex-String angeben, rot wäre dann zum Beispiel `#FF0000`. Wenn ihr mal "rgb color picker" googlet, findet ihr auch entsprechende tools, oder ihr installiert das `colorpicker` package und habt dann sowas direkt in RStudio unter "Addins":
+Alternativ könnt ihr Farben auch als Hex-String angeben, rot wäre dann zum Beispiel `#FF0000`. Wenn ihr mal "rgb color picker" googlet, findet ihr auch entsprechende tools, oder ihr installiert das `colourpicker` package und habt dann sowas direkt in RStudio unter "Addins":
 
 ```{r, echo=FALSE, out.width="75%", fig.cap="cap"}
 knitr::include_graphics("images/colorpicker.png")
