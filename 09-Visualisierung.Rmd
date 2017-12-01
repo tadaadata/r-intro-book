@@ -100,6 +100,32 @@ In Kürze:
 - `geom_bar`: Häufigkeitsverteilung in Balkenform für **diskrete** Variablen (numerisch oder kategorial)
 - `geom_col`: Für bivariate Plots mit einem **diskreten** Merkmal auf der *x-Achse* und einer **numerischen** Variable auf der **y-Achse**
 
+Ein gängiger Anwendungsfall für `geom_col` wäre es, Häufigkeiten zu plotten, die wir vorher manuell berechnet haben. Ein Beispiel:
+
+```{r geom_col_1}
+qmsurvey %>%
+  count(gender, rauchen) %>%
+  group_by(gender) %>%
+  mutate(prop = round(n/sum(n), 4))
+```
+
+Hier haben wir die relativen Häufigkeiten für die Merkmalsausprägungen in `rauchen` berechnet, relativ zu jeder Gruppe in `gender`.  
+Damit können wir sowas machen:
+
+```{r geom_col_1_plot}
+qmsurvey %>%
+  count(gender, rauchen) %>%
+  group_by(gender) %>%
+  mutate(prop = round(n/sum(n), 4)) %>%
+  ggplot(aes(x = rauchen, y = prop, fill = gender)) +
+  geom_col(position = "dodge", color = "black") +
+  scale_y_continuous(labels = scales::percent) +
+  labs(title = "Raucherstatus nach Gender",
+       subtitle = "Relative Häufigkeiten in >Gender<")
+```
+
+Ein klassisches Beispiel für "Daten erst präparieren, dann plotten". Es ist viel einfacher schnell die gruppierten Prozente zu berechnen, als *ggplot2* dazu zwingen zu wollen, die entsprechende Gruppierung und Berechnung zu übernehmen.
+
 ### Boxplots und Errorbars
 
 ### Scatterplots und Regressionsgerade
