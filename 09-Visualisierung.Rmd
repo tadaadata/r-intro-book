@@ -10,6 +10,10 @@ editor_options:
 library(extrafont)
 loadfonts()
 
+library(ggplot2)
+library(dplyr)
+library(tadaatoolbox)
+
 knitr::opts_knit$set(unnamed.chunk.label = "visualisierung_")
 ```
 
@@ -128,6 +132,72 @@ Ein klassisches Beispiel für "Daten erst präparieren, dann plotten". Es ist vi
 
 ### Boxplots und Errorbars
 
+```{r boxplot_basic}
+ggplot(data = qmsurvey, aes(x = rauchen, y = lernen)) +
+  geom_boxplot()
+```
+
+Wenn ihr woanders die *base* Funktion `boxplot` <small>(ugh)</small> gesehen habt, dann habt ihr vermutlich auch univariate Boxplots gesehen, sprich keine Gruppierung. Das... kann man machen, ist aber irgendwie witzlos. Wenn ihr das _unbedingt_ mit *ggplot2* machen wollt, dann müsst ihr die x-Achse austricksen und sie auf eine Konstante setzen, wie `NA`:
+
+```{r boxplot_single}
+ggplot(data = qmsurvey, aes(x = NA, y = lernen)) +
+  geom_boxplot() 
+```
+
+Wenn wir das dann noch in etwas schöner machen wollen, und zum Beispiel 90° rotiert:
+
+```{r boxplot_single_prettier}
+ggplot(data = qmsurvey, aes(x = NA, y = lernen)) +
+  geom_boxplot(alpha = .5, width = .5) +
+  coord_flip() +
+  labs(title = "Lernen") +
+  theme(axis.ticks.y = element_blank(),
+        axis.title.y = element_blank(),
+        axis.text.y = element_blank())
+```
+
+Der Teil im `theme` ist dazu da, die Labels auf der y-Achse zu verstecken, damit wir das `NA` aus unserem kleinen Trick da rauskriegen.  
+Ansonsten ist das Ding immer noch ziemlich langweilig, aber naja.
+
+Meine derzeit präferierte Art Boxplots zu bauen ist ein Boxplot mit Punkten im Hintergrund, um die Menge und grobe Verteilung der Werte besser zu veranschaulichen:
+
+```{r boxplot_pints}
+ggplot(data = qmsurvey, aes(x = rauchen, y = lernen, color = rauchen)) +
+  geom_point(position = "jitter") +
+  geom_boxplot(alpha = .25, outlier.alpha = 0) +
+  scale_color_brewer(palette = "Dark2", guide = FALSE)
+```
+
+Hier setzen wir noch das `alpha` für die Ausreißer im Boxplot auf `0`, weil wir ja durch das `geom_point` sowieso alle Punkte geplottet haben.
+
+*"Und was ist mit den **Whiskern**?"* höre ich spitzfindige Lesende im Kanon kreischen.  
+Öhm, naja, Whisker können wir über *Error Bars* simulieren, in etwa so:
+
+```{r boxplot_whisker}
+ggplot(data = qmsurvey, aes(x = rauchen, y = lernen, color = rauchen)) +
+  geom_boxplot(alpha = .25, outlier.alpha = 0) +
+  stat_boxplot(geom = "errorbar", width = .5) +
+  scale_color_brewer(palette = "Dark2", guide = FALSE)
+```
+
+**Error Bars** sind auch so ganz nützlich, zum Beispiel für Konfidenzintervalle. Wir müssen die KIs nichtmal selber berechnen, genauso wie wir für Boxplots keine Quartile berechnen müssen.
+
+```{r errorbars}
+ggplot(data = qmsurvey, aes(x = rauchen, y = lernen, color = rauchen)) +
+  stat_summary(fun.data = mean_cl_normal, geom = "errorbar") +
+  scale_color_brewer(palette = "Dark2", guide = FALSE)
+```
+
+Hier haben wir 95% Konfidenzintervalle um den Mittelwert. Wir ihr seht, reicht nicht einfach ein `geom_errorbar`, weil Error Bars zu allgemein sind und nicht immer automatisch mit den selben Werten angewendet werden, wie wir es bei Boxplots gewohnt sind.  
+Wir können hier auch zusätzlich noch die Mittelwerte einzeichnen:
+
+```{r}
+ggplot(data = qmsurvey, aes(x = rauchen, y = lernen, color = rauchen)) +
+  stat_summary(fun.data = mean_cl_normal, geom = "errorbar", position = "dodge") +
+  stat_summary(fun.y = mean, geom = "point", size = 3) +
+  scale_color_brewer(palette = "Dark2", guide = FALSE)
+```
+
 ### Scatterplots und Regressionsgerade
 
 ### Facetting
@@ -194,7 +264,7 @@ ggplot(data = gotdeaths, aes(x = death_season)) +
 Was die Farben angeht: R kennt `red` und `darkred` neben etlichen anderen Farben.  Diese Farben könnt ihr euch via `colors()` ausgeben lassen — also zumindest die Namen der Farben.  
 Alternativ könnt ihr Farben auch als Hex-String angeben, rot wäre dann zum Beispiel `#FF0000`. Wenn ihr mal "rgb color picker" googlet, findet ihr auch entsprechende tools, oder ihr installiert das `colourpicker` package und habt dann sowas direkt in RStudio unter "Addins":
 
-```{r, echo=FALSE, out.width="75%", fig.cap="cap"}
+```{r, echo=FALSE, out.width="75%", fig.cap="Colourpicker RStudio Addin"}
 knitr::include_graphics("images/colorpicker.png")
 ```
 
