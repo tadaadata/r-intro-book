@@ -65,9 +65,9 @@ Zum lesen und schreiben empfehle ich herzlichst das `readr`-package mit den Funk
 
 Als Beispiel laden wir mal [diesen schönen *Game of Thrones*-Datensatz](https://data.world/aendrew/game-of-thrones-deaths):
 
-```{r, message=FALSE, error=FALSE, warning=FALSE}
+```{r, eval=FALSE, message=FALSE, error=FALSE, warning=FALSE}
 library(readr)
-gotdeaths <- read_csv("data/got_deaths.csv", col_types = cols())
+gotdeaths <- read_csv("data/got_deaths.csv")
 
 head(gotdeaths)
 ```
@@ -157,10 +157,7 @@ In besagtem Projekt sieht das zum Beispiel so aus:
 
 ```r
 participation_1 <- gs_title("Tutoriumsteilnehmer") %>%
-  gs_read(ws = "WS1516", range = cellranger::cell_cols(1:7)) %>%
-  arrange(Datum, Uhrzeit) %>%
-  mutate(Studienjahr = "15/16",
-         SemesterID  = "WiSe 15/16")
+  gs_read(ws = "WS1516", range = cellranger::cell_cols(1:7))
 ```
 
 Zuerst müsst ihr aber die Authentifizierung mit eurem Google-Account abhandeln:

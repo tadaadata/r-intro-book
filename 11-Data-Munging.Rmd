@@ -289,9 +289,7 @@ gotdeaths_books %>%
   coord_flip()
 ```
 
-
 ## Format: Wide vs. Long
-
 
 ### Beispiel 1
 

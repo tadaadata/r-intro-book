@@ -175,8 +175,8 @@ Hier setzen wir noch das `alpha` für die Ausreißer im Boxplot auf `0`, weil wi
 
 ```{r boxplot_whisker}
 ggplot(data = qmsurvey, aes(x = rauchen, y = lernen, color = rauchen)) +
-  geom_boxplot(alpha = .25, outlier.alpha = 0) +
   stat_boxplot(geom = "errorbar", width = .5) +
+  geom_boxplot() +
   scale_color_brewer(palette = "Dark2", guide = FALSE)
 ```
 
@@ -206,7 +206,7 @@ ggplot(data = qmsurvey, aes(x = rauchen, y = lernen, color = rauchen)) +
 
 Via <https://fronkonstin.com/>
 
-```{r plotting_fun_1, cache = TRUE}
+```{r plotting_fun_1, cache=TRUE}
 library(dplyr)
 library(ggplot2)
 
@@ -214,6 +214,7 @@ seq(from = -10, to = 10, by = 0.05) %>%
 expand.grid(x = ., y = .) %>%
 ggplot(aes(x = (x + pi * sin(y)), y = (y + pi * sin(x)))) +
   geom_point(alpha = .1, shape = 20, size = 1, color = "black") + 
+  coord_equal() +
   theme_void()
 ```
 
