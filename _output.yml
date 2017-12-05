@@ -20,16 +20,14 @@ bookdown::gitbook:
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
         <li><a href="https://www.rstudio.com/products/rstudio/" target="blank">Written in RStudio</a></li>
     edit: https://github.com/tadaadata/r-intro-book/edit/master/%s
-    download: [["r-intro.epub", "ebook"], ["r-intro.pdf", "PDF"]]
+    download:
+      - ["r-intro.epub", "ebook"]
     scroll_highlight: yes
     search: yes
     language: de
     sharing:
       facebook: yes
-      twitter: yes
-      google: yes
       github: yes
-  md_extension: "+emoji"
 bookdown::epub_book:
   dev: svglite
   stylesheet: css/style.css
