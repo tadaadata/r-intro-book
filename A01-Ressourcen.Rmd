@@ -58,11 +58,19 @@ Andere Quellen:
 
 ## Kurse & Workshops
 
-- [RStudio Webinars](https://www.rstudio.com/resources/webinars/)
+### Kostenlose Tutorials/Videos
+
+- [**RStudio Webinars**](https://www.rstudio.com/resources/webinars/)
+- [**Stat545**](http://stat545.com/topics.html)
+- [**LOTR Data**](https://github.com/jennybc/lotr-tidy)
+
+### Kostenpflichtige Kurse
+
+Teilweise mit kostenfreien Einstiegsmaterialien.
+
 - [DataCamp](https://www.datacamp.com/)
 - [Code School](http://tryr.codeschool.com/)
 - [Coursera](https://www.coursera.org/learn/r-programming)
-- [LOTR Data](https://github.com/jennybc/lotr-tidy)
 
 ## Vorträge / Lectures
 
