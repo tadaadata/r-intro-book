@@ -188,6 +188,8 @@ library(stringr)
 
 gotdeaths_books <- gotdeaths_books %>%
   mutate(Allegiances = str_replace(Allegiances, pattern = "House\\ ", replacement = ""))
+
+gotdeaths_books %>% count(Allegiances)
 ```
 
 Fixed it.  
@@ -263,8 +265,15 @@ Und ja, es gibt noch viele andere Möglichkeiten, aber irgendwann ist auch mal g
 
 ```{r}
 qmsurvey %>%
+  summarize(m_alter = mean(alter),
+            sd_alter = sd(alter),
+            median_alter = median(alter))
+
+qmsurvey %>%
   group_by(rauchen) %>%
-  summarize(m_alter = mean(alter))
+  summarize(m_alter = mean(alter),
+            sd_alter = sd(alter),
+            median_alter = median(alter))
 ```
 
 ## Der `dplyr`-Workflow
