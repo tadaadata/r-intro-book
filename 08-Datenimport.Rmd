@@ -80,6 +80,14 @@ Die schmutzigen Details gibt's natürlich in der Hilfe: `?read_csv` und [online]
 - Benötigte packages: `haven` oder `sjmisc`
 - Anstrengend? Manchmal.
 
+```r
+library(haven)
+
+ngo <- read_spss("data/ngo.sav")
+```
+
+Die Funktionen `read_sav` und `read_spss` sind identisch.
+
 ### R (`.rds`, `.rda` & `.RData`)
 
 - Benötigte packages: Keins (Base R reicht, optional `readr` als Alternative)
@@ -116,10 +124,13 @@ Alternativ könnt ihr das `readr`-package benutzen. Die Funktion daraus sieht fa
 
 ```r
 library(readr)
+
 participation <- read_rds("~/Downloads/participation.rds")
 ```
 
 #### `.rda`, `.RData`
+
+**Nein, ihr benutzt nicht `save` und `load` für einzelne Datensätze.**
 
 Bei `.rda` bzw. `.RData`-Dateien ist zu beachten, dass diese den Namen des Objekts gleich mitspeichern, das heißt ihr müsst den eingelesenen Datensatz keinen Namen geben — der kommt schon mit der Datei.  
 Theoretisch kann so eine Datei auch mehrere Variablen enthalten, und wenn ihr zum Beispiel RStudio schließt und wieder öffnet, dann werden in der Zwischenzeit auch eure Variablen der aktuellen Session in Form einer `.RData`-Datei im Projektordner abgelegt und beim nächsten Start wieder eingelesen.
