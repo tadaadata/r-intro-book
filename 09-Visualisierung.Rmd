@@ -191,7 +191,7 @@ ggplot(data = qmsurvey, aes(x = rauchen, y = lernen, color = rauchen)) +
 Hier haben wir 95% Konfidenzintervalle um den Mittelwert. Wir ihr seht, reicht nicht einfach ein `geom_errorbar`, weil Error Bars zu allgemein sind und nicht immer automatisch mit den selben Werten angewendet werden, wie wir es bei Boxplots gewohnt sind.  
 Wir können hier auch zusätzlich noch die Mittelwerte einzeichnen:
 
-```{r}
+```{r errorbars_2}
 ggplot(data = qmsurvey, aes(x = rauchen, y = lernen, color = rauchen)) +
   stat_summary(fun.data = mean_cl_normal, geom = "errorbar", position = "dodge") +
   stat_summary(fun.y = mean, geom = "point", size = 3) +
@@ -199,6 +199,97 @@ ggplot(data = qmsurvey, aes(x = rauchen, y = lernen, color = rauchen)) +
 ```
 
 ### Scatterplots und Regressionsgerade
+
+Scatterplots sind, grob gesagt, *das mit den Punkten*. 
+Am besten geeignet sind sie für bivariate Visualisierung zweier numerischer Variablen,
+wie etwa die Zufriedenheit im Studium abhängig vom Alter:
+
+```{r scatter_1}
+ggplot(data = qmsurvey, aes(x = alter, y = zufrieden)) +
+  geom_point()
+```
+
+Das Problem an dieser Stelle ist, dass wir sehr viele Punkte haben, die sich überlagern, und wir daher nicht einschätzen können, wie die verteilung tatsächlich aussieht. Eine einfache Möglichkeit ist hier *jittering*, wir lassen also alle Punkte ein bisschen *"jittern"*:
+
+```{r jitter_1}
+ggplot(data = qmsurvey, aes(x = alter, y = zufrieden)) +
+  geom_point(position = "jitter")
+```
+
+Das Problem hierbei ist, dass wir die Punkte ja minimal verfälschen. Für etwas mehr Kontrolle können wir auch direkt `geom_jitter` benutzen, das uns etwas mehr Kontrolle gibt:
+
+```{r jitter_2}
+ggplot(data = qmsurvey, aes(x = alter, y = zufrieden)) +
+  geom_jitter(width = .1, height = .1)
+```
+
+Hier sagen wir den Punkten, dass sie maximal 10% horizontal oder vertikal *jittern* sollen, was unsere Daten weniger verzerrt, aber uns immernoch einen etwas besseren Einblick erlaubt.  
+
+Wir können auch die Punktgröße abhängig von der Anzahl der Datenpunkte an jeder Stelle machen, dafür brauchen wir allerdings etwas *data munging* im Vorfeld.
+
+```{r point_sizes}
+qmsurvey %>%
+  count(alter, zufrieden) %>%
+  ggplot(aes(x = alter, y = zufrieden, size = n)) +
+  geom_point()
+```
+
+Mit `count` haben wir hier jede Kombination aus `alter` und `zufrieden` durchgezählt und eine Variable `n` erhalten, und von dieser machen wir so die Punktgröße abhängig. Größerer Punkt, mehr Datenpunkte an dieser Stelle. Einfach. Gut sichtbar.
+
+Als nächstes können wir lineare Zusammenhänge veranschaunlichen, indem wir **Regressionsgeraden** durch unsere Punkte ziehen. Als Beispiel anhand der Variablen `arbeit` und `lernen`:
+
+```{r smooth_lm}
+ggplot(data = qmsurvey, aes(x = lernen, y = arbeit)) +
+  geom_point() +
+  geom_smooth(method = lm, se = FALSE)
+```
+
+Sieh an, wer mehr lernt, hat weniger Zeit zum arbeiten. So grob.  
+`geom_smooth` kann beliebige Arten von Schätzlinien durch eure Daten ziehen, in diesem Fall sagen wir mit `method = lm`, dass es eine Regressionsgerade aus einem **Linearen Modell** werden soll, mittels der gleichnamigen Funktion `lm`. Zusätzlich sagen wir mit `se = FALSE`, dass wir kein Konfidenzband wollen.  
+Wenn ihr `geom_smooth` ohne Zusatzargumente benutzt, bekommen ihr ein `loess`-Smoothing mit Konfidenzband. Loess ist ziemlich schnieke von dem was es tut, aber in der Regel nicht inhaltlich relevant für unsere relativ simplen Anwendungsfälle:
+
+```{r smooth_loess}
+ggplot(data = qmsurvey, aes(x = lernen, y = arbeit)) +
+  geom_point() +
+  geom_smooth()
+```
+
+Spooky. Lokale polynomiale Regression und so. Wenn euch langweilig ist, lest die Hilfe in `?loess`, ansonsten sei nur gesagt, dass wir das im Kontext linearer Regression nicht benutzen.
+
+Achja, wir können natürlich auch unsere Punkte beliebig einfärben, zum Beispiel nach einer Drittvariable:
+
+```{r point_col}
+ggplot(data = qmsurvey, aes(x = lernen, y = arbeit, color = gender)) +
+  geom_point() +
+  scale_color_brewer(palette = "Set1")
+
+ggplot(data = qmsurvey, aes(x = lernen, y = arbeit, color = gender)) +
+  geom_point() +
+  geom_smooth(method = lm, se = FALSE) +
+  scale_color_brewer(palette = "Set1")
+```
+
+Zu Farbpaletten kommen wir weiter unten nochmal, aber hier sehen wir schonmal ein einfaches Beispiel für einen Scatterplot zweier Variablen mit Farbkodierung nach einer Drittvariable.
+Mehr als 3 Variablen auf einem Scatterplot zu verbauen würde ich auch nicht empfehlen, auch wenn es theoretisch möglich wäre.  
+Ein Maximalbeispiel sensorischer Überforderung:
+
+```{r dont_do_this}
+ggplot(data = qmsurvey, aes(x = lernen, y = arbeit, 
+                            color = gender, fill = rauchen, 
+                            alpha = zufrieden, size = alter)) +
+  geom_point(shape = 21, stroke = 2) +
+  scale_color_brewer(palette = "Set1") +
+  scale_fill_brewer(palette = "Dark2")
+```
+
+Das ist albern. Was wir hier haben:
+
+- `color`: Umrandungsfarbe abhängig von `gender`
+- `fill`: Füllfarbe abhängig von `rauchen`
+- `alpha`: Transparenz abhängig von `zufrieden`
+- `size`: Größe abhängig von `alter`
+
+Sowas einfach nicht machen.
 
 ### Facetting
 
