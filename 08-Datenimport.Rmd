@@ -83,7 +83,7 @@ Die schmutzigen Details gibt's natürlich in der Hilfe: `?read_csv` und [online]
 ```r
 library(haven)
 
-ngo <- read_spss("data/ngo.sav")
+ngo <- read_spss("data/NGO.SAV")
 ```
 
 Die Funktionen `read_sav` und `read_spss` sind identisch.
