@@ -249,7 +249,8 @@ head(ngo)
 ```
 
 Besser.  
-Hier haben wir `jahrgang` auch gleich zu einem `ordered factor` gemacht, damit die Reihenfolge der Merkmalsausprägungen immer intakt bleibt. Gegebenenfalls müssen wir das beachten, falls wir damit mal 'ne [ANOVA](#ANOVA) machen wollen, aber erstmal finden wir das so gut.
+Hier haben wir `jahrgang` auch gleich zu einem `ordered factor` gemacht, damit die Reihenfolge der Merkmalsausprägungen immer intakt bleibt. Gegebenenfalls müssen wir das beachten, falls wir damit mal 'ne [ANOVA](#ANOVA) machen wollen, aber erstmal finden wir das so gut.  
+Zusätzlich solltet ihr beachten, dass Umlaute wie das `ä` in `Männlich` zwar auf eurem Computer lokal kein Problem sein sollten, solange ihr euch immer brav an **UTF-8** haltet, aber Windows handhabt Dinge da leider etwas anders als Linux und macOS, von daher könnte es sinnvoll sein für `"Männlich"` lieber `"M\\u00e4nnlich"` einzusetzen. Das ist der selbe Text, allerdings mit explizitem Unicode-Encoding. Es gibt Funktionen wie `stringi::stri_escape_unicode("Männlich")`, die die Konvertierung für euch machen, aber ich wünsche euch, dass ihr euch nie im Detail damit befassen müsst.
 
 Als nächstes können wir noch *value labels* setzen, die dann in `sjPlot`-Plots und Tabellen angezeigt werden. Bei unseren frisch erstellten `factor`-Variablen ist das nicht mehr nötig, aber `hausauf` könnte welche gebrauchen:
 
