@@ -329,7 +329,7 @@ Ihr lernt $\eta^2$ in QM1 als deskriptive Statistik kennen, wo es als nicht-line
 
 Wenn ihr $\eta^2$ aber "einfach so" haben wollt, braucht ihr etwas Umweg:
 
-```{r}
+```{r eta_sjstats}
 library(sjstats)
 
 anova <- aov(alter ~ alkohol, data = qmsurvey)
@@ -337,6 +337,16 @@ eta_sq(anova)
 ```
 
 Wir haben hier zuerst ein *ANOVA*-Modell mittels `aov` erstellt, wo wir die Variable `alter` aufgeteilt haben in Gruppen abhängig von der Variable `alkohol`. Dann haben wir `eta_sq` aus `sjstats` für die Berechnung von $\eta^2$ benutzt, und... sind damit fertig.
+
+Als Bonus-Feature haben wir da seit der Version `0.16.0` auch was passendes in der `tadaatoolbox`:
+
+```{r eta_toolbox}
+library(tadaatoolbox)
+
+etasq(alter ~ alkohol, data = qmsurvey)
+```
+
+Unter der Haube benutzen wir da übrigens `DescTools::EtaSq`. Ihr seht, es gibt da etliche Möglichkeiten, wie so oft in R.
 
 #### Cohen's Kappa ($\kappa$)
 
