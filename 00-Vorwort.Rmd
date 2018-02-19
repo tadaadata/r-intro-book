@@ -68,7 +68,7 @@ Solltet ihr bei Begriffen wie "funktionale Programmiersprache", "generics", "fun
 
 ## Datensätze {-}
 
-Wir brauchen den ein oder anderen Datensatz für Übungszwecke und zu beispielhaften Veranschaulichung, und da es langweilig wird wenn wir immer wieder auf *NGO* zurückgreifen, haben wir auf [dieser netten Übersichtsseite](https://public.tadaa-data.de/data/readme.html) einige Datensätze bereitgestellt, die ihr euch runterladen könnt. Wie ihr die einlest, erfahrt ihr im Kapitel [Datenimport].
+Wir brauchen den ein oder anderen Datensatz für Übungszwecke und zu beispielhaften Veranschaulichung, und da es langweilig wird wenn wir immer wieder auf *NGO* zurückgreifen, haben wir auf [dieser netten Übersichtsseite](https://data.tadaa-data.de) einige Datensätze bereitgestellt, die ihr euch runterladen könnt. Wie ihr die einlest, erfahrt ihr im Kapitel [Datenimport].
 
 Als kleinen Spoiler ist hier der "mach, dass es funktioniert"-Code:
 
