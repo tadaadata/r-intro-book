@@ -51,6 +51,10 @@ if (file.exists("_bookdown_files")) {
   cat("Removing \"_bookdown_files\"...\n")
   system(command = "rm -r _bookdown_files")
 }
+if (file.exists("assets")) {
+  cat("Removing \"assets\"...\n")
+  system(command = "rm -r assets")
+}
 
 htmls <- list.files(pattern = ".html")
 if (length(htmls) != 0) {
