@@ -108,33 +108,33 @@ if (is.null(age) || age > 12) {
 cat("Done rendering\n")
 
 # Prepare to copy to output ----
-cat("\nChecking who you are...\n")
-current_user <- Sys.info()[["user"]]
-cat(paste0("I hope you're really ", current_user), "\n")
-
-if (current_user == "Lukas") {
-  book_dir  <- "~/Sync/public.tadaa-data.de/r-intro/book"
-} else if (current_user == "tobi") {
-  book_dir  <- "~/Dokumente/syncthing/public.tadaa-data.de/r-intro/book"
-} else {
-  book_dir <-  NA
-}
+# cat("\nChecking who you are...\n")
+# current_user <- Sys.info()[["user"]]
+# cat(paste0("I hope you're really ", current_user), "\n")
+#
+# if (current_user == "Lukas") {
+#   book_dir  <- "~/Sync/public.tadaa-data.de/r-intro/book"
+# } else if (current_user == "tobi") {
+#   book_dir  <- "~/Dokumente/syncthing/public.tadaa-data.de/r-intro/book"
+# } else {
+#   book_dir <-  NA
+# }
 
 # Copy to output ----
-cat("\nCopying stuff...\n")
+# cat("\nCopying stuff...\n")
 
-if (is.na(book_dir)) {
-  warning("No output directory defined, leaving everything as is.")
-} else {
-  # Copy book
-  files <- list.files(path = out_dir, full.names = T)
-  status <- file.copy(files, book_dir, overwrite = TRUE, recursive = TRUE)
-  if (all(status)) {
-    cat("Worked alright\n")
-  } else {
-    warning("Something didn't work right!")
-  }
-}
+# if (is.na(book_dir)) {
+#   warning("No output directory defined, leaving everything as is.")
+# } else {
+#   # Copy book
+#   files <- list.files(path = out_dir, full.names = T)
+#   status <- file.copy(files, book_dir, overwrite = TRUE, recursive = TRUE)
+#   if (all(status)) {
+#     cat("Worked alright\n")
+#   } else {
+#     warning("Something didn't work right!")
+#   }
+# }
 
 # Final Cleanup ----
 if (file.exists("_bookdown_files")) {
