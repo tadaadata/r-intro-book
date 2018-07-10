@@ -12,7 +12,7 @@ pkgs <- c("bookdown", "svglite", "tadaatoolbox", "sjPlot", "sjmisc", "devtools",
           "haven", "readr", "dplyr", "ggplot2", "scales", "RColorBrewer", "viridis",
           "readxl", "googlesheets", "rpivotTable", "stringr", "tibble", "tidyr", "waffle",
           "praise", "babynames", "magrittr", "ggthemes", "tidyverse", "hrbrthemes",
-          "irr")
+          "irr", "vcd")
 
 sapply(pkgs, function(pkg) {
   if (!(pkg %in% installed.packages())) {
