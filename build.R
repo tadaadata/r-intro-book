@@ -122,6 +122,7 @@ timestamp()
 
 
 if (requireNamespace("slackr")) {
+  library(slackr)
   slackr_setup(config_file = "/opt/tadaadata/.slackr")
 
   msg <- paste0(lubridate::now(tzone = "CET"),
