@@ -49,11 +49,11 @@ if (file.exists(debug_out)) {
 }
 if (file.exists("_bookdown_files")) {
   cat("Removing \"_bookdown_files\"...\n")
-  system(command = "rm -r _bookdown_files")
+  unlink("_bookdown_files")
 }
 if (file.exists("assets")) {
   cat("Removing \"assets\"...\n")
-  system(command = "rm -r assets")
+  unlink("book/assets/")
 }
 
 htmls <- list.files(pattern = ".html")
@@ -110,7 +110,7 @@ cat("Done rendering\n")
 # Final Cleanup ----
 if (file.exists("_bookdown_files")) {
   cat("Removing \"_bookdown_files\"...\n")
-  system(command = "rm -r _bookdown_files")
+  unlink("_bookdown_files/")
 }
 
 # Done ----
