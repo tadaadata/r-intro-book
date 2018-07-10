@@ -116,7 +116,7 @@ if (file.exists("_bookdown_files")) {
 # Done ----
 cat("\nAll done!\n")
 t_finish <- Sys.time()
-t_diff   <- round(as.numeric(difftime(t_finish, t_start, "s")), 0)
+t_diff   <- round(as.numeric(difftime(t_finish, t_start, units = "secs")), 0)
 cat("Took about", t_diff, "seconds", "\n")
 timestamp()
 
@@ -131,8 +131,3 @@ if (requireNamespace("slackr")) {
   text_slackr(msg, channel = "#r-intro", username = "tadaabot", preformatted = FALSE)
 
 }
-
-# Cleanup, just in case ----
-rm(pkgs, bookdown_yml, out_dir, status, debug_out,
-   current_user, t_diff, t_start, t_finish,
-   out_epub, out_pdf)
