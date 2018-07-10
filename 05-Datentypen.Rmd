@@ -352,4 +352,4 @@ as.logical(1)
 
 [^bits]: Habt ihr mal im Kontext von Computern oder Betriebssystemen/Software von "32bit" und "64bit" gehört? Da geht's tatsächlich genau um dieses Ding mit den Fließkommazahlen. 64 bit kann einfach mehr Nachkommastellen speichern als 32bit. Vergleiche dazu auch `.Machine$double.digits` auf einem 32bit gegen ein 64bit-Betriebssystem
 
-[^logic]: Das ist einer von diesesn Logikwitzen basierend auf dem Umstand, dass das logische *oder* (`a | b`) auch *wahr* ist, sowohl `a` als auch `b` *wahr* ist.
+[^logic]: Das ist einer von diesesn Logikwitzen basierend auf dem Umstand, dass das logische *oder* (`a | b`) auch *wahr* ist, wenn sowohl `a` als auch `b` *wahr* ist.
