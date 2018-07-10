@@ -15,7 +15,7 @@ rmarkdown::pandoc_version()
 Für epub -> PDF
 
 ```{r}
-system(command = "ebook-convert --version", intern = TRUE)
+# system(command = "ebook-convert --version", intern = TRUE)
 ```
 
 ## R session
