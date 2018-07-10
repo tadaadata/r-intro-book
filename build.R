@@ -107,35 +107,6 @@ if (is.null(age) || age > 12) {
 }
 cat("Done rendering\n")
 
-# Prepare to copy to output ----
-# cat("\nChecking who you are...\n")
-# current_user <- Sys.info()[["user"]]
-# cat(paste0("I hope you're really ", current_user), "\n")
-#
-# if (current_user == "Lukas") {
-#   book_dir  <- "~/Sync/public.tadaa-data.de/r-intro/book"
-# } else if (current_user == "tobi") {
-#   book_dir  <- "~/Dokumente/syncthing/public.tadaa-data.de/r-intro/book"
-# } else {
-#   book_dir <-  NA
-# }
-
-# Copy to output ----
-# cat("\nCopying stuff...\n")
-
-# if (is.na(book_dir)) {
-#   warning("No output directory defined, leaving everything as is.")
-# } else {
-#   # Copy book
-#   files <- list.files(path = out_dir, full.names = T)
-#   status <- file.copy(files, book_dir, overwrite = TRUE, recursive = TRUE)
-#   if (all(status)) {
-#     cat("Worked alright\n")
-#   } else {
-#     warning("Something didn't work right!")
-#   }
-# }
-
 # Final Cleanup ----
 if (file.exists("_bookdown_files")) {
   cat("Removing \"_bookdown_files\"...\n")
@@ -148,6 +119,17 @@ t_finish <- Sys.time()
 t_diff   <- round(as.numeric(difftime(t_finish, t_start, "s")), 0)
 cat("Took about", t_diff, "seconds", "\n")
 timestamp()
+
+
+if (requireNamespace("slackr")) {
+  slackr_setup(config_file = "/opt/tadaadata/.slackr")
+
+  msg <- paste0(lubridate::now(tzone = "CET"),
+                ": Built https://r-intro.tadaa-data.de/book",
+                "\n It took about ", t_diff, " seconds.")
+  text_slackr(msg, channel = "#r-intro", username = "tadaabot", preformatted = FALSE)
+
+}
 
 # Cleanup, just in case ----
 rm(pkgs, bookdown_yml, out_dir, status, debug_out,
