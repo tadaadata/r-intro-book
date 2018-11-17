@@ -110,7 +110,7 @@ cat("Done rendering\n")
 # Final Cleanup ----
 if (file.exists("_bookdown_files")) {
   cat("Removing \"_bookdown_files\"...\n")
-  unlink("_bookdown_files/")
+  unlink("_bookdown_files", recursive = TRUE)
 }
 
 # Done ----
