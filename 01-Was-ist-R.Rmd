@@ -8,23 +8,6 @@ Für uns heißt das in erster Linie Folgendes:
 - Die Lernkurve ist etwas steil, flacht dann aber schnell ab. Versprochen.
 - Wir können prinzipiell _alles_ damit machen, wenn wir erstmal rausgefunden haben wie's geht.
 
-## Wieso nicht einfach SPSS?
-
-SPSS ist viel.  
-SPSS kann viel.  
-SPSS kostet unsäglich viel.  
-SPSS nimmt euch das Denken ab — im guten wie im schlechten Sinn.  
-
-Wenn ihr SPSS bedienen könnt, ihr wisst was ihr tut und entweder ihr oder eure ArbeitgeberIn tief in die Tasche gegriffen haben um eine Lizenz bereitzustellen, dann ist das schön und gut, und ihr könnt den Knopf mit *"Mach mal Statistik"* drücken und dann kommen da PDFs raus wo Statistik drinsteht.  
-Schön.
-
-Möglicherweise habt ihr aber nicht die finanziellen Ressourcen für SPSS.  
-Möglicherweise braucht ihr mehr Flexibilität.  
-Vielleicht funktioniert SPSS für euch nur mittels einer Remotedesktop-Verbindung (\*hust hust\*), das heißt sobald ihr irgendwo ohne schnelle Verbindung seid, könnt ihr nicht mehr arbeiten.  
-So sicher wie der Tod und Steuern müsst ihr auch irgendwann ein Expra durchführen, die erhobenen Daten auswerten und darstellen. Solltet ihr das mit SPSS machen, dürft ihr keine der Grafiken oder Tabellen benutzen (außer ihr verzichtet freiwillig auf eine gute Note). Das gleiche gilt in schwächerer Gewichtung für euer Differentielle Projekt und natürlich ggf. in stärkerer Gewichtung für eure Bachelorarbeit.
-
-Vielleicht gefällt euch aber auch nur, dass ihr mit R interaktiv und schnell[^schnell] einfache Dinge ausprobieren könnt. 
-
 ## Was ist an R so toll?
 
 Nicht alles an R ist toll — und sobald ihr das erste Mal mehrere Stunden damit verbracht habt, ein vergleichsweise einfaches Problem lösen zu wollen, werdet ihr wissen was ich meine.  
@@ -62,6 +45,23 @@ Ich weiß, dass das alles wirklich eher krampfig klingt wenn ihr das so lest, we
 
 Ich betone das übrigens nicht, weil ich SPSS doof finde (was ich tue), oder R so toll finde (was ich tue), sondern tatsächlich aus Erfahrung und Überzeugung.  
 Wenn euch Statistik egal ist und ihr einfach nur bestehen wollt, dann reicht euch vielleicht SPSS. Wenn ihr langfristig gut mit Methodik und quantitativen Methoden arbeiten können wollt, dann ist R eine gute Investition.
+
+## Wieso nicht einfach SPSS?
+
+SPSS ist viel.  
+SPSS kann viel.  
+SPSS kostet unsäglich viel.  
+SPSS nimmt euch das Denken ab — im guten wie im schlechten Sinn.  
+
+Wenn ihr SPSS bedienen könnt, ihr wisst was ihr tut und entweder ihr oder eure ArbeitgeberIn tief in die Tasche gegriffen haben um eine Lizenz bereitzustellen, dann ist das schön und gut, und ihr könnt den Knopf mit *"Mach mal Statistik"* drücken und dann kommen da PDFs raus wo Statistik drinsteht.  
+Schön.
+
+Möglicherweise habt ihr aber nicht die finanziellen Ressourcen für SPSS.  
+Möglicherweise braucht ihr mehr Flexibilität.  
+Vielleicht funktioniert SPSS für euch nur mittels einer Remotedesktop-Verbindung (\*hust hust\*), das heißt sobald ihr irgendwo ohne schnelle Verbindung seid, könnt ihr nicht mehr arbeiten.  
+So sicher wie der Tod und Steuern müsst ihr auch irgendwann ein Expra durchführen, die erhobenen Daten auswerten und darstellen. Solltet ihr das mit SPSS machen, dürft ihr keine der Grafiken oder Tabellen benutzen (außer ihr verzichtet freiwillig auf eine gute Note). Das gleiche gilt in schwächerer Gewichtung für euer Differentielle Projekt und natürlich ggf. in stärkerer Gewichtung für eure Bachelorarbeit.
+
+Vielleicht gefällt euch aber auch nur, dass ihr mit R interaktiv und schnell[^schnell] einfache Dinge ausprobieren könnt. 
 
 <!-- Fußnoten -->
 [^schnell]: Das mit der Schnelligkeit kommt mit etwas Übung. Wirklich.
