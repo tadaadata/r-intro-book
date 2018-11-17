@@ -127,6 +127,7 @@ Das wichtigste package ist wie erwähnt `sjPlot`, also laden wir das erstmal:
 
 ```{r, warning=FALSE, message=FALSE, error=FALSE}
 library("sjPlot")
+library("sjmisc")
 ```
 
 *sjPlot* ist ziemlich praktisch wenn ihr mal schnell relativ komplexe Dinge erreichen wollt, in erster Linie Plots und Tabellen.  
@@ -156,8 +157,7 @@ sjt.xtab(qmsurvey$ernaehrung, qmsurvey$gender,
 Oder einfache Häufigkeitstabellen:
 
 ```{r sjplot_tables_2}
-sjt.frq(qmsurvey$ernaehrung, 
-        string.val = "Ernährungstyp", altr.row.col = TRUE)
+frq(qmsurvey$ernaehrung, out = "viewer")
 ```
 
 Und für lineare Modelle, in deutlich schöner als `summary()`:

@@ -67,24 +67,15 @@ Für die EnthusiastInnen:
 Die `modus`-Funktion macht übrigens auch nichts anderes als eine Häufigkeitstabelle via `table`, aus der dann das Maximum extrahiert wird.  
 Praktisch nur `names(table(x)[table(x) == max(table(x))])` mit ein bisschen Glitzer und so.
 
-Wenn wir das jetzt noch in schön und übersichtlich haben wollen, können wir auf `sjPlot` zurückgreifen:
+Wenn wir das jetzt noch in schön und übersichtlich haben wollen, können wir auf `sjmisc` zurückgreifen:
 
 ```{r freq_sjt, warning=FALSE, message=FALSE}
-library(sjPlot)
+library(sjmisc)
 
-sjt.frq(qmsurvey$zufrieden, emph.md = TRUE, emph.quart = TRUE)
+frq(qmsurvey$zufrieden, out = "viewer")
 ```
 
-Da fällt eine Tabelle raus, die uns Median, die Häufigkeiten, fehlende Werte und in der Fußzeile gleich auch gesamt-N, Mittelwert und Standardabweichung anzeigt.  
-Über `emph.quart = TRUE` sagen wir auch, dass die Quartile eingezeichnet werden sollen, was in diesem Beispiel etwas versagt.  
-Eine bessere Demonstration:
-
-```{r freq_sjt_2}
-sjt.frq(qmsurvey$alter, emph.md = TRUE, emph.quart = TRUE)
-```
-
-Hier haben wir zwei rote Linien für das 25%- und 75%-Quartile und fett/rote Schrift für den Median.  
-Voll schön.
+Da fällt eine Tabelle raus, die uns Median, die Häufigkeiten, fehlende Werte und in der Fußzeile gleich auch gesamt-N, Mittelwert und Standardabweichung anzeigt.
 
 ### Variabilität
 
