@@ -470,7 +470,7 @@ Oder auch:
 ```{r themes_3}
 library(hrbrthemes)
 
-plot + theme_ipsum()
+plot + theme_ipsum_rc()
 ```
 
 Siehe auch: `ggthemes`
