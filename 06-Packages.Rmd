@@ -165,7 +165,7 @@ Und für lineare Modelle, in deutlich schöner als `summary()`:
 ```{r sjplot_tables_3}
 model <- lm(zufrieden ~ alter * berufsvorstellung, data = qmsurvey)
 
-sjt.lm(model, show.std = TRUE)
+tab_model(model, show.std = TRUE)
 ```
 
 
