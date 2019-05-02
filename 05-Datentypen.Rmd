@@ -167,7 +167,7 @@ Encoding ist kodifizierter Selbsthass, aber [Unicode ist großer Spaß](https://
 ## Factor <small class="subtitle">(Here be dragons)</small>
 
 Okay, der haarige Teil.  
-Die `factor`-Klasse in R ist unheimlich praktisch, aber auch ziemlich unintuitiv bei der ersten Verwendung. Das liegt nicht zuletzt daran, dass ein `facotr` von aussehen meistens einfach aussieht wie ein `character`, aber nunmal kein `character` ist.  
+Die `factor`-Klasse in R ist unheimlich praktisch, aber auch ziemlich unintuitiv bei der ersten Verwendung. Das liegt nicht zuletzt daran, dass ein `factor` von aussehen meistens einfach aussieht wie ein `character`, aber nunmal kein `character` ist.  
 *Factors* haben zwei Bestandteile:
 
 - `level`: Die *Merkmalsausprägung*, so wie R den `factor` sieht. Meistens *numeric*.
