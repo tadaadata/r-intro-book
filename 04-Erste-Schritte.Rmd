@@ -188,16 +188,20 @@ Das *non-numeric argument* hier ist die `"5"`. Merken: `5` ist **numerisch**, ab
 Der *binary operator* an dieser Stelle ist übrigens das `+`. Ein **Operator**, weil es, äh… operiert? Naja, es tut Dinge, und wenn etwas in R Dinge tut, ist es meistens ein Operator in irgendeinem Sinne. Das *binary* heißt, dass es **zwei** (bi, binär, binary, zwei halt) Argumente nimmt.  
 Wie schon gesagt, Argumente sind die Dinge, die wir an Funktionen übergeben, und wenn wir an eine Funktion wie `+` oder auch `mean()` ein Argument übergeben, mit denen sie nichts anfangen können, dann beschwert sich R weil es nicht weiß was zum Geier ihr da vorhabt.  
 
-```{r, error=FALSE, warning=FALSE}
+``` r
 namen <- c("Tobi", "Lukas", "Nadja", "Christoph")
 
 fib <- c(1, 1, 2, 3, 5, 8, 13, 21) 
 
 # Alles knorke
 mean(fib)
+#> [1] 6.75
 
 # Alles CHAOS UND UNHEIL
 mean(namen)
+#> Warning in mean.default(namen): argument is not numeric or logical:
+#> returning NA
+#> [1] NA
 ```
 
 Was es mit `NA` auf sich hat, und was es noch so für Datentypen gibt, sehen wir dann im Abschnitt zu [Datentypen].
