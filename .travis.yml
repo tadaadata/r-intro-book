@@ -56,6 +56,9 @@ script:
   #- "Rscript -e \"bookdown::render_book('index.Rmd', 'bookdown::gitbook')\""
   - "Rscript -e \"bookdown::render_book('index.Rmd', 'bookdown::pdf_book')\""
 
+after_failure
+  - cat r-intro.log
+
 # Deploy to GitHub pages
 # Requires GITHUB_PAT created on GitHub and set in travis
 # Also requires a usable gh-pages branch
