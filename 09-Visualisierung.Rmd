@@ -297,9 +297,9 @@ Sowas einfach nicht machen.
 
 ### Spaßiger Kram
 
-Via <https://fronkonstin.com/>
+Via <https://fronkonstin.com/>:
 
-```{r plotting_fun_1, cache=TRUE}
+```{r generativeart}
 library(dplyr)
 library(ggplot2)
 
@@ -311,6 +311,7 @@ ggplot(aes(x = (x + pi * sin(y)), y = (y + pi * sin(x)))) +
   theme_void()
 ```
 
+Das fällt unter den Punkt "generative art", und ist durchaus schön, aber geht auch ein bisschen auf die CPU.
 
 ## Mach mal bunt!
 

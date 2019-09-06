@@ -8,7 +8,7 @@ suppressPackageStartupMessages(library(car))
 knitr::opts_knit$set(unnamed.chunk.label = "chunk_")
 
 knitr::opts_chunk$set(
-  #cache = TRUE,
+  cache = TRUE,
   fig.width = 8,
   fig.asp = 1/1.618,
   fig.align = "center",
