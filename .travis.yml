@@ -1,0 +1,71 @@
+sudo: false
+language: r
+dist: bionic
+latex: false # Only because I'm manually installing TinyTex!
+
+# Cache (i.e. persist across builds) some stuff that's not needed to be re-built
+cache:
+  packages: yes
+  directories:
+    - $HOME/bin       # Where webshot install phantomjs
+    - $HOME/.fonts    # Where fonts are downloaded to & installed
+    - $HOME/.TinyTex  # Aforementioned TinyTex dir
+    - $TRAVIS_BUILD_DIR/_bookdown_files # Rendered images cache
+
+apt_packages:
+  - fonts-oflb-asana-math # Asana Math font that may be not needed
+
+before_install:
+  - |
+    # 1. Install TinyTex manually
+    Rscript -e "install.packages('tinytex')"
+    Rscript -e "tinytex::install_tinytex()"
+
+    mkdir -p $HOME/.fonts
+
+    # 2. Check if fonts are present in cached .fonts dir, if not, download + install
+    if [ ! -e $HOME/.fonts/gyre.zip ]; then
+     wget http://www.gust.org.pl/projects/e-foundry/tex-gyre/pagella/qpl2_501otf.zip -O $HOME/.fonts/gyre.zip
+     unzip $HOME/.fonts/gyre.zip -d $HOME/.fonts/
+    fi
+
+    if [ ! -e $HOME/.fonts/gyreheros.zip ]; then
+     wget http://www.gust.org.pl/projects/e-foundry/tex-gyre/heros/qhv2.004otf.zip -O $HOME/.fonts/gyreheros.zip
+     unzip $HOME/.fonts/gyreheros.zip -d $HOME/.fonts/
+    fi
+
+    if [ ! -e $HOME/.fonts/fira.zip ]; then
+      wget https://github.com/bBoxType/FiraSans/archive/master.zip -O $HOME/.fonts/fira.zip
+      unzip ~/.fonts/fira.zip '*.ttf' -d $HOME/.fonts/
+    fi
+
+    # 3. Copy fontconfig for possibly maybe xelatex font issue with spaces in font names
+    cp $HOME/.TinyTeX/texmf-var/fonts/conf/texlive-fontconfig.conf ~/.fonts.conf
+
+    # 4. Update font cache for previously installed fonts (+ list fonts for debugging)
+    fc-cache -fv
+    fc-list
+
+# Install phantomjs (needed for htmlwidgets => images in PDF)
+before_script:
+  - "[ -x \"$HOME/bin/phantomjs\" ] || Rscript -e \"webshot::install_phantomjs()\""
+  - "Rscript -e \"remotes::install_github('hrbrmstr/firasans')\""
+
+# Render the actual book
+script:
+  - "Rscript -e \"bookdown::render_book('index.Rmd', 'bookdown::gitbook')\""
+  - "Rscript -e \"bookdown::render_book('index.Rmd', 'bookdown::pdf_book')\""
+
+# Deploy to GitHub pages
+# Requires GITHUB_PAT created on GitHub and set in travis
+# Also requires a usable gh-pages branch
+deploy:
+  provider: pages
+  local_dir: book
+  skip_cleanup: true
+  keep_history: true
+  github_token: $GITHUB_PAT
+  target_branch: gh-pages
+
+notifications:
+  email: false
