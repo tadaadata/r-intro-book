@@ -4,28 +4,28 @@ Title: Placeholder file for travis
 Version: 0.0.1
 License: MIT + file LICENSE
 Imports:
+    babynames,
     bookdown,
     broom,
     dplyr,
     ggplot2,
+    ggthemes,
     glue,
+    haven,
     hrbrthemes,
     httr,
+    irr,
     jsonlite,
     kableExtra,
     purrr,
-    sessioninfo,
-    tadaatoolbox,
-    sjPlot,
-    ggthemes,
-    babynames,
-    waffle,
-    tidyverse,
-    haven,
     readr,
-    viridis,
+    sessioninfo,
+    sjPlot,
     svglite,
-    irr
+    tadaatoolbox,
+    tidyverse,
+    viridis,
+    waffle
 Remotes:
     hrbrmstr/firasans
 Encoding: UTF-8
