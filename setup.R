@@ -6,7 +6,6 @@ suppressPackageStartupMessages(library(tidyr))
 suppressPackageStartupMessages(library(car))
 
 knitr::opts_knit$set(unnamed.chunk.label = "chunk_")
-
 knitr::opts_chunk$set(comment = "")
 
 # Read data used throughout tutorial ----

@@ -35,3 +35,12 @@ bookdown::epub_book:
   toc_depth: 2
   metadata: epub_metadata.xml
   md_extension: "+emoji"
+bookdown::pdf_book:
+  includes:
+    before_body: latex/before_body.tex
+    in_header: latex/preamble.tex
+  latex_engine: xelatex
+  citation_package: natbib
+  keep_tex: yes
+  dev: "cairo_pdf"
+  toc_appendix: yes

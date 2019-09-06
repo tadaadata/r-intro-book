@@ -1,5 +1,5 @@
 #! /usr/bin/env Rscript
-
+quiet <- FALSE
 t_start <- Sys.time()
 
 # Check dependencies ----
@@ -86,9 +86,9 @@ cat("\nRendering things...\n\n")
 
 # Build Website
 cat("Rendering website...\n")
-bookdown::render_book(input = ".",
-                      output_format = "bookdown::gitbook",
-                      clean_envir = FALSE, quiet = TRUE)
+bookdown::render_book(
+  input = ".", output_format = "bookdown::gitbook", clean_envir = FALSE, quiet = quiet
+)
 
 # Build EPUB
 if (file.exists(out_epub)) {
@@ -101,17 +101,23 @@ if (is.null(age) || age > 12) {
   cat("Rendering epub...\n")
   bookdown::render_book(input = ".",
                         output_format = "bookdown::epub_book",
-                        clean_envir = F, quiet = TRUE)
+                        clean_envir = FALSE, quiet = quiet)
   # cat("Converting epub to PDF...\n")
   # bookdown::calibre(input = out_epub, output = out_pdf)
 }
+
+cat("Rendering PDF...\n")
+bookdown::render_book(
+  input = ".", output_format = "bookdown::pdf_book", clean_envir = FALSE, quiet = quiet
+)
+
 cat("Done rendering\n")
 
 # Final Cleanup ----
-if (file.exists("_bookdown_files")) {
-  cat("Removing \"_bookdown_files\"...\n")
-  unlink("_bookdown_files", recursive = TRUE)
-}
+# if (file.exists("_bookdown_files")) {
+#   cat("Removing \"_bookdown_files\"...\n")
+#   unlink("_bookdown_files", recursive = TRUE)
+# }
 
 # Done ----
 cat("\nAll done!\n")
@@ -121,13 +127,13 @@ cat("Took about", t_diff, "seconds", "\n")
 timestamp()
 
 
-if (requireNamespace("slackr")) {
-  library(slackr)
-  slackr_setup(config_file = "/opt/tadaadata/.slackr")
-
-  msg <- paste0(lubridate::now(tzone = "CET"),
-                ": Built https://r-intro.tadaa-data.de/book",
-                "\n It took about ", t_diff, " seconds.")
-  text_slackr(msg, channel = "#r-intro", username = "tadaabot", preformatted = FALSE)
-
-}
+# if (requireNamespace("slackr")) {
+#   library(slackr)
+#   slackr_setup(config_file = "/opt/tadaadata/.slackr")
+#
+#   msg <- paste0(lubridate::now(tzone = "CET"),
+#                 ": Built https://r-intro.tadaa-data.de/book",
+#                 "\n It took about ", t_diff, " seconds.")
+#   text_slackr(msg, channel = "#r-intro", username = "tadaabot", preformatted = FALSE)
+#
+# }
