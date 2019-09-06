@@ -1,5 +1,4 @@
 #! /usr/bin/env Rscript
-quiet <- FALSE
 t_start <- Sys.time()
 
 # Check dependencies ----
@@ -35,51 +34,51 @@ debug_out <- paste0(bookdown_yml$book_filename, ".Rmd")
 out_pdf   <- paste0(out_dir, "/", bookdown_yml$book_filename, ".pdf")
 out_epub  <- paste0(out_dir, "/", bookdown_yml$book_filename, ".epub")
 
-if (!file.exists(out_dir)) {
-  cat("Output directory", out_dir, "doesn't exist, creating that for you...\n")
-  dir.create(out_dir)
-}
+# if (!file.exists(out_dir)) {
+#   cat("Output directory", out_dir, "doesn't exist, creating that for you...\n")
+#   dir.create(out_dir)
+# }
 
 # Clean up artifacts that cause problems ----
-cat("Cleaning up potential debug files...\n")
+# cat("Cleaning up potential debug files...\n")
+#
+# if (file.exists(debug_out)) {
+#   cat("Removing", debug_out, "\n")
+#   file.remove(debug_out)
+# }
+# if (file.exists("_bookdown_files")) {
+#   cat("Removing \"_bookdown_files\"...\n")
+#   unlink("_bookdown_files")
+# }
+# if (file.exists("assets")) {
+#   cat("Removing \"assets\"...\n")
+#   unlink("book/assets/")
+# }
 
-if (file.exists(debug_out)) {
-  cat("Removing", debug_out, "\n")
-  file.remove(debug_out)
-}
-if (file.exists("_bookdown_files")) {
-  cat("Removing \"_bookdown_files\"...\n")
-  unlink("_bookdown_files")
-}
-if (file.exists("assets")) {
-  cat("Removing \"assets\"...\n")
-  unlink("book/assets/")
-}
-
-htmls <- list.files(pattern = ".html")
-if (length(htmls) != 0) {
-  status <- file.remove(htmls)
-
-  if (all(status)) {
-    cat("Removed html files at root directory...\n")
-  }
-}
-rm(htmls)
+# htmls <- list.files(pattern = ".html")
+# if (length(htmls) != 0) {
+#   status <- file.remove(htmls)
+#
+#   if (all(status)) {
+#     cat("Removed html files at root directory...\n")
+#   }
+# }
+# rm(htmls)
 
 # Move images/CSS dir to output ----
-cat("Moving images and CSS directory to output dir\n")
-status <- file.copy("css", out_dir, overwrite = T, recursive = T)
-if (all(status)) {
-  cat("Successfully copied CSS dir\n")
-} else {
-  warning("Something didn't work right!")
-}
-status <- file.copy("images", out_dir, overwrite = T, recursive = T)
-if (all(status)) {
-  cat("Successfully copied images dir\n")
-} else {
-  warning("Something didn't work right!")
-}
+# cat("Moving images and CSS directory to output dir\n")
+# status <- file.copy("css", out_dir, overwrite = T, recursive = T)
+# if (all(status)) {
+#   cat("Successfully copied CSS dir\n")
+# } else {
+#   warning("Something didn't work right!")
+# }
+# status <- file.copy("images", out_dir, overwrite = T, recursive = T)
+# if (all(status)) {
+#   cat("Successfully copied images dir\n")
+# } else {
+#   warning("Something didn't work right!")
+# }
 
 # Render things ----
 cat("\nRendering things...\n\n")
@@ -87,29 +86,28 @@ cat("\nRendering things...\n\n")
 # Build Website
 cat("Rendering website...\n")
 bookdown::render_book(
-  input = ".", output_format = "bookdown::gitbook", clean_envir = FALSE, quiet = quiet
+  input = ".", output_format = "bookdown::gitbook", quiet = TRUE, envir = new.env()
 )
 
 # Build EPUB
-if (file.exists(out_epub)) {
-  age <- as.numeric(difftime(Sys.time(), file.mtime(out_epub), units = "hours"))
-} else {
-  age <- NULL
-}
+# if (file.exists(out_epub)) {
+#   age <- as.numeric(difftime(Sys.time(), file.mtime(out_epub), units = "hours"))
+# } else {
+#   age <- NULL
+# }
 
-if (is.null(age) || age > 12) {
-  cat("Rendering epub...\n")
-  bookdown::render_book(input = ".",
-                        output_format = "bookdown::epub_book",
-                        clean_envir = FALSE, quiet = quiet)
-  # cat("Converting epub to PDF...\n")
-  # bookdown::calibre(input = out_epub, output = out_pdf)
-}
+# if (is.null(age) || age > 12) {
+#   cat("Rendering epub...\n")
+#   bookdown::render_book(input = ".",
+#                         output_format = "bookdown::epub_book",
+#                         clean_envir = FALSE, quiet = quiet)
+#   # cat("Converting epub to PDF...\n")
+#   # bookdown::calibre(input = out_epub, output = out_pdf)
+# }
 
 cat("Rendering PDF...\n")
-bookdown::render_book(
-  input = ".", output_format = "bookdown::pdf_book", clean_envir = FALSE, quiet = quiet
-)
+bookdown::render_book(input = ".", output_format = "bookdown::pdf_book",
+                      quiet = FALSE, envir = new.env())
 
 cat("Done rendering\n")
 
