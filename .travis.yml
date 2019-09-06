@@ -56,7 +56,7 @@ script:
   #- "Rscript -e \"bookdown::render_book('index.Rmd', 'bookdown::gitbook')\""
   - "Rscript -e \"bookdown::render_book('index.Rmd', 'bookdown::pdf_book')\""
 
-after_failure
+after_failure:
   - cat r-intro.log
 
 # Deploy to GitHub pages
