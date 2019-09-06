@@ -353,18 +353,24 @@ Die allgemeine Form ist `tabelle[Zeilennummer, Spaltennumer]`, und jetzt fragt i
 Bei einer Tabelle ist es nützlich mit Zeilen und Spalten zu arbeiten, um die gewünschten Werte rauszuholen, aber bei einem Vektor gibt es in diesem Sinne nur eine Dimension.  
 Sinn der Sache ist, dass wir Funktionen wie `mean` oder `sd` nur auf Vektoren anwenden können, was auch intuitiv irgendwie sinnvoll scheint, denn der Mittelwert einer ganzen Tabelle mit mehreren Variablen ist ja konzeptionell etwas… schwierig.
 
-```{r, error=FALSE, warning=FALSE}
+``` r
 # Okay
 mean(sleep$extra)
+#> [1] 1.54
 
 # Das selbe Ergebnis
 mean(sleep[[1]])
+#> [1] 1.54
 
 # Auch okay!
 mean(sleep[["extra"]])
+#> [1] 1.54
 
 # Das hier nicht so
 mean(sleep[1])
+#> Warning in mean.default(sleep[1]): argument is not numeric or logical:
+#> returning NA
+#> [1] NA
 ```
 
 `sleep[1]` gibt euch zwar auch die Spalte `extra`, aber wie schon gesagt, in `data.frame`-Form, und nicht als Vektor.

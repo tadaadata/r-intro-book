@@ -25,13 +25,13 @@ Die am häufigsten zitierten Vorteile sind in etwa die Folgenden:
     - Es gibt unzählige Erweiterungen (*"packages"*) für R, die neue Funktionen bereitstellen
     - Übersicht auf z.B. [r-pkg.org](https://www.r-pkg.org/) 
     - Sogar eure TutorInnen können packages schreiben. Tun sie [sogar manchmal](https://github.com/tadaadata/tadaatoolbox).
-- **Gute Dokumentation**
+- **Gute Dokumentation** (meistens)
     - R bringt seine Hilfe selber mit, das ist der *"Help"*-Tab in RStudio. Jede Funktion ist dokumentiert!
     - Seiten wie [rdocumentation.org](https://www.rdocumentation.org/) oder [rdrr.io](https://rdrr.io/) erlauben es so gut wie alle verfügbaren R packages nach bestimmten Funktionen zu durchsuchen, egal wie obskur der Anwendungsfall auch sein mag
     - Communities wie [stackoverflow](https://stackoverflow.com/questions/tagged/r) sind beliebte "Ich brauche Hilfe bei XY"-Anlaufstellen, und eine Horde von Menschen, die meistens das gleiche Problem auch schonmal hatten, können euch helfen
-- **Interaktivität**: Wo SPSS auf Buttons und Befehle reagiert und dann einen Stapel PDFs produziert, kann R mit der Konsole auch einfach schnell und interaktiv benutzt werden: "Schnell mal eben was nachgucken" ist in R deutlich angenehmer als in SPSS
+- **Interaktivität**: Wo SPSS auf Buttons und Befehle reagiert und dann einen Stapel PDFs produziert, kann R mit der Konsole auch einfach schnell und interaktiv benutzt werden: "Schnell mal eben was nachgucken" ist in R deutlich angenehmer als in SPSS, zumindest für einfache Sachen. 
 - **Reproduzierbarkeit**: Wenn ihr ein sauberes R-Script geschrieben habt, könnt ihr das frei verfügbar machen und alle Interessierten können es bei sich selbst ausführen und *BÄM!*, Ergebnisse reproduziert. In case you didn't realize, but that's kind of a big thing in science.
-- **Visualisierung**: R hat fantastische Werkzeuge zur Datenvisualisierung, primär sei hier *ggplot2* erwähnt, was euch erlaubt wunderschöne Grafiken aus euren Daten zu zaubern, und auch das vollkommen reproduzierbar (versucht das mal mit SPSS oder Excel. Wolds of pain.)
+- **Visualisierung**: R hat fantastische Werkzeuge zur Datenvisualisierung, primär sei hier *ggplot2* erwähnt, was euch erlaubt wunderschöne Grafiken aus euren Daten zu zaubern, und auch das vollkommen reproduzierbar (versucht das mal mit SPSS oder Excel. Worlds of pain.)
 - **Flexibilität**: R ist eine Programmiersprache, das heißt per default kann R erstmal *alles*. Vielleicht nicht alles gut, aber prinzipiell lässt sich zumindest theoretisch alles damit anstellen. Dieses Dokument hier? In R (RMarkdown, *bookdown*) geschrieben. Dynamische Webseiten? Auch möglich, googlet "R shiny". Interaktive Elemente? Auch kein Ding, googlet "R htmlwidgets". Daten aus Software wie SPSS, Excel oder sogar Google Sheets importieren? Auch kein Problem. You get the idea.
 - **Aktive Entwicklung & Community**: R wird *immer besser*. Immer mehr Leute benutzen R, von diesen Leuten haben einige gute Ideen, und davon wiederum gibt es einige, die diese sogar umsetzen. Das Resultat ist ein stetig wachsendes und gedeihendes Ökosystem um R und eine aktive Community auf diversen Netzwerken, die sowohl Hilfestellung liefern können als auch aktiv an besseren Tools rund um R arbeiten, von besserer Dokumentation bis zu besserer Integration mit anderer Software.
 
