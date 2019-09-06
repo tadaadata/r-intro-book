@@ -23,7 +23,9 @@ Imports:
     tidyverse,
     haven,
     readr,
-    viridis
+    viridis,
+    svglite,
+    irr
 Remotes:
     hrbrmstr/firasans
 Encoding: UTF-8
