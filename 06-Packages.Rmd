@@ -174,7 +174,7 @@ tab_model(model, show.std = TRUE)
 Klassiker: Histogramm mit Normalverteilungskurve:
 
 ```{r sjplot_plots_1}
-sjp.frq(qmsurvey$alter, type = "histogram", 
+plot_frq(qmsurvey$alter, type = "histogram", 
         show.mean = TRUE, normal.curve = TRUE)
 ```
 

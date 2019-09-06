@@ -1,18 +1,27 @@
 ---
 title: "R für Psychos"
 author: "Lukas Burk & Tobias Anton"
-date: "Stand: `r format(Sys.time(), '%d. %B %Y @ %H:%M Uhr')`"
+date: "Stand: `r format(Sys.time(), '%d. %B %Y @ %H:%M Uhr (%Z)')`"
 lang: de-DE
 publisher: r-intro.tadaa-data.de
 rights: "Copyright 2017, Lukas Burk & Tobias Anton, CC-BY-NC"
 site: bookdown::bookdown_site
-documentclass: book
+documentclass: scrbook
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: 'tadaadata/r-intro-book'
 url: 'https\://r-intro.tadaa-data.de/book/'
 description: "Eine Einführung in R für Menschen so ganz ohne Vorkenntnisse"
+mainfont: "TeX Gyre Pagella"
+sansfont: "TeX Gyre Heros"
+monofont: "Fira Mono"
+monofontoptions:
+  - Mapping=tex-ansi
+  - Scale=0.8
+mathfont: "Asana Math"
+always_allow_html: yes
+links-as-notes: yes
 editor_options: 
   chunk_output_type: console
 ---
@@ -36,7 +45,7 @@ get_latest_commit(5)
 
 ## Über diese Einführung {-}
 
-```{r portraits, fig.cap="Lukas & Tobi, weil richtige Portraits zu professionell wären.", echo = FALSE}
+```{r portraits, fig.cap="Lukas \\& Tobi, weil richtige Portraits zu professionell wären.", echo = FALSE, out.width="90%"}
 include_graphics("images/other/tobilukas.png")
 ```
 

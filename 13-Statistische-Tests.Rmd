@@ -88,14 +88,6 @@ Den $\chi^2$-Test finden wir dann in *base R*, no packages required:
 chisq.test(qmsurvey$ons, qmsurvey$behandlung)
 ```
 
-Wenn ihr dasselbe Ergebnis nur in ein bisschen aufgeräumt und mit bonus-Cramer's-V als Effektgröße haben wollt, haben wir da was in der toolbox:
-
-```{r chisq_test, message=FALSE, warning=FALSE}
-library(tadaatoolbox)
-
-tadaa_chisq(qmsurvey, ons, behandlung, print = "markdown")
-```
-
 ## z- und t-Test
 
 ### Eine Stichprobe
