@@ -21,7 +21,8 @@ bookdown::gitbook:
         <li><a href="https://www.rstudio.com/products/rstudio/" target="blank">Written in RStudio</a></li>
     edit: https://github.com/tadaadata/r-intro-book/edit/master/%s
     download:
-      - ["r-intro.epub", "ebook"]
+      - ["r-intro.pdf", "PDF"]
+      - ["r-intro.epub", "ebook (.epub)"]
     scroll_highlight: yes
     search: yes
     language: de
