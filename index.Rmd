@@ -4,7 +4,7 @@ author: "Lukas Burk & Tobias Anton"
 date: "Stand: `r format(Sys.time(), '%d. %B %Y @ %H:%M Uhr (%Z)')`"
 lang: de-DE
 publisher: r-intro.tadaa-data.de
-rights: "Copyright 2017, Lukas Burk & Tobias Anton, CC-BY-NC"
+rights: "Copyright 2019, Lukas Burk & Tobias Anton, CC-BY-NC"
 site: bookdown::bookdown_site
 documentclass: scrbook
 bibliography: [book.bib, packages.bib]
