@@ -1,0 +1,29 @@
+Type: Book
+Package: r-intro-book
+Title: Placeholder file for travis
+Version: 0.0.1
+License: MIT + file LICENSE
+Imports:
+    bookdown,
+    broom,
+    dplyr,
+    ggplot2,
+    glue,
+    hrbrthemes,
+    httr,
+    jsonlite,
+    kableExtra,
+    purrr,
+    sessioninfo,
+    tadaatoolbox,
+    sjPlot,
+    ggthemes,
+    babynames,
+    waffle,
+    tidyverse,
+    haven,
+    readr,
+    viridis
+Remotes:
+    hrbrmstr/firasans
+Encoding: UTF-8
