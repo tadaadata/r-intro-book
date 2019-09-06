@@ -134,22 +134,29 @@ Theoretisch ist "numeric" für Zahlen eine *Klasse*, und *integer* und *double* 
 
 Characters verhalten sich im Grunde wie Worte. Wir können sie aneinanderhängen, wir können sie vergleichen, aber wir können zum Beispiel keine Berechnungen damit durchführen:
 
-```{r}
+``` r
 namen <- c("Lukas", "Tobias", "Christoph")
 mean(namen)
+#> Warning in mean.default(namen): argument is not numeric or logical:
+#> returning NA
+#> [1] NA
 
 # Zahlen != Buchstaben
 5 == "5"
+#> [1] TRUE
 
 # Groß- / Kleinschreibung ist wichtig!
 "Lukas" == "Lukas"
+#> [1] TRUE
 "Lukas" == "LUKAS"
+#> [1] FALSE
 
 # Strings aneinanderhängen
 paste("Lukas", "hat", "Spass", sep = "_")
+#> [1] "Lukas_hat_Spass"
 ```
 
-Die Funktionen `paste` und `paste0` sind zirmlich praktisch wenn ihr mit Strings arbeitet, die werdet ihr früher oder später mal brauchen.  
+Die Funktionen `paste` und `paste0` sind ziemlich praktisch wenn ihr mit Strings arbeitet, die werdet ihr früher oder später mal brauchen.  
 Ansonsten dürfte euch aufgefallen sein, dass man *Spaß* mit *ß* schreibt. Das ist korrekt. Allerdings zählt *ß* als Sonderzeichen, genauso wie Umlaute (*üöä*). R kann damit zwar prinzipiell umgehen, solange ihr das richtige *Encoding* verwendet, aber dennoch bietet es sich an auf Sonderzeichen in R-Code zu verzichten, um Inkompatibilität mit anderen vorzubeugen.
 
 Um eure Einstellungen anzupassen und auf Nummer sicher zu gehen, öffnet die Einstellungen von RStudio und setzt die folgende Einstellung auf **UTF-8** (Unicode):
