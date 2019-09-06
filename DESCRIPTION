@@ -24,6 +24,7 @@ Imports:
     svglite,
     tadaatoolbox,
     tidyverse,
+    vcd,
     viridis,
     waffle
 Remotes:
