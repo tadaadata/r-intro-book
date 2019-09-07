@@ -53,8 +53,8 @@ before_script:
 
 # Render the actual book
 script:
-  - "Rscript -e \"bookdown::render_book('index.Rmd', 'bookdown::gitbook')\""
-  - "Rscript -e \"bookdown::render_book('index.Rmd', 'bookdown::pdf_book')\""
+  - "Rscript -e \"bookdown::render_book('index.Rmd', 'bookdown::gitbook', envir = new.env())\""
+  - "Rscript -e \"bookdown::render_book('index.Rmd', 'bookdown::pdf_book', envir = new.env())\""
 
 after_failure:
   - cat r-intro.log
