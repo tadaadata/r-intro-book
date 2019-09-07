@@ -1,8 +1,12 @@
-#! /usr/bin/env Rscript
-t_start <- Sys.time()
+#! /usr/bin/env Rscript --no-init-file
+library(cliapp)
+start_app(theme = simple_theme(dark = TRUE))
+
+t1 <- Sys.time()
+cli_h1("{format(Sys.time(), '%b. %d, %T')}")
 
 # Check dependencies ----
-cat("\n\nChecking if required stuff is installed...\n")
+cli_alert_info("Checking if required stuff is installed...")
 
 # Set mirror, just in case
 options(repos = c(CRAN = "https://cloud.r-project.org"))
@@ -22,7 +26,7 @@ sapply(pkgs, function(pkg) {
 }, USE.NAMES = FALSE) -> status
 
 if (all(status)) {
-  cat("Successfully checked dependencies!\n")
+  cli_alert_success("Successfully checked dependencies!\n")
 }
 
 
@@ -34,95 +38,42 @@ debug_out <- paste0(bookdown_yml$book_filename, ".Rmd")
 out_pdf   <- paste0(out_dir, "/", bookdown_yml$book_filename, ".pdf")
 out_epub  <- paste0(out_dir, "/", bookdown_yml$book_filename, ".epub")
 
-# if (!file.exists(out_dir)) {
-#   cat("Output directory", out_dir, "doesn't exist, creating that for you...\n")
-#   dir.create(out_dir)
-# }
+# Cleanup ----
+cli_alert_info("Removing previously built output")
+if (fs::dir_exists("book"))  fs::dir_delete("book")
+if (fs::file_exists("r-intro.Rmd")) fs::file_delete("r-intro.Rmd")
+if (fs::dir_exists("r-intro_files"))  fs::dir_delete("r-intro_files")
 
-# Clean up artifacts that cause problems ----
-# cat("Cleaning up potential debug files...\n")
-#
-# if (file.exists(debug_out)) {
-#   cat("Removing", debug_out, "\n")
-#   file.remove(debug_out)
-# }
-# if (file.exists("_bookdown_files")) {
-#   cat("Removing \"_bookdown_files\"...\n")
-#   unlink("_bookdown_files")
-# }
-# if (file.exists("assets")) {
-#   cat("Removing \"assets\"...\n")
-#   unlink("book/assets/")
-# }
+cli_h2("Rendering documents")
+cli_div(id = "list", theme = list(ol = list("margin-left" = 1)))
+cli_ol()
 
-# htmls <- list.files(pattern = ".html")
-# if (length(htmls) != 0) {
-#   status <- file.remove(htmls)
-#
-#   if (all(status)) {
-#     cat("Removed html files at root directory...\n")
-#   }
-# }
-# rm(htmls)
+# Gitbook ----
+cli_it("Rendering HTML site")
+suppressWarnings(bookdown::render_book(
+  "index.Rmd", output_format = "bookdown::gitbook", envir = new.env(), quiet = TRUE
+)) -> tmp
 
-# Move images/CSS dir to output ----
-# cat("Moving images and CSS directory to output dir\n")
-# status <- file.copy("css", out_dir, overwrite = T, recursive = T)
-# if (all(status)) {
-#   cat("Successfully copied CSS dir\n")
-# } else {
-#   warning("Something didn't work right!")
-# }
-# status <- file.copy("images", out_dir, overwrite = T, recursive = T)
-# if (all(status)) {
-#   cat("Successfully copied images dir\n")
-# } else {
-#   warning("Something didn't work right!")
-# }
+# PDF ----
+cli_it("Rendering PDF")
+suppressWarnings(bookdown::render_book(
+  "index.Rmd", output_format = "bookdown::pdf_book", envir = new.env(), quiet = TRUE
+)) -> tmp
 
-# Render things ----
-cat("\nRendering things...\n\n")
+# EPUB ----
+# cli_it("Rendering epub")
+# bookdown::render_book(
+#   "index.Rmd", output_format = "bookdown::epub_book", envir = new.env(), quiet = TRUE
+# ) -> tmp
 
-# Build Website
-cat("Rendering website...\n")
-bookdown::render_book(
-  input = ".", output_format = "bookdown::gitbook", quiet = TRUE, envir = new.env()
-)
+cli_end(id = "list")
+cli_alert_success("Done rendering!")
 
-# Build EPUB
-# if (file.exists(out_epub)) {
-#   age <- as.numeric(difftime(Sys.time(), file.mtime(out_epub), units = "hours"))
-# } else {
-#   age <- NULL
-# }
+t2 <- Sys.time()
+difft <- round(as.numeric(difftime(t2, t1, units = 'secs')), 1)
 
-# if (is.null(age) || age > 12) {
-#   cat("Rendering epub...\n")
-#   bookdown::render_book(input = ".",
-#                         output_format = "bookdown::epub_book",
-#                         clean_envir = FALSE, quiet = quiet)
-#   # cat("Converting epub to PDF...\n")
-#   # bookdown::calibre(input = out_epub, output = out_pdf)
-# }
-
-cat("Rendering PDF...\n")
-bookdown::render_book(input = ".", output_format = "bookdown::pdf_book",
-                      quiet = FALSE, envir = new.env())
-
-cat("Done rendering\n")
-
-# Final Cleanup ----
-# if (file.exists("_bookdown_files")) {
-#   cat("Removing \"_bookdown_files\"...\n")
-#   unlink("_bookdown_files", recursive = TRUE)
-# }
-
-# Done ----
-cat("\nAll done!\n")
-t_finish <- Sys.time()
-t_diff   <- round(as.numeric(difftime(t_finish, t_start, units = "secs")), 0)
-cat("Took about", t_diff, "seconds", "\n")
-timestamp()
+cli_alert_success("Done! Took {difft} seconds.")
+cli_h1("{format(Sys.time(), '%b. %d, %T')}")
 
 
 # if (requireNamespace("slackr")) {
