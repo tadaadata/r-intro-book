@@ -3,16 +3,15 @@ library(knitr)
 library(dplyr)
 library(readr)
 library(tidyr)
-library(car)
+# library(car)
 
-knitr::opts_knit$set(unnamed.chunk.label = "chunk_")
+# knitr::opts_knit$set(unnamed.chunk.label = "chunk_")
 
 knitr::opts_chunk$set(
   cache = TRUE,
   fig.width = 8,
   fig.asp = 1/1.618,
   fig.align = "center",
-  #fig.pos = "center",
   out.width = "90%",
   comment = "#>",
   tidy = FALSE # "formatR",
@@ -50,10 +49,6 @@ get_latest_commit <- function(count = 3) {
   avatar     <- commits$author$avatar_url[index]
   author_url <- commits$author$html_url[index]
   msg        <- commits$commit$message[index]
-
-  # cat("<strong>Letzte &Auml;nderungen:</strong><br />")
-  # glue::glue("{date}: <a href='{author_url}'><img src='{avatar}' width='15px' />
-  #            {name}</a> committed: <code><a href='{url}'>\"{msg}\"</a></code><br />")
 
   tibble(
     Datum = date,
