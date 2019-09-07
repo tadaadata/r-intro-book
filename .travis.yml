@@ -23,10 +23,6 @@ env:
 apt_packages:
   - fonts-oflb-asana-math # Asana Math font that may be not needed
 
-stages:
-  - name: before_install
-    # require the branch name to be master (note for PRs this is the base branch name)
-    if: BOOKDOWN_FORMAT = "bookdown::pdf_book"
 
 before_install:
   - |
