@@ -31,7 +31,9 @@ get_latest_commit <- function(count = 3) {
 
   date <- url <- avatar <- author_url <- msg <- NULL
 
-  if (httr::status_code(httr::GET("https://api.github.com")) != "200") {
+  gh_status <- httr::status_code(purrr::safely(httr::GET)(("https://api.github.com"))$result)
+
+  if (gh_status != "200") {
     return("(No recent commits to show)")
   }
 
