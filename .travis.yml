@@ -7,7 +7,7 @@ latex: false # Only because I'm manually installing TinyTex!
 cache:
   packages: yes
   directories:
-    - $HOME/bin       # Where webshot install phantomjs
+    - $HOME/bin       # Where webshot installs phantomjs
     - $HOME/.fonts    # Where fonts are downloaded to & installed
     - $HOME/.TinyTex  # Aforementioned TinyTex dir
     - $TRAVIS_BUILD_DIR/_bookdown_files # Rendered images cache
@@ -23,26 +23,11 @@ env:
 apt_packages:
   - fonts-oflb-asana-math # Asana Math font that may be not needed
 
-stages:
-  - name: before_install
-    # require the branch name to be master (note for PRs this is the base branch name)
-    if: env(BOOKDOWN_FORMAT) = "bookdown::pdf_book"
-
 before_install:
   - |
-    # 1. Install TinyTex manually
-    if [ ! -d $HOME/.TinyTex ]; then
-      Rscript -e "install.packages('tinytex')"
-      Rscript -e "tinytex::install_tinytex()"
-    fi
-
-    if [ ! -x "$(command -v foo)" ]; then
-      Rscript -e "tinytex::install_tinytex()"
-    fi
-
     mkdir -p $HOME/.fonts
 
-    # 2. Check if fonts are present in cached .fonts dir, if not, download + install
+    # Check if fonts are present in cached .fonts dir, if not, download + install
     if [ ! -e $HOME/.fonts/gyre.zip ]; then
      wget http://www.gust.org.pl/projects/e-foundry/tex-gyre/pagella/qpl2_501otf.zip -O $HOME/.fonts/gyre.zip
      unzip $HOME/.fonts/gyre.zip -d $HOME/.fonts/
@@ -58,16 +43,33 @@ before_install:
       unzip ~/.fonts/fira.zip '*.ttf' -d $HOME/.fonts/
     fi
 
-    # 3. Copy fontconfig for possibly maybe xelatex font issue with spaces in font names
-    cp $HOME/.TinyTeX/texmf-var/fonts/conf/texlive-fontconfig.conf ~/.fonts.conf
+    # Only do this for pdf output
+    if [ "$BOOKDOWN_FORMAT" = "bookdown::pdf_book" ]; then
 
-    # 4. Update font cache for previously installed fonts (+ list fonts for debugging)
+      # 1. Install TinyTex manually
+      if [ ! -d $HOME/.TinyTex ]; then
+        Rscript -e "install.packages('tinytex')"
+        Rscript -e "tinytex::install_tinytex()"
+      fi
+
+      if [ ! -x "$(command -v xelatex)" ]; then
+        Rscript -e "tinytex::install_tinytex()"
+      fi
+
+      # Install phantomjs to capture htmlwidget output
+      [ -x \"$HOME/bin/phantomjs\" ] || Rscript -e "webshot::install_phantomjs()"
+
+      # Copy fontconfig for possibly maybe xelatex font issue with spaces in font names
+      cp $HOME/.TinyTeX/texmf-var/fonts/conf/texlive-fontconfig.conf ~/.fonts.conf
+    fi
+
+    # Update font cache for previously installed fonts (+ list fonts for debugging)
     fc-cache -fv
     fc-list
 
 # Install phantomjs (needed for htmlwidgets => images in PDF)
 before_script:
-  - "[ -x \"$HOME/bin/phantomjs\" ] || Rscript -e \"webshot::install_phantomjs()\""
+#  - "[ -x \"$HOME/bin/phantomjs\" ] || Rscript -e \"webshot::install_phantomjs()\""
   - "Rscript -e \"remotes::install_github('hrbrmstr/firasans')\""
 
 # Render the actual book, format depending on env var BOOKDOWN_FORMAT
