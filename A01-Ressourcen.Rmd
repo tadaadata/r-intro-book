@@ -26,7 +26,7 @@ Es gibt viele freie Quellen für schöne Datensätze zum Üben oder rumspielen, 
 
 Hier liegen diverse Datensätze aus unseren Projekten, wie z.B. die QM-Surveys und die Tutorienteilnahme.
 
-- [public.tadaa-data.de/data/](https://public.tadaa-data.de/data/readme.html)
+- [data.tadaa-data.de](https://data.tadaa-data.de/)
 
 ## Bücher
 
@@ -37,7 +37,6 @@ Aus der Community:
 - ["R for Data Science"](http://r4ds.had.co.nz/) -- Hadley Wickham
 - ["Advanced R"](http://adv-r.hadley.nz/) -- Hadley Wickham
 - [ggplot2](http://had.co.nz/ggplot2/) -- Hadley Wickham
-
 - ["Tidyverse Cookbook"](https://bookdown.org/Tazinho/Tidyverse-Cookbook)
 - ["R Programming for Data Science"](https://bookdown.org/rdpeng/rprogdatascience/) -- Roger Peng
 - ["Exploratory Data Analysis with R"](https://bookdown.org/rdpeng/exdata/) -- Roger Peng
@@ -72,11 +71,6 @@ Teilweise mit kostenfreien Einstiegsmaterialien.
 - [Code School](http://tryr.codeschool.com/)
 - [Coursera](https://www.coursera.org/learn/r-programming)
 
-## Vorträge / Lectures
-
-- [useR!](https://user2017.brussels/)
-- YouTube ¯\\\_(ツ)_/¯
-
 ## Blogs
 
 - Aggregator: [R-Bloggers](http://rbloggers.com/)
@@ -87,21 +81,11 @@ Siehe auch: [Blogs in `blogdown`](https://github.com/sellorm/awesome-blogdown)
 
 - [Stackoverflow](https://stackoverflow.com/questions/tagged/r)
 - [Twitter: `#rstats`](https://twitter.com/search?f=tweets&q=%23rstats)
-- Facebook-Gruppen
-
-### Websites / Misc
-
-- [r4stats](http://r4stats.com/)
-- [r-statistics.co](http://r-statistics.co/)
 
 ## Dokumentation
 
 - [R help](https://cran.r-project.org/doc/manuals/r-release/R-intro.html) (inoffizielle [bookdown-Version](http://colinfay.me/intro-to-r/))
-    - Package Vignettes
 - [rdrr.io](https://rdrr.io/)
-- [rdocumentation](http://www.rdocumentation.org/)
-- GitHub Repositories
-
 - Package-specific
     - [tidyverse.org](https://www.tidyverse.org/)
     - [Strenge Jacke / sjPlot](http://www.strengejacke.de/sjPlot/)
