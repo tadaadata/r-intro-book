@@ -59,7 +59,7 @@ before_script:
 # Render the actual book
 script:
   - "Rscript -e \"bookdown::render_book('index.Rmd', '$BOOKDOWN_FORMAT', envir = new.env())\""
-  - cp images/tadaa_thin_t.png book/images/
+#  - cp images/tadaa_thin_t.png book/images/
 #  - "Rscript -e \"bookdown::render_book('index.Rmd', 'bookdown::epub_book', envir = new.env())\""
 #  - "Rscript -e \"bookdown::render_book('index.Rmd', 'bookdown::pdf_book', envir = new.env())\""
 
@@ -79,6 +79,8 @@ deploy:
   keep_history: true
   github_token: $GITHUB_PAT
   target_branch: gh-pages
+  on:
+    branch: master
 
 notifications:
   email: false
