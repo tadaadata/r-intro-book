@@ -1,7 +1,7 @@
 ---
 title: "R für Psychos"
 author: "Lukas Burk & Tobias Anton"
-date: "Stand: `r format(Sys.time(), '%d. %B %Y @ %H:%M Uhr (%Z)')`"
+date: "Stand: `r format(Sys.time(), '%d. %B %Y @ %H:%M Uhr (%Z)', tz = 'Europe/Berlin')`"
 lang: de-DE
 publisher: r-intro.tadaa-data.de
 rights: "Copyright 2019, Lukas Burk & Tobias Anton, CC-BY-NC"
@@ -39,7 +39,7 @@ Beides sollte ausreichend mit Screenshots/Beispielen ausgefüttert sein um auch 
 
 Das Ganze ist so dermaßen work in progress, dass ich sogar das hier eingebaut habe:
 
-```{r, results='asis', cache=FALSE}
+```{r commit-log, results='asis', cache=FALSE}
 get_latest_commit(5)
 ```
 

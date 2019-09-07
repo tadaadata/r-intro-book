@@ -1,4 +1,12 @@
 #! /usr/bin/env Rscript
+
+# Mini-dependencies for build script
+build_deps <- c("cliapp", "purrr", "rprojroot", "desc", "yaml", "remotes", "fs")
+
+for (pkg in build_deps) {
+  if (!(pkg %in% installed.packages())) install.packages(pkg)
+}
+
 library(cliapp)
 start_app(theme = simple_theme(dark = TRUE))
 
@@ -6,28 +14,21 @@ t1 <- Sys.time()
 cli_h1("{format(Sys.time(), '%b. %d, %T')}")
 
 # Check dependencies ----
-cli_alert_info("Checking if required stuff is installed...")
+cli_alert_info("Checking if project dependencies are installed...")
 
 # Set mirror, just in case
-options(repos = c(CRAN = "https://cloud.r-project.org"))
+# options(repos = c(CRAN = "https://cloud.r-project.org"))
 
-pkgs <- c("bookdown", "svglite", "tadaatoolbox", "sjPlot", "sjmisc", "devtools",
-          "haven", "readr", "dplyr", "ggplot2", "scales", "RColorBrewer", "viridis",
-          "readxl", "googlesheets", "rpivotTable", "stringr", "tibble", "tidyr", "waffle",
-          "babynames", "magrittr", "ggthemes", "tidyverse", "hrbrthemes",
-          "irr", "vcd")
+cran_pkgs <- desc::desc_get_deps("DESCRIPTION")$package
+gh_pkgs <- desc::desc_get_remotes("DESCRIPTION")
 
-sapply(pkgs, function(pkg) {
-  if (!(pkg %in% installed.packages())) {
-    install.packages(pkg)
-  } else {
-    TRUE
-  }
-}, USE.NAMES = FALSE) -> status
+purrr::walk(cran_pkgs, ~{
+  if (!(.x) %in% installed.packages()) install.packages(.x)
+})
 
-if (all(status)) {
-  cli_alert_success("Successfully checked dependencies!\n")
-}
+purrr::walk(gh_pkgs, ~{
+  remotes::install_github(.x, force = FALSE, upgrade = "always")
+})
 
 
 # Save config for stuff ----
@@ -87,3 +88,4 @@ cli_h1("{format(Sys.time(), '%b. %d, %T')}")
 #   text_slackr(msg, channel = "#r-intro", username = "tadaabot", preformatted = FALSE)
 #
 # }
+
