@@ -235,12 +235,12 @@ Die t-Verteilung. Siehe auch `?TDist`.
 Auch hier gilt:
 
 * `dt` gibt die Dichtefunktion (relevant um die Funktion zu plotten)
-    * `dt(5, df = 10)` = Funktionswert der t-Verteilung bei x = 5 und $df = 10$ $(3.9600106\times 10^{-4})$
+    * `dt(5, df = 10)` = Funktionswert der t-Verteilung bei x = 5 und `df = 10` $(3.9600106\times 10^{-4})$
 * `pt` die Wahrscheinlichkeitsfunktion (relevant für die Berechnung von Signifikanzniveaus)
     * **Kumulative Wahrscheinlichkeit**, im Grunde das Integral der Dichtefunktion
-    * `pt(1, df = 10)` = Wahrscheinlichkeit von $x = -\infty$ bis $x = 1$ bei $df = 1$
+    * `pt(1, df = 10)` = Wahrscheinlichkeit von $x = -\infty$ bis $x = 1$ bei `df = 1`
 * `qt` gibt Quantile (relevant für kritische Werte)
-    * `qt(0.05, df = 10)` = 5%-Quantil = x-Wert, der in 5% der Fälle erreicht wird (-1.8124611)
+    * `qt(0.05, df = 10)` = 5%-Quantil = x-Wert, der in 5% der Fälle erreicht wird
 * `rt` gibt t-Verteilte Zufallszahlen aus
 
 ### F-Verteilung
@@ -287,7 +287,7 @@ Analog zum Signed Rank Test, nur mit anderer Verteilung. Grundlage ist hier `?Wi
 
 * Kritischer Wert = `qwilcox(1 - alpha, m, n) - 1`
 * `m` und `n` sind dabei der Größen der beiden Stichproben
-* Kritischer Wert für einen einseitigen Test, $\alpha = 0.05$ und $n_1 = 8, n_2 = 7$:
+* Kritischer Wert für einen einseitigen Test, $\alpha = 0.05$ und $n_1 = 8$, $n_2 = 7$:
     * `qwilcox(0.95, 8, 8) - 1` = 47
     
 Bei den Signifikanzniveaus der nichtparametrischen Tests seid ihr natürlich ganz vorsichtig, da ihr natürlich wisst, dass ihr hier nicht ohne Weiteres gültige Signifikanzniveaus angeben könnt. (\*hust\*)
