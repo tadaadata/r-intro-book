@@ -39,10 +39,14 @@ out_pdf   <- paste0(out_dir, "/", bookdown_yml$book_filename, ".pdf")
 out_epub  <- paste0(out_dir, "/", bookdown_yml$book_filename, ".epub")
 
 # Cleanup ----
-cli_alert_info("Removing previously built output")
+cli_alert_info("Removing previous build output and intermediates")
 # if (fs::dir_exists(out_dir))  fs::dir_delete(out_dir)
 if (fs::file_exists(debug_out)) fs::file_delete(debug_out)
 # if (fs::dir_exists("r-intro_files"))  fs::dir_delete("r-intro_files")
+
+fs::file_delete(fs::dir_ls(
+  regexp = "\\.aux$|\\.ind$|\\.pdf$|\\.idx$|\\.log$|\\.tex$|\\.ilg$|\\.out$|\\.toc$"
+))
 
 cli_h2("Rendering documents")
 cli_div(id = "list", theme = list(ol = list("margin-left" = 1)))

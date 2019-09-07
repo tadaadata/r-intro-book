@@ -1,9 +1,9 @@
 # Set basic things up ----
-suppressPackageStartupMessages(library(knitr))
-suppressPackageStartupMessages(library(dplyr))
-suppressPackageStartupMessages(library(readr))
-suppressPackageStartupMessages(library(tidyr))
-suppressPackageStartupMessages(library(car))
+library(knitr)
+library(dplyr)
+library(readr)
+library(tidyr)
+library(car)
 
 knitr::opts_knit$set(unnamed.chunk.label = "chunk_")
 

@@ -493,4 +493,4 @@ Der Weg dahin ist voller Googlereien und ihr werde viel Zeit damit verbringen Co
 Also: Googlet was ihr machen wollt, und bookmarkt [ggplot2.tidyverse.org](http://ggplot2.tidyverse.org/).
 Zusätzlich gibt es da noch diese unheimlich praktische Liste gängiger Anwendungsfälle: 
 <http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html>.  
-Sucht euch den Code raus, der so grob macht was ihr wollt, und dann… happy tweaking.
+Sucht euch den Code raus, der so grob macht was ihr wollt, und dann... happy tweaking.
