@@ -49,7 +49,14 @@ get_latest_commit <- function(count = 3) {
   author_url <- commits$author$html_url[index]
   msg        <- commits$commit$message[index]
 
-  cat("<strong>Letzte &Auml;nderungen:</strong><br />")
-  glue::glue("{date}: <a href='{author_url}'><img src='{avatar}' width='15px' />
-             {name}</a> committed: <code><a href='{url}'>\"{msg}\"</a></code><br />")
+  # cat("<strong>Letzte &Auml;nderungen:</strong><br />")
+  # glue::glue("{date}: <a href='{author_url}'><img src='{avatar}' width='15px' />
+  #            {name}</a> committed: <code><a href='{url}'>\"{msg}\"</a></code><br />")
+
+  tibble(
+    Datum = date,
+    Committer = name,
+    Message = msg
+  ) %>%
+    kable(caption = "Letzte Änderungen", booktabs = TRUE)
 }

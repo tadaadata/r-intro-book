@@ -32,7 +32,7 @@ source("setup.R")
 
 # Vorwort {-}
 
-Das hier wird gerade eine R-Einführung für Psychologiestudierende (und seit 2018 auch für Public HealtherInnen) so mit ganz ohne Vorwissen im Bereich Software oder Programmierung. Dieses Werk ist zum Einen die Grundlage für die R-Intro für Psychologiestudierende in *QM*, und zum Anderen auch das Referenzwerk für das R-Seminar im Rahmen des Statistikmoduls in Public Health.
+Das hier wird gerade ^[okay, es wird schon seit ein paar Jahren, aber Zeit ist relativ und so] eine R-Einführung für Psychologiestudierende (und seit 2018 auch für Public HealtherInnen) so mit ganz ohne Vorwissen im Bereich Software oder Programmierung. Dieses Werk ist zum Einen die Grundlage für die R-Intro für Psychologiestudierende in *QM*, und zum Anderen auch das Referenzwerk für das R-Seminar im Rahmen des Statistikmoduls in Public Health ^[zumindest dieses eine Mal in 2018].
 
 Die grobe Idee ist es, eine Einstiegspräsentaion für die Übung zu haben, und zusätzlich eine long-form Intro als Nachschlagwerk und vertiefendes Material (das hier).  
 Beides sollte ausreichend mit Screenshots/Beispielen ausgefüttert sein um auch die verunsichertesten Neulinge bei der Stange zu halten.
@@ -61,21 +61,21 @@ Und vermutlich danach auch.
 Also, zumindest die Psychos unter euch, bei den Public HealtherInnen sind dinge *anders*, aber *ähnlich*.  
 Vielleicht. 
 
-Wenn ihr mehr (oder so grob dasselbe, aber in besser erklärt) wollt, dann empfehle ich herzlichst "[**R for Data Science**](http://r4ds.had.co.nz/)", ein kostenloses Buch von Hadley Wickham, einem der populärsten R-Menschen^[Populär, weil er einfach unheimlich viel raushaut. Packages, Vorträge, Bücher, alles. All hail Hadley!].
+Wenn ihr mehr (oder so grob dasselbe, aber in besser erklärt) wollt, dann empfehle ich herzlichst "[**R for Data Science**](http://r4ds.had.co.nz/)", ein kostenloses Buch von Hadley Wickham, einem der R-Menschen, die uns in den letzten Jahren viele kewle tools beschert haben^[ggplot2, dplyr, tidyr, lubridate, ... – die ganze tidyverse-Sache geht mehr oder weniger auf Hadley zurück].
 
 ## Verfügbarkeit {-}
 
-Wenn ihr das hier als Website unter `https://r-intro.tadaa-data.de/book` lest, dann habt ihr schonmal alles richtig gemacht. Zusätzlich gibt es diese Website auch als Ebook (`.epub`, funktioniert auf allen gängigen e-readern, tablets, smartphones und sowieso) unter dem Downloadbutton in der obigen Leiste.  
+Wenn ihr das hier als Website unter `https://r-intro.tadaa-data.de/book` lest, dann habt ihr schonmal alles richtig gemacht. Zusätzlich gibt es diese Website auch als Ebook (`.epub`, funktioniert auf allen gängigen e-readern, tablets, smartphones und sowieso) unter dem Downloadbutton in der obigen Leiste. Es gibt auch eine PDF-Version, aber die ist ehrlich gesagt eher ein proof-of-concept – so wirklich nützlich ist die nicht wirklich, verglichen mit der Website-Version.
 
 Die Website (also HTML) ist allerdings das *primäre* Format dieser Einführung, der einzige Nachteil ist, dass sich die Website schlecht ausdrucken lässt — aber wenn ihr Websites ausdruckt habt ihr sowieso die Kontrolle über euer Leben verloren.  
-Wenn ihr diese Einführung unbedingt offline verfügbar und portabel haben wollt, bleibt euch die Ebook-Version. Und wehe ihr druckt die aus. Wehe.
+Wenn ihr diese Einführung unbedingt offline verfügbar und portabel haben wollt, bleibt euch die Ebook-/PDF-Version. Und wehe ihr druckt die aus. Wehe.
 
 Anbei: Auf der Web-Version haben wir analytics Zeug eingebunden, was uns sagt, welche Kapitel am häufigsten besucht werden. Die Idee dahinter ist relativ simpel: Wenn ein Kapitel besonders häufig besucht wurde, ist es vermutlich interessant, ergo ist es vermutlich auch sinnvoll, da mehr Aufwand reinzustecken als in andere.  
-Wenn ihr AdBlock und Kram installiert habt, wäre es entsprechend hilfreich für uns, das auf dieser Seite zu deaktivieren. Werbung haben wir hier eh nicht, und die Tracking-Daten landen auch nur bei uns und nicht bei Google, Facebook oder der Stasi.
+Wenn ihr AdBlock und Kram installiert habt, wäre es entsprechend hilfreich für uns, das auf dieser Seite zu deaktivieren. Werbung haben wir hier eh nicht, und die Tracking-Daten landen auch nur bei uns und nicht bei Google, Facebook oder der Stasi. Nur bei uns. Und wir sind vertrauenswürdig™.
 
 ## Zielgruppe {-}
 
-Die primäre Motivation und Zielgruppe für diese Einführung sind die Studierenden der Psychologie an der Universität Bremen, weshalb hier auch möglichst wenig Vorkenntnisse im Bereich der Statistik, Programmierung, statistischen Programmierung oder programmierenden Sta… ähm… ihr versteht schon.  
+Die primäre Motivation und Zielgruppe für diese Einführung sind die Studierenden der Psychologie an der Universität Bremen, weshalb hier auch möglichst wenig Vorkenntnisse im Bereich der Statistik, Programmierung, statistischen Programmierung oder programmierenden Sta... ähm... ihr versteht schon.  
 Wir gehen anfangs sehr kleinschrittig vor und versuchen gängige Konzepte wie Datentypen/-klassen, Datenstrukturen, Syntax von Grund auf zu erklären.  
 
 Solltet ihr bei Begriffen wie "funktionale Programmiersprache", "generics", "functionals" und "Attribute" ein grobes Bild im Kopf haben, dann empfehle ich euch einen Blick in das weiter oben erwähnte [**R for Data Science**](http://r4ds.had.co.nz/). Also generell würde ich allen interessierten dieses Buch/Seite empfehlen, aber ich vermute, dass es für einen absoluten Sprung ins kalte Wasser R nur dann geeignet ist, wenn man entweder sehr viel Motivation oder ein entsprechendes Vorwissen mitbringt.
