@@ -56,7 +56,7 @@ before_install:
       #fi
 
       # Install phantomjs to capture htmlwidget output
-      [ -x \"$HOME/bin/phantomjs\" ] || Rscript -e "webshot::install_phantomjs()"
+      [ -x "$HOME/bin/phantomjs" ] || Rscript -e "webshot::install_phantomjs()"
 
       # Copy fontconfig for possibly maybe xelatex font issue with spaces in font names
       cp $HOME/.TinyTeX/texmf-var/fonts/conf/texlive-fontconfig.conf ~/.fonts.conf
