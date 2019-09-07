@@ -243,18 +243,7 @@ Auch hier gilt:
     * `qt(0.05, df = 10)` = 5%-Quantil = x-Wert, der in 5% der Fälle erreicht wird
 * `rt` gibt t-Verteilte Zufallszahlen aus
 
-### F-Verteilung
-
-Die F-Verteilung ist für die Veranstaltung eher indirekt wichtig, aber dennoch kann es ja nicht schaden im Zweifelsfall damit umgehen zu können. Siehe auch: `?FDist`
-
-* `df` gibt die Dichtefunktion (relevant um die Funktion zu plotten)
-    * `df(5, df1 = 5, df2 = 20)` = Funktionswert der F-verteilung bei x = 5 und $df_1 = 5$ (Zähler) und $df_2 = 20$ (Nenner) (0.0039251)
-* `pf` die Wahrscheinlichkeitsfunktion (relevant für die Berechnung von Signifikanzniveaus)
-    * **Kumulative Wahrscheinlichkeit**, im Grunde das Integral der Dichtefunktion
-    * `pf(1, df1 = 5, df2 = 20)` = Wahrscheinlichkeit von $x = 0$ bis $x = 1$ bei $df_1 = 5$ (Zähler) und $df_2 = 20$ (Nenner)
-* `qf` gibt Quantile (relevant für kritische Werte)
-    * `qf(0.05, pt(1, df1 = 5, df2 = 20))` = 5%-Quantil = x-Wert, der in 5% der Fälle erreicht wird (0.2193881)
-* `rf` gibt F-Verteilte Zufallszahlen aus
+Das Prinzip ist das gleiche für alle Verteilungen, die Präfixe `d, p, q, r` haben jeweils die gleiche Bedeutung.
 
 ### Wilcoxon-Test (Vorzeichentest, Signrank Test)
 
