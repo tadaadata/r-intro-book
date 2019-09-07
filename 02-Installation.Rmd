@@ -6,7 +6,7 @@ editor_options:
 # Installation
 
 Hier eine kurze Anleitung um R und RStudio zu installieren.  
-Kurz zum Kontext: R ist eine Programmiersprache, das heißt "R installieren" ist anders als "Spotify installieren".  
+Kurz zum Kontext: R ist eine Programmiersprache, das heißt auch "R installieren" ist anders als "Spotify installieren".  
 
 Ihr installiert zunächst R, und bekommt dann auf dem Desktop Verknüpfungen angeboten für "R GUI" (o.Ä.) — Dabei handelt es sich um "nackte" Konsolenprogramme.  
 Damit *könntet* ihr R benutzen, aber es macht beim besten Willen keinen Spaß.  
@@ -36,7 +36,7 @@ Hier benötigt ihr `base` (der R installer):
 knitr::include_graphics("images/install_R_windows_2.png")
 ```
 
-…und sicherheitshalber auch `Rtools` (fragt nicht. Vorerst installiert ihr es einfach).  
+…und sicherheitshalber auch `Rtools` (fragt nicht. Vorerst installiert ihr es einfach, nur für den Fall, das es euch später Probleme erspart).  
 
 ```{r install03, echo=FALSE}
 knitr::include_graphics("images/install_R_windows_3.png")
@@ -99,7 +99,7 @@ Enttäuscht mich nicht.
 
 Nach der Installation solltet ihr jedenfalls folgendes Symbol entweder auf eurem Desktop oder in eurem Programmordner finden:
 
-```{r install06, echo=FALSE, fig.align='center'}
+```{r install06, echo=FALSE, out.width="30%"}
 knitr::include_graphics("images/RStudio-Ball.png")
 ```
 
