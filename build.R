@@ -1,4 +1,4 @@
-#! /usr/bin/env Rscript --no-init-file
+#! /usr/bin/env Rscript
 library(cliapp)
 start_app(theme = simple_theme(dark = TRUE))
 
