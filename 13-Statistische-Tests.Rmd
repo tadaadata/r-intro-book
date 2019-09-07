@@ -229,6 +229,8 @@ Auch hier gilt:
     * `qchisq(0.95, df = 1)` = 95%-Quantil = x-Wert, der in 95% der Fälle erreicht wird (`3.841459`)
 * `rchisq` gibt $\chi^2$-Verteilte Zufallszahlen aus
 
+<!---
+
 ### t-Testfamilie (t-Verteilung)
 
 Die t-Verteilung. Siehe auch `?TDist`.  
@@ -244,6 +246,7 @@ Auch hier gilt:
 * `rt` gibt t-Verteilte Zufallszahlen aus
 
 Das Prinzip ist das gleiche für alle Verteilungen, die Präfixe `d, p, q, r` haben jeweils die gleiche Bedeutung.
+-->
 
 ### Wilcoxon-Test (Vorzeichentest, Signrank Test)
 

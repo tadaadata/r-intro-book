@@ -40,9 +40,9 @@ out_epub  <- paste0(out_dir, "/", bookdown_yml$book_filename, ".epub")
 
 # Cleanup ----
 cli_alert_info("Removing previously built output")
-if (fs::dir_exists("book"))  fs::dir_delete("book")
-if (fs::file_exists("r-intro.Rmd")) fs::file_delete("r-intro.Rmd")
-if (fs::dir_exists("r-intro_files"))  fs::dir_delete("r-intro_files")
+# if (fs::dir_exists(out_dir))  fs::dir_delete(out_dir)
+if (fs::file_exists(debug_out)) fs::file_delete(debug_out)
+# if (fs::dir_exists("r-intro_files"))  fs::dir_delete("r-intro_files")
 
 cli_h2("Rendering documents")
 cli_div(id = "list", theme = list(ol = list("margin-left" = 1)))
@@ -53,7 +53,7 @@ cli_it("Rendering HTML site")
 suppressWarnings(bookdown::render_book(
   "index.Rmd", output_format = "bookdown::gitbook", envir = new.env(), quiet = TRUE
 )) -> tmp
-fs::file_copy("images/tadaa_thin_t.png", "book/images/", overwrite = TRUE)
+fs::file_copy("images/tadaa_thin_t.png", file.path(out_dir, "images"), overwrite = TRUE)
 
 # PDF ----
 cli_it("Rendering PDF")
