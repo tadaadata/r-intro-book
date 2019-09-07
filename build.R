@@ -53,6 +53,7 @@ cli_it("Rendering HTML site")
 suppressWarnings(bookdown::render_book(
   "index.Rmd", output_format = "bookdown::gitbook", envir = new.env(), quiet = TRUE
 )) -> tmp
+fs::file_copy("images/tadaa_thin_t.png", "book/images/", overwrite = TRUE)
 
 # PDF ----
 cli_it("Rendering PDF")

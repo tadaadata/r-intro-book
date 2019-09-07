@@ -28,7 +28,6 @@ editor_options:
 
 ```{r setup, include=FALSE, cache=FALSE}
 source("setup.R")
-include_graphics("images/tadaa_thin_t.png")
 ```
 
 # Vorwort {-}
