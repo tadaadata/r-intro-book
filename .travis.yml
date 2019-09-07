@@ -82,7 +82,7 @@ before_deploy:
 deploy:
   provider: script
   skip_cleanup: true
-  script: rsync -r --quiet $TRAVIS_BUILD_DIR/book travis@pearson.tadaa-data.de:54321:/srv/r-intro.tadaa-data.de/book2
+  script: rsync -r --quiet $TRAVIS_BUILD_DIR/book -e 'ssh -p 54321' travis@pearson.tadaa-data.de:/srv/r-intro.tadaa-data.de/book2
   on:
     branch: master
 
