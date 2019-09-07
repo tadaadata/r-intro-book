@@ -16,7 +16,7 @@ Damit *könntet* ihr R benutzen, aber es macht beim besten Willen keinen Spaß.
 
 R bekommt ihr von der offiziellen seite, hier: <https://cloud.r-project.org/>
 
-```{r, echo=FALSE}
+```{r install00, echo=FALSE}
 knitr::include_graphics("images/install_R.png")
 ```
 
@@ -26,19 +26,19 @@ Ja, die Seite sieht nach heutigen Standards furchtbar alt aus, aber die gibt's n
 
 Klickt auf der oben genannte Seite auf `Download R for Windows`. Vollkommen unerwartet.
 
-```{r, echo=FALSE}
+```{r install01, echo=FALSE}
 knitr::include_graphics("images/install_R_windows_1.png")
 ```
 
 Hier benötigt ihr `base` (der R installer):
 
-```{r, echo=FALSE}
+```{r install02, echo=FALSE}
 knitr::include_graphics("images/install_R_windows_2.png")
 ```
 
 …und sicherheitshalber auch `Rtools` (fragt nicht. Vorerst installiert ihr es einfach).  
 
-```{r, echo=FALSE}
+```{r install03, echo=FALSE}
 knitr::include_graphics("images/install_R_windows_3.png")
 ```
 
@@ -51,7 +51,7 @@ Und _jetzt_ installiert ihr [RStudio](#rstudio-install)
 
 Klickt auf der oben genannte Seite auf `Download R for (Mac) OS X`. Auch das, vollkommen unerwartet.
 
-```{r, echo=FALSE}
+```{r install04, echo=FALSE}
 knitr::include_graphics("images/install_R_mac.png")
 ```
 
@@ -70,10 +70,9 @@ Fertig.
 Wenn ihr Linux benutzt, solltet ihr unabhängig von der Geschmacksrichtung auch wissen, wie man da Software installiert.  
 
 Es gibt diese Info-Seite für Ubuntu: <https://cloud.r-project.org/bin/linux/ubuntu/README.html>.  
-Wenn ihr nicht wisst, was `https://<my.favorite.cran.mirror>/bin/linux/ubuntu` sein soll, dann setzt für `<my.favorite.cran.mirror>` am besten einfach `cloud.r-project.org` ein. Falls ihr dann noch Probleme haben solltet, benutzt den HTTP statt den HTTPS mirror, sprich die Zeilen unter "Installation" im verlinkten Dokument würden dann so aussehen:
+Wenn ihr nicht wisst, was `https://<my.favorite.cran.mirror>/bin/linux/ubuntu` sein soll, dann setzt für `<my.favorite.cran.mirror>` am besten einfach `cloud.r-project.org` ein. Falls ihr dann noch Probleme haben solltet, benutzt den HTTP statt den HTTPS mirror, sprich die Zeilen unter "Installation" im verlinkten Dokument würden dann so aussehen (für Ubuntu 16.04 xenial):
 
-- `deb https://cloud.r-project.org/bin/linux/ubuntu xenial/`
-- Oder: `deb http://cloud.r-project.org/bin/linux/ubuntu xenial/`
+- `deb http://cloud.r-project.org/bin/linux/ubuntu xenial/`
 
 Zusätzlich solltet ihr vermutlich einige Systempakete (also außerhalb R) installieren, für den Fall der Fälle.
 
@@ -83,14 +82,14 @@ Für Ubuntu im Speziellen:
 sudo apt install libcurl4-openssl-dev curl git libxml2-dev libcairo2-dev
 ```
 
-Damit installiert ihr ein paar Pakete, die ihr für manche R-packages als Depdendency benötigt.  
+Damit installiert ihr ein paar Pakete, die ihr für manche R-packages als dependencies benötigt.  
 Die Liste ist nicht vollständig für _alle_ möglichen R packages, aber zumindest alle, die wir im Laufe dieser Intro benutzen oder benutzen *könnten* sollten damit abgedeckt sein.
 
 ## RStudio installieren {#rstudio-install}
 
 RStudio bekommt ihr hier: <https://www.rstudio.com/products/rstudio/download/#download>
 
-```{r, echo=FALSE}
+```{r install05, echo=FALSE}
 knitr::include_graphics("images/install_rstudio.png")
 ```
 
@@ -100,7 +99,7 @@ Enttäuscht mich nicht.
 
 Nach der Installation solltet ihr jedenfalls folgendes Symbol entweder auf eurem Desktop oder in eurem Programmordner finden:
 
-```{r, echo=FALSE, fig.align='center'}
+```{r install06, echo=FALSE, fig.align='center'}
 knitr::include_graphics("images/RStudio-Ball.png")
 ```
 
