@@ -26,8 +26,10 @@ apt_packages:
 before_install:
   - |
     # 1. Install TinyTex manually
-    Rscript -e "install.packages('tinytex')"
-    Rscript -e "tinytex::install_tinytex()"
+    if [ ! -d $HOME/.TinyTex ]; then
+      Rscript -e "install.packages('tinytex')"
+      Rscript -e "tinytex::install_tinytex()"
+    fi
 
     mkdir -p $HOME/.fonts
 
