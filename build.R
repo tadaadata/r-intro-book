@@ -58,7 +58,7 @@ fs::file_copy("images/tadaa_thin_t.png", file.path(out_dir, "images"), overwrite
 # PDF ----
 cli_it("Rendering PDF")
 suppressWarnings(bookdown::render_book(
-  "index.Rmd", output_format = "bookdown::pdf_book", envir = new.env(), quiet = TRUE
+  "index.Rmd", output_format = "bookdown::pdf_book", envir = new.env(), quiet = FALSE
 )) -> tmp
 
 # EPUB ----
@@ -83,7 +83,7 @@ cli_h1("{format(Sys.time(), '%b. %d, %T')}")
 #
 #   msg <- paste0(lubridate::now(tzone = "CET"),
 #                 ": Built https://r-intro.tadaa-data.de/book",
-#                 "\n It took about ", t_diff, " seconds.")
+#                 "\n It took about ", difft, " seconds.")
 #   text_slackr(msg, channel = "#r-intro", username = "tadaabot", preformatted = FALSE)
 #
 # }
