@@ -225,11 +225,9 @@ Auch hier gilt:
     * **Kumulative Wahrscheinlichkeit**, im Grunde das Integral der Dichtefunktion
     * `pchisq(1, df = 1)` = Wahrscheinlichkeit von $x = 0$ bis $x = 1$ bei $df = 1$
 * `qchisq` gibt Quantile (relevant für kritische Werte)
-    - Beispiel für kritischen Wert bei 95% Sicherheit bzw. $\alpha = 5%$:
+    - Beispiel für kritischen Wert bei 95% Sicherheit bzw. $\alpha = 0.05$:
     * `qchisq(0.95, df = 1)` = 95%-Quantil = x-Wert, der in 95% der Fälle erreicht wird (`3.841459`)
 * `rchisq` gibt $\chi^2$-Verteilte Zufallszahlen aus
-
-<!---
 
 ### t-Testfamilie (t-Verteilung)
 
@@ -246,7 +244,6 @@ Auch hier gilt:
 * `rt` gibt t-Verteilte Zufallszahlen aus
 
 Das Prinzip ist das gleiche für alle Verteilungen, die Präfixe `d, p, q, r` haben jeweils die gleiche Bedeutung.
--->
 
 ### Wilcoxon-Test (Vorzeichentest, Signrank Test)
 
