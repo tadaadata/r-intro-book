@@ -21,7 +21,7 @@ monofontoptions:
   - Scale=0.8
 mathfont: "Asana Math"
 always_allow_html: yes
-links-as-notes: yes
+links-as-notes: no
 editor_options: 
   chunk_output_type: console
 ---
@@ -50,7 +50,7 @@ get_latest_commit(5)
 include_graphics("images/other/tobilukas.png")
 ```
 
-Tobi und Lukas haben <s>zwei</s> drei Jahre lang die R-Einführung in QM gehalten, anfangs basierend auf den Folien, die Lukas unter Anderem auch als Nachschlagwerk gedacht hatte.  
+Tobi und Lukas haben  ~~zwei~~ drei Jahre lang die R-Einführung in QM gehalten, anfangs basierend auf den Folien, die Lukas unter Anderem auch als Nachschlagwerk gedacht hatte.  
 Weil Lukas aber ein gigantischer Nerd mit viel zu viel Spaß an Programmierzeugs ist, und sich sonst niemand für technische Details interessiert, brauchte er für das dritte Jahr die Hilfe von Tobi und einer Hand voll TutorInnen um die Einführung menschenkompatibel zu halten.  
 Das Resultat ist/wird zum Einen diese Website/Buch/Dings, und zum Anderen die [Einstiegsfolien der Übung](https://r-intro.tadaa-data.de/slides/).  
 
