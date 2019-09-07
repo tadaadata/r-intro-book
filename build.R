@@ -14,7 +14,7 @@ options(repos = c(CRAN = "https://cloud.r-project.org"))
 pkgs <- c("bookdown", "svglite", "tadaatoolbox", "sjPlot", "sjmisc", "devtools",
           "haven", "readr", "dplyr", "ggplot2", "scales", "RColorBrewer", "viridis",
           "readxl", "googlesheets", "rpivotTable", "stringr", "tibble", "tidyr", "waffle",
-          "praise", "babynames", "magrittr", "ggthemes", "tidyverse", "hrbrthemes",
+          "babynames", "magrittr", "ggthemes", "tidyverse", "hrbrthemes",
           "irr", "vcd")
 
 sapply(pkgs, function(pkg) {
@@ -62,10 +62,10 @@ suppressWarnings(bookdown::render_book(
 )) -> tmp
 
 # EPUB ----
-# cli_it("Rendering epub")
-# bookdown::render_book(
-#   "index.Rmd", output_format = "bookdown::epub_book", envir = new.env(), quiet = TRUE
-# ) -> tmp
+cli_it("Rendering epub")
+bookdown::render_book(
+  "index.Rmd", output_format = "bookdown::epub_book", envir = new.env(), quiet = TRUE
+) -> tmp
 
 cli_end(id = "list")
 cli_alert_success("Done rendering!")
