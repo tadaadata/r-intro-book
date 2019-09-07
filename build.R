@@ -1,7 +1,7 @@
 #! /usr/bin/env Rscript
-
-# Mini-dependencies for build script
-build_deps <- c("cliapp", "purrr", "rprojroot", "desc", "yaml", "remotes", "fs")
+# This build script is for local rendering only
+# Mini-dependency-check for build script
+build_deps <- c("cliapp", "desc", "yaml", "remotes", "fs")
 
 for (pkg in build_deps) {
   if (!(pkg %in% installed.packages())) install.packages(pkg)
@@ -22,17 +22,16 @@ cli_alert_info("Checking if project dependencies are installed...")
 cran_pkgs <- desc::desc_get_deps("DESCRIPTION")$package
 gh_pkgs <- desc::desc_get_remotes("DESCRIPTION")
 
-purrr::walk(cran_pkgs, ~{
-  if (!(.x) %in% installed.packages()) install.packages(.x)
-})
+for (pkg in cran_pkgs) {
+  if (!(pkg %in% installed.packages())) install.packages(pkg)
+}
 
-purrr::walk(gh_pkgs, ~{
-  remotes::install_github(.x, force = FALSE, upgrade = "always")
-})
-
+for (pkg in gh_pkgs) {
+  remotes::install_github(pkg, upgrade = "always", quiet = TRUE)
+}
 
 # Save config for stuff ----
-bookdown_yml <- yaml::yaml.load_file(rprojroot::find_rstudio_root_file("_bookdown.yml"))
+bookdown_yml <- yaml::yaml.load_file("_bookdown.yml")
 
 out_dir   <- bookdown_yml$output_dir
 debug_out <- paste0(bookdown_yml$book_filename, ".Rmd")
@@ -59,14 +58,14 @@ fs::file_copy("images/tadaa_thin_t.png", file.path(out_dir, "images"), overwrite
 # PDF ----
 cli_it("Rendering PDF")
 suppressWarnings(bookdown::render_book(
-  "index.Rmd", output_format = "bookdown::pdf_book", envir = new.env(), quiet = FALSE
+  "index.Rmd", output_format = "bookdown::pdf_book", envir = new.env(), quiet = TRUE
 )) -> tmp
 
 # EPUB ----
 cli_it("Rendering epub")
-bookdown::render_book(
+suppressWarnings(bookdown::render_book(
   "index.Rmd", output_format = "bookdown::epub_book", envir = new.env(), quiet = TRUE
-) -> tmp
+)) -> tmp
 
 cli_end(id = "list")
 cli_alert_success("Done rendering!")
@@ -76,16 +75,3 @@ difft <- round(as.numeric(difftime(t2, t1, units = 'secs')), 1)
 
 cli_alert_success("Done! Took {difft} seconds.")
 cli_h1("{format(Sys.time(), '%b. %d, %T')}")
-
-
-# if (requireNamespace("slackr")) {
-#   library(slackr)
-#   slackr_setup(config_file = "/opt/tadaadata/.slackr")
-#
-#   msg <- paste0(lubridate::now(tzone = "CET"),
-#                 ": Built https://r-intro.tadaa-data.de/book",
-#                 "\n It took about ", difft, " seconds.")
-#   text_slackr(msg, channel = "#r-intro", username = "tadaabot", preformatted = FALSE)
-#
-# }
-
