@@ -47,14 +47,13 @@ before_install:
     if [ "$BOOKDOWN_FORMAT" = "bookdown::pdf_book" ]; then
 
       # 1. Install TinyTex manually
-      if [ ! -d $HOME/.TinyTex ]; then
-        Rscript -e "install.packages('tinytex')"
+      if [ ! -d $HOME/.TinyTex/bin ]; then
         Rscript -e "tinytex::install_tinytex()"
       fi
 
-      if [ ! -x "$(command -v xelatex)" ]; then
-        Rscript -e "tinytex::install_tinytex()"
-      fi
+      #if [ ! -x "$(command -v xelatex)" ]; then
+      #  Rscript -e "tinytex::install_tinytex()"
+      #fi
 
       # Install phantomjs to capture htmlwidget output
       [ -x \"$HOME/bin/phantomjs\" ] || Rscript -e "webshot::install_phantomjs()"
