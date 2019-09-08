@@ -40,7 +40,7 @@ Beides sollte ausreichend mit Screenshots/Beispielen ausgefüttert sein um auch 
 Das Ganze ist so dermaßen work in progress, dass ich sogar das hier eingebaut habe:
 
 ```{r commit-log, results='asis', cache=FALSE}
-# get_latest_commit(5)
+get_latest_commit(5)
 ```
 
 ## Über diese Einführung {-}

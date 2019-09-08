@@ -66,9 +66,7 @@ before_install:
     fc-cache -fv
     fc-list
 
-# Install phantomjs (needed for htmlwidgets => images in PDF)
 before_script:
-#  - "[ -x \"$HOME/bin/phantomjs\" ] || Rscript -e \"webshot::install_phantomjs()\""
   - "Rscript -e \"remotes::install_github('hrbrmstr/firasans')\""
 
 # Render the actual book, format depending on env var BOOKDOWN_FORMAT
