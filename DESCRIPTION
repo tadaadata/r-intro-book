@@ -4,7 +4,6 @@ Title: Placeholder file for travis
 Version: 0.0.1
 License: MIT + file LICENSE
 Imports:
-    babynames,
     bookdown,
     broom,
     devtools,

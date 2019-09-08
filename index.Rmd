@@ -4,7 +4,7 @@ author: "Lukas Burk & Tobias Anton"
 date: "Stand: `r format(Sys.time(), '%d. %B %Y @ %H:%M Uhr (%Z)', tz = 'Europe/Berlin')`"
 lang: de-DE
 publisher: r-intro.tadaa-data.de
-rights: "Copyright 2019, Lukas Burk & Tobias Anton, CC-BY-NC"
+rights: "Copyright `r format(Sys.Date(), '%Y')`, Lukas Burk & Tobias Anton, CC-BY-NC"
 site: bookdown::bookdown_site
 documentclass: scrartcl # scrbook
 bibliography: [book.bib, packages.bib]
@@ -39,13 +39,13 @@ Beides sollte ausreichend mit Screenshots/Beispielen ausgefüttert sein um auch 
 
 Das Ganze ist so dermaßen work in progress, dass ich sogar das hier eingebaut habe:
 
-```{r commit-log, results='asis', cache=FALSE}
+```{r commit-log, cache=FALSE}
 get_latest_commit(5)
 ```
 
 ## Über diese Einführung {-}
 
-```{r portraits, fig.cap="Lukas \\& Tobi, weil richtige Portraits zu professionell wären.", echo = FALSE, out.width="90%"}
+```{r portraits, fig.cap="Lukas \\& Tobi, weil richtige Portraits zu professionell wären.", echo = FALSE, out.width="70%"}
 include_graphics("images/other/tobilukas.png")
 ```
 
@@ -61,13 +61,13 @@ Und vermutlich danach auch.
 Also, zumindest die Psychos unter euch, bei den Public HealtherInnen sind dinge *anders*, aber *ähnlich*.  
 Vielleicht. 
 
-Wenn ihr mehr (oder so grob dasselbe, aber in besser erklärt) wollt, dann empfehle ich herzlichst "[**R for Data Science**](http://r4ds.had.co.nz/)", ein kostenloses Buch von Hadley Wickham, einem der R-Menschen, die uns in den letzten Jahren viele kewle tools beschert haben^[ggplot2, dplyr, tidyr, lubridate, ... – die ganze tidyverse-Sache geht mehr oder weniger auf Hadley zurück].
+Wenn ihr mehr (oder so grob dasselbe, aber deutlich mehr und in besser erklärt) wollt, dann empfehle ich herzlichst "[**R for Data Science**](http://r4ds.had.co.nz/)", ein kostenloses Buch von Hadley Wickham, einem der R-Menschen, die uns in den letzten Jahren viele kewle tools beschert haben^[ggplot2, dplyr, tidyr, lubridate, ... – die ganze tidyverse-Sache geht mehr oder weniger auf Hadley zurück].
 
 ## Verfügbarkeit {-}
 
-Wenn ihr das hier als Website unter `https://r-intro.tadaa-data.de/book` lest, dann habt ihr schonmal alles richtig gemacht. Zusätzlich gibt es diese Website auch als Ebook (`.epub`, funktioniert auf allen gängigen e-readern, tablets, smartphones und sowieso) unter dem Downloadbutton in der obigen Leiste. Es gibt auch eine PDF-Version, aber die ist ehrlich gesagt eher ein proof-of-concept – so wirklich nützlich ist die nicht wirklich, verglichen mit der Website-Version.
+Wenn ihr das hier als Website unter `https://r-intro.tadaa-data.de/book` lest, dann habt ihr schonmal alles richtig gemacht. Zusätzlich gibt es diese Website auch als Ebook (`.epub`, funktioniert auf allen gängigen e-readern, tablets, smartphones und sowieso) unter dem Downloadbutton in der obigen Leiste. Es gibt auch eine PDF-Version, aber die ist ehrlich gesagt eher ein proof-of-concept – so wirklich nützlich ist die nicht wirklich, verglichen mit der Website-Version. Okay, das gilt eigentlich auch für die Ebook-Version.
 
-Die Website (also HTML) ist allerdings das *primäre* Format dieser Einführung, der einzige Nachteil ist, dass sich die Website schlecht ausdrucken lässt — aber wenn ihr Websites ausdruckt habt ihr sowieso die Kontrolle über euer Leben verloren.  
+Die Website (also HTML) ist jednefalls das *primäre* Format dieser Einführung, der einzige Nachteil ist, dass sich die Website schlecht ausdrucken lässt — aber wenn ihr Websites ausdruckt habt ihr sowieso die Kontrolle über euer Leben verloren.  
 Wenn ihr diese Einführung unbedingt offline verfügbar und portabel haben wollt, bleibt euch die Ebook-/PDF-Version. Und wehe ihr druckt die aus. Wehe.
 
 Anbei: Auf der Web-Version haben wir analytics Zeug eingebunden, was uns sagt, welche Kapitel am häufigsten besucht werden. Die Idee dahinter ist relativ simpel: Wenn ein Kapitel besonders häufig besucht wurde, ist es vermutlich interessant, ergo ist es vermutlich auch sinnvoll, da mehr Aufwand reinzustecken als in andere.  
@@ -95,7 +95,7 @@ participation   <- read_rds("data/participation.rds")
 gotdeaths_books <- read_csv("data/got_character-deaths.csv", col_types = cols())
 ```
 
-…unter der Annahme, dass ihr die Datensätze in einem `data` Unterordner eures aktuellen Projekts abgelegt habt.
+...unter der Annahme, dass ihr die Datensätze in einem `data` Unterordner eures aktuellen Projekts abgelegt habt.
 
 ## Für TutorInnen und Leute mit zu viel Motivation {-}
 
