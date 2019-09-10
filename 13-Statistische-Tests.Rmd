@@ -268,7 +268,6 @@ Die kurze Version:
 
 Analog zum Signed Rank Test, nur mit anderer Verteilung. Grundlage ist hier `?Wilcoxon`.
 
-
 * `dwilcox` gibt die Dichtefunktion (relevant um die Funktion zu plotten)
 * `pwilcox` die Wahrscheinlichkeitsfunktion (relevant für die Berechnung von Signifikanzniveaus)
 * `qwilcox` gibt Quantile (relevant für kritische Werte)

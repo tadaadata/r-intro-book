@@ -71,13 +71,16 @@ before_script:
 
 # Render the actual book, format depending on env var BOOKDOWN_FORMAT
 script:
-  - "Rscript -e \"bookdown::render_book('index.Rmd', '$BOOKDOWN_FORMAT', envir = new.env())\""
+  - "Rscript -e \"bookdown::render_book('index.Rmd', '$BOOKDOWN_FORMAT')\""
 
+# Manualy copy over a header image
+# There is probably a "correct" way to have bookdown do this for us, but oh well.
 after_success:
   - test $BOOKDOWN_FORMAT = "bookdown::gitbook" && cp images/tadaa_thin_t.png book/images/
 
+# If something fails, show the latex log file.
 after_failure:
-  - cat r-intro.log
+  - [ $BOOKDOWN_FORMAT = "bookdown::pdf_book" ] && cat r-intro.log
 
 # Deploy to our server via rsync and ssh shenanigans
 before_deploy:
