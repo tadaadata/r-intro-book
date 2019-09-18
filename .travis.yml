@@ -81,7 +81,7 @@ after_success:
 
 # If something fails, show the latex log file.
 after_failure:
-  - [ $BOOKDOWN_FORMAT = "bookdown::pdf_book" ] && cat r-intro.log
+  - "[ $BOOKDOWN_FORMAT = 'bookdown::pdf_book' ] && cat r-intro.log"
 
 # Deploy to our server via rsync and ssh shenanigans
 before_deploy:
