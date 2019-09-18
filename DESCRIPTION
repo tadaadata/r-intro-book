@@ -26,7 +26,8 @@ Imports:
     tidyverse,
     vcd,
     viridis,
-    waffle
+    waffle,
+    forcats
 Remotes:
     hrbrmstr/firasans
 Encoding: UTF-8
