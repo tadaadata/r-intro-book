@@ -9,6 +9,9 @@ library(tidyr)
 
 knitr::opts_chunk$set(
   cache = TRUE,
+  # error = FALSE,
+  # warning = FALSE,
+  # message = FALSE,
   fig.width = 8,
   fig.asp = 1/1.618,
   fig.align = "center",

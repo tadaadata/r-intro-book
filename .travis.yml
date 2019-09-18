@@ -22,6 +22,7 @@ env:
 
 apt_packages:
   - fonts-oflb-asana-math # Asana Math font that may be not needed
+  - fonts-roboto # Good ol' Roboto font family!
 
 before_install:
   - |

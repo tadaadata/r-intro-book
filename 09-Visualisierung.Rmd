@@ -7,14 +7,12 @@ editor_options:
 
 ```{r load_fonts, include=FALSE}
 # Fancy font stuff required for hrbrthemes
-library(extrafont)
-loadfonts()
+hrbrthemes::import_roboto_condensed()
+extrafont::loadfonts()
 
 library(ggplot2)
 library(dplyr)
 library(tadaatoolbox)
-
-knitr::opts_knit$set(unnamed.chunk.label = "visualisierung_")
 ```
 
 
