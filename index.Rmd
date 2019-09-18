@@ -37,11 +37,13 @@ Das hier wird gerade ^[okay, es wird schon seit ein paar Jahren, aber Zeit ist r
 Die grobe Idee ist es, eine Einstiegspräsentaion für die Übung zu haben, und zusätzlich eine long-form Intro als Nachschlagwerk und vertiefendes Material (das hier).  
 Beides sollte ausreichend mit Screenshots/Beispielen ausgefüttert sein um auch die verunsichertesten Neulinge bei der Stange zu halten.
 
+<!--
 Das Ganze ist so dermaßen work in progress, dass ich sogar das hier eingebaut habe:
 
 ```{r commit-log, cache=FALSE}
 get_latest_commit(5)
 ```
+-->
 
 ## Über diese Einführung {-}
 
