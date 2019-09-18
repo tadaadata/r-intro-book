@@ -1,6 +1,6 @@
 bookdown::gitbook:
   self_contained: false
-  dev: svglite
+  dev: png
   css: css/style.css
   lib_dir: assets
   split_by: "chapter"
@@ -30,7 +30,7 @@ bookdown::gitbook:
       facebook: yes
       github: yes
 bookdown::epub_book:
-  dev: svglite
+  dev: png
   stylesheet: css/style.css
   toc: true
   toc_depth: 2
