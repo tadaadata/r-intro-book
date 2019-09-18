@@ -27,7 +27,7 @@ Imports:
     vcd,
     viridis,
     waffle,
-    forcats
+    firasans
 Remotes:
     hrbrmstr/firasans
 Encoding: UTF-8
