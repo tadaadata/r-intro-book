@@ -12,7 +12,7 @@ bookdown::gitbook:
       - "includes/html/piwik.html"
   config:
     toc:
-      collapse: "chapter"
+      collapse: "section" # or "subsection" or "none"
       before: |
         <li><a class="toc-banner" href="https://tadaa-data.de"><img src="images/tadaa_thin_t.png"></a></li>
         <li><a class="toc-headline" href="./">Tadaa, R-Intro!</a></li>
@@ -42,6 +42,6 @@ bookdown::pdf_book:
     in_header: includes/latex/preamble.tex
   latex_engine: xelatex
   citation_package: natbib
-  keep_tex: false
+  keep_tex: true # false
   dev: "cairo_pdf"
   toc_appendix: yes

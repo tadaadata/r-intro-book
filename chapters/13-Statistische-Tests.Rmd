@@ -48,7 +48,7 @@ sf.test(qmsurvey$partnerinnen)
 lillie.test(qmsurvey$partnerinnen)
 # Pearson's Chi^2-Anpassungstest (meh)
 pearson.test(qmsurvey$partnerinnen)
-# Kolmogorov-Smirnoff (einfach nicht benutzen)
+# Kolmogorov-Smirnoff (leicht zu verstehen, aber infach nicht benutzen)
 ks.test(scale(qmsurvey$partnerinnen), y = pnorm)
 ```
 
@@ -75,7 +75,7 @@ tadaa_levene(qmsurvey, partnerinnen ~ ons, print = "markdown")
 
 Zu einem sauberen $\chi^2$-Test gehört auch immer eine saubere Kontingenztabelle, und da greifen wir wie gehabt auf `sjPlot` zurück:
 
-```{r chisq_xtab, message=FALSE, warning=FALSE}
+```{r chisq_xtab, message=FALSE, warning=FALSE, eval=FALSE}
 library(sjPlot)
 
 sjt.xtab(qmsurvey$ons, qmsurvey$behandlung,
@@ -135,12 +135,6 @@ Alternativ haben wir da was in der toolbox:
 ```{r t-test_twosample_tadaa}
 tadaa_t.test(qmsurvey, response = partnerinnen, group = ons, paired = FALSE, print = "markdown")
 ```
-
-Die Funktion macht im Vergleich zu `t.test()` noch folgendes:  
-
-- Automatische Varianzhomogenitätserkennung via eingebautem Levene-Test
-- Automatische Effektgrößenberechnung (*Cohen's d*)
-- Automatische Teststärkenberechnung via `pwr`-package (Spalte `Power`)
 
 ## Nichtparametrische Alternative
 
@@ -256,7 +250,7 @@ Auch hier gilt:
 * `rsignrank` gibt Zufallszahlen basierend auf der Verteilung
 
 Die praktische Berechnung der ktitischen Werte gestaltet sich bei den nichtparametrischen Tests etwas weniger intuitiv als bei den parametrischen Tests, da es sich um diskrete Verteilungen handelt.  
-Eine Erklärung dazu findet ihr [hier auf Stackoverflow](http://stats.stackexchange.com/questions/32445/wilcoxon-mann-whitney-critical-values-in-r) und [hier ergänzend für diesen Fall](http://stats.stackexchange.com/questions/139317/critical-value-for-wilcoxon-one-sample-signed-rank-test-in-r). 
+Eine Erklärung dazu findet ihr [hier auf Stackoverflow](https://stats.stackexchange.com/questions/32445/wilcoxon-mann-whitney-critical-values-in-r) und [hier ergänzend für diesen Fall](https://stats.stackexchange.com/questions/139317/critical-value-for-wilcoxon-one-sample-signed-rank-test-in-r). 
 
 Die kurze Version:
 

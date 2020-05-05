@@ -40,7 +40,7 @@ Aus `lm` – der Funktion, mit der wir *lineare Modelle* erstellen.
 
 ### Modelle erstellen
 
-```{r regression_models_1}
+```{r regression-model-got}
 model <- lm(deaths ~ death_season, data = gotdeaths_perseason)
 ```
 
@@ -48,13 +48,13 @@ model <- lm(deaths ~ death_season, data = gotdeaths_perseason)
 
 In den meisten Quellen zum Thema werdet ihr vermutlich jetzt darauf gestoßen, das Output von `lm` in `summary` zu stecken, was zwar die relevanten Ergebnisse liefert, dabei aber leider unschön aussieht:
 
-```{r regression_output_1}
+```{r regression-summary}
 summary(model)
 ```
 
 Eine kompaktere Variante finden wie im package `broom`:
 
-```{r regression_output_2}
+```{r regression-broom-tidy}
 library(broom)
 
 tidy(model) %>%
@@ -63,7 +63,7 @@ tidy(model) %>%
 
 Hier ist `tidy` dazu da, die Koeffizienten als einfachen `data.frame` auszuspucken, das sich besser zur Darstellung in einer Tabelle eignet. Hier fehlt uns jetzt aber beispielsweise das $R^2$, aber natürlich gibt's auch da was:
 
-```{r regression_output_vis_1}
+```{r regression-pretty-tab, eval=FALSE}
 # library(sjPlot)
 tab_model(model)
 ```
@@ -72,7 +72,7 @@ Generell würde ich das Package `sjPlot` bzw. die Funktion `tab_model` zur Darst
 
 Wenn ihr mit den Innereien eines Regressionsmodells rumspielen möchtet, gibt's da auch was in `broom`:
 
-```{r reg__regression_6, warning=FALSE, message=FALSE}
+```{r regression-augment, warning=FALSE, message=FALSE}
 augment(model) %>%
   knitr::kable(digits = 3)
 ```
@@ -82,4 +82,3 @@ Hier haben wir für jeden der Ausgangswerte noch den *prognostizierten Wert* `.f
 ## Multiple Regression
 
 ## Logistische Regression
-

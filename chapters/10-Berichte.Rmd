@@ -8,17 +8,17 @@ Aber ich schweife ab. Das schöne an R ist jedenfalls die Flexibilität, die wir
 Wie das funktioniert soll in diesem Kapitel erklärt werden.
 Als Vorraussetzung bzw. further reading könnt ihr euch bei diesen RStudio-Ressourcen umschauen:
 
-- [RMarkdown](http://rmarkdown.rstudio.com/lesson-1.html)
-- [HTML Output](http://rmarkdown.rstudio.com/html_document_format.html)
-- [Word Output](http://rmarkdown.rstudio.com/word_document_format.html)
-- [Markdown Syntax](http://rmarkdown.rstudio.com/authoring_basics.html)
-- Bonus: [Präsentationen in RMarkdown mit `revealjs`](http://rmarkdown.rstudio.com/revealjs_presentation_format.html)
+- [RMarkdown](https://rmarkdown.rstudio.com/lesson-1.html)
+- [HTML Output](https://rmarkdown.rstudio.com/html_document_format.html)
+- [Word Output](https://rmarkdown.rstudio.com/word_document_format.html)
+- [Markdown Syntax](https://rmarkdown.rstudio.com/authoring_basics.html)
+- Bonus: [Präsentationen in RMarkdown mit `revealjs`](https://rmarkdown.rstudio.com/revealjs_presentation_format.html)
 
 ## Markdown
 
 Habt ihr schonmal HTML gesehen? So mit `<html><body><p>Hallo Welt</p></body></html>`?  
 Den Scheiß will *kein Mensch* per Hand schreiben, wenn's nur um Text und vielleicht mal Bilder geht.  
-Dafür gibt es [Markdown](http://rmarkdown.rstudio.com/authoring_basics.html).  
+Dafür gibt es [Markdown](https://rmarkdown.rstudio.com/authoring_basics.html).  
 Markdown zu lernen wird euch **ungefähr 5 Minuten** kosten, _wenn_ ihr euch Zeit lasst und zwischendurch nochmal auf Klo geht.
 
 Der obige Paragraph sieht im Markdown-Rohtext übrigens so aus:
@@ -26,7 +26,7 @@ Der obige Paragraph sieht im Markdown-Rohtext übrigens so aus:
 ```markdown
 Habt ihr schonmal HTML gesehen? So mit `<html><body><p>Hallo Welt</p></body></html>`?  
 Den Scheiß will *kein Mensch* per Hand schreiben, wenn's nur um Text und vielleicht mal Bilder geht.  
-Dafür gibt es [Markdown](http://rmarkdown.rstudio.com/authoring_basics.html).  
+Dafür gibt es [Markdown](https://rmarkdown.rstudio.com/authoring_basics.html).  
 Markdown zu lernen wird euch **ungefähr 5 Minuten** kosten, _wenn_ ihr euch Zeit lasst und zwischendurch nochmal auf Klo geht.
 ```
 
@@ -36,7 +36,7 @@ Das wird übersetzt in folgendes HTML:
 ```html
 <p>Habt ihr schonmal HTML gesehen? So mit <code>&lt;html&gt;&lt;body&gt;&lt;p&gt;Hallo Welt&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</code>?<br />
 Den Scheiß will <em>kein Mensch</em> per Hand schreiben, wenn’s nur um Text und vielleicht mal Bilder geht.<br />
-Dafür gibt es <a href="http://rmarkdown.rstudio.com/authoring_basics.html">Markdown</a>.<br />
+Dafür gibt es <a href="https://rmarkdown.rstudio.com/authoring_basics.html">Markdown</a>.<br />
 Markdown zu lernen wird euch <strong>ungefähr 5 Minuten</strong> kosten, <em>wenn</em> ihr euch Zeit lasst und zwischendurch nochmal auf Klo geht.</p>
 ```
 
@@ -65,7 +65,7 @@ Ihr könnt damit loslegen, sobald ihr RMarkdown installiert habt:
 # Für die Grundfunktion
 install.packages("rmarkdown")
 
-# Schöne Output-Formate (optional)
+# Schöne HTML Output-Formate (optional)
 install.packages("rmdformats")
 
 # Schöne Präsentationen (Optional)
@@ -102,9 +102,13 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+This is an R Markdown document. Markdown is a simple formatting  
+syntax for authoring HTML, PDF, and MS Word documents. For more  
+details on using R Markdown see <https://rmarkdown.rstudio.com>.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+When you click the **Knit** button a document will be generated 
+ that includes both content as well as the output of any embedded  
+ R code chunks within the document. You can embed an R code chunk like this:
 
 `r ''````{r cars}
 summary(cars)
@@ -118,7 +122,8 @@ You can also embed plots, for example:
 plot(pressure)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+Note that the `echo = FALSE` parameter was added to the code  
+chunk to prevent printing of the R code that generated the plot.
 ````
 
 Das könnt ihr jetzt erstmal speichern, vielleicht testhalber etwas reinschreiben und sobald ihr den "*Knit*"-Button drückt, rödelt RMarkdown im Hintergrund los und spuckt euch ein HTML aus.  
@@ -161,7 +166,7 @@ output:
 ````
 
 Was euch da komisch vorkommen könnte ist der Teil mit dem `date:`. Das rechts daneben ist ein
-*String* mit einem *inline code chunk*, und alles was in RMarkdown  `` `r `` und `` ` `` steht wird
+*String* mit einem *inline code chunk*, und alles was in RMarkdown zwischen  `` `r `` und `` ` `` steht wird
 wie R-Code behandelt und ausgeführt, das heißt das Datum des Dokuments wird in diesem Fall
 automatisch auf `format(Sys.time(), '%F %H:%M')` gesetzt, was folgendes ergibt:
 
@@ -171,7 +176,7 @@ format(Sys.time(), '%F %H:%M')
 
 *Boom*, Dokument zeigt immer automatisch an, wann es zuletzt generiert (*rendered*, bzw. *knitted*) wurde.  
 
-Spitzfindigen Lesenden wird etwas aufgefallen sein: *"Aber seltsamer Nerd Mensch"*, werden sie sagen, *"wenn dieses Dokument hier in RMarkdon geschrieben wurde, und diese inline Code chunks automatisch ausgeführt werden"* werden sie feststellen, woraufhin sie sich fragen werden: *"wie ist es dann möglich den rohen Code dafür hier reinzuschreiben ohne, dass er ausgeführt wird?"* — und dazu, liebe hypothetische Lesende, habe ich eine Antwort: [Zero-width non-joiners everywhere](https://en.wikipedia.org/wiki/Zero-width_non-joiner), vielleicht [ASCII escape characters](http://donsnotes.com/tech/charsets/ascii.html), und extra `` ` ``.
+Spitzfindigen Lesenden wird etwas aufgefallen sein: *"Aber seltsamer Nerd Mensch"*, werden sie sagen, *"wenn dieses Dokument hier in RMarkdon geschrieben wurde, und diese inline Code chunks automatisch ausgeführt werden"* werden sie feststellen, woraufhin sie sich fragen werden: *"wie ist es dann möglich den rohen Code dafür hier reinzuschreiben ohne, dass er ausgeführt wird?"* — und dazu, liebe hypothetische Lesende, habe ich eine Antwort: [Zero-width non-joiners everywhere](https://en.wikipedia.org/wiki/Zero-width_non-joiner), vielleicht [ASCII escape characters](https://donsnotes.com/tech/charsets/ascii.html), und extra `` ` ``.
 Ihr werdet dieses Wissen vermutlich nie brauchen, aber ich habe ~30 Minuten damit verbracht herauszufinden wie ich das anstelle, also will ich dafür auch mindestens ein *bisschen* street cred.
 
 

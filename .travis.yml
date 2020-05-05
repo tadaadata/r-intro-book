@@ -18,7 +18,7 @@ addons:
 
 env:
   - BOOKDOWN_FORMAT="bookdown::gitbook"
-  - BOOKDOWN_FORMAT="bookdown::epub_book"
+  # - BOOKDOWN_FORMAT="bookdown::epub_book"
   - BOOKDOWN_FORMAT="bookdown::pdf_book"
 
 apt_packages:

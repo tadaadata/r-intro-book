@@ -19,7 +19,6 @@ Es gibt viele freie Quellen für schöne Datensätze zum Üben oder rumspielen, 
 
 ### In der freien Wildbahn
 
-- [kaggle](https://www.kaggle.com): Mit Challenges zu den Daten
 - [data.world](https://data.world): Hier kommt z.B. der [*Game of Thrones* deaths](https://data.world/aendrew/game-of-thrones-deaths)-Datensatz her
 
 ### Tadaa, Datasets!
@@ -30,50 +29,34 @@ Hier liegen diverse Datensätze aus unseren Projekten, wie z.B. die QM-Surveys u
 
 ## Bücher
 
-<small>(Mit *Bücher* ist meistens kein Totholz, sondern sowas wie dieses hier gemeint)</small>
-
-Aus der Community:
-
-- ["R for Data Science"](http://r4ds.had.co.nz/) -- Hadley Wickham
-- ["Advanced R"](http://adv-r.hadley.nz/) -- Hadley Wickham
-- [ggplot2](http://had.co.nz/ggplot2/) -- Hadley Wickham
-- ["Tidyverse Cookbook"](https://bookdown.org/Tazinho/Tidyverse-Cookbook)
+- ["R for Data Science"](https://r4ds.had.co.nz/) -- Hadley Wickham
+- ["Advanced R"](https://adv-r.hadley.nz/) -- Hadley Wickham
+- [ggplot2](https://ggplot2-book.org/) -- Hadley Wickham
+- ["Tidyverse Cookbook"](httpss://bookdown.org/Tazinho/Tidyverse-Cookbook)
 - ["R Programming for Data Science"](https://bookdown.org/rdpeng/rprogdatascience/) -- Roger Peng
 - ["Exploratory Data Analysis with R"](https://bookdown.org/rdpeng/exdata/) -- Roger Peng
-- ["Top 50 ggplot2 Visualizations"](http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html)
-- ["R Cookbook"](http://www.cookbook-r.com/)
+- ["Top 50 ggplot2 Visualizations"](https://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html)
+- ["R Cookbook"](https://www.cookbook-r.com/)
 - [Mehr Bücher](https://bookdown.org/)
-
-Andere Quellen:
-
-- [R for Dummies](http://www.dummies.com/store/product/R-For-Dummies.productCd-1119962846.html)
 
 ### Kollaboration und Organisation
 
 #### Git & GitHub
 
-- [happygitwithr.com](http://happygitwithr.com/) -- Jenny Bryan
-- [ohshitgit](http://ohshitgit.com/)
+- [happygitwithr.com](https://happygitwithr.com/) -- Jenny Bryan
+- [ohshitgit](https://ohshitgit.com/)
 
 ## Kurse & Workshops
 
 ### Kostenlose Tutorials/Videos
 
 - [**RStudio Webinars**](https://www.rstudio.com/resources/webinars/)
-- [**Stat545**](http://stat545.com/topics.html)
+- [**Stat545**](https://stat545.com/topics.html)
 - [**LOTR Data**](https://github.com/jennybc/lotr-tidy)
-
-### Kostenpflichtige Kurse
-
-Teilweise mit kostenfreien Einstiegsmaterialien.
-
-- [DataCamp](https://www.datacamp.com/)
-- [Code School](http://tryr.codeschool.com/)
-- [Coursera](https://www.coursera.org/learn/r-programming)
 
 ## Blogs
 
-- Aggregator: [R-Bloggers](http://rbloggers.com/)
+- Aggregator: [R-Bloggers](https://rbloggers.com/)
 
 Siehe auch: [Blogs in `blogdown`](https://github.com/sellorm/awesome-blogdown)
 
@@ -84,10 +67,8 @@ Siehe auch: [Blogs in `blogdown`](https://github.com/sellorm/awesome-blogdown)
 
 ## Dokumentation
 
-- [R help](https://cran.r-project.org/doc/manuals/r-release/R-intro.html) (inoffizielle [bookdown-Version](http://colinfay.me/intro-to-r/))
+- [R help](https://cran.r-project.org/doc/manuals/r-release/R-intro.html) (inoffizielle [bookdown-Version](https://colinfay.me/intro-to-r/))
 - [rdrr.io](https://rdrr.io/)
 - Package-specific
     - [tidyverse.org](https://www.tidyverse.org/)
-    - [Strenge Jacke / sjPlot](http://www.strengejacke.de/sjPlot/)
-
-
+    - [Strenge Jacke / sjPlot](https://www.strengejacke.de/sjPlot/)

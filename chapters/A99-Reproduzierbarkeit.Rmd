@@ -10,14 +10,6 @@ Für HTML/epub output.
 rmarkdown::pandoc_version()
 ```
 
-## `calibre-convert`
-
-Für epub -> PDF
-
-```{r}
-# system(command = "ebook-convert --version", intern = TRUE)
-```
-
 ## R session
 
 ```{r}
