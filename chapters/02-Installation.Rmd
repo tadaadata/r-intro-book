@@ -70,13 +70,13 @@ Fertig.
 Wenn ihr Linux benutzt, solltet ihr unabhängig von der Geschmacksrichtung auch wissen, wie man da Software installiert.  
 
 Es gibt diese Info-Seite für Ubuntu: <https://cloud.r-project.org/bin/linux/ubuntu/README.html>.  
-Wenn ihr nicht wisst, was `https://<my.favorite.cran.mirror>/bin/linux/ubuntu` sein soll, dann setzt für `<my.favorite.cran.mirror>` am besten einfach `cloud.r-project.org` ein. Falls ihr dann noch Probleme haben solltet, benutzt den HTTP statt den HTTPS mirror, sprich die Zeilen unter "Installation" im verlinkten Dokument würden dann so aussehen (für Ubuntu 16.04 xenial):
+Wenn ihr nicht wisst, was `https://<my.favorite.cran.mirror>/bin/linux/ubuntu` sein soll, dann setzt für `<my.favorite.cran.mirror>` am besten einfach `cloud.r-project.org` ein. Die Zeilen unter "Installation" im verlinkten Dokument würden dann so aussehen (für Ubuntu 18.04 bionic):
 
-- `deb http://cloud.r-project.org/bin/linux/ubuntu xenial/`
+- `deb https://cloud.r-project.org/bin/linux/ubuntu bionic/`
 
 Zusätzlich solltet ihr vermutlich einige Systempakete (also außerhalb R) installieren, für den Fall der Fälle.
 
-Für Ubuntu im Speziellen: 
+Für Ubuntu zum Beispiel (nur aus eigener Erfahrung, YMMV): 
 
 ```bash
 sudo apt install libcurl4-openssl-dev curl git libxml2-dev libcairo2-dev

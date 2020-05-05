@@ -6,22 +6,22 @@ lang: de-DE
 publisher: r-intro.tadaa-data.de
 rights: "Copyright `r format(Sys.Date(), '%Y')`, Lukas Burk & Tobias Anton, CC-BY-NC"
 site: bookdown::bookdown_site
-documentclass: scrartcl # scrbook
+documentclass: scrreport # scrbook
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: 'tadaadata/r-intro-book'
 url: 'https\://r-intro.tadaa-data.de/book/'
 description: "Eine Einführung in R für Menschen so ganz ohne Vorkenntnisse"
-mainfont: "TeX Gyre Pagella"
-sansfont: "TeX Gyre Heros"
+mainfont: "Roboto Slab"
+sansfont: "Roboto"
 monofont: "Fira Mono"
 monofontoptions:
   - Mapping=tex-ansi
   - Scale=0.8
 mathfont: "Asana Math"
-always_allow_html: yes
-links-as-notes: no
+always_allow_html: true
+links-as-notes: false
 editor_options: 
   chunk_output_type: console
 ---

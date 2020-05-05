@@ -7,6 +7,7 @@ language:
     edit: "Edit"
     chapter_name: "Kapitel "
 output_dir: "book"
+rmd_subdir: "chapters"
 before_chapter_script: "setup.R"
 delete_merged_file: true
 repo: https://github.com/tadaadata/r-intro-book/

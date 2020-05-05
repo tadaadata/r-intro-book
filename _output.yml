@@ -1,15 +1,15 @@
 bookdown::gitbook:
   self_contained: false
   dev: png
-  css: css/style.css
+  css: includes/css/style.css
   lib_dir: assets
   split_by: "chapter"
   url: https://r-intro.tadaa-data.de/book/
   github-repo: tadaadata/r-intro-book
   include:
     in_header:
-      - "html_includes/icons.html"
-      - "html_includes/piwik.html"
+      - "includes/html/icons.html"
+      - "includes/html/piwik.html"
   config:
     toc:
       collapse: "section"
@@ -31,15 +31,15 @@ bookdown::gitbook:
       github: yes
 bookdown::epub_book:
   dev: png
-  stylesheet: css/style.css
+  stylesheet: includes/css/style.css
   toc: true
   toc_depth: 2
-  metadata: epub_metadata.xml
+  metadata: includes/epub_metadata.xml
   md_extension: "+emoji"
 bookdown::pdf_book:
   includes:
-    before_body: latex/before_body.tex
-    in_header: latex/preamble.tex
+    before_body: includes/latex/before_body.tex
+    in_header: includes/latex/preamble.tex
   latex_engine: xelatex
   citation_package: natbib
   keep_tex: yes
