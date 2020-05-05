@@ -12,7 +12,7 @@ bookdown::gitbook:
       - "includes/html/piwik.html"
   config:
     toc:
-      collapse: "section"
+      collapse: "chapter"
       before: |
         <li><a class="toc-banner" href="https://tadaa-data.de"><img src="images/tadaa_thin_t.png"></a></li>
         <li><a class="toc-headline" href="./">Tadaa, R-Intro!</a></li>

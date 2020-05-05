@@ -9,6 +9,7 @@ library(tidyr)
 
 knitr::opts_chunk$set(
   cache = TRUE,
+  # eval = FALSE,
   # error = FALSE,
   # warning = FALSE,
   # message = FALSE,

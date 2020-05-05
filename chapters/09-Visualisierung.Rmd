@@ -358,7 +358,7 @@ Was die Farben angeht: R kennt `red` und `darkred` neben etlichen anderen Farben
 Alternativ könnt ihr Farben auch als Hex-String angeben, rot wäre dann zum Beispiel `#FF0000`. Wenn ihr mal "rgb color picker" googlet, findet ihr auch entsprechende tools, oder ihr installiert das `colourpicker` package und habt dann sowas direkt in RStudio unter "Addins":
 
 ```{r, echo=FALSE, out.width="75%", fig.cap="Colourpicker RStudio Addin"}
-knitr::include_graphics("images/colorpicker.png")
+knitr::include_graphics(here::here("images/colorpicker.png"))
 ```
 
 
@@ -427,7 +427,7 @@ display.brewer.all()
 ```
 
 ```{r, echo=FALSE, out.width="75%", fig.cap="RColorBrewer Paletten"}
-knitr::include_graphics("images/brewer_palettes.png")
+knitr::include_graphics(here::here("images/brewer_palettes.png"))
 ```
 
 

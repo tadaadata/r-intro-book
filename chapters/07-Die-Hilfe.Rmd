@@ -6,7 +6,7 @@ Diese Seiten sind im Wesentlichen aufgebohrte Versionen der Hilfe, die R von Hau
 Diie Hilfe findet ihr auf der rechten Seite in RStudio, unter dem `"Help"`-Tab:
 
 ```{r, echo=FALSE, fig.cap="Die Startseite der R-Hilfe"}
-include_graphics("images/hilfe_0.png")
+include_graphics(here::here("images/hilfe_0.png"))
 ```
 
 In die Suchleiste oben rechts könnt ihr Suchbegriffe eingeben. Denkt daran, dass die Hilfe in erster Linie auf englisch verfügbar ist.

@@ -161,7 +161,7 @@ Strings stehen in R immer in Anführungszeichen, entweder in \"doppelten\" oder 
 Wichtig dabei ist, dass sich Anführungszeichen ähnlich verhalten wie Klammern. Wenn wir einen String mit <code>"</code> beginnen, müssen wir ihn auch wieder mit <code>"</code> schließen, ansonsten wartet R brav darauf, dass endlich das zweite <code>"</code> kommt und verläuft sich.  
 Ein Beispiel:
 
-```r
+```{r, eval=FALSE}
 # Vollkommen okay
 namen <- c("Tobi", "Lukas", "Nadja", "Christoph")
 
@@ -188,7 +188,7 @@ Das *non-numeric argument* hier ist die `"5"`. Merken: `5` ist **numerisch**, ab
 Der *binary operator* an dieser Stelle ist übrigens das `+`. Ein **Operator**, weil es, äh… operiert? Naja, es tut Dinge, und wenn etwas in R Dinge tut, ist es meistens ein Operator in irgendeinem Sinne. Das *binary* heißt, dass es **zwei** (bi, binär, binary, zwei halt) Argumente nimmt.  
 Wie schon gesagt, Argumente sind die Dinge, die wir an Funktionen übergeben, und wenn wir an eine Funktion wie `+` oder auch `mean()` ein Argument übergeben, mit denen sie nichts anfangen können, dann beschwert sich R weil es nicht weiß was zum Geier ihr da vorhabt.  
 
-``` r
+```{r, eval=FALSE}
 namen <- c("Tobi", "Lukas", "Nadja", "Christoph")
 
 fib <- c(1, 1, 2, 3, 5, 8, 13, 21) 
@@ -273,7 +273,7 @@ leute[["alter"]]
 Was wir hier benutzen nennt sich *Subsetting*, also im Grunde nur einen Teil von etwas rausholen. Hier also einen Teil der Tabelle on Form einer einzelnen Spalte.  
 Spalten können wir mit `$` oder `[[ ]]` direkt aus einem `data.frame` ansteuern, was unser Leben gleich viel einfacher macht. Strenggenommen sidn `$` und `[[` auch eigene Funktionen, aber dazu vielleicht später mehr, im Moment ist für uns nur wichtig, dass wir einzelne Spalten (Variablen) einer Tabelle (`data.frame`) einfach adressieren und genauso behandeln können wie die einzelnen Variablen `name` und `alter`, die wir weiter oben erstellt haben.
 
-## Umgang mit Tabellen
+## Umgang mit Datensätzen
 
 Da wir noch nicht an dem Punkt sind, wo wir beliebige Daten einlesen können, und wir natürlich zu faul sind uns eine größere Tabelle selber zu schreiben, greifen wir zu Übungszwecken mal auf einen Datensatz zurück, der bei R von Haus aus mitgeliefert wird: `sleep`.
 
@@ -348,7 +348,7 @@ Die allgemeine Form ist `tabelle[Zeilennummer, Spaltennumer]`, und jetzt fragt i
 - `sleep[1]` ergibt einen `data.frame` mit **nur einer Spalte**
 - `sleep[1, ]` ergibt einen `data.frame` mit **nur einer Zeile**
 - `sleep[[1]]` und `sleep$extra` sind **dasselbe** (weil `extra` die erste Spalte ist) und ergeben die erste Spalte als **Vektor**
-- `sleep$extra[[2]]` und `sleep$extra[2]` sind **dasselbe**: Das zweite Element im Vektor `sleep$extra`
+- `sleep$extra[[2]]` und `sleep$extra[2]` sind hier **dasselbe**: Das zweite Element im Vektor `sleep$extra`
 
 Bei einer Tabelle ist es nützlich mit Zeilen und Spalten zu arbeiten, um die gewünschten Werte rauszuholen, aber bei einem Vektor gibt es in diesem Sinne nur eine Dimension.  
 Sinn der Sache ist, dass wir Funktionen wie `mean` oder `sd` nur auf Vektoren anwenden können, was auch intuitiv irgendwie sinnvoll scheint, denn der Mittelwert einer ganzen Tabelle mit mehreren Variablen ist ja konzeptionell etwas… schwierig.

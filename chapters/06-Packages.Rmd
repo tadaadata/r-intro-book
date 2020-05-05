@@ -3,6 +3,7 @@ output: html_document
 editor_options: 
   chunk_output_type: console
 ---
+
 # Packages
 
 Fast jede Software hat Erweiterungen irgendeiner Art. Manche haben *extensions*, andere *plug-ins*, wieder andere haben *add-ons*. Unterschiedliche Terminologie für dasselbe Prinzip: Mehr Features durch Erweiterungen anderer Leute.  
@@ -68,12 +69,12 @@ In euren normalen Projekten solltet ihr euch nicht auf GitHub-packages verlassen
 
 ```r
 # Wir brauchen das devtools package
-install.packages("devtools")
+install.packages("remotes")
 
-# devtools package laden
-library(devtools)
+# remotes package laden
+library(remotes)
 
-# install_github ist eine Funktion aus dem devtools package
+# install_github ist eine Funktion aus dem remotes package
 install_github("tadaadata/tadaatoolbox")
 ```
 
@@ -146,7 +147,7 @@ qmsurvey <- readRDS("data/qm_survey_ss2017.rds")
 
 Für Kreuztabellen, wie wir sie relativ häufig in QM1 brauchen für unsere nominal- und ordinalskalierten Statistiken:
 
-```{r sjplot_tables_1}
+```{r sjplot_tables_1, eval = knitr::is_html_output()}
 sjt.xtab(qmsurvey$ernaehrung, qmsurvey$gender)
 
 sjt.xtab(qmsurvey$ernaehrung, qmsurvey$gender,
@@ -156,13 +157,13 @@ sjt.xtab(qmsurvey$ernaehrung, qmsurvey$gender,
 
 Oder einfache Häufigkeitstabellen:
 
-```{r sjplot_tables_2}
+```{r sjplot_tables_2, eval = knitr::is_html_output()}
 frq(qmsurvey$ernaehrung, out = "viewer")
 ```
 
 Und für lineare Modelle, in deutlich schöner als `summary()`:
 
-```{r sjplot_tables_3}
+```{r sjplot_tables_3, eval = knitr::is_html_output()}
 model <- lm(zufrieden ~ alter * berufsvorstellung, data = qmsurvey)
 
 tab_model(model, show.std = TRUE)
@@ -176,13 +177,6 @@ Klassiker: Histogramm mit Normalverteilungskurve:
 ```{r sjplot_plots_1}
 plot_frq(qmsurvey$alter, type = "histogram", 
         show.mean = TRUE, normal.curve = TRUE)
-```
-
-Oder für eine graphische Version einer Kontingenztabelle:
-
-```{r sjplot_plots_2}
-sjp.xtab(qmsurvey$ernaehrung, qmsurvey$gender, type = "bar", 
-         show.summary = TRUE)
 ```
 
 ### sjmisc
@@ -247,7 +241,7 @@ Hier eine kurze Übersicht über die wichtigsten *tidyverse*-packages/Funktionen
 
 ## Die `tadaatoolbox`
 
-Die `tadaatoolbox` ist das Produkt von Lukas' und Tobis langjähriger Frustration mit diversem Kleinkram in R, wie etwa der Optik von statistischen Testoutput.  
+Die `tadaatoolbox` ist das Produkt von Lukas' und Tobis Frustration mit diversem Kleinkram in R, wie etwa der Optik von statistischen Testoutput.  
 Im Fokus steht in erster Linie schnelles, einfaches Output mit möglichst wenig Aufwand. Zusätzlich bietet die Toolbox einige Sammelfunktionen um beispielsweise diverse nominal- oder ordinalskalierte Statistiken auf einen Rutsch anzuzeigen, optimiert auf Output in RMarkdown-Dokumenten (Siehe [Berichte]).  
 
 Eine Übersicht gibt es auf der Seite der Toolbox: <http://tadaatoolbox.tadaa-data.de>  
@@ -298,12 +292,9 @@ install.packages("RColorBrewer")
 install.packages("nortest")
 install.packages("pixiedust")
 install.packages("plotly")
-install.packages("revealjs")
 install.packages("rpivotTable")
-install.packages("artyfarty")
 install.packages("car")
 install.packages("colourpicker")
-install.packages("dygraphs")
 install.packages("lsr")
 install.packages("vcd")
 install.packages("ryouready")
@@ -311,6 +302,5 @@ install.packages("esc")
 install.packages("ez")
 install.packages("afex")
 ```
-
 
 [^ruby]: Die Ruby-Leute und ihre *Gems* seien mal dahingestellt

@@ -162,7 +162,7 @@ Ansonsten dürfte euch aufgefallen sein, dass man *Spaß* mit *ß* schreibt. Das
 Um eure Einstellungen anzupassen und auf Nummer sicher zu gehen, öffnet die Einstellungen von RStudio und setzt die folgende Einstellung auf **UTF-8** (Unicode):
 
 ```{r, echo=FALSE, fig.cap="RStudio > Optionen > Code > Saving: UTF-8"}
-knitr::include_graphics("images/character_encoding_settings.png")
+knitr::include_graphics(here::here("images/character_encoding_settings.png"))
 ```
 
 Encoding ist so der einfachste Grund aus dem eure Scripte und Dokumente auf einmal kaputt aussehen, wenn ihr sie von einem Windows-Rechner an einen Mac oder eine Linux-Kiste schickt. Mac und Linux können sich wenigstens meistens auf Unix-Standards und Unicode eignen, aber Windows… Windows ist seltsam.

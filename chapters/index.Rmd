@@ -6,7 +6,7 @@ lang: de-DE
 publisher: r-intro.tadaa-data.de
 rights: "Copyright `r format(Sys.Date(), '%Y')`, Lukas Burk & Tobias Anton, CC-BY-NC"
 site: bookdown::bookdown_site
-documentclass: scrreport # scrbook
+documentclass: scrartcl # scrbook
 bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
@@ -28,6 +28,8 @@ editor_options:
 
 ```{r setup, include=FALSE, cache=FALSE}
 source("setup.R")
+
+options(knitr.graphics.auto_pdf = TRUE)
 ```
 
 # Vorwort {-}
@@ -48,7 +50,7 @@ get_latest_commit(5)
 ## Über diese Einführung {-}
 
 ```{r portraits, fig.cap="Lukas \\& Tobi, weil richtige Portraits zu professionell wären.", echo = FALSE, out.width="70%"}
-include_graphics("images/other/tobilukas.png")
+include_graphics(here::here("images/tobilukas.png"))
 ```
 
 Tobi und Lukas haben  ~~zwei~~ drei Jahre lang die R-Einführung in QM gehalten, anfangs basierend auf den Folien, die Lukas unter Anderem auch als Nachschlagwerk gedacht hatte.  

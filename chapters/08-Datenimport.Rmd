@@ -15,7 +15,7 @@ Wenn ihr Daten von eurer Festplatte einlesen wollt, und ihr keine Ahnung habt wi
 Auch hier liefert RStudio jedenfalls im "Files"-Tab entsprechende Orientierungshilfe:
 
 ```{r, echo=FALSE, fig.cap="RStudio Filebrowser im Projekt dieser Einführung", out.width="50%"}
-knitr::include_graphics("images/data_import_rstudio_filesystem.png")
+knitr::include_graphics(here::here("images/data_import_rstudio_filesystem.png"))
 ```
 
 Das rot umrandete ist der Pfad zum Projektordner, in R würde ich den also so eingeben müssen:
@@ -33,7 +33,7 @@ Da in QM nur SPSS und R benutzt werden, werdet ihr vermutlich meistens auf Daten
 Die einfachste Option ist meistens die RStudio-Funktio zum Datenimport, aber auch hier solltet ihr erstmal wissen, wo eure Daten herkommen und ggf. über die ein oder andere Eigenart bescheid wissen.
 
 ```{r, echo=FALSE, fig.cap="RStudio Import-Tool", out.width="50%"}
-knitr::include_graphics("images/data_import_rstudio.png")
+knitr::include_graphics(here::here("images/data_import_rstudio.png"))
 ```
 
 Bei den Textdateien sind mit `base` und `readr` die beiden unterschiedlichen Möglichkeiten gemeint, mit denen wir Daten einlesen können, aber mehr dazu im entsprechenden Abschnitt.
@@ -331,5 +331,3 @@ saveRDS(ngo, "ngo.rds")
 ```{r include=FALSE}
 rm(ngo)
 ```
-
-

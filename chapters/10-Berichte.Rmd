@@ -76,14 +76,14 @@ install.packages("revealjs")
 Also los, macht mal ein neues RMarkdown-Dokument auf:
 
 ```{r, echo=FALSE, fig.cap="Neues Dokument für RMarkdown", out.width="50%"}
-knitr::include_graphics("images/rmarkdown_new_file_button.png")
+knitr::include_graphics(here::here("images/rmarkdown_new_file_button.png"))
 ```
 
 Soweit alle mitgekommen? Gut.  
 Als nächstes dürft ihr euch was wünschen: Einen Dateinamen und einen AutorInnennamen.
 
 ```{r, echo=FALSE, fig.cap="Beliebig ausfüllen und \"HTML\" ausgewählt lassen", out.width="50%"}
-knitr::include_graphics("images/rmarkdown_new_doc_modal.png")
+knitr::include_graphics(here::here("images/rmarkdown_new_doc_modal.png"))
 ```
 
 Und sieheda, ein RMarkdown default document:
@@ -132,7 +132,7 @@ Vermutlich letzteres.
 Als nächstes könnt ihr ein bisschen an den Optionen rumspielen:
 
 ```{r, echo=FALSE, fig.cap="Output Optionen für diversen Kram", out.width="50%"}
-knitr::include_graphics("images/rmarkdown_output_options.png")
+knitr::include_graphics(here::here("images/rmarkdown_output_options.png"))
 ```
 
 So Dinge wie die Dimensionen der ausgegebenen Plots ("figure height/width"), Inhaltsverzeichnis ("Table of Contents") etc. sind einfach über dieses Menü machbar, alles was irgendwie darüberhinausgeht muss über die Optionen am Anfang des Dokuments gesetzt werden.  
