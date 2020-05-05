@@ -42,6 +42,6 @@ bookdown::pdf_book:
     in_header: includes/latex/preamble.tex
   latex_engine: xelatex
   citation_package: natbib
-  keep_tex: yes
+  keep_tex: false
   dev: "cairo_pdf"
   toc_appendix: yes

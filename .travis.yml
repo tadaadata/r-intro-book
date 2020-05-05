@@ -10,6 +10,8 @@ cache:
     - $HOME/.fonts    # Where fonts are downloaded to & installed
     - $HOME/.TinyTex  # Aforementioned TinyTex dir
     - $TRAVIS_BUILD_DIR/_bookdown_files # Rendered images cache
+    - $HOME/.local/share/renv # renv
+    - $TRAVIS_BUILD_DIR/renv/library
 
 addons:
   ssh_known_hosts: pearson.tadaa-data.de:54321
@@ -24,27 +26,12 @@ apt_packages:
   - fonts-roboto # Good ol' Roboto font family!
 
 before_install:
+  - Rscript -e "renv::restore()"
   - |
     mkdir -p $HOME/.fonts
 
-    # Check if fonts are present in cached .fonts dir, if not, download + install
-    if [ ! -e $HOME/.fonts/gyre.zip ]; then
-     wget http://www.gust.org.pl/projects/e-foundry/tex-gyre/pagella/qpl2_501otf.zip -O $HOME/.fonts/gyre.zip
-     unzip $HOME/.fonts/gyre.zip -d $HOME/.fonts/
-    fi
-
-    if [ ! -e $HOME/.fonts/gyreheros.zip ]; then
-     wget http://www.gust.org.pl/projects/e-foundry/tex-gyre/heros/qhv2.004otf.zip -O $HOME/.fonts/gyreheros.zip
-     unzip $HOME/.fonts/gyreheros.zip -d $HOME/.fonts/
-    fi
-
-    if [ ! -e $HOME/.fonts/fira.zip ]; then
-      wget https://github.com/bBoxType/FiraSans/archive/master.zip -O $HOME/.fonts/fira.zip
-      unzip ~/.fonts/fira.zip '*.ttf' -d $HOME/.fonts/
-    fi
-
     # Only do this for pdf output
-    if [ "$BOOKDOWN_FORMAT" = "bookdown::pdf_book" ]; then
+    if [ "$BOOKDOWN_FORMAT" == "bookdown::pdf_book" ]; then
 
       # 1. Install TinyTex manually
       if [ ! -d $HOME/.TinyTex/bin ]; then
@@ -65,9 +52,6 @@ before_install:
     # Update font cache for previously installed fonts (+ list fonts for debugging)
     fc-cache -fv
     fc-list
-
-before_script:
-  - "Rscript -e \"remotes::install_github('hrbrmstr/firasans')\""
 
 # Render the actual book, format depending on env var BOOKDOWN_FORMAT
 script:

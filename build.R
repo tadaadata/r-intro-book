@@ -66,10 +66,10 @@ suppressWarnings(bookdown::render_book(
 )) -> tmp
 
 # EPUB ----
-cli_it("Rendering epub")
-suppressWarnings(bookdown::render_book(
-  "index.Rmd", output_format = "bookdown::epub_book", envir = new.env(), quiet = TRUE
-)) -> tmp
+# cli_it("Rendering epub")
+# suppressWarnings(bookdown::render_book(
+#   "index.Rmd", output_format = "bookdown::epub_book", envir = new.env(), quiet = TRUE
+# )) -> tmp
 
 cli_end(id = "list")
 cli_alert_success("Done rendering!")
