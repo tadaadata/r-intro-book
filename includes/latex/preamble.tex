@@ -12,8 +12,8 @@
 \renewcommand{\floatpagefraction}{0.75}
 
 %\renewenvironment{quote}{\begin{VF}}{\end{VF}}
-\let\oldhref\href
-\renewcommand{\href}[2]{#2\footnote{\url{#1}}}
+% \let\oldhref\href
+% \renewcommand{\href}[2]{#2\footnote{\url{#1}}}
 
 \ifxetex
   \usepackage{letltxmacro}
@@ -101,3 +101,10 @@
 
 % This only works for scrbook class
 % \frontmatter
+
+\usepackage{titling}
+\pretitle{\begin{center}
+  \includegraphics[width=0.8\linewidth]{images/tadaa_thin_t}
+  \LARGE\\
+}
+\posttitle{\end{center}}

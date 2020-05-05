@@ -1,7 +1,3 @@
 # Varianzanalyse (ANOVA) {#ANOVA}
 
-## Einfaktorielle ANOVA
-
-## Mehrfaktorielle ANOVA
-
-## ANOVA mit Messwiederholung (rmANOVA)
+Long story short: Benutzt [afex](https://github.com/singmann/afex)!

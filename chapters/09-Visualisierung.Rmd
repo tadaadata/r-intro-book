@@ -24,7 +24,7 @@ Deswegen ist der erste Schritt jeder Datenanalyse ein Plot der Daten in verschie
 
 ## ggplot2
 
-[ggplot2](http://ggplot2.tidyverse.org/) ist nicht nur ein R-Packages, es ist auch gleichzeitig eine Implementation des *Grammar of Graphics*. Das klingt fancy (ist es auch), heißt für uns aber in erster Linie nur, dass es gut durchdachter Kram ist.  
+[ggplot2](https://ggplot2.tidyverse.org/) ist nicht nur ein R-Packages, es ist auch gleichzeitig eine Implementation des *Grammar of Graphics*. Das klingt fancy (ist es auch), heißt für uns aber in erster Linie nur, dass es gut durchdachter Kram ist.  
 
 ```{r}
 library(ggplot2)
@@ -54,7 +54,7 @@ Okay, was haben wir da gemacht?
 In `scale_y_continuous` sagen wir jetzt noch, dass die Achsenabstände in 15er-Schritten liegen sollen, und wir kleinere Abstände (die dünneren weißen Linien) in 5er-Abständen liegen sollen.  
 Als letztes kümmern wir uns ein bisschen um die Kosmetik: Wir beschriften unsere Elemente mit `labs()`, wobei wir Title, Untertitel und Achsen beschreiben.
 
-Im Folgenden kommen einige Beispiele, aber grundsätzlich könnt ihr euch alles auch auf der offiziellen Seite unter <http://ggplot2.tidyverse.org> anschauen, wo es auch eine [Referenz aller Funktionen mit Anwendungsbeispielen gibt](http://ggplot2.tidyverse.org/reference/index.html). Ich für meinen Teil habe am Anfang (und auch immer noch) viel Zeit damit verbracht, die Referenz nach etwas zu durchsuchen, dass so grob nach dem aussieht, was ich gerne hätte -- und das dann so lange zu tweaken bis es funktioniert.  
+Im Folgenden kommen einige Beispiele, aber grundsätzlich könnt ihr euch alles auch auf der offiziellen Seite unter <https://ggplot2.tidyverse.org> anschauen, wo es auch eine [Referenz aller Funktionen mit Anwendungsbeispielen gibt](https://ggplot2.tidyverse.org/reference/index.html). Ich für meinen Teil habe am Anfang (und auch immer noch) viel Zeit damit verbracht, die Referenz nach etwas zu durchsuchen, dass so grob nach dem aussieht, was ich gerne hätte -- und das dann so lange zu tweaken bis es funktioniert.  
 Das Erfolgserlebnis nach ewigem Rungefummel ist nicht zu unterschätzen, aber natürlich ist es hilfreich, wenn man erstmal die Grundlagen erklärt bekommt.
 
 ## Layer: `geom_wtf`
@@ -488,7 +488,7 @@ plot + theme_economist()
 
 *ggplot2* zu lernen lohnt sich sehr, weil ihr nach einer Weile einfach ein intuitives Gefühl dafür bekommt, wie ihr Daten eim schnellsten und einfachsten schön präsentieren könnt.  
 Der Weg dahin ist voller Googlereien und ihr werde viel Zeit damit verbringen Code von anderen zu copypasten und solange daran herumzuspielen bis es so grob das macht, was ihr wollt.  
-Also: Googlet was ihr machen wollt, und bookmarkt [ggplot2.tidyverse.org](http://ggplot2.tidyverse.org/).
+Also: Googlet was ihr machen wollt, und bookmarkt [ggplot2.tidyverse.org](https://ggplot2.tidyverse.org/).
 Zusätzlich gibt es da noch diese unheimlich praktische Liste gängiger Anwendungsfälle: 
-<http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html>.  
+<https://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html>.  
 Sucht euch den Code raus, der so grob macht was ihr wollt, und dann... happy tweaking.

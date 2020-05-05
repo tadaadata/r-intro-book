@@ -27,7 +27,7 @@ editor_options:
 ---
 
 ```{r setup, include=FALSE, cache=FALSE}
-source("setup.R")
+source(here::here("setup.R"))
 
 options(knitr.graphics.auto_pdf = TRUE)
 ```
@@ -65,7 +65,7 @@ Und vermutlich danach auch.
 Also, zumindest die Psychos unter euch, bei den Public HealtherInnen sind dinge *anders*, aber *ähnlich*.  
 Vielleicht. 
 
-Wenn ihr mehr (oder so grob dasselbe, aber deutlich mehr und in besser erklärt) wollt, dann empfehle ich herzlichst "[**R for Data Science**](http://r4ds.had.co.nz/)", ein kostenloses Buch von Hadley Wickham, einem der R-Menschen, die uns in den letzten Jahren viele kewle tools beschert haben^[ggplot2, dplyr, tidyr, lubridate, ... – die ganze tidyverse-Sache geht mehr oder weniger auf Hadley zurück].
+Wenn ihr mehr (oder so grob dasselbe, aber deutlich mehr und in besser erklärt) wollt, dann empfehle ich herzlichst "[**R for Data Science**](https://r4ds.had.co.nz/)", ein kostenloses Buch von Hadley Wickham, einem der R-Menschen, die uns in den letzten Jahren viele kewle tools beschert haben^[ggplot2, dplyr, tidyr, lubridate, ... – die ganze tidyverse-Sache geht mehr oder weniger auf Hadley zurück].
 
 ## Verfügbarkeit {-}
 
@@ -75,14 +75,14 @@ Die Website (also HTML) ist jednefalls das *primäre* Format dieser Einführung,
 Wenn ihr diese Einführung unbedingt offline verfügbar und portabel haben wollt, bleibt euch die Ebook-/PDF-Version. Und wehe ihr druckt die aus. Wehe.
 
 Anbei: Auf der Web-Version haben wir analytics Zeug eingebunden, was uns sagt, welche Kapitel am häufigsten besucht werden. Die Idee dahinter ist relativ simpel: Wenn ein Kapitel besonders häufig besucht wurde, ist es vermutlich interessant, ergo ist es vermutlich auch sinnvoll, da mehr Aufwand reinzustecken als in andere.  
-Wenn ihr AdBlock und Kram installiert habt, wäre es entsprechend hilfreich für uns, das auf dieser Seite zu deaktivieren. Werbung haben wir hier eh nicht, und die Tracking-Daten landen auch nur bei uns und nicht bei Google, Facebook oder der Stasi. Nur bei uns. Und wir sind vertrauenswürdig™.
+Wenn ihr AdBlock und Kram installiert habt, wäre es entsprechend hilfreich für uns, das auf dieser Seite zu deaktivieren. Werbung haben wir hier eh nicht, und die Tracking-Daten landen auch nur bei uns und nicht bei Google, Facebook oder der sonstwo. Nur bei uns. Und wir sind vertrauenswürdig™.
 
 ## Zielgruppe {-}
 
 Die primäre Motivation und Zielgruppe für diese Einführung sind die Studierenden der Psychologie an der Universität Bremen, weshalb hier auch möglichst wenig Vorkenntnisse im Bereich der Statistik, Programmierung, statistischen Programmierung oder programmierenden Sta... ähm... ihr versteht schon.  
 Wir gehen anfangs sehr kleinschrittig vor und versuchen gängige Konzepte wie Datentypen/-klassen, Datenstrukturen, Syntax von Grund auf zu erklären.  
 
-Solltet ihr bei Begriffen wie "funktionale Programmiersprache", "generics", "functionals" und "Attribute" ein grobes Bild im Kopf haben, dann empfehle ich euch einen Blick in das weiter oben erwähnte [**R for Data Science**](http://r4ds.had.co.nz/). Also generell würde ich allen interessierten dieses Buch/Seite empfehlen, aber ich vermute, dass es für einen absoluten Sprung ins kalte Wasser R nur dann geeignet ist, wenn man entweder sehr viel Motivation oder ein entsprechendes Vorwissen mitbringt.
+Solltet ihr bei Begriffen wie "funktionale Programmiersprache", "generics", "functionals" und "Attribute" ein grobes Bild im Kopf haben, dann empfehle ich euch einen Blick in das weiter oben erwähnte [**R for Data Science**](https://r4ds.had.co.nz/). Also generell würde ich allen interessierten dieses Buch/Seite empfehlen, aber ich vermute, dass es für einen absoluten Sprung ins kalte Wasser R nur dann geeignet ist, wenn man entweder sehr viel Motivation oder ein entsprechendes Vorwissen mitbringt.
 
 
 ## Datensätze {-}

@@ -4,7 +4,7 @@
     "Repositories": [
       {
         "Name": "CRAN",
-        "URL": "https://cran.rstudio.com"
+        "URL": "https://cloud.r-project.org"
       }
     ]
   },
@@ -477,6 +477,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "e3f662e125e9fdffd1ee4e94baea3451"
+    },
+    "here": {
+      "Package": "here",
+      "Version": "0.1",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "2c0406b8e0a4c3516ab37be62da74e3c"
     },
     "highr": {
       "Package": "highr",

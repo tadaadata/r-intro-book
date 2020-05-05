@@ -114,7 +114,7 @@ Ihr Monster.
 
 `sjPlot` ist das Aushängeschild der `strengejacke`-Packages von Daniel Lüdecke, und insgesamt sind seine packages _ziemlich ziemlich_ praktisch für die gängigen sozialwissenschaftlichen Analysen.  
 
-Eine umfassende Dokumentation findet ihr unter <http://www.strengejacke.de/sjPlot/>, und die packages von Interesse installiert ihr wie folgt:
+Eine umfassende Dokumentation findet ihr unter <https://www.strengejacke.de/sjPlot/>, und die packages von Interesse installiert ihr wie folgt:
 
 ```r
 install.packages("sjPlot")
@@ -211,10 +211,10 @@ Die Funktionen dafür sind folgende:
 - `get_label`: *Variablenlabels* anzeigen
 - `get_labels`: *Value labels* anzeigen
 
-## Das `tidyverse` <small class="subtitle">Hail Hadley!</small>
+## Das `tidyverse`
 
 Das *tidyverse* ist eine Ansammlung von packages, die alle mehr oder weniger gut miteinander auskommen und auf ähnliche Art zu benutzen sind.  
-Eine Übersicht und ganz viel Dokumentation und Beispiele findet ihr auf <http://tidyverse.org>.
+Eine Übersicht und ganz viel Dokumentation und Beispiele findet ihr auf <https://tidyverse.org>.
 
 Es gibt ein *catchall* R-package, das die wichtigstens packages für euch installiert:
 
@@ -244,8 +244,8 @@ Hier eine kurze Übersicht über die wichtigsten *tidyverse*-packages/Funktionen
 Die `tadaatoolbox` ist das Produkt von Lukas' und Tobis Frustration mit diversem Kleinkram in R, wie etwa der Optik von statistischen Testoutput.  
 Im Fokus steht in erster Linie schnelles, einfaches Output mit möglichst wenig Aufwand. Zusätzlich bietet die Toolbox einige Sammelfunktionen um beispielsweise diverse nominal- oder ordinalskalierte Statistiken auf einen Rutsch anzuzeigen, optimiert auf Output in RMarkdown-Dokumenten (Siehe [Berichte]).  
 
-Eine Übersicht gibt es auf der Seite der Toolbox: <http://tadaatoolbox.tadaa-data.de>  
-Beispielhaftes Testoutput findet sich [dort](http://tadaatoolbox.tadaa-data.de/articles/test_output.html), und eine Funktionsreferenz [gibt's da auch](http://tadaatoolbox.tadaa-data.de/reference/).
+Eine Übersicht gibt es auf der Seite der Toolbox: <https://tadaatoolbox.tadaa-data.de>  
+Beispielhaftes Testoutput findet sich [dort](https://tadaatoolbox.tadaa-data.de/articles/test_output.html), und eine Funktionsreferenz [gibt's da auch](https://tadaatoolbox.tadaa-data.de/reference/).
 
 ## Addendum: "Installier mal alles"
 

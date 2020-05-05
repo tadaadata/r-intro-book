@@ -1,34 +1,16 @@
 #! /usr/bin/env Rscript
 # This build script is for local rendering only
-# Mini-dependency-check for build script
-build_deps <- c("cliapp", "desc", "yaml", "remotes", "fs")
 
-for (pkg in build_deps) {
-  if (!(pkg %in% installed.packages())) install.packages(pkg)
-}
+cliapp::start_app(theme = cliapp::simple_theme(dark = TRUE))
+
+# Check dependencies ----
+cliapp::cli_alert_info("Checking renv...")
+renv::restore()
 
 library(cliapp)
-start_app(theme = simple_theme(dark = TRUE))
 
 t1 <- Sys.time()
 cli_h1("{format(Sys.time(), '%b. %d, %T')}")
-
-# Check dependencies ----
-cli_alert_info("Checking if project dependencies are installed...")
-
-# Set mirror, just in case
-# options(repos = c(CRAN = "https://cloud.r-project.org"))
-#
-# cran_pkgs <- desc::desc_get_deps("DESCRIPTION")$package
-# gh_pkgs <- desc::desc_get_remotes("DESCRIPTION")
-#
-# for (pkg in cran_pkgs) {
-#   if (!(pkg %in% installed.packages())) install.packages(pkg)
-# }
-#
-# for (pkg in gh_pkgs) {
-#   remotes::install_github(pkg, upgrade = "always", quiet = TRUE)
-# }
 
 # Save config for stuff ----
 bookdown_yml <- yaml::yaml.load_file("_bookdown.yml")
@@ -54,16 +36,16 @@ cli_ol()
 
 # Gitbook ----
 cli_it("Rendering HTML site")
-suppressWarnings(bookdown::render_book(
+bookdown::render_book(
   "index.Rmd", output_format = "bookdown::gitbook", envir = new.env(), quiet = TRUE
-)) -> tmp
+) -> tmp
 fs::file_copy("images/tadaa_thin_t.png", file.path(out_dir, "images"), overwrite = TRUE)
 
 # PDF ----
 cli_it("Rendering PDF")
-suppressWarnings(bookdown::render_book(
+bookdown::render_book(
   "index.Rmd", output_format = "bookdown::pdf_book", envir = new.env(), quiet = TRUE
-)) -> tmp
+) -> tmp
 
 # EPUB ----
 # cli_it("Rendering epub")
