@@ -18,17 +18,17 @@ cli_alert_info("Checking if project dependencies are installed...")
 
 # Set mirror, just in case
 # options(repos = c(CRAN = "https://cloud.r-project.org"))
-
-cran_pkgs <- desc::desc_get_deps("DESCRIPTION")$package
-gh_pkgs <- desc::desc_get_remotes("DESCRIPTION")
-
-for (pkg in cran_pkgs) {
-  if (!(pkg %in% installed.packages())) install.packages(pkg)
-}
-
-for (pkg in gh_pkgs) {
-  remotes::install_github(pkg, upgrade = "always", quiet = TRUE)
-}
+#
+# cran_pkgs <- desc::desc_get_deps("DESCRIPTION")$package
+# gh_pkgs <- desc::desc_get_remotes("DESCRIPTION")
+#
+# for (pkg in cran_pkgs) {
+#   if (!(pkg %in% installed.packages())) install.packages(pkg)
+# }
+#
+# for (pkg in gh_pkgs) {
+#   remotes::install_github(pkg, upgrade = "always", quiet = TRUE)
+# }
 
 # Save config for stuff ----
 bookdown_yml <- yaml::yaml.load_file("_bookdown.yml")
