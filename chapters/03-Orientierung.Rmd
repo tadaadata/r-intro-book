@@ -149,7 +149,7 @@ Damit können wir sowas machen:
 
 ```r
 # Wie alt bin ich nochmal?
-2017 - 1991
+2020 - 1991
 
 # Wie viele Stunden im Jahr?
 24 * 365
