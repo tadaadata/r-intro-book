@@ -20,13 +20,13 @@ Und irgendwann, wenn die Autoren dieses Werks verstanden haben wie *Bayesian* Kr
 
 ## Tests auf Voraussetzungen
 
-Die meisten der Tests hier setzen *Normalverteilung* und/oder *Varianzhomogenität* (aka *Homoskedastizität*) voraus, und auch wenn man diese Annahmen entweder mit *Robustheit* wegargumentieren oder im Falle der Normalverteilungsannahme mit ausreichend großem $N$ und dem zentralen Grenwzertsatz dezent ignorieren kann, gibt es natürlich auch Tests dafür.  
+Die meisten der Tests hier setzen *Normalverteilung* und/oder *Varianzhomogenität* (aka *Homoskedastizität*) voraus, und auch wenn man diese Annahmen entweder mit *Robustheit* wegargumentieren oder im Falle der Normalverteilungsannahme mit ausreichend großem $N$ und dem zentralen Grenzwertsatz dezent ignorieren kann, gibt es natürlich auch Tests dafür.  
 Weil eine mehr oder weniger objektive Testentscheidung immer dankbar ist.  
 
 ### Tests auf Normalvertielung
 
 Normalverteilungstests testen eure empirische Verteilung auf Ähnlickeit zur Normalverteilung. Wer hätte das gedacht. Es gibt einen großen Haufen dieser Tests, und einige davon sind sogar richtig blöd.  
-Dazu gehört zum Beispiel der *Kolmogorov-Smirnoff-Test*, der zwar richtig richtig kacke ist, aber da es der einzige Normalverteilungstest ist, den SPSS ohne manuellen Aufwand anbietet, ist er lächerlich weit verbreitet.  
+Dazu gehört zum Beispiel der *Kolmogorov-Smirnoff-Test*, der zwar richtig kacke ist, aber da es der einzige Normalverteilungstest ist, den SPSS ohne manuellen Aufwand anbietet, ist er lächerlich weit verbreitet.  
 Ja. Wenn ihr aus diesem Kapitel eins mitnehmt: Benutzt nicht den Kolmogorov-Smirnoff.
 
 Wenn es um Teststärke geht hat der **Shapiro-Wilk**-Test die Nase vorn, der sollte also so der Standardtest sein, den ihr erstmal probiert. R hat den auch von Haus aus dabei:

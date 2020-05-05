@@ -32,9 +32,9 @@ source("setup.R")
 
 # Vorwort {-}
 
-Das hier wird gerade ^[okay, es wird schon seit ein paar Jahren, aber Zeit ist relativ und so] eine R-Einführung für Psychologiestudierende (und seit 2018 auch für Public HealtherInnen) so mit ganz ohne Vorwissen im Bereich Software oder Programmierung. Dieses Werk ist zum Einen die Grundlage für die R-Intro für Psychologiestudierende in *QM*, und zum Anderen auch das Referenzwerk für das R-Seminar im Rahmen des Statistikmoduls in Public Health ^[zumindest dieses eine Mal in 2018].
+Das hier wird gerade ^[okay, es wird schon seit ein paar Jahren, aber Zeit ist relativ und so] eine R-Einführung für Psychologiestudierende (und seit 2018 auch für Public HealtherInnen) so mit ganz ohne Vorwissen im Bereich Software oder Programmierung. Dieses Werk ~~ist~~ war zum Einen die Grundlage für die R-Intro für Psychologiestudierende in *QM*, und zum Anderen auch das Referenzwerk für das R-Seminar im Rahmen des Statistikmoduls in Public Health ^[zumindest dieses eine Mal in 2018].
 
-Die grobe Idee ist es, eine Einstiegspräsentaion für die Übung zu haben, und zusätzlich eine long-form Intro als Nachschlagwerk und vertiefendes Material (das hier).  
+Die grobe Idee war es, eine Einstiegspräsentation für die Übung zu haben, und zusätzlich eine long-form Intro als Nachschlagwerk und vertiefendes Material (das hier).  
 Beides sollte ausreichend mit Screenshots/Beispielen ausgefüttert sein um auch die verunsichertesten Neulinge bei der Stange zu halten.
 
 <!--
@@ -67,7 +67,7 @@ Wenn ihr mehr (oder so grob dasselbe, aber deutlich mehr und in besser erklärt)
 
 ## Verfügbarkeit {-}
 
-Wenn ihr das hier als Website unter `https://r-intro.tadaa-data.de/book` lest, dann habt ihr schonmal alles richtig gemacht. Zusätzlich gibt es diese Website auch als Ebook (`.epub`, funktioniert auf allen gängigen e-readern, tablets, smartphones und sowieso) unter dem Downloadbutton in der obigen Leiste. Es gibt auch eine PDF-Version, aber die ist ehrlich gesagt eher ein proof-of-concept – so wirklich nützlich ist die nicht wirklich, verglichen mit der Website-Version. Okay, das gilt eigentlich auch für die Ebook-Version.
+Wenn ihr das hier als Website unter `https://r-intro.tadaa-data.de/book` lest, dann habt ihr schonmal alles richtig gemacht. Zusätzlich gibt es diese Website auch als Ebook (`.epub`, funktioniert auf allen gängigen e-readern, tablets, smartphones und sowieso) unter dem Downloadbutton in der obigen Leiste. Es gibt auch eine PDF-Version, aber die ist ehrlich gesagt eher ein proof-of-concept – so wirklich nützlich sind die Ebook/PDF-Versonen nicht wirklich, verglichen mit der Website-Version.
 
 Die Website (also HTML) ist jednefalls das *primäre* Format dieser Einführung, der einzige Nachteil ist, dass sich die Website schlecht ausdrucken lässt — aber wenn ihr Websites ausdruckt habt ihr sowieso die Kontrolle über euer Leben verloren.  
 Wenn ihr diese Einführung unbedingt offline verfügbar und portabel haben wollt, bleibt euch die Ebook-/PDF-Version. Und wehe ihr druckt die aus. Wehe.
