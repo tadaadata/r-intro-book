@@ -30,7 +30,7 @@ editor_options:
 source(here::here("setup.R"))
 ```
 
-# Vorwort {-}
+# Vorwort {-#index}
 
 Das hier wird gerade ^[okay, es wird schon seit ein paar Jahren, aber Zeit ist relativ und so] eine R-Einführung für Psychologiestudierende (und seit 2018 auch für Public HealtherInnen) so mit ganz ohne Vorwissen im Bereich Software oder Programmierung. Dieses Werk ~~ist~~ war zum Einen die Grundlage für die R-Intro für Psychologiestudierende in *QM*, und zum Anderen auch das Referenzwerk für das R-Seminar im Rahmen des Statistikmoduls in Public Health ^[zumindest dieses eine Mal in 2018].
 

@@ -446,7 +446,7 @@ ggplot(data = qmsurvey, aes(x = rauchen, fill = gender)) +
 Themes verändern nicht die Farbe eurer Punkte/Linien/Balken, aber sie verändern alles andere an eurem Plot, von der Hintergrundfarbe bis zur Schriftart in den Labels.  
 Es gibt viele schöne themes, aber der allgemeine Ratschlag bleibt: Simpel ist besser.  
 
-```{r themes_1}
+```{r themes-1}
 plot <- ggplot(data = gotdeaths, aes(x = death_season)) +
   geom_bar() +
   labs(title = "Game of Thrones: Deaths",
@@ -455,7 +455,7 @@ plot <- ggplot(data = gotdeaths, aes(x = death_season)) +
 ```
 
 
-```{r themes_2}
+```{r themes-2}
 library(tadaatoolbox)
 
 plot + theme_tadaa()
@@ -463,7 +463,7 @@ plot + theme_tadaa()
 
 Oder auch:
 
-```{r themes_3}
+```{r themes-3,eval=FALSE}
 library(hrbrthemes)
 
 plot + theme_ipsum_rc()
@@ -471,7 +471,7 @@ plot + theme_ipsum_rc()
 
 Siehe auch: `ggthemes`
 
-```{r themes_4}
+```{r themes-4}
 library(ggthemes)
 
 plot + theme_gdocs()
