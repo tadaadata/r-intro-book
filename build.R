@@ -10,7 +10,7 @@ renv::restore()
 library(cliapp)
 
 t1 <- Sys.time()
-cli_h1("{format(Sys.time(), '%b. %d, %T')}")
+cli_h1("{format(Sys.time(), '%d. %b, %T')}")
 
 # Save config for stuff ----
 bookdown_yml <- yaml::yaml.load_file("_bookdown.yml")
@@ -60,4 +60,4 @@ t2 <- Sys.time()
 difft <- round(as.numeric(difftime(t2, t1, units = 'secs')), 1)
 
 cli_alert_success("Done! Took {difft} seconds.")
-cli_h1("{format(Sys.time(), '%b. %d, %T')}")
+cli_h1("{format(Sys.time(), '%d. %b, %T')}")

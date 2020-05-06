@@ -5,7 +5,7 @@ library(readr)
 library(tidyr)
 # library(car)
 
-# knitr::opts_knit$set(unnamed.chunk.label = "chunk_")
+options(knitr.graphics.auto_pdf = TRUE)
 
 knitr::opts_chunk$set(
   cache = TRUE,
@@ -21,6 +21,10 @@ knitr::opts_chunk$set(
   tidy = FALSE # "formatR",
   # tidy.opts = list(blank = FALSE, width.cutoff = 80)
 )
+
+# Plotting ----
+hrbrthemes::import_roboto_condensed()
+extrafont::loadfonts()
 
 # Read data used throughout tutorial ----
 qmsurvey        <- read_rds("data/qm_survey_ss2017.rds")

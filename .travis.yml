@@ -31,7 +31,7 @@ before_install:
     mkdir -p $HOME/.fonts
 
     # Only do this for pdf output
-    if [ "$BOOKDOWN_FORMAT" == "bookdown::pdf_book" ]; then
+    if [[ "$BOOKDOWN_FORMAT" == "bookdown::pdf_book" ]]; then
 
       # 1. Install TinyTex manually
       if [ ! -d $HOME/.TinyTex/bin ]; then
