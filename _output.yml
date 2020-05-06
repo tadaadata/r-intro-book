@@ -1,6 +1,6 @@
 bookdown::gitbook:
   self_contained: false
-  dev: png
+  dev: "ragg_png"
   css: includes/css/style.css
   lib_dir: assets
   split_by: "chapter"

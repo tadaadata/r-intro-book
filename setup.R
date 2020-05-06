@@ -5,6 +5,9 @@ library(readr)
 library(tidyr)
 # library(car)
 
+# Dummy for renv to ensure ragg
+if (requireNamespace("ragg")) "yay"
+
 options(knitr.graphics.auto_pdf = TRUE)
 
 knitr::opts_chunk$set(

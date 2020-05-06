@@ -46,7 +46,6 @@ jobs:
           brew cask install font-roboto-slab
           brew cask install font-roboto-condensed
           R -e "extrafont::font_import()"
-          fc-cache -fv
 
       - name: Build site
         run: Rscript -e 'bookdown::render_book("index.Rmd", output_format = "bookdown::gitbook", quiet = TRUE)'
