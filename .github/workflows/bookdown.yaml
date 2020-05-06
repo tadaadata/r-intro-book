@@ -19,6 +19,13 @@ jobs:
           brew install pandoc
           brew install pandoc-citeproc
 
+      - name: Install fonts
+        run: |
+          brew cask install font-fira-mono
+          brew cask install font-roboto
+          brew cask install font-roboto-slab
+          brew cask install font-roboto-condensed
+
       - name: Cache Renv packages
         uses: actions/cache@v1
         with:
