@@ -1,7 +1,10 @@
-# R-Intro (Book)
+# Tadaa, R-Intro! (The book bit)
 
+ <!-- badges: start -->
 [![Travis
-(.org)](https://img.shields.io/travis/tadaadata/r-intro-book.svg?logo=travis)](https://travis-ci.org/tadaadata/r-intro-book)
+(.org)](https://img.shields.io/travis/tadaadata/r-intro-book.svg?logo=travis)](https://travis-ci.org/tadaadata/r-intro-book)  
+In-development deployment: [![Netlify Status](https://api.netlify.com/api/v1/badges/cf2c51a1-de80-4125-8add-f47afd3161a8/deploy-status)](https://app.netlify.com/sites/tadaa-r-intro-dev/deploys)
+<!-- badges: end -->
 
 Eine ausführlichere Version der R-Einführung für QM.
 
