@@ -21,6 +21,7 @@ jobs:
 
       - name: Install fonts
         run: |
+          brew tap homebrew/cask-fonts
           brew cask install font-fira-mono
           brew cask install font-roboto
           brew cask install font-roboto-slab
