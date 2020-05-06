@@ -19,14 +19,6 @@ jobs:
           brew install pandoc
           brew install pandoc-citeproc
 
-      - name: Install fonts
-        run: |
-          brew tap homebrew/cask-fonts
-          brew cask install font-fira-mono
-          brew cask install font-roboto
-          brew cask install font-roboto-slab
-          brew cask install font-roboto-condensed
-
       - name: Cache Renv packages
         uses: actions/cache@v1
         with:
@@ -45,6 +37,15 @@ jobs:
         run: |
           R -e 'install.packages("renv")'
           R -e 'renv::restore()'
+
+      - name: Install fonts
+        run: |
+          brew tap homebrew/cask-fonts
+          brew cask install font-fira-mono
+          brew cask install font-roboto
+          brew cask install font-roboto-slab
+          brew cask install font-roboto-condensed
+          R -e "extrafont::font_import()"
 
       - name: Build site
         run: Rscript -e 'bookdown::render_book("index.Rmd", output_format = "bookdown::gitbook", quiet = TRUE)'
