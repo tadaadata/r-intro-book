@@ -1,4 +1,5 @@
 language: r
+os: linux
 dist: bionic
 latex: false # Only because I'm manually installing TinyTex!
 
@@ -24,6 +25,7 @@ env:
 apt_packages:
   - fonts-oflb-asana-math # Asana Math font that may be not needed
   - fonts-roboto # Good ol' Roboto font family!
+  - fonts-roboto-slab
 
 before_install:
   - Rscript -e "renv::restore()"
@@ -74,11 +76,20 @@ before_deploy:
   - ssh-add /tmp/deploy_rsa
 
 deploy:
-  provider: script
-  skip_cleanup: true
-  script: rsync -r --quiet $TRAVIS_BUILD_DIR/book -e 'ssh -p 54321' travis@pearson.tadaa-data.de:/srv/r-intro.tadaa-data.de
-  on:
-    branch: master
+  - provider: pages
+    local_dir: _book
+    skip_cleanup: true
+    keep_history: true
+    github_token: "$GITHUB_PAT"
+    target_branch: gh-pages
+    on:
+      branch: develop
+  - provider: script
+    skip_cleanup: true
+    script: rsync -r --quiet $TRAVIS_BUILD_DIR/book -e 'ssh -p 54321' travis@pearson.tadaa-data.de:/srv/r-intro.tadaa-data.de
+    on:
+      branch: master
 
 notifications:
   email: false
+
