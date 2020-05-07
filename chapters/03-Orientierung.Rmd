@@ -27,11 +27,11 @@ include_graphics(here::here("images/rstudio_new_project_0.png"))
 
 ```{r, echo=FALSE}
 include_graphics(
-    here::here(c(
-            "images/rstudio_new_project_1.png",
-            "images/rstudio_new_project_2.png",
-            "images/rstudio_new_project_3.png"
-    ))
+  here::here(c(
+    "images/rstudio_new_project_1.png",
+    "images/rstudio_new_project_2.png",
+    "images/rstudio_new_project_3.png"
+  ))
 )
 ```
 

@@ -26,7 +26,7 @@ Als Beispieldatensatz nehmen wir wieder den *Game of Thrones Deaths*-Datensatz u
 
 ```{r ch12_Daten_einlesen, message=FALSE, warning=FALSE}
 library(readr)
-qmsurvey  <- readRDS("data/qm_survey_ss2017.rds")
+qmsurvey <- readRDS("data/qm_survey_ss2017.rds")
 gotdeaths <- read_csv("data/got_deaths.csv", col_types = cols())
 ```
 
@@ -173,7 +173,8 @@ Als Beispiel nehemn wir mal *Geschlecht* und *Cannabiskonsum*:
 library(sjPlot)
 
 sjt.xtab(qmsurvey$cannabis, qmsurvey$behandlung,
-         show.exp = TRUE, show.legend = TRUE)
+  show.exp = TRUE, show.legend = TRUE
+)
 ```
 
 Die Berechnung in R ist einfach:

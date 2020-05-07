@@ -40,9 +40,11 @@ Ein Beispiel:
 ggplot(data = qmsurvey, aes(x = alter, y = feiern)) +
   geom_col() +
   scale_y_continuous(breaks = seq(0, 100, 15), minor_breaks = seq(0, 100, 5)) +
-  labs(title = "Alter und Feiern",
-       subtitle = "Wie oft gehst du im Monat feiern",
-       x = "Alter (Jahre)", y = "Tage pro Monat")
+  labs(
+    title = "Alter und Feiern",
+    subtitle = "Wie oft gehst du im Monat feiern",
+    x = "Alter (Jahre)", y = "Tage pro Monat"
+  )
 ```
 
 Okay, was haben wir da gemacht?  
@@ -85,9 +87,11 @@ Das ist zwar schön und gut, aber es sieht noch nicht so wirklich brauchbar aus,
 ```{r barchart_labs}
 ggplot(data = gotdeaths, aes(x = death_season)) +
   geom_bar() +
-  labs(title = "Game of Thrones: Deaths",
-       subtitle = "Deaths per Season",
-       x = "Season", y = "# of Deaths")
+  labs(
+    title = "Game of Thrones: Deaths",
+    subtitle = "Deaths per Season",
+    x = "Season", y = "# of Deaths"
+  )
 ```
 
 #### `geom_bar` vs. `geom_col` vs `geom_histogram`
@@ -105,7 +109,7 @@ Ein gängiger Anwendungsfall für `geom_col` wäre es, Häufigkeiten zu plotten,
 qmsurvey %>%
   count(gender, rauchen) %>%
   group_by(gender) %>%
-  mutate(prop = round(n/sum(n), 4))
+  mutate(prop = round(n / sum(n), 4))
 ```
 
 Hier haben wir die relativen Häufigkeiten für die Merkmalsausprägungen in `rauchen` berechnet, relativ zu jeder Gruppe in `gender`.  
@@ -115,12 +119,14 @@ Damit können wir sowas machen:
 qmsurvey %>%
   count(gender, rauchen) %>%
   group_by(gender) %>%
-  mutate(prop = round(n/sum(n), 4)) %>%
+  mutate(prop = round(n / sum(n), 4)) %>%
   ggplot(aes(x = rauchen, y = prop, fill = gender)) +
   geom_col(position = "dodge", color = "black") +
   scale_y_continuous(labels = scales::percent) +
-  labs(title = "Raucherstatus nach Gender",
-       subtitle = "Relative Häufigkeiten in >Gender<")
+  labs(
+    title = "Raucherstatus nach Gender",
+    subtitle = "Relative Häufigkeiten in >Gender<"
+  )
 ```
 
 Ein klassisches Beispiel für "Daten erst präparieren, dann plotten". Es ist viel einfacher schnell die gruppierten Prozente zu berechnen, als *ggplot2* dazu zwingen zu wollen, die entsprechende Gruppierung und Berechnung zu übernehmen.
@@ -136,7 +142,7 @@ Wenn ihr woanders die *base* Funktion `boxplot` <small>(ugh)</small> gesehen hab
 
 ```{r boxplot_single}
 ggplot(data = qmsurvey, aes(x = NA, y = lernen)) +
-  geom_boxplot() 
+  geom_boxplot()
 ```
 
 Wenn wir das dann noch in etwas schöner machen wollen, und zum Beispiel 90° rotiert:
@@ -146,9 +152,11 @@ ggplot(data = qmsurvey, aes(x = NA, y = lernen)) +
   geom_boxplot(alpha = .5, width = .5) +
   coord_flip() +
   labs(title = "Lernen") +
-  theme(axis.ticks.y = element_blank(),
-        axis.title.y = element_blank(),
-        axis.text.y = element_blank())
+  theme(
+    axis.ticks.y = element_blank(),
+    axis.title.y = element_blank(),
+    axis.text.y = element_blank()
+  )
 ```
 
 Der Teil im `theme` ist dazu da, die Labels auf der y-Achse zu verstecken, damit wir das `NA` aus unserem kleinen Trick da rauskriegen.  
@@ -269,14 +277,18 @@ Mehr als 3 Variablen auf einem Scatterplot zu verbauen würde ich auch nicht emp
 Ein Maximalbeispiel sensorischer Überforderung:
 
 ```{r dont_do_this}
-ggplot(data = qmsurvey, aes(x = lernen, y = arbeit, 
-                            color = gender, fill = rauchen, 
-                            alpha = zufrieden, size = alter)) +
+ggplot(data = qmsurvey, aes(
+  x = lernen, y = arbeit,
+  color = gender, fill = rauchen,
+  alpha = zufrieden, size = alter
+)) +
   geom_point(shape = 21, stroke = 2) +
   scale_color_brewer(palette = "Set1") +
   scale_fill_brewer(palette = "Dark2") +
-  theme(legend.position = "bottom",
-        legend.box = "vertical")
+  theme(
+    legend.position = "bottom",
+    legend.box = "vertical"
+  )
 ```
 
 Das ist albern. Was wir hier haben:
@@ -299,9 +311,9 @@ library(dplyr)
 library(ggplot2)
 
 seq(from = -10, to = 10, by = 0.05) %>%
-expand.grid(x = ., y = .) %>%
-ggplot(aes(x = (x + pi * sin(y)), y = (y + pi * sin(x)))) +
-  geom_point(alpha = .1, shape = 20, size = 1, color = "black") + 
+  expand.grid(x = ., y = .) %>%
+  ggplot(aes(x = (x + pi * sin(y)), y = (y + pi * sin(x)))) +
+  geom_point(alpha = .1, shape = 20, size = 1, color = "black") +
   coord_equal() +
   theme_void()
 ```
@@ -315,9 +327,11 @@ Okay, wir wollen also die Balken bunt machen. Es gibt zwei Möglichkeiten: Die `
 ```{r colorfill_1}
 ggplot(data = gotdeaths, aes(x = death_season)) +
   geom_bar(color = "red") +
-  labs(title = "Game of Thrones: Deaths",
-       subtitle = "Deaths per Season",
-       x = "Season", y = "# of Deaths")
+  labs(
+    title = "Game of Thrones: Deaths",
+    subtitle = "Deaths per Season",
+    x = "Season", y = "# of Deaths"
+  )
 ```
 
 Jetzt haben wir rote Umrandungen. Nicht sehr beeindruckend.
@@ -325,9 +339,11 @@ Jetzt haben wir rote Umrandungen. Nicht sehr beeindruckend.
 ```{r colorfill_2}
 ggplot(data = gotdeaths, aes(x = death_season)) +
   geom_bar(fill = "red") +
-  labs(title = "Game of Thrones: Deaths",
-       subtitle = "Deaths per Season",
-       x = "Season", y = "# of Deaths")
+  labs(
+    title = "Game of Thrones: Deaths",
+    subtitle = "Deaths per Season",
+    x = "Season", y = "# of Deaths"
+  )
 ```
 
 Ein bisschen grell, aber immerhin rot.
@@ -335,9 +351,11 @@ Ein bisschen grell, aber immerhin rot.
 ```{r colorfill_3}
 ggplot(data = gotdeaths, aes(x = death_season)) +
   geom_bar(fill = "darkred", color = "black") +
-  labs(title = "Game of Thrones: Deaths",
-       subtitle = "Deaths per Season",
-       x = "Season", y = "# of Deaths")
+  labs(
+    title = "Game of Thrones: Deaths",
+    subtitle = "Deaths per Season",
+    x = "Season", y = "# of Deaths"
+  )
 ```
 
 Okay, vielleicht ein bisschen Transparenz noch?
@@ -345,9 +363,11 @@ Okay, vielleicht ein bisschen Transparenz noch?
 ```{r colorfill_4}
 ggplot(data = gotdeaths, aes(x = death_season)) +
   geom_bar(fill = "darkred", color = "black", alpha = 0.75) +
-  labs(title = "Game of Thrones: Deaths",
-       subtitle = "Deaths per Season",
-       x = "Season", y = "# of Deaths")
+  labs(
+    title = "Game of Thrones: Deaths",
+    subtitle = "Deaths per Season",
+    x = "Season", y = "# of Deaths"
+  )
 ```
 
 `alpha` gibt die Durchsichtigkeit des Elements an, von `0` (unsichtbar) bis `1` (keine Transparenz).  
@@ -449,9 +469,11 @@ Es gibt viele schöne themes, aber der allgemeine Ratschlag bleibt: Simpel ist b
 ```{r themes-1}
 plot <- ggplot(data = gotdeaths, aes(x = death_season)) +
   geom_bar() +
-  labs(title = "Game of Thrones: Deaths",
-       subtitle = "Deaths per Season",
-       x = "Season", y = "# of Deaths")
+  labs(
+    title = "Game of Thrones: Deaths",
+    subtitle = "Deaths per Season",
+    x = "Season", y = "# of Deaths"
+  )
 ```
 
 

@@ -238,10 +238,10 @@ Besser. Als nächstes wollen wir unsere Variablen labeln, zum Beispiel soll `ges
 
 ```{r ngo_recode}
 # Falls NA noch nicht korrekt kodiert:
-ngo$hausauf  <- ifelse(ngo$hausauf  == 0, NA, ngo$hausauf)
+ngo$hausauf <- ifelse(ngo$hausauf == 0, NA, ngo$hausauf)
 ngo$abschalt <- ifelse(ngo$abschalt == 0, NA, ngo$abschalt)
 
-ngo$geschl   <- factor(ngo$geschl,   labels = c("Männlich", "Weiblich"))
+ngo$geschl <- factor(ngo$geschl, labels = c("Männlich", "Weiblich"))
 ngo$jahrgang <- factor(ngo$jahrgang, labels = c("11", "12", "13"), ordered = TRUE)
 ngo$abschalt <- factor(ngo$abschalt, labels = c("Ja", "Nein"))
 
@@ -256,11 +256,14 @@ Als nächstes können wir noch *value labels* setzen, die dann in `sjPlot`-Plots
 
 ```{r ngo_label_sj}
 library(sjlabelled)
-ngo$hausauf  <- set_labels(ngo$hausauf,
-                           labels = c("gar nicht", "weniger als halbe Stunde",
-                                      "halbe Stunde bis Stunde", "1 bis 2 Stunden",
-                                      "2 bis 3 Stunden", "3 bis 4 Stunden",
-                                      "mehr als 4 Stunden"))
+ngo$hausauf <- set_labels(ngo$hausauf,
+  labels = c(
+    "gar nicht", "weniger als halbe Stunde",
+    "halbe Stunde bis Stunde", "1 bis 2 Stunden",
+    "2 bis 3 Stunden", "3 bis 4 Stunden",
+    "mehr als 4 Stunden"
+  )
+)
 
 ngo$hausauf
 ```
@@ -268,10 +271,10 @@ ngo$hausauf
 Als letztes können wir noch ein paar Variablen-Labels verteilen:
 
 ```{r ngo_var_labs}
-ngo$geschl   <- set_label(ngo$geschl,   "Geschlecht")
+ngo$geschl <- set_label(ngo$geschl, "Geschlecht")
 ngo$abschalt <- set_label(ngo$abschalt, "Abschalten")
 ngo$jahrgang <- set_label(ngo$jahrgang, "Jahrgang")
-ngo$hausauf  <- set_label(ngo$hausauf,  "Hausaufgaben")
+ngo$hausauf <- set_label(ngo$hausauf, "Hausaufgaben")
 ```
 
 ...Wir könnten noch mehr Labels verteilen, aber das sind so die Variablen, die am ehesten in Kontingenztabellen auftauchen, von daher reicht mir das so.  

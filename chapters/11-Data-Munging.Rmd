@@ -55,16 +55,19 @@ Mit der pipe sähe das dann so aus:
 ```{r pipe_3}
 library(magrittr)
 
-x^2 %>% sum() %>% sqrt() %>% round(2)
+x^2 %>%
+  sum() %>%
+  sqrt() %>%
+  round(2)
 ```
 
 
 Das sieht jetzt erstmal noch nicht so besonders nach Verbesserung aus, aber achtet darauf, wie wir den Prozess jetzt ganz einfach von links nach rechts lesen können, oder mit mehrzeiliger Formatierung:
 
 ```{r pipe_4}
-x^2 %>% 
-  sum() %>% 
-  sqrt() %>% 
+x^2 %>%
+  sum() %>%
+  sqrt() %>%
   round(2)
 ```
 
@@ -78,11 +81,11 @@ library(dplyr)
 library(stringr)
 
 happiness <- read_html("https://en.wikipedia.org/wiki/World_Happiness_Report") %>%
-               html_table(fill = TRUE, trim = TRUE) %>%
-               extract2(1) %>%
-               select(Country, Score) %>%
-               mutate(Country = str_trim(Country, "both")) %>%
-               set_colnames(c("country", "happiness_score"))
+  html_table(fill = TRUE, trim = TRUE) %>%
+  extract2(1) %>%
+  select(Country, Score) %>%
+  mutate(Country = str_trim(Country, "both")) %>%
+  set_colnames(c("country", "happiness_score"))
 ```
 
 Was da passiert ist etwas Folgendes:
@@ -148,10 +151,12 @@ Zum glück gibt's da was von `dplyr`:
 library(dplyr)
 
 gotdeaths_books <- gotdeaths_books %>%
-                      rename(Death_Year    = 'Death Year',
-                             Death_Chapter = 'Death Chapter',
-                             Death_Book    = 'Book of Death',
-                             Book_Intro    = 'Book Intro Chapter')
+  rename(
+    Death_Year = "Death Year",
+    Death_Chapter = "Death Chapter",
+    Death_Book = "Book of Death",
+    Book_Intro = "Book Intro Chapter"
+  )
 ```
 
 So müssen wir nur die Variablen angeben, die wir umbenennen wollen. Der neue Variablennamen steht links in `rename`, dann rechts der Name der aktuellen Variable, in diesem Fall in `' '` wegen der Leerzeichen.  
@@ -163,8 +168,10 @@ Als nächsten wollen wir die Variablen `Gender` und `Nobility` rekodieren, damit
 
 ```{r}
 gotdeaths_books <- gotdeaths_books %>%
-  mutate(Gender   = factor(Gender, levels = c(0, 1), labels = c("Female", "Male")),
-         Nobility = factor(Nobility, levels = c(0, 1), labels = c("No", "Yes")))
+  mutate(
+    Gender = factor(Gender, levels = c(0, 1), labels = c("Female", "Male")),
+    Nobility = factor(Nobility, levels = c(0, 1), labels = c("No", "Yes"))
+  )
 ```
 
 Die Funktion `mutate` funktioniert nach dem gleichen Schema wie `rename`: Links steht der Namen der Spalte die wir erstellen (in diesem Fall überschreiben) wollen, und rechts neben dem `=` steht ein Ausdruck, der eine Variable mit gleicher Anzahl an Elementen zurückgibt. In diesem Fall ist die Funktion `factor`, angewandt auf die jeweils zu rekodierende Variable.  
@@ -218,7 +225,7 @@ Die erste ist aus `car`:
 
 ```{r}
 library(dplyr) # Für mutate und %>%
-library(car)   # Für recode
+library(car) # Für recode
 
 qmsurvey <- qmsurvey %>%
   mutate(schlaf_k = recode(schlafstunden, "lo:7 = 1; 7.5:9 = 2; 9:hi = 3"))
@@ -265,23 +272,27 @@ Und ja, es gibt noch viele andere Möglichkeiten, aber irgendwann ist auch mal g
 
 ```{r}
 qmsurvey %>%
-  summarize(m_alter = mean(alter),
-            sd_alter = sd(alter),
-            median_alter = median(alter))
+  summarize(
+    m_alter = mean(alter),
+    sd_alter = sd(alter),
+    median_alter = median(alter)
+  )
 
 qmsurvey %>%
   group_by(rauchen) %>%
-  summarize(m_alter = mean(alter),
-            sd_alter = sd(alter),
-            median_alter = median(alter))
+  summarize(
+    m_alter = mean(alter),
+    sd_alter = sd(alter),
+    median_alter = median(alter)
+  )
 ```
 
 ## Der `dplyr`-Workflow
 
 ```{r}
-gotdeaths_books %>% 
-  filter(!is.na(Death_Year)) %>% 
-  group_by(Allegiances) %>% 
+gotdeaths_books %>%
+  filter(!is.na(Death_Year)) %>%
+  group_by(Allegiances) %>%
   tally() %>%
   arrange(n)
 ```
@@ -289,9 +300,9 @@ gotdeaths_books %>%
 Als plot:
 
 ```{r, eval = FALSE}
-gotdeaths_books %>% 
-  filter(!is.na(Death_Year)) %>% 
-  group_by(Allegiances) %>% 
+gotdeaths_books %>%
+  filter(!is.na(Death_Year)) %>%
+  group_by(Allegiances) %>%
   tally() %>%
   ggplot(aes(x = reorder(Allegiances, n), y = n)) +
   geom_col() +
@@ -342,9 +353,11 @@ gotdeaths_books %>%
   summarize(Appearances = sum(Appearance)) %>%
   ggplot(aes(x = reorder(Book, Appearances), y = Appearances)) +
   geom_col(color = "black", alpha = .75) +
-  labs(title = "A Song of Ice and Fire",
-       subtitle = "Character Appearances per Book",
-       x = "Book", y = "Character Appearances")
+  labs(
+    title = "A Song of Ice and Fire",
+    subtitle = "Character Appearances per Book",
+    x = "Book", y = "Character Appearances"
+  )
 ```
 
 
@@ -364,9 +377,13 @@ gotdeaths_books %>%
   summarize(Appearances = sum(Appearance)) %>%
   ggplot(aes(x = Appearances)) +
   geom_bar(alpha = .75, color = "black") +
-  scale_y_continuous(breaks = seq(0, 1000, 100),
-                     minor_breaks = seq(0, 1000, 50)) +
-  labs(title = "A Song of Ice and Fire",
-       subtitle = "Number of Books Characters Appear in",
-       x = "Number of Books", y = "Abs. Frequency")
+  scale_y_continuous(
+    breaks = seq(0, 1000, 100),
+    minor_breaks = seq(0, 1000, 50)
+  ) +
+  labs(
+    title = "A Song of Ice and Fire",
+    subtitle = "Number of Books Characters Appear in",
+    x = "Number of Books", y = "Abs. Frequency"
+  )
 ```

@@ -79,7 +79,8 @@ Zu einem sauberen $\chi^2$-Test gehört auch immer eine saubere Kontingenztabell
 library(sjPlot)
 
 sjt.xtab(qmsurvey$ons, qmsurvey$behandlung,
-         show.exp = TRUE, show.legend = TRUE, show.cell.prc = TRUE)
+  show.exp = TRUE, show.legend = TRUE, show.cell.prc = TRUE
+)
 ```
 
 Den $\chi^2$-Test finden wir dann in *base R*, no packages required:

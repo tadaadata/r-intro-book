@@ -294,7 +294,7 @@ Und dann ist da noch die Sache mit `NaN`.
 `NaN` steht für *not a number* und passiert dann, wenn ihr irgendwas mathematisch fragwürdiges macht, wie zum Beispiel 0 durch 0 teilen:
 
 ```{r}
-0/0
+0 / 0
 ```
 
 Das ist mathematisch nicht definiert, und wieso das so ist und mehr dazu findet ihr zum Beispiel bei [Numberphile](https://www.youtube.com/watch?v=BRRolKTlF6Q) gut erklärt.  
@@ -315,7 +315,6 @@ head(sleep, n = 2)
 
 # Struktur des Datensatzes
 str(sleep)
-
 ```
 
 Das Output von `str` sagt euch alles, was ihr braucht:

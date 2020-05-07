@@ -171,7 +171,7 @@ wie R-Code behandelt und ausgeführt, das heißt das Datum des Dokuments wird in
 automatisch auf `format(Sys.time(), '%F %H:%M')` gesetzt, was folgendes ergibt:
 
 ```{r}
-format(Sys.time(), '%F %H:%M')
+format(Sys.time(), "%F %H:%M")
 ```
 
 *Boom*, Dokument zeigt immer automatisch an, wann es zuletzt generiert (*rendered*, bzw. *knitted*) wurde.  

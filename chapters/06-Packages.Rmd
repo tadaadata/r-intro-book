@@ -151,8 +151,9 @@ Für Kreuztabellen, wie wir sie relativ häufig in QM1 brauchen für unsere nomi
 sjt.xtab(qmsurvey$ernaehrung, qmsurvey$gender)
 
 sjt.xtab(qmsurvey$ernaehrung, qmsurvey$gender,
-         title = "Kontigenztabelle",
-         show.cell.prc = TRUE, show.exp = TRUE, show.legend = TRUE)
+  title = "Kontigenztabelle",
+  show.cell.prc = TRUE, show.exp = TRUE, show.legend = TRUE
+)
 ```
 
 Oder einfache Häufigkeitstabellen:
@@ -175,8 +176,10 @@ tab_model(model, show.std = TRUE)
 Klassiker: Histogramm mit Normalverteilungskurve:
 
 ```{r sjplot_plots_1}
-plot_frq(qmsurvey$alter, type = "histogram", 
-        show.mean = TRUE, normal.curve = TRUE)
+plot_frq(qmsurvey$alter,
+  type = "histogram",
+  show.mean = TRUE, normal.curve = TRUE
+)
 ```
 
 ### sjmisc

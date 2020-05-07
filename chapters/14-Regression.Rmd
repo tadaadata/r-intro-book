@@ -29,8 +29,10 @@ ggplot(data = gotdeaths_perseason, aes(x = death_season, y = deaths)) +
   geom_point(size = 3) +
   geom_smooth(method = lm, se = FALSE, color = "red") +
   scale_x_continuous(breaks = 1:6) +
-  labs(title = "Game of Thrones", subtitle = "Deaths per Season",
-       x = "Season", y = "Deaths")
+  labs(
+    title = "Game of Thrones", subtitle = "Deaths per Season",
+    x = "Season", y = "Deaths"
+  )
 ```
 
 In diesem einfachen Scatterplot haben wir auch gleich eine *Regressionsgerade* via `geom_smooth(method = lm)`,
