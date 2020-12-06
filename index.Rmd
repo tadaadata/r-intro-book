@@ -96,6 +96,15 @@ gotdeaths       <- read_csv("data/got_deaths.csv", col_types = cols())
 participation   <- read_rds("data/participation.rds")
 gotdeaths_books <- read_csv("data/got_character-deaths.csv", col_types = cols())
 ```
+## Der aktuelle (12/2020) "mach, dass es funktioniert"-Code, da einige Dateinamen geändert wurden:
+
+```r
+library(readr)
+qmsurvey        <- read_rds("data/qm_survey_ss2018.rds")
+gotdeaths       <- read_csv("data/gotdeaths.csv", col_types = cols())
+participation   <- read_rds("data/participation.rds")
+gotdeaths_books <- read_csv("data/gotdeaths_books.csv", col_types = cols())
+```
 
 ...unter der Annahme, dass ihr die Datensätze in einem `data` Unterordner eures aktuellen Projekts abgelegt habt.
 
