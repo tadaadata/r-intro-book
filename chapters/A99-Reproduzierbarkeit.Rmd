@@ -4,8 +4,6 @@ Hier die *Session Info* zum Zeitpunkt des Renderns.
 
 ## Pandoc 
 
-Für HTML/epub output.
-
 ```{r}
 rmarkdown::pandoc_version()
 ```
