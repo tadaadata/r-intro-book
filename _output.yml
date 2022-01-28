@@ -20,28 +20,9 @@ bookdown::gitbook:
         <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
         <li><a href="https://www.rstudio.com/products/rstudio/" target="blank">Written in RStudio</a></li>
     edit: https://github.com/tadaadata/r-intro-book/edit/master/%s
-    download:
-      - ["r-intro.pdf", "PDF"]
-      - ["r-intro.epub", "ebook (.epub)"]
     scroll_highlight: yes
     search: yes
     language: de
     sharing:
       facebook: yes
       github: yes
-bookdown::epub_book:
-  dev: png
-  stylesheet: includes/css/style.css
-  toc: true
-  toc_depth: 2
-  metadata: includes/epub_metadata.xml
-  md_extension: "+emoji"
-bookdown::pdf_book:
-  includes:
-    before_body: includes/latex/before_body.tex
-    in_header: includes/latex/preamble.tex
-  latex_engine: xelatex
-  citation_package: natbib
-  keep_tex: true # false
-  dev: "cairo_pdf"
-  toc_appendix: yes

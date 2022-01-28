@@ -9,8 +9,7 @@ editor_options:
 knitr::opts_knit$set(unnamed.chunk.label = "stat_tests_")
 knitr::opts_chunk$set(error = FALSE, warning = FALSE, message = FALSE)
 library(car)
-library(tadaatoolbox)
-library(sjPlot)
+
 ```
 
 Hier kümmern wir uns um die meisten gängigen statistischen Tests aus QM2.  
@@ -32,7 +31,6 @@ Ja. Wenn ihr aus diesem Kapitel eins mitnehmt: Benutzt nicht den Kolmogorov-Smir
 Wenn es um Teststärke geht hat der **Shapiro-Wilk**-Test die Nase vorn, der sollte also so der Standardtest sein, den ihr erstmal probiert. R hat den auch von Haus aus dabei:
 
 ```{r shapiro}
-shapiro.test(qmsurvey$partnerinnen)
 ```
 
 Solltet ihr mal andere Tests brauchen, hat das package `nortest` noch einige andere gängige:
@@ -56,7 +54,7 @@ ks.test(scale(qmsurvey$partnerinnen), y = pnorm)
 
 Der gängigste Test auf *Varianzhomogenität* (oder auch *Homoskedastizität* bzw. analog *Heteroskedastizität* für *Varianzheterogenität*[^sked]) ist der **Levene Test**, den wir aus dem `car` package holen:
 
-```{r levene_1, message=FALSE, warning=FALSE}
+```{r levene_1, eval=FALSE}
 library(car)
 
 leveneTest(partnerinnen ~ ons, data = qmsurvey)
@@ -65,11 +63,7 @@ leveneTest(partnerinnen ~ ons, data = qmsurvey)
 Hier haben wir auf *Varianzheterogenität* getestet in den Gruppen, die durch `ons` (`"Hattest du schon einmal einen One-Night-Stand?"`) entstehen (`Ja` und `Nein`), mit dem abhängigen Merkmal `partnerinnen` (`"Wie viele Sexualpartner*innen hast du bisher gehabt?"`).  
 Beachtet die Tilde (`~`) in der Funktion. Das ist eine von diesen *formulas*, die in R-Modelldefinitionen gerne auftauchen. Erstmal nicht weiter beachten, nur merken: Links steht die abhängige (intervallskalierte) Variable, und rechts steht die *Gruppierungsvariable*, in der Regel nominalskaliert.
 
-```{r levene_2}
-library(tadaatoolbox)
 
-tadaa_levene(qmsurvey, partnerinnen ~ ons, print = "markdown")
-```
 
 ## $\chi^2$
 
@@ -85,7 +79,7 @@ sjt.xtab(qmsurvey$ons, qmsurvey$behandlung,
 
 Den $\chi^2$-Test finden wir dann in *base R*, no packages required:
 
-```{r chisq_base_r, message=FALSE, warning=FALSE}
+```{r chisq_base_r, eval=FALSE}
 chisq.test(qmsurvey$ons, qmsurvey$behandlung)
 ```
 
@@ -95,11 +89,7 @@ chisq.test(qmsurvey$ons, qmsurvey$behandlung)
 
 Einstichprobentests sind… sagen wir mal, _unüblich_.  
 Solltet ihr doch mal in die Verlegenheit kommen einen **z-Test** mit bekannter Streuung durchführen zu müssen, so seid ihr vermutlich aus Versehen in der Epidemiologie gelandet.  
-In R gibt's dafür jedenfalls von Haus aus keine Funktion (von der ich weiß), deswegen haben wir den Anwendungsfall auch in der `tadaatoolbox` abgedeckt:
 
-```{r z-Test}
-tadaa_one_sample(qmsurvey, x = alter, mu = 20, sigma = 3, print = "markdown")
-```
 
 Hier testen wir die Variable `alter` auf die Mitte $\mu = 20$ mit einer angenommenen Streuung von $\sigma = 3$.  
 Ist das sinnvoll?  
@@ -107,18 +97,14 @@ Keine Ahnung, es ist ein Beispiel.
 
 Eine etwas gängigere Version ist ein Einstichproben-t-Test.  
 Wieso auch nicht.  
-
-```{r t-test_onesample}
-tadaa_one_sample(qmsurvey, x = alter, mu = 20, print = "markdown")
-```
-
+v
 Wir hätten den t-Test auch mit der R-eigenen `t.test`-Funktion machen können, die gucken wir uns als nächstes an.
 
 ### Zwei Stichproben
 
 R bringt die t-Test-Funktion von Haus aus mit, die ist zwar nicht besonders schön, aber sie macht alles wichtige:
 
-```{r t-test_twosample}
+```{r t-test_twosample, eval=FALSE}
 t.test(partnerinnen ~ ons, data = qmsurvey)
 ```
 
@@ -131,11 +117,6 @@ t.test(partnerinnen ~ ons, data = qmsurvey)
 Beachtet bei der Funktion die Verwendung der Tilde: `~`, die zur *Modelldefinition* verwendet wird.  
 In diesem Fall haben wir ein intervallskaliertes Merkmal (links von der Tilde), und das unabhängige nominalskalierte Merkmal (rechts von der Tilde). Die Tilde raucht in der [Regression] und [ANOVA](#ANOVA) nochmal auf, da gehen wir stärker auf Modelldefinition ein.
 
-Alternativ haben wir da was in der toolbox:
-
-```{r t-test_twosample_tadaa}
-tadaa_t.test(qmsurvey, response = partnerinnen, group = ons, paired = FALSE, print = "markdown")
-```
 
 ## Nichtparametrische Alternative
 
@@ -145,7 +126,7 @@ Sollte euch mal ein Skalenniveau verloren gehen oder eure Annahmen kaputtgegange
 
 Die nichtparametrischen Alternativen zu abhängigen und unabhängigen t-Tests sind von Haus aus dabei mit der Funktion `wilcox.test`:
 
-```{r wilcox_test}
+```{r wilcox_test, eval=FALSE}
 wilcox.test(partnerinnen ~ ons, data = qmsurvey, paired = FALSE)
 ```
 
@@ -155,27 +136,14 @@ Wollt ihr einen Wilcoxon-Vorzeichentest? Dann tauscht `paired = FALSE` durch `pa
 Kabläm.  
 Die restlichen Argumente sind mehr oder weniger analog zu `t.test` und können der Hilfe unter `?wilcox.test` entnommen werden.  
 
-Wenn ihr auch hier die *Tadaa!*-Variante wollt:
-
-```{r wilcox_tadaa}
-library(tadaatoolbox)
-
-tadaa_wilcoxon(qmsurvey, response = partnerinnen, group = ons, paired = FALSE, print = "markdown")
-```
 
 ### Kruskal-Wallis
 
 Falls euch die ANOVA zu parametrisch ist, ist der Kruskall-Wallis praktisch wie für euch gemacht.  
 Ich meine, es ist ja nicht so als ob ein sauberes Regressionsmodell nicht auch meistens ausreichen würde, aber naja, hier so:
 
-```{r kruskal}
+```{r kruskal, eval=FALSE}
 kruskal.test(partnerinnen ~ rauchen, data = qmsurvey)
-```
-
-…und ja, natürlich gibt es eine Alternative in der toolbox:
-
-```{r kruskal_tadaa}
-tadaa_kruskal(partnerinnen ~ rauchen, data = qmsurvey, print = "markdown")
 ```
 
 

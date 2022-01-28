@@ -147,7 +147,7 @@ qmsurvey <- readRDS("data/qm_survey_ss2017.rds")
 
 Für Kreuztabellen, wie wir sie relativ häufig in QM1 brauchen für unsere nominal- und ordinalskalierten Statistiken:
 
-```{r sjplot_tables_1, eval = knitr::is_html_output()}
+```{r sjplot_tables_1}
 sjt.xtab(qmsurvey$ernaehrung, qmsurvey$gender)
 
 sjt.xtab(qmsurvey$ernaehrung, qmsurvey$gender,
@@ -158,13 +158,13 @@ sjt.xtab(qmsurvey$ernaehrung, qmsurvey$gender,
 
 Oder einfache Häufigkeitstabellen:
 
-```{r sjplot_tables_2, eval = knitr::is_html_output()}
+```{r sjplot_tables_2}
 frq(qmsurvey$ernaehrung, out = "viewer")
 ```
 
 Und für lineare Modelle, in deutlich schöner als `summary()`:
 
-```{r sjplot_tables_3, eval = knitr::is_html_output()}
+```{r sjplot_tables_3}
 model <- lm(zufrieden ~ alter * berufsvorstellung, data = qmsurvey)
 
 tab_model(model, show.std = TRUE)

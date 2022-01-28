@@ -12,7 +12,7 @@ rmd_subdir: "chapters"
 delete_merged_file: true # false # for debugging
 repo: https://github.com/tadaadata/r-intro-book/
 rmd_files:
-  - chapters/index.Rmd
+  - index.Rmd
   - chapters/01-Was-ist-R.Rmd
   - chapters/02-Installation.Rmd
   - chapters/03-Orientierung.Rmd

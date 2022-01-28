@@ -71,4 +71,3 @@ Siehe auch: [Blogs in `blogdown`](https://github.com/sellorm/awesome-blogdown)
 - [rdrr.io](https://rdrr.io/)
 - Package-specific
     - [tidyverse.org](https://www.tidyverse.org/)
-    - [Strenge Jacke / sjPlot](https://www.strengejacke.de/sjPlot/)

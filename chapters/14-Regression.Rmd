@@ -65,10 +65,6 @@ tidy(model) %>%
 
 Hier ist `tidy` dazu da, die Koeffizienten als einfachen `data.frame` auszuspucken, das sich besser zur Darstellung in einer Tabelle eignet. Hier fehlt uns jetzt aber beispielsweise das $R^2$, aber natürlich gibt's auch da was:
 
-```{r regression-pretty-tab, eval=FALSE}
-# library(sjPlot)
-tab_model(model)
-```
 
 Generell würde ich das Package `sjPlot` bzw. die Funktion `tab_model` zur Darstellung von Regressionsmodellen empfehlen: Die Funktion ist von Haus aus auf hübsches Output ausgelegt, und ist ausreichend modifizierbar um das Output so spartanisch oder umfassend wie gewünscht aussehen zu lassen.
 

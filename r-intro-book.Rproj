@@ -20,3 +20,5 @@ BuildType: Custom
 CustomScriptPath: build.R
 
 QuitChildProcessesOnExit: Yes
+
+SpellingDictionary: de_DE_neu

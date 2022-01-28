@@ -8,11 +8,9 @@ library(tidyr)
 # Dummy for renv to ensure ragg
 if (requireNamespace("ragg")) "yay"
 
-options(knitr.graphics.auto_pdf = TRUE)
-
 knitr::opts_chunk$set(
-  cache = TRUE,
-  # eval = FALSE,
+  cache = FALSE,
+  eval = FALSE,
   # error = FALSE,
   # warning = FALSE,
   # message = FALSE,
@@ -26,14 +24,10 @@ knitr::opts_chunk$set(
 )
 
 # Plotting ----
-hrbrthemes::import_roboto_condensed()
-extrafont::loadfonts()
 
 # Read data used throughout tutorial ----
-qmsurvey        <- read_rds("data/qm_survey_ss2017.rds")
-gotdeaths       <- read_csv("data/got_deaths.csv", col_types = cols())
-participation   <- read_rds("data/participation.rds")
-gotdeaths_books <- read_csv("data/got_character-deaths.csv", col_types = cols())
+gotdeaths       <- read_csv(here::here("data/got_deaths.csv"), col_types = cols())
+gotdeaths_books <- read_csv(here::here("data/got_character-deaths.csv"), col_types = cols())
 
 # Function to display latest commits ----
 

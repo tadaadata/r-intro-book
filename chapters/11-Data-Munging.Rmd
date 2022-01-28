@@ -12,12 +12,11 @@ library(dplyr)
 library(car)
 library(tidyr)
 library(ggplot2)
-library(sjmisc)
 ```
 
 # Data Munging
 
-Ah ja, die wunderbare Welt des *Data Munging* – dem Dammelbegriff für "*Zeug mit Daten machen damit wir da besser mit arbeiten können oder so*". Hierzu gehören so spaßige Themen wie "recoding", "reformatting", "restructuring", "labelling", "transforming", "reshaping" und viele andere lustige Begriffe die teilweise kongruent sind, und auch sonst ist das eher so ein Bereich á la *learning by doing*.  
+Ah ja, die wunderbare Welt des *Data Munging* – dem Sammelbegriff für "*Zeug mit Daten machen damit wir da besser mit arbeiten können oder so*". Hierzu gehören so spaßige Themen wie "recoding", "reformatting", "restructuring", "labelling", "transforming", "reshaping" und viele andere lustige Begriffe die teilweise kongruent sind, und auch sonst ist das eher so ein Bereich á la *learning by doing*.  
 
 Wie schon beim [Datenimport] erwähnt gibt es in der Regel kein Patentrezept zru Datenbereinigung, aber es *gibt* gängige Anwendungsfälle, und dementsprechend auch populäre Lösungswege für selbige Fälle.  
 In diesem Kapitel widmen wir uns also einigen dieser gängigen Aufgaben und probieren das Ganze anhand unserer Beispieldatensätze aus.
@@ -53,21 +52,17 @@ Das ist… möglich, aber auch das wird irgendwann unübersichtlich, und solange
 Mit der pipe sähe das dann so aus:
 
 ```{r pipe_3}
-library(magrittr)
 
-x^2 %>%
-  sum() %>%
-  sqrt() %>%
-  round(2)
+x^2 |> sum() |> sqrt() |> round(2)
 ```
 
 
 Das sieht jetzt erstmal noch nicht so besonders nach Verbesserung aus, aber achtet darauf, wie wir den Prozess jetzt ganz einfach von links nach rechts lesen können, oder mit mehrzeiliger Formatierung:
 
 ```{r pipe_4}
-x^2 %>%
-  sum() %>%
-  sqrt() %>%
+x^2 |>
+  sum() |>
+  sqrt() |>
   round(2)
 ```
 
@@ -80,12 +75,12 @@ library(rvest)
 library(dplyr)
 library(stringr)
 
-happiness <- read_html("https://en.wikipedia.org/wiki/World_Happiness_Report") %>%
-  html_table(fill = TRUE, trim = TRUE) %>%
-  extract2(1) %>%
-  select(Country, Score) %>%
-  mutate(Country = str_trim(Country, "both")) %>%
-  set_colnames(c("country", "happiness_score"))
+happiness <- read_html("https://en.wikipedia.org/wiki/World_Happiness_Report") |>
+  html_table(fill = TRUE, trim = TRUE) |>
+  extract2(1) |>
+  select(Country, Score) |>
+  mutate(Country = str_trim(Country, "both")) |>
+  setNames(c("country", "happiness_score"))
 ```
 
 Was da passiert ist etwas Folgendes:
