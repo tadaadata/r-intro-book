@@ -201,9 +201,11 @@ Was es mit `NA` auf sich hat, und was es noch so für Datentypen gibt, sehen wir
 
 Eine letzte Sache noch: Strings sind "dominanter" als Zahlen, das heißt, wir können zwar Zahlen verbinden zu `c(1, 2, 3)`, und Strings zu `c("A", "B", "C")`, aber wenn wir `c("A", 2, "C", 4)` schreiben, dann behandelt R einfach alle Elemente des Vektors (=> Das, was in `c(…)`) steht, als wären es `character`-Werte.  
 
-```{block2, vector-types, type='rmdimportant'}
+
+:::{.callout-note}
+Note that there are five types of callouts, including:
 Merke: Ein Vektor in R muss immer Elemente des gleichen Typs haben, Zahlen und Buchstaben zusammen werden zu Strings konvertiert!
-```
+:::
 
 
 ## Tabellen

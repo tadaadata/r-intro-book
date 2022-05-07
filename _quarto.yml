@@ -15,7 +15,6 @@ book:
         - chapters/03-orientierung.qmd
     - part: "Grundlagen"
       chapters:
-        - chapters/04-Erste-Schritte.qmd
         - chapters/04-erste-schritte.qmd
         - chapters/05-datentypen.qmd
         - chapters/06-packages.qmd
@@ -23,7 +22,7 @@ book:
         - chapters/08-datenimport.qmd
     - references.qmd
   appendices:
-    - chapters/A01-Ressourcen.qmd
+    - chapters/a01-ressourcen.qmd
 
 bibliography: references.bib
 
@@ -42,5 +41,5 @@ knitr:
     collapse: true
     comment: "#>"
 execute:
-  freeze: auto
+#  freeze: auto
   cache: true

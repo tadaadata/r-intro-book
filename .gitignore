@@ -1,9 +1,7 @@
 .vscode/vscode-R
 /.quarto/
-# bookdown output
-book
-_bookdown_files
-r-intro.tex
+/_freeze/
+*_cache
 
 # Created by https://www.gitignore.io/api/r,latex
 # Edit at https://www.gitignore.io/?templates=r,latex
