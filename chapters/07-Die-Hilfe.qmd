@@ -1,7 +1,7 @@
 # Die Hilfe
 
-Wir haben bereits Seiten wie [rdrr.io](https://rdrr.io/) und [rdocumentation.org](https://www.rdocumentation.org/) erwähnt, wo ihr euch Dokumentation anschauen könnt. Unter *Dokumentation* verbirgt sich übrigens nichts weltbewegendes, in der Regel geht es nur darum wie einzelne Funktionen zu benutzen sind.
-Diese Seiten sind im Wesentlichen aufgebohrte Versionen der Hilfe, die R von Haus aus mtibringt — allerdings mit bells & whistles in Form von schönerer Optik, erweiterter Suchfunktion, Verlinkungen etc.
+Wir haben bereits Seiten wie [rdrr.io](https://rdrr.io/) erwähnt, wo ihr euch Dokumentation anschauen könnt. Unter *Dokumentation* verbirgt sich übrigens nichts weltbewegendes, in der Regel geht es nur darum wie einzelne Funktionen zu benutzen sind.
+Diese Seiten sind im Wesentlichen aufgebohrte Versionen der Hilfe, die R von Haus aus mitbringt — allerdings mit bells & whistles in Form von schönerer Optik, erweiterter Suchfunktion, Verlinkungen etc.
 
 Diie Hilfe findet ihr auf der rechten Seite in RStudio, unter dem `"Help"`-Tab:
 

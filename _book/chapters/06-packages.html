@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de_DE" xml:lang="de_DE"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.368">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>R für Psychos - 8&nbsp; Packages</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script><script src="../site_libs/quarto-nav/headroom.min.js"></script><script src="../site_libs/clipboard/clipboard.min.js"></script><meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../site_libs/quarto-search/fuse.min.js"></script><script src="../site_libs/quarto-search/quarto-search.js"></script><link href="../chapters/07-die-hilfe.html" rel="next">
+<link href="../chapters/05-datentypen.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script><script src="../site_libs/quarto-html/popper.min.js"></script><script src="../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../site_libs/quarto-html/anchor.min.js"></script><link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link id="quarto-text-highlighting-styles" href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script><link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+</head>
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">
+<span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Packages</span>
+</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">R für Psychos</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Vorwort</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Vorbereitung</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/01-was-ist-r.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Was ist R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-installation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Installation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-orientierung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Orientierung</span></a>
+  </div>
+</li>
+    </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Grundlagen</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/04-erste-schritte.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Erste Schritte</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/04-erste-schritte.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Erste Schritte</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/05-datentypen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Datentypen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-packages.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Packages</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/07-die-hilfe.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Die Hilfe</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/08-datenimport.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Datenimport</span></a>
+  </div>
+</li>
+    </ul>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">Quellen</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Appendices</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show"></ul>
+</li>
+    </ul>
+</div>
+</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li>
+<a href="#installieren-laden-updaten" id="toc-installieren-laden-updaten" class="nav-link active" data-scroll-target="#installieren-laden-updaten"> <span class="header-section-number">8.1</span> Installieren, Laden, Updaten</a>
+  <ul class="collapse">
+<li><a href="#quellen" id="toc-quellen" class="nav-link" data-scroll-target="#quellen"> <span class="header-section-number">8.1.1</span> Quellen</a></li>
+  <li><a href="#maintenance" id="toc-maintenance" class="nav-link" data-scroll-target="#maintenance"> <span class="header-section-number">8.1.2</span> Maintenance</a></li>
+  </ul>
+</li>
+  <li><a href="#das-tidyverse" id="toc-das-tidyverse" class="nav-link" data-scroll-target="#das-tidyverse"> <span class="header-section-number">8.2</span> Das <code>tidyverse</code></a></li>
+  <li><a href="#die-tadaatoolbox" id="toc-die-tadaatoolbox" class="nav-link" data-scroll-target="#die-tadaatoolbox"> <span class="header-section-number">8.3</span> Die <code>tadaatoolbox</code></a></li>
+  <li><a href="#addendum-installier-mal-alles" id="toc-addendum-installier-mal-alles" class="nav-link" data-scroll-target="#addendum-installier-mal-alles"> <span class="header-section-number">8.4</span> Addendum: “Installier mal alles”</a></li>
+  </ul></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title d-none d-lg-block">
+<span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Packages</span>
+</h1>
+</div>
+
+
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header><p>Fast jede Software hat Erweiterungen irgendeiner Art. Manche haben <em>extensions</em>, andere <em>plug-ins</em>, wieder andere haben <em>add-ons</em>. Unterschiedliche Terminologie für dasselbe Prinzip: Mehr Features durch Erweiterungen anderer Leute.<br>
+Bei Programmiersprachen heißt sowas meistens <em>library</em> oder <em>package</em><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>R hat sowas natürlich auch, als populäre open-source Software. Hier heißt sowas <em>packages</em> und besteht aus Funktionen, die andere Leute für bestimmte Anwendungsfälle geschrieben haben, und durch ein Verteilungssystem verfügbar machen, sodass wir alle sie benutzen können.<br>
+Der <em>Kern</em> von R wird auch <strong>base</strong> genannt und umfasst die wichtigstens Grundfunktionen — mit denen kommen wir auch schon relativ weit, wir können zum Beispiel problemlos diverse Statistiken berechnen und sogar Visualisierungen machen, aber wir wollen natürlich mehr, einfacher, schneller und besser.</p>
+<section id="installieren-laden-updaten" class="level2" data-number="8.1"><h2 data-number="8.1" class="anchored" data-anchor-id="installieren-laden-updaten">
+<span class="header-section-number">8.1</span> Installieren, Laden, Updaten</h2>
+<p>Packages ladet ihr aus dem Internet runter, woraufhin sie ggf. kompiliert und in eure R-library eingepflegt werden müssen.<br>
+Das klingt kompliziert, und deshalb passiert das auch alles automatisch!<br>
+N Wir installieren ein package mit einem einfachen Befehl in der Konsole:</p>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"ggplot2"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Windows-BenutzerInnen: Wenn ihr Antivirus-Software benutzt (Norton, Kaspersky, whatever) <strong>kann es sein</strong> dass diese euch beim installieren stört. Ihr bekommt dann wenig aussagekräftige Fehler. <strong>Schaltet eure Antivirus-Software aus</strong> wenn ihr Probleme bei der Installation habt.</p>
+</div>
+</div>
+<p>Achtet darauf, dass ihr <strong>Groß- und Kleinschreibung beachtet</strong> habt, und dass der Name des packages in <code>" "</code> steht (wie ein <code>character</code>).<br>
+Wenn ihr Enter gedrückt habt sollte R anfangen loszurödeln, vielelicht gehen auch einige Fenster mit Fortschrittsbalken auf, wenn ihr Windows benutzt.<br>
+Das schöne an diesem Befehl ist, dass es auch direkt alle packages installiert, die wir in unserem package benutzen: Sogenannte <em>dependencies</em>. Eine dependency (<em>Abhängigkeit</em>) ist in diesem Kontext ein package, das von einem anderen package gebraucht wird um zu funktionieren. Wir benutzen im package <code>tadaatoolbox</code> zum Beispiel auch die packages <code>dplyr</code>, <code>pixiedust</code> und <code>sjlabelled</code>, deswegen sollte der Befehl diese packages auch gleich mitinstallieren.</p>
+<p>Alternativ könnt ihr rechts in RStudio im “Packages”-Tab den “Install”-Button drücken, den namen des packages (<code>tadaatoolbox</code>) eingeben, und dann macht RStudio im Hintergrund genau dasselbe Spielchen mit <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages()</a></code>.</p>
+<p>In diesem Fenster ist auch von <em>Repositories</em> die Rede. Damit ist der Web-Adresse gemeint, von der die packages geladen werden sollen. RStudio sollte da automatisch die schnellste Quelle auswählen, aber wenn ihr mal in die Verlegenheit kommt euch entscheiden zu müssen, versucht am besten folgende Adresse:</p>
+<pre><code>https://cloud.r-project.org</code></pre>
+<p>Und da packages auch nur Software sind, und Software auf dem aktuellen Stand gehalten werden will, bietet es sich an sporadisch (spätestens alle paar Monate) mal den Update-Button zu drücken und einfach alles zu aktualisieren, was aktualisiert werden kann.<br>
+Das könnt ihr auch aus der Konsole heraus machen indem ihr den Befehl <code>update.packages(ask = FALSE)</code> ausführt. R fragt euch dann, ob ihr sicherheitshalber R neustarten wollt, das könnt ihr tun oder auch nicht, aber wenn ihr es <em>nicht</em> tut, dann solltet ihr <em>auf jeden Fall</em> die R-Session neu starten nachdem ihr alle Updates gemacht habt (<code>RStudio -&gt; Session -&gt; Restart R</code>).</p>
+<p>Wieso? Nun ja, packages werden von R <em>geladen</em>, das heißt verfügbar gemacht, und wenn ihr ein package ersetzt (was beim Update passiert), dann zieht ihr damit R praktisch den Boden unter den Füßen weg und es ist sauer weil Dinge anders sind, als sie eben noch waren.</p>
+<p>Dieses “verfügbar machen” sieht übrigens so aus:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Wenn ihr diesen Befehl ausgeführt hat, dann läd R für die aktuelle Session das package und ihr könnt die Funktionen darin benutzen.<br>
+Normalerweise beginnen eure R-Scripte mit einer Reihe von <code><a href="https://rdrr.io/r/base/library.html">library()</a></code>-Befehlen um eure Analyse vorzubereiten und alle benötigten packages zu laden, da ihr diesen Schritt jedes mal wiederholen müsst, wenn ihr eine neue R-Session starten (z.B. beim Neustart von RStudio, Computerneustart etc.).<br>
+Außerdem gebt ihr so euren KommilitonInnen eine gute Gelegenheit abzuschätzen, was in eurem Script so passiert, wenn sie direkt erkennen können, welche packages ihr dafür benutzt habt.</p>
+<p>Es gibt <em>tausende</em> R-packages, und die meisten davon sind für euch vollkommen uninteressant, aber einige wiederum sind so dermaßen praktisch, dass wir sie uns hier im Detail anschauen.</p>
+<section id="quellen" class="level3" data-number="8.1.1"><h3 data-number="8.1.1" class="anchored" data-anchor-id="quellen">
+<span class="header-section-number">8.1.1</span> Quellen</h3>
+<p>Die wichtigste Quelle für R-packages ist das erwähnte <em>CRAN</em>, kurz für <em>“<strong>C</strong>omprehensive <strong>R</strong> <strong>A</strong>rchive <strong>N</strong>etwork”</em>. Packages müssen diverse Anforderungen erfüllen, um auf CRAN publiziert zu werden, was eine gewisse Hürde darstellt. Deswegen gibt es diverse packages, die gerade in frühen, potenziell noch nicht ausgereiften Versionen an anderen Stellen verfügbar gemacht werden.<br>
+Die wohl populärster dieser Sekundärquellen ist <a href="https://github.com"><strong>GitHub</strong></a>.</p>
+<p>Optional könnt ihr packages auch direkt von <em>GitHub</em> installieren, was insbesondere dann interessant ist, wenn das package noch jung und experimentell ist.<br>
+In euren normalen Projekten solltet ihr euch nicht auf GitHub-packages verlassen, sondern nach Möglichkeit ausschließlich packages von CRAN benutzen, aber wenn euch nach Abenteuer ist, dann fühlt euch frei:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Wir brauchen das devtools package</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span>
+
+<span class="co"># remotes package laden</span>
+<span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://remotes.r-lib.org">remotes</a></span><span class="op">)</span>
+
+<span class="co"># install_github ist eine Funktion aus dem remotes package</span>
+<span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"tadaadata/tadaatoolbox"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section><section id="maintenance" class="level3" data-number="8.1.2"><h3 data-number="8.1.2" class="anchored" data-anchor-id="maintenance">
+<span class="header-section-number">8.1.2</span> Maintenance</h3>
+<p>Packages installieren ist einfach, aber wie jede Software wollen auch R-packages auf dem neusten Stand gehalten werden. Oder zumindest auf einem “nicht total veraltet”-Stand.<br>
+Updaten ist ziemlich einfach:<br>
+Entweder ihr klickt im “Packages”-Tab von RStudio auf den “Update”-Button, wählt alle Packages aus und installiert die Updates so, oder ihr gebt in der Konsole folgendes ein:</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/update.packages.html">update.packages</a></span><span class="op">(</span>ask <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>…dann rödelt R die Updates durch. RStudio wird euch an dieser Stelle fragen, ob ihr die R-Session vorher neustarten wollt – das könnt ihr tun, aber er könnt damit auch warten bis ihr alle Updates installiert habt anstatt für jedes einzelne Update die Session neuzustarten.<br>
+Wichtig ist auf jeden Fall, dass ihr die R-Session neustartet bevor ihr weiter arbeitet.</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Wenn ein package geladen (<code><a href="https://rdrr.io/r/base/library.html">library()</a></code>) ist während ihr Updates durchführt, <strong>muss</strong> die R-Session danach neugestartet werden! Wenn ein package aktualisiert wird während es geladen ist macht das R sehr traurig und Fehler treten auf.</p>
+<p>RStudio –&gt; Session –&gt; Restart R</p>
+</div>
+</div>
+<p>Solltet ihr mal ein packages löschen wollen, aus welchem Grund auch immer, dann geht das entweder auch über den Package-Tab in RStudio (das Kreuzchen rechts neben dem Namen des packages), oder ihr gebt folgendes in der Konsole ein:</p>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/remove.packages.html">remove.packages</a></span><span class="op">(</span><span class="st">"tadaatoolbox"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>…um das package <code>tadaatoolbox</code> zu deinstallieren.<br>
+Aber wieso solltet ihr das tun wollen.<br>
+Wir haben so viel Arbeit in das package gesteckt.<br>
+Wieso nur.<br>
+Ihr Monster.</p>
+<section id="tabellen" class="level4" data-number="8.1.2.1"><h4 data-number="8.1.2.1" class="anchored" data-anchor-id="tabellen">
+<span class="header-section-number">8.1.2.1</span> Tabellen</h4>
+<p>Für Kreuztabellen, wie wir sie relativ häufig in QM1 brauchen für unsere nominal- und ordinalskalierten Statistiken:</p>
+<div class="cell" data-hash="06-packages_cache/html/sjplot_tables_1_6fdff482139efcd35129cf0aba0e8c8c">
+
+</div>
+<p>Oder einfache Häufigkeitstabellen:</p>
+<p>Und für lineare Modelle, in deutlich schöner als <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code>:</p>
+<div class="cell" data-hash="06-packages_cache/html/sjplot_tables_3_3599ff584173bf9dfc456e6b4e64153d">
+<details open=""><summary>Code</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">zufrieden</span> <span class="op">~</span> <span class="va">alter</span> <span class="op">*</span> <span class="va">berufsvorstellung</span>, data <span class="op">=</span> <span class="va">qmsurvey</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section><section id="plots" class="level4" data-number="8.1.2.2"><h4 data-number="8.1.2.2" class="anchored" data-anchor-id="plots">
+<span class="header-section-number">8.1.2.2</span> Plots</h4>
+<p>Klassiker: Histogramm mit Normalverteilungskurve:</p>
+<div class="cell" data-hash="06-packages_cache/html/sjplot_plots_1_ac20ca787af19f6622bc443dcaaa05da">
+
+</div>
+</section></section></section><section id="das-tidyverse" class="level2" data-number="8.2"><h2 data-number="8.2" class="anchored" data-anchor-id="das-tidyverse">
+<span class="header-section-number">8.2</span> Das <code>tidyverse</code>
+</h2>
+<p>Das <em>tidyverse</em> ist eine Ansammlung von packages, die alle mehr oder weniger gut miteinander auskommen und auf ähnliche Art zu benutzen sind.<br>
+Eine Übersicht und ganz viel Dokumentation und Beispiele findet ihr auf <a href="https://tidyverse.org" class="uri">https://tidyverse.org</a>.</p>
+<p>Es gibt ein <em>catchall</em> R-package, das die wichtigstens packages für euch installiert:</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"tidyverse"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Ihr könnt danach entweder das package laden und habt damit die wichtigsten Funktionen parat, oder ihr ladet die packages nach Bedarf einzeln.<br>
+Ich würde zu letzterem raten, weil ihr so eher ein Gefühl dafür bekommt welches package für welche Funktionen zuständig ist, und nebenbei geht es auch ein bisschen schneller.</p>
+<p>Hier eine kurze Übersicht über die wichtigsten <em>tidyverse</em>-packages/Funktionen für alltägliche Aufgaben:</p>
+<ul>
+<li>
+<code>%&gt;%</code>: Der <em>pipe</em>-Operator aus <em>magrittr</em>, der von den meisten der packages <em>re-exportiert</em> wird</li>
+<li>
+<strong>ggplot2</strong>: Für Visualisierungen</li>
+<li>
+<strong>dplyr</strong>: Datenmanipulation
+<ul>
+<li>
+<code>mutate</code>: Neue Variablen erstellen/ bestehende Verändern</li>
+<li>
+<code>select</code>: Variablen auswählen</li>
+<li>
+<code>filter</code>: Datensätze filtern</li>
+<li>
+<code>group_by</code>: Gruppieren…</li>
+<li>
+<code>summarize</code>: Und zusammenfassen</li>
+</ul>
+</li>
+<li>
+<strong>tidyr</strong>: Datenmanipulation
+<ul>
+<li>
+<code>gather</code>: Konvertiert von <em>wide</em> in <em>long</em> format (mehrere Spalten zu zwei zusammenfassen)</li>
+<li>
+<code>spread</code>: Gegenstück, konvertiert von <em>long</em> in <em>wide</em> format</li>
+</ul>
+</li>
+</ul></section><section id="die-tadaatoolbox" class="level2" data-number="8.3"><h2 data-number="8.3" class="anchored" data-anchor-id="die-tadaatoolbox">
+<span class="header-section-number">8.3</span> Die <code>tadaatoolbox</code>
+</h2>
+<p>Die <code>tadaatoolbox</code> ist das Produkt von Lukas’ und Tobis Frustration mit diversem Kleinkram in R, wie etwa der Optik von statistischen Testoutput.<br>
+Im Fokus steht in erster Linie schnelles, einfaches Output mit möglichst wenig Aufwand. Zusätzlich bietet die Toolbox einige Sammelfunktionen um beispielsweise diverse nominal- oder ordinalskalierte Statistiken auf einen Rutsch anzuzeigen, optimiert auf Output in RMarkdown-Dokumenten (Siehe [Berichte]).</p>
+</section><section id="addendum-installier-mal-alles" class="level2" data-number="8.4"><h2 data-number="8.4" class="anchored" data-anchor-id="addendum-installier-mal-alles">
+<span class="header-section-number">8.4</span> Addendum: “Installier mal alles”</h2>
+<p>Hier ein Stück Code, das ihr im Zweifelsfall einfach copypasten könnt.<br>
+Es sollte euch so ziemlich alles oder zumindest das meiste an (vorerst) relevanten packages installieren, und dient mehr so der Vollständigkeit.</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"magrittr"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"ggplot2"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"dplyr"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"tidyr"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"stringr"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"forcats"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"readr"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"lubridate"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"purrr"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"readxl"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"haven"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"rvest"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"scales"</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"cowplot"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"ggrepel"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"psych"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"DescTools"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"ggthemes"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"hrbrthemes"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"rmarkdown"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"viridis"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"RColorBrewer"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"nortest"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"plotly"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"car"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"afex"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+
+</section><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><hr>
+<ol>
+<li id="fn1" role="doc-endnote"><p>Die Ruby-Leute und ihre <em>Gems</em> seien mal dahingestellt<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="../chapters/05-datentypen.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Datentypen</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/07-die-hilfe.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Die Hilfe</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

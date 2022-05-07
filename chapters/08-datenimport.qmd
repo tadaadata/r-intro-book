@@ -73,7 +73,7 @@ Die schmutzigen Details gibt's natürlich in der Hilfe: `?read_csv` und [online]
 
 ### SPSS (`.sav`)
 
-- Benötigte packages: `haven` oder `sjmisc`
+- Benötigte packages: `haven`.
 - Anstrengend? Manchmal.
 
 ```r
@@ -158,7 +158,7 @@ Es gibt da [das ein oder andere Projekt](https://github.com/rsheets/rexcel#rexce
 - Benötigte packages: `googlesheets`
 - Anstrengend? Meistens geht's ganz gut.
 
-Wenn euch Excel zu unpraktisch ist, dann bietet sich [Google Sheets](https://www.google.com/sheets/about/) an. Es ist kostenlos, einfach und ausreichend mächtig für alles, was ihr so vorhaben könnten — mitunter weil ihr für alle komplexeren Sachen sowieso R benutzen wollt. Sheets ist praktisch wie Excel, nur halt in der Cloud<sup>TM</sup> und von Google, aber für überschaubare Datensammlungen reicht's auf alle Fälle. Die [Tutoriumsteilnahmedaten haben wir da auch gesammelt](https://qmparticipation.tadaa-data.de/), und da das Sheet immer an der selben Stelle ist muss man einfach nur den Code zum einlesen und auswerten erneut ausführen und schon hat man eine mehr oder weniger selbstupdatende Analyse. Nett.
+Wenn euch Excel zu unpraktisch ist, dann bietet sich [Google Sheets](https://www.google.com/sheets/about/) an. Es ist kostenlos, einfach und ausreichend mächtig für alles, was ihr so vorhaben könntet --- mitunter weil ihr für alle komplexeren Sachen sowieso R benutzen wollt. Sheets ist praktisch wie Excel, nur halt in der Cloud<sup>TM</sup> und von Google, aber für überschaubare Datensammlungen reicht's auf alle Fälle. Die [Tutoriumsteilnahmedaten haben wir da auch gesammelt](https://qmparticipation.tadaa-data.de/), und da das Sheet immer an der selben Stelle ist muss man einfach nur den Code zum einlesen und auswerten erneut ausführen und schon hat man eine mehr oder weniger selbstupdatende Analyse. Nett.
 
 In besagtem Projekt sieht das zum Beispiel so aus:
 
@@ -186,7 +186,7 @@ Mehr Informationen und Beispiele [gibt's in der Vignette](https://rawgit.com/jen
 
 > and every messy data is messy in its own way - it's easy to define the characteristics of a clean dataset 
 > (rows are observations, columns are variables, columns contain values of consistent types). 
-> If you start to look atreal life
+> If you start to look at real life
 > data you'll see every way you can imagine data being messy (and many that you can't)!
 >
 > --- Hadley Wickham (answering 'in what way messy data sets are messy') R-help (January 2008)

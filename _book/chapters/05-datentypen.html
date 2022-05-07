@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de_DE" xml:lang="de_DE"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.368">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>R für Psychos - 7&nbsp; Datentypen</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script><script src="../site_libs/quarto-nav/headroom.min.js"></script><script src="../site_libs/clipboard/clipboard.min.js"></script><meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script><script src="../site_libs/quarto-search/fuse.min.js"></script><script src="../site_libs/quarto-search/quarto-search.js"></script><link href="../chapters/06-packages.html" rel="next">
+<link href="../chapters/04-erste-schritte.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script><script src="../site_libs/quarto-html/popper.min.js"></script><script src="../site_libs/quarto-html/tippy.umd.min.js"></script><script src="../site_libs/quarto-html/anchor.min.js"></script><link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link id="quarto-text-highlighting-styles" href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script><link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+</head>
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }"><div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">
+<span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Datentypen</span>
+</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">R für Psychos</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Vorwort</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Vorbereitung</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/01-was-ist-r.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Was ist R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-installation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Installation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-orientierung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Orientierung</span></a>
+  </div>
+</li>
+    </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Grundlagen</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/04-erste-schritte.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Erste Schritte</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/04-erste-schritte.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Erste Schritte</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/05-datentypen.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Datentypen</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/06-packages.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Packages</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/07-die-hilfe.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Die Hilfe</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/08-datenimport.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Datenimport</span></a>
+  </div>
+</li>
+    </ul>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">Quellen</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Appendices</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show"></ul>
+</li>
+    </ul>
+</div>
+</nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li><a href="#numeric-zahlen-und-so" id="toc-numeric-zahlen-und-so" class="nav-link active" data-scroll-target="#numeric-zahlen-und-so"> <span class="header-section-number">7.1</span> Numeric <small class="subtitle">(Zahlen und so)</small></a></li>
+  <li><a href="#character-buchstabenzeugs" id="toc-character-buchstabenzeugs" class="nav-link" data-scroll-target="#character-buchstabenzeugs"> <span class="header-section-number">7.2</span> Character <small class="subtitle">(Buchstabenzeugs)</small></a></li>
+  <li><a href="#factor-here-be-dragons" id="toc-factor-here-be-dragons" class="nav-link" data-scroll-target="#factor-here-be-dragons"> <span class="header-section-number">7.3</span> Factor <small class="subtitle">(Here be dragons)</small></a></li>
+  <li>
+<a href="#besondere-typen" id="toc-besondere-typen" class="nav-link" data-scroll-target="#besondere-typen"> <span class="header-section-number">7.4</span> Besondere Typen</a>
+  <ul class="collapse">
+<li><a href="#fehlende-werte-na" id="toc-fehlende-werte-na" class="nav-link" data-scroll-target="#fehlende-werte-na"> <span class="header-section-number">7.4.1</span> Fehlende Werte: <code>NA</code></a></li>
+  <li><a href="#leere-werte-null" id="toc-leere-werte-null" class="nav-link" data-scroll-target="#leere-werte-null"> <span class="header-section-number">7.4.2</span> Leere Werte: <code>NULL</code></a></li>
+  <li><a href="#to-inf-and-beyonand" id="toc-to-inf-and-beyonand" class="nav-link" data-scroll-target="#to-inf-and-beyonand"> <span class="header-section-number">7.4.3</span> To <code>Inf</code> and Beyo<code>NaN</code>d!</a></li>
+  </ul>
+</li>
+  <li><a href="#tabellen-data.frame" id="toc-tabellen-data.frame" class="nav-link" data-scroll-target="#tabellen-data.frame"> <span class="header-section-number">7.5</span> Tabellen: <code>data.frame</code></a></li>
+  <li><a href="#convert" id="toc-convert" class="nav-link" data-scroll-target="#convert"> <span class="header-section-number">7.6</span> Prüfen &amp; Konvertieren</a></li>
+  </ul></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
+<h1 class="title d-none d-lg-block">
+<span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Datentypen</span>
+</h1>
+</div>
+
+
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header><p>Es gibt eine Reihe von Unterscheidungsmöglichkeiten zwischen verschiedenen Arten von Daten.<br>
+Neben der naheliegenden Unterscheidung zwischen “Zahlen” und “Buchstaben” gibt es diverse andere Typen, die R verwendet.<br>
+Technisch gesehen müssten wir hier noch zwischen Typen und Klassen unterscheiden, aber für die meisten unserer normalen Anwendungszwecke ist es nicht unbedingt notwendig Typen und Klassen auseinanderhalten zu können, weshalb wir hier auch mehr oder weniger beides gleichzeitig abhandeln.</p>
+<p><em>“Und wieso sollte uns interessieren, wie R da unterscheidet?”</em><br>
+R ist verwirrt, wenn wir Buchstaben in eine Funktion stecken, die Zahlen erwartet. Genauso ist R verwirrt, wenn wir den Mittelwert aus einer Tabelle berechnen wollen. Mittelwerte sind nur dann sinnvoll, wenn wir sie aus einem Vektor aus numerischen Werten berechnen. Da eure Daten in verschiedenen Formaten ankommen, und unterschiedliche Repräsentationen unterschiedliche Vor- und Nachteile haben, ist es wichtig, dass ihr im Zweifelsfall herausfinden könnt was ihr da vor der Nase habt und wie ihr damit arbeiten könnt.<br>
+Was eine R-Funktion mit einem Objekt anstellt hängt von der <em>Klasse</em> des Objekts ab, das ganze fällt vermutlich irgendwo unter <em>“object oriented programming”</em>, und wenn ihr InformatikerInnen kennt und die euch Fragen, ob R eine funktionale oder objektorientierte Frage ist, könnt ihr getrost “ja” sagen<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<p>Die wichtigste Funktion für diesen Abschnitt ist <code><a href="https://rdrr.io/r/base/class.html">class()</a></code>, was euch sagt was R unter einem bestimmten Objekt versteht (die <em>Klasse</em> des Objekts):</p>
+<div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-2_8937f651100cc3fd0eaed9912c108802">
+<details open=""><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span>
+<span class="co">#&gt; [1] "numeric"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; [1] "numeric"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"hallo"</span>, <span class="st">"welt"</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; [1] "character"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">)</span>
+<span class="co">#&gt; [1] "data.frame"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">$</span><span class="va">extra</span><span class="op">)</span>
+<span class="co">#&gt; [1] "numeric"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">$</span><span class="va">group</span><span class="op">)</span>
+<span class="co">#&gt; [1] "factor"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><small>(Was es mit <code>factor</code> auf sich hat sehen wir ein paar Abschnitte weiter)</small></p>
+<p>Zusätzlich gibt es <code><a href="https://rdrr.io/r/base/typeof.html">typeof()</a></code>, eine Funktion, die so speziell ist, dass ich sie in meinen ~4 Jahren R erst neulich entdeckt habe, weil der exakte <em>Typ</em> eines Objekts meistens weniger relevant ist als die <em>Klasse</em>:</p>
+<div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-3_8bec388265835e036c13cccf6e8a4635">
+<details open=""><summary>Code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span>
+<span class="co">#&gt; [1] "double"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; [1] "double"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"hallo"</span>, <span class="st">"welt"</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; [1] "character"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">)</span>
+<span class="co">#&gt; [1] "list"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">$</span><span class="va">extra</span><span class="op">)</span>
+<span class="co">#&gt; [1] "double"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">$</span><span class="va">group</span><span class="op">)</span>
+<span class="co">#&gt; [1] "integer"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<section id="numeric-zahlen-und-so" class="level2" data-number="7.1"><h2 data-number="7.1" class="anchored" data-anchor-id="numeric-zahlen-und-so">
+<span class="header-section-number">7.1</span> Numeric <small class="subtitle">(Zahlen und so)</small>
+</h2>
+<p>Zahlen in R (und in den meisten anderen Programmiersprachen, beziehungsweise generell irgendwo, wo Maschinen rechnen) kommen in zwei Geschmacksrichtungen: <strong>Integer</strong> (ganze Zahlen) und <strong>double</strong> (Dezimalzahlen, Fließkommazahlen, <em>floating point numbers</em>).<br>
+Der Grund dafür hat damit zu tun, wie Computer intern Zahlen abbilden, binäres Zahlensystem, Bits, ihr wisst schon — komplizierter Kram wo sich kluge Menschen Dinge ausdachten, mit denen wir arbeiten können, wir aber nicht im Detail verstehen müssen.<br>
+Fließkommazahlen sind so gängig, dass R sogar eine einfache ganze Zahl wie <code>2</code> erstmal als <em>double</em>, also praktisch als <code>2.0</code> interpretiert, und wir explizit <code>2L</code> schreiben müssen, wenn wir <em>“2, aber als integer”</em> meinen. Wieso wir dafür <code>L</code> brauchen sei dahingestellt, aber nun ja, der Unterschied ist da:</p>
+<div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-4_c69a30c615ad0acadf86edcb1f9c5564">
+<details open=""><summary>Code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Beides "numeric"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span>
+<span class="co">#&gt; [1] "numeric"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="fl">2.5</span><span class="op">)</span>
+<span class="co">#&gt; [1] "numeric"</span>
+
+<span class="co"># Aber…</span>
+<span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="fl">2L</span><span class="op">)</span>
+<span class="co">#&gt; [1] "integer"</span>
+
+<span class="co"># …und</span>
+<span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="fl">2.5</span><span class="op">)</span>
+<span class="co">#&gt; [1] "double"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Integers sind ziemlich unproblematisch, werden aber in der Praxis nicht häufig explizit genutzt.<br>
+Fließkommazahlen (<em>double</em>) hingegen tauchen häufiger auf, weil Computer in den letzten Jahrzehnten <em>echt verdammt gut</em> darin geworden sind, mit Fließkommazhalen zu rechnen. Arithmetik mit integers ist auch okay, aber wenn eure Datensätze riesig und eure Statistik komplex ist, dann ist Geschwindigkeit von Rechenoperationen auf ein mal ein wichtiger Faktor.<br>
+Das Problem an der Sache ist nur leider, dass Fließkommazahlen seltsam sind. Nicht nur vom initialen Verständnis her, dazu empfehle ich euch herzlichst <a href="https://www.youtube.com/watch?v=PZRI1IfStY0">dieses schöne Video von Tom Scott</a>, sondern auch für ganz reale Konsequenzen, über die wir stolpern können, wenn wir nicht aufpassen:</p>
+<div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-5_484004b295ee27e83e59ba5eca588865">
+<details open=""><summary>Code</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Wurzel aus 2, ganz harmlos</span>
+<span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span>
+<span class="co">#&gt; [1] 1.414214</span>
+
+<span class="co"># Quadrierte Wurzel aus 2 ergibt 2, ja, kommt hin</span>
+<span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span>
+<span class="co">#&gt; [1] 2</span>
+
+<span class="co"># Das sollte ja dann…</span>
+<span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span> <span class="op">==</span> <span class="fl">2</span>
+<span class="co">#&gt; [1] FALSE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><small>Wait, what?</small></p>
+<p>Und das ist der Grund warum Fließkommazahlen (<em>double</em>) seltsam sind.<br>
+Die kurze Version: <span class="math inline">\(\sqrt{2}\)</span> ist eine <em>irrationale Zahl</em>, das heißt sie hat <em>unendlich viele Nachkommastellen</em>. Computer können nur eine begrenzte Anzahl an Nachkommastellen speichern, weshalb das Resultat von einer Berechnung wie <span class="math inline">\(\left(\sqrt{2}\right)^2\)</span> zwar für alle praktischen Zwecke immer noch 2 ist, aber <em>irgendwie auch nicht</em>. Wenn wir mit Datensätzen arbeiten und darin rumrechnen dann sind solche kleinen Rundungsfehler egal, aber wenn wir uns auf Operatoren wie <code>==</code> verlassen, um berechnete Werte zu vergleichen, dann müssen wir vorsichtig sein.</p>
+<p>An dieser Stelle ein kurzer Exkurs in die Numerik:<br>
+Die absolut kleinste Toleranz, die euer Computer für Fließkommazahlen berücksichtigt, könnt ihr euch mit <code>.Machine$double.eps</code> anzeigen lassen<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. <code>.Machine</code> ist ein besonderes Objekt in R, dass Informationen zu eurem Computer (sprich eurer <em>Maschine</em>) sammelt.</p>
+<div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-6_452ca5bf78bf8612bd804cecc77693c1">
+<details open=""><summary>Code</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Wie groß ist die Abweichung vom erwarteten Ergebnis?</span>
+<span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span> <span class="op">-</span> <span class="fl">2</span>
+<span class="co">#&gt; [1] 4.440892e-16</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><code>4.4408920985e-16</code> ist Computer für <span class="math inline">\(4.4408920985 \cdot 10^{-16}\)</span>, also ungefähr…</p>
+<p><span class="math display">\[\frac{4.4408920985}{10000000000000000} \approx 0.00000000000000044\]</span></p>
+<p>Das ist… ziemlich wenig, und im Alltag auch ziemlich egal, aber wie gesagt: Für R ist das ein Unterschied.</p>
+<div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-7_157bcffa6809319de626a2b9783a7b06">
+<details open=""><summary>Code</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Wie groß ist die Toleranz?</span>
+<span class="va">.Machine</span><span class="op">$</span><span class="va">double.eps</span>
+<span class="co">#&gt; [1] 2.220446e-16</span>
+
+<span class="co"># Moment mal…</span>
+<span class="va">.Machine</span><span class="op">$</span><span class="va">double.eps</span> <span class="op">*</span> <span class="fl">2</span>
+<span class="co">#&gt; [1] 4.440892e-16</span>
+
+<span class="co"># Wenn jetzt…</span>
+<span class="op">(</span><span class="va">.Machine</span><span class="op">$</span><span class="va">double.eps</span> <span class="op">*</span> <span class="fl">2</span><span class="op">)</span> <span class="op">==</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span> <span class="op">-</span> <span class="fl">2</span><span class="op">)</span>
+<span class="co">#&gt; [1] TRUE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Tatsache.<br>
+Wir könnten noch weiter damit rumspielen, aber als Lektion sollte eigentlich nur hängenbleiben, dass Zahlen in R gerne mal mehr sind, als euch in der Konsole angezeigt wird.</p>
+<div class="cell" type="rmdimportant" data-hash="05-datentypen_cache/html/float-rounding_84e5724341ac4c11ae67ad8d0a15c4fc">
+
+<div class="rmdimportant">
+<blockquote class="blockquote">
+<p>One does not simply <em>round</em> floating point numbers — <a href="https://ironholds.org/projects/rbitrary/#why-doesnt-round-work-like-you-think-it-should">Programmer Boromir</a></p>
+</blockquote>
+</div>
+</div>
+<p>Wenn ihr mal auf sowas stoßen solltet, dann verwendet am besten einfach die Funktion <code><a href="https://rdrr.io/r/base/Round.html">round()</a></code> um eure Werte auf eine sinnvolle Anzahl Nachkommastellen zu runden:</p>
+<div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-8_6276473c6c627122b8b6e34598993596">
+<details open=""><summary>Code</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Auf 5 Stellen gerundete Wurzel 2</span>
+<span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span>, digits <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>
+<span class="co">#&gt; [1] 1.41421</span>
+
+<span class="co"># Gerundetes Ergebnis von "Wurzel 2 hoch 2"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span>, digits <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>
+<span class="co">#&gt; [1] 2</span>
+
+<span class="co"># Literally close enough.</span>
+<span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span>, digits <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">==</span> <span class="fl">2</span>
+<span class="co">#&gt; [1] TRUE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell" type="rmdtip" data-hash="05-datentypen_cache/html/float-rounding_tip_55ac4eff806c0fc212a1a6e3bcbe1748">
+
+<div class="rmdtip">
+Im Zweifelsfall einfach Genauigkeit opfern um den Verstand zu behalten
+</div>
+</div>
+<p>Theoretisch ist “numeric” für Zahlen eine <em>Klasse</em>, und <em>integer</em> und <em>double</em> sind die beiden <em>Typen</em>, aus denen die Klasse besteht.</p>
+</section><section id="character-buchstabenzeugs" class="level2" data-number="7.2"><h2 data-number="7.2" class="anchored" data-anchor-id="character-buchstabenzeugs">
+<span class="header-section-number">7.2</span> Character <small class="subtitle">(Buchstabenzeugs)</small>
+</h2>
+<p><em>Characters</em> sind <em>Strings</em> sind <em>irgendwas was aus mehr als nur Zahlen besteht</em> (zumindest meistens). Die Unterscheidung zwischen <em>numeric</em> und <em>character</em> ist intuitiv ziemlich einfach, und in eurer statistischen Praxis werdet ihr vermutlich meistens auf <em>numerics</em> treffen, wobei <em>characters</em> dann meistens nur für nominale Variablen (Gruppenzugehörigkeiten, Entscheidungen für <em>A</em>, <em>B</em>, <em>C</em>) gebraucht werden. Tatsächlich werden eure nominalen Variablen sogar eher als <code>factor</code> daherkommen, dazu dann der nächste Abschnitt.</p>
+<p>Characters verhalten sich im Grunde wie Worte. Wir können sie aneinanderhängen, wir können sie vergleichen, aber wir können zum Beispiel keine Berechnungen damit durchführen:</p>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">namen</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Lukas"</span>, <span class="st">"Tobias"</span>, <span class="st">"Christoph"</span><span class="op">)</span>
+<span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">namen</span><span class="op">)</span>
+<span class="co">#&gt; Warning in mean.default(namen): argument is not numeric or logical:</span>
+<span class="co">#&gt; returning NA</span>
+<span class="co">#&gt; [1] NA</span>
+
+<span class="co"># Zahlen != Buchstaben</span>
+<span class="fl">5</span> <span class="op">==</span> <span class="st">"5"</span>
+<span class="co">#&gt; [1] TRUE</span>
+
+<span class="co"># Groß- / Kleinschreibung ist wichtig!</span>
+<span class="st">"Lukas"</span> <span class="op">==</span> <span class="st">"Lukas"</span>
+<span class="co">#&gt; [1] TRUE</span>
+<span class="st">"Lukas"</span> <span class="op">==</span> <span class="st">"LUKAS"</span>
+<span class="co">#&gt; [1] FALSE</span>
+
+<span class="co"># Strings aneinanderhängen</span>
+<span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Lukas"</span>, <span class="st">"hat"</span>, <span class="st">"Spass"</span>, sep <span class="op">=</span> <span class="st">"_"</span><span class="op">)</span>
+<span class="co">#&gt; [1] "Lukas_hat_Spass"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Die Funktionen <code>paste</code> und <code>paste0</code> sind ziemlich praktisch wenn ihr mit Strings arbeitet, die werdet ihr früher oder später mal brauchen.<br>
+Ansonsten dürfte euch aufgefallen sein, dass man <em>Spaß</em> mit <em>ß</em> schreibt. Das ist korrekt. Allerdings zählt <em>ß</em> als Sonderzeichen, genauso wie Umlaute (<em>üöä</em>). R kann damit zwar prinzipiell umgehen, solange ihr das richtige <em>Encoding</em> verwendet, aber dennoch bietet es sich an auf Sonderzeichen in R-Code zu verzichten, um Inkompatibilität mit anderen vorzubeugen.</p>
+<p>Um eure Einstellungen anzupassen und auf Nummer sicher zu gehen, öffnet die Einstellungen von RStudio und setzt die folgende Einstellung auf <strong>UTF-8</strong> (Unicode):</p>
+<div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-9_e4b6b8b5db2114f7727e911cb8854694">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="../images/character_encoding_settings.png" class="img-fluid figure-img" width="296"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">RStudio &gt; Optionen &gt; Code &gt; Saving: UTF-8</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Encoding ist so der einfachste Grund aus dem eure Scripte und Dokumente auf einmal kaputt aussehen, wenn ihr sie von einem Windows-Rechner an einen Mac oder eine Linux-Kiste schickt. Mac und Linux können sich wenigstens meistens auf Unix-Standards und Unicode eignen, aber Windows… Windows ist seltsam.</p>
+<div class="cell" type="rmdimportant" data-hash="05-datentypen_cache/html/encoding_f1afc75e5a5a7f147ab520dbcf75f94d">
+
+<div class="rmdimportant">
+Encoding ist kodifizierter Selbsthass, aber <a href="https://romain.rbind.io/blog/2017/08/03/unicode-utf-8-strings-and-emojis/">Unicode ist großer Spaß</a>
+</div>
+</div>
+</section><section id="factor-here-be-dragons" class="level2" data-number="7.3"><h2 data-number="7.3" class="anchored" data-anchor-id="factor-here-be-dragons">
+<span class="header-section-number">7.3</span> Factor <small class="subtitle">(Here be dragons)</small>
+</h2>
+<p>Okay, der haarige Teil.<br>
+Die <code>factor</code>-Klasse in R ist unheimlich praktisch, aber auch ziemlich unintuitiv bei der ersten Verwendung. Das liegt nicht zuletzt daran, dass ein <code>factor</code> von aussehen meistens einfach aussieht wie ein <code>character</code>, aber nunmal kein <code>character</code> ist.<br><em>Factors</em> haben zwei Bestandteile:</p>
+<ul>
+<li>
+<code>level</code>: Die <em>Merkmalsausprägung</em>, so wie R den <code>factor</code> sieht. Meistens <em>numeric</em>.</li>
+<li>
+<code>label</code>: (<em>Optional</em>) Die <em>Bezeichnung der Merkmalsausprägungen</em>, meistens <code>character</code>, für die bessere Lesbarkeit.</li>
+</ul>
+<p>Ein Beispiel aus dem <code>sleep</code>-Datensatz:</p>
+<div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-10_ba78a3b3cf7f110abb413d63ad5693e9">
+<details open=""><summary>Code</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Die Vairable "group"</span>
+<span class="va">sleep</span><span class="op">$</span><span class="va">group</span>
+<span class="co">#&gt;  [1] 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2</span>
+<span class="co">#&gt; Levels: 1 2</span>
+
+<span class="co"># …hat die Klasse "factor"</span>
+<span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">$</span><span class="va">group</span><span class="op">)</span>
+<span class="co">#&gt; [1] "factor"</span>
+
+<span class="co"># Und die levels…</span>
+<span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">$</span><span class="va">group</span><span class="op">)</span>
+<span class="co">#&gt; [1] "1" "2"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Wir sehen, dass <code>group</code> die Merkmalsausprägungen (<em>levels</em>) <code>1</code> und <code>2</code> hat, aber das ist für uns möglicherweise nicht wirklich aussagekräftig. Wir können die Variable modifizieren, und einen schöneren <code>factor</code> daraus machen:</p>
+<div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-11_c8baf8d8935501889b679878ca475b4f">
+<details open=""><summary>Code</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Wir modifizieren nur die labels, nicht die level</span>
+<span class="va">sleep</span><span class="op">$</span><span class="va">group</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">$</span><span class="va">group</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Medikament A"</span>, <span class="st">"Medikament B"</span><span class="op">)</span><span class="op">)</span>
+
+<span class="co"># Jetzt werden uns unsere Labels angezeigt</span>
+<span class="va">sleep</span><span class="op">$</span><span class="va">group</span>
+<span class="co">#&gt;  [1] Medikament A Medikament A Medikament A Medikament A Medikament A</span>
+<span class="co">#&gt;  [6] Medikament A Medikament A Medikament A Medikament A Medikament A</span>
+<span class="co">#&gt; [11] Medikament B Medikament B Medikament B Medikament B Medikament B</span>
+<span class="co">#&gt; [16] Medikament B Medikament B Medikament B Medikament B Medikament B</span>
+<span class="co">#&gt; Levels: Medikament A Medikament B</span>
+
+<span class="co"># Und unsere unveränderten Levels</span>
+<span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">$</span><span class="va">group</span><span class="op">)</span>
+<span class="co">#&gt; [1] "Medikament A" "Medikament B"</span>
+
+<span class="co"># Aber wir können den factor immer noch wie Zahlen behandeln</span>
+<span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">$</span><span class="va">group</span><span class="op">)</span>
+<span class="co">#&gt;  [1] 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Mit <code>factor</code> können wir praktisch zwei Lagen an Informationen in nur einer Variable speichern, einmal numerische <em>levels</em> und einmal character <em>labels</em>. Die Levels sind die eigentlich wichtige Information und die Labels sind praktisch nur für uns zur besseren Lesbarkeit da, zum Beispiel bei Tabellen oder Grafiken.</p>
+</section><section id="besondere-typen" class="level2" data-number="7.4"><h2 data-number="7.4" class="anchored" data-anchor-id="besondere-typen">
+<span class="header-section-number">7.4</span> Besondere Typen</h2>
+<p>Eure Daten kommen meistens von anderen, zumindest in den ersten Semestern eures Studiums.<br>
+Meistens kommen eure Daten auch mit Fehlenden oder irgendwie kaputten Werten, mit denen ihr ohne Weiteres nichts anfangen könnt.</p>
+<section id="fehlende-werte-na" class="level3" data-number="7.4.1"><h3 data-number="7.4.1" class="anchored" data-anchor-id="fehlende-werte-na">
+<span class="header-section-number">7.4.1</span> Fehlende Werte: <code>NA</code>
+</h3>
+<p>Vermutlich der wichtigste Datentyp, der euch begegnen wird. <code>NA</code> steht für <em>Not Available</em> und heißt, dass es an dieser Stelle einfach keinen Wert gibt. In einem Fragebogen wäre das zum Beispiel eine nicht ausgefüllte Frage, und das heißt für euch, dass ihr ohne Weiteres keine Annahme über diese Wert machen könnt. <code>NA</code> heißt nicht “da ist nichts”, sondern eher “da könnte was sein, aber ich weiß nicht”.<br>
+Das ist auch der Grund, warum der Mittelwert nicht funktioniert, wenn da <code>NA</code> drinstecken:</p>
+<div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-12_996f886ab0ada49e57e54e208237c926">
+<details open=""><summary>Code</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="cn">NA</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="cn">NA</span>, <span class="fl">7</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; [1] NA</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Klar könnten wir einfach annehmen, dass die fehlenden Werte <code>3</code> und <code>6</code> sind, aber das wissen wir nunmal nicht, und da R in der Regel nicht rät, sagt es halt auch “weiß nicht” in Form von <code>NA</code>.<br>
+In solchen Fällen müsst ihr explizit <code>NA</code> ignorieren:</p>
+<div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-13_1be9d4fc1278031a1dd7f59567859038">
+<details open=""><summary>Code</summary><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="cn">NA</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="cn">NA</span>, <span class="fl">7</span><span class="op">)</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<span class="co">#&gt; [1] 3.8</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Ihr könnt auch mit der Funktion <code>is.na</code> prüfen, ob ihr fehlende Werte habt. Beachtet, dass <code>==</code> zum vergleichen nicht funktioniert!</p>
+<div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-14_83dbaa0497f6bdb48ef866f5fd6e3c51">
+<details open=""><summary>Code</summary><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">zahlen</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="cn">NA</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="cn">NA</span>, <span class="fl">7</span><span class="op">)</span>
+
+<span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">zahlen</span><span class="op">)</span>
+<span class="co">#&gt; [1] FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE</span>
+
+<span class="co"># Alle 'zahlen', für die is.na() _nicht_ TRUE ist</span>
+<span class="va">zahlen</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">zahlen</span><span class="op">)</span><span class="op">]</span>
+<span class="co">#&gt; [1] 1 2 4 5 7</span>
+
+<span class="co"># An welcher Position sind die NAs?</span>
+<span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">zahlen</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; [1] 3 6</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section><section id="leere-werte-null" class="level3" data-number="7.4.2"><h3 data-number="7.4.2" class="anchored" data-anchor-id="leere-werte-null">
+<span class="header-section-number">7.4.2</span> Leere Werte: <code>NULL</code>
+</h3>
+<p>Wenn <code>NA</code> fehlende Werte sind, was soll dann <code>NULL</code> sein?<br>
+Naja, ich merke mir das immer ungefähr so:</p>
+<ul>
+<li>
+<code>NULL</code>: Da ist <em>nichts</em>, also so wirlich <em><em>nichts</em></em>, und ich weiß das auch!</li>
+<li>
+<code>NA</code>: Da ist zwar <em>nichts</em>, aber ich hab <em><em>keine Ahnung</em></em> ob da nicht doch was sein sollte ¯\_(ツ)_/¯</li>
+</ul>
+<p><code>NULL</code> wird euch vermutlich weniger häufig begegnen als <code>NA</code>, zumindest in Datensätzen.<br>
+Ansonsten taucht <code>NULL</code> eher bei R-Funktionen als <em>default argument</em> auf, also ein Argument einer Funktion, das nicht gesetzt ist, außer ihr setzt es explizit. Das klingt jetzt etwas abstrakt, aber wir werden im Laufe dieser Einführung vermutlich noch Beispiele dafür sehen.</p>
+<div class="cell" type="rmdnote" data-hash="05-datentypen_cache/html/null_na_e540ffd792f8c0e312e31a5f198ab246">
+
+<div class="rmdnote">
+<code>NULL</code> ist leer, und zwar mir Sicherheit<br><code>NA</code> ist leer, aber man weiß es nicht so recht
+</div>
+</div>
+</section><section id="to-inf-and-beyonand" class="level3" data-number="7.4.3"><h3 data-number="7.4.3" class="anchored" data-anchor-id="to-inf-and-beyonand">
+<span class="header-section-number">7.4.3</span> To <code>Inf</code> and Beyo<code>NaN</code>d!</h3>
+<p>Habt ihr schonmal durch 0 geteilt? Oder überlegt was <span class="math inline">\(0^0\)</span> ist?<br>
+Das ist die Ecke, in der <code>Inf</code> und <code>NaN</code> auftauchen.</p>
+<p><code>Inf</code> und <code>-Inf</code> stehen erstmal nur für <span class="math inline">\(\infty\)</span> und <span class="math inline">\(-\infty\)</span> und sind Rs Weg euch zu sagen, dass ihr da gerade den Bereich der alltagstauglichen Zahlen überschritten habt.<br>
+Nehmt mal folgendes Beispiel:</p>
+<div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-15_98bcfb646c4f88f7b29c6437644c11df">
+<details open=""><summary>Code</summary><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># 2 hoch 10… geht noch</span>
+<span class="fl">10</span><span class="op">^</span><span class="fl">10</span>
+<span class="co">#&gt; [1] 1e+10</span>
+
+<span class="co"># Auch das…</span>
+<span class="fl">10</span><span class="op">^</span><span class="fl">100</span>
+<span class="co">#&gt; [1] 1e+100</span>
+
+<span class="co"># Okay, aber jetzt…</span>
+<span class="fl">10</span><span class="op">^</span><span class="fl">1000</span>
+<span class="co">#&gt; [1] Inf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Das ist R einfach zu viel, bzw. es ist eurem Computer generell zu viel.<br>
+Kurzer reminder: <code>1e10</code> ist Computer für <span class="math inline">\(1 \cdot 10^{10}\)</span>, also eine 1 mit 10 Nullen, also…</p>
+<p><span class="math display">\[1e10 = 1 \cdot 10^{10} = 10000000000\]</span></p>
+<p>Dementsprechend könnt ihr euch vorstellen, wie groß <span class="math inline">\(10^{1000}\)</span> wäre, und R macht solche Späße nicht mit und sagt einfach <code>Inf</code>.<br>
+Wenn ihr <code>Inf</code> oder <code>-Inf</code> in euren Ergebnissen seht, dann solltet ihr nur wissen, dass es da ein entweder <em>viel zu großes</em> oder <em>viel zu kleines</em> Ergebnis gab.</p>
+<p>Und dann ist da noch die Sache mit <code>NaN</code>.<br><code>NaN</code> steht für <em>not a number</em> und passiert dann, wenn ihr irgendwas mathematisch fragwürdiges macht, wie zum Beispiel 0 durch 0 teilen:</p>
+<div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-16_cd01872ab2d16125e420079531f44f1c">
+<details open=""><summary>Code</summary><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fl">0</span> <span class="op">/</span> <span class="fl">0</span>
+<span class="co">#&gt; [1] NaN</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Das ist mathematisch nicht definiert, und wieso das so ist und mehr dazu findet ihr zum Beispiel bei <a href="https://www.youtube.com/watch?v=BRRolKTlF6Q">Numberphile</a> gut erklärt.<br>
+Hier solltet ihr auch nur wissen, dass es das gibt und dass ihr es im Zweifelsfall vermeiden wollt, wenn es in euren Ergebnissen auftaucht.</p>
+</section></section><section id="tabellen-data.frame" class="level2" data-number="7.5"><h2 data-number="7.5" class="anchored" data-anchor-id="tabellen-data.frame">
+<span class="header-section-number">7.5</span> Tabellen: <code>data.frame</code>
+</h2>
+<p>All eure Datensätze im Studium kommen in Tabellenform.<br>
+Tabellen in R sind im Grunde nichts anderes als Listen von Vektoren mit gleiche Länge: Der <code>sleep</code>-Datensatz zum Beispiel besteht aus drei Vektoren der Länge 20, und jede Spalte verhält sich wie ein Vektor mit bestimmten Typen.<br>
+Um sich einen Überblick über einen Datensatz zu verschaffen empfiehlt sich die Funktion <code>str</code> (lies <em>structure</em>), oder auch <code>head</code>:</p>
+<div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-17_7e8ebfada93d51348aeb64c6af3ccee7">
+<details open=""><summary>Code</summary><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Die ersten paar Zeilen</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">)</span>
+<span class="co">#&gt;   extra        group ID</span>
+<span class="co">#&gt; 1   0.7 Medikament A  1</span>
+<span class="co">#&gt; 2  -1.6 Medikament A  2</span>
+<span class="co">#&gt; 3  -0.2 Medikament A  3</span>
+<span class="co">#&gt; 4  -1.2 Medikament A  4</span>
+<span class="co">#&gt; 5  -0.1 Medikament A  5</span>
+<span class="co">#&gt; 6   3.4 Medikament A  6</span>
+
+<span class="co"># Nur die ersten 2 Zeilen</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">sleep</span>, n <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
+<span class="co">#&gt;   extra        group ID</span>
+<span class="co">#&gt; 1   0.7 Medikament A  1</span>
+<span class="co">#&gt; 2  -1.6 Medikament A  2</span>
+
+<span class="co"># Struktur des Datensatzes</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/str.html">str</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">)</span>
+<span class="co">#&gt; 'data.frame':    20 obs. of  3 variables:</span>
+<span class="co">#&gt;  $ extra: num  0.7 -1.6 -0.2 -1.2 -0.1 3.4 3.7 0.8 0 2 ...</span>
+<span class="co">#&gt;  $ group: Factor w/ 2 levels "Medikament A",..: 1 1 1 1 1 1 1 1 1 1 ...</span>
+<span class="co">#&gt;  $ ID   : Factor w/ 10 levels "1","2","3","4",..: 1 2 3 4 5 6 7 8 9 10 ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Das Output von <code>str</code> sagt euch alles, was ihr braucht:</p>
+<ul>
+<li>Die <em>Klasse</em> des Objekts, hier ein <code>data.frame</code>, das Tabellenformat
+<ul>
+<li>Die Anzahl der Zeilen (<code>20 obs.</code>), und Spalten (<code>3 variables</code>)</li>
+</ul>
+</li>
+<li>Die Spalten der Tabelle mit den ersten Werten
+<ul>
+<li>
+<code>extra</code>: Numerisch (<code>num</code>)</li>
+<li>
+<code>group</code>: <code>factor</code> mit 2 Merkmalsausprägungen (<code>w/ 2 levels</code>), die <em>Labels</em> und die <em>Levels</em>
+</li>
+<li>
+<code>ID</code>: <code>factor</code> mit 10 <em>Labels</em> (<code>"1", "2", "3" …</code>) und <em>Levels</em> (<code>1 2 3 4 …</code>)</li>
+</ul>
+</li>
+</ul>
+<p>Später werden wir noch andere Klassen für Tabellen sehen, die <code>data.frame</code> erweitern bzw. etwas aufhübschen, namentlich wird das <a href="https://tibble.tidyverse.org/"><code>tbl_df</code> bzw. <code>tibble</code></a> sein, aber dazu müssen wir uns erst <em>Packages</em> ansehen.</p>
+</section><section id="convert" class="level2" data-number="7.6"><h2 data-number="7.6" class="anchored" data-anchor-id="convert">
+<span class="header-section-number">7.6</span> Prüfen &amp; Konvertieren</h2>
+<p>Was wir im Abschnitt zu <code>factor</code> am Ende mit <code>as.numeric</code> gemacht haben fällt unter <em>Coercion</em>, und heißt, dass Werte eines Typs in einen anderen Typ konvertiert werden sollen. Das Gegenstück dazu wäre <code>is.numeric</code>, was nachsieht, ob eine Variable bereits <em>numeric</em> ist.</p>
+<div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-18_dfad4c9dc6967c167ba5de60338c5b45">
+<details open=""><summary>Code</summary><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="st">"5"</span><span class="op">)</span>
+<span class="co">#&gt; [1] 5</span>
+<span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span>
+<span class="co">#&gt; [1] 5</span>
+
+<span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">5</span>, <span class="fl">4</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span>
+<span class="co">#&gt; [1] "2" "5" "4" "3"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Es gibt etliche solcher Konvertierungsfunktionen in R, manche mehr oder weniger nützlich, aber nun gut, sie sind da:</p>
+<div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-19_0a232a44b01f23cae880c12bff384819">
+<details open=""><summary>Code</summary><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Römische Zahlen</span>
+<span class="fu"><a href="https://rdrr.io/r/utils/roman.html">as.roman</a></span><span class="op">(</span><span class="fl">2017</span><span class="op">)</span>
+<span class="co">#&gt; [1] MMXVII</span>
+
+<span class="co"># Hexadezimal</span>
+<span class="fu"><a href="https://rdrr.io/r/base/hexmode.html">as.hexmode</a></span><span class="op">(</span><span class="fl">255</span><span class="op">)</span>
+<span class="co">#&gt; [1] "ff"</span>
+
+<span class="co"># Logische Werte</span>
+<span class="fu"><a href="https://rdrr.io/r/base/logical.html">as.logical</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span>
+<span class="co">#&gt; [1] FALSE</span>
+<span class="fu"><a href="https://rdrr.io/r/base/logical.html">as.logical</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>
+<span class="co">#&gt; [1] TRUE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<!-- Footnotes -->
+
+
+</section><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><hr>
+<ol>
+<li id="fn1" role="doc-endnote"><p>Das ist einer von diesesn Logikwitzen basierend auf dem Umstand, dass das logische <em>oder</em> (<code>a | b</code>) auch <em>wahr</em> ist, wenn sowohl <code>a</code> als auch <code>b</code> <em>wahr</em> ist.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>Habt ihr mal im Kontext von Computern oder Betriebssystemen/Software von “32bit” und “64bit” gehört? Da geht’s tatsächlich genau um dieses Ding mit den Fließkommazahlen. 64 bit kann einfach mehr Nachkommastellen speichern als 32bit. Vergleiche dazu auch <code>.Machine$double.digits</code> auf einem 32bit gegen ein 64bit-Betriebssystem<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="../chapters/04-erste-schritte.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Erste Schritte</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/06-packages.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Packages</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

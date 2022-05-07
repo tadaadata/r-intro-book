@@ -1,9 +1,3 @@
----
-output: html_document
-editor_options: 
-  chunk_output_type: console
----
-
 # Packages
 
 Fast jede Software hat Erweiterungen irgendeiner Art. Manche haben *extensions*, andere *plug-ins*, wieder andere haben *add-ons*. Unterschiedliche Terminologie für dasselbe Prinzip: Mehr Features durch Erweiterungen anderer Leute.  
@@ -16,17 +10,16 @@ Der *Kern* von R wird auch **base** genannt und umfasst die wichtigstens Grundfu
 
 Packages ladet ihr aus dem Internet runter, woraufhin sie ggf. kompiliert und in eure R-library eingepflegt werden müssen.  
 Das klingt kompliziert, und deshalb passiert das auch alles automatisch!  
-Nehmen wir als Beispiel-Package mal `tadaatoolbox` — ein Package von Lukas und Tobi, das insbesondere für einige Sachen aus QM2 geschrieben wurde, um Dinge etwas einfacher oder zumindest schöner zu machen.  
-
-Wir installieren das package mit einem einfachen Befehl in der Konsole:
+N
+Wir installieren ein package mit einem einfachen Befehl in der Konsole:
 
 ```r
-install.packages("tadaatoolbox")
+install.packages("ggplot2")
 ```
 
-```{block2, packages_antivir, type="rmdimportant"}
+:::{.callout-note}
 Windows-BenutzerInnen: Wenn ihr Antivirus-Software benutzt (Norton, Kaspersky, whatever) **kann es sein** dass diese euch beim installieren stört. Ihr bekommt dann wenig aussagekräftige Fehler. **Schaltet eure Antivirus-Software aus** wenn ihr Probleme bei der Installation habt.
-```
+:::
 
 
 Achtet darauf, dass ihr **Groß- und Kleinschreibung beachtet** habt, und dass der Name des packages in `" "` steht (wie ein `character`).  
@@ -49,7 +42,7 @@ Wieso? Nun ja, packages werden von R *geladen*, das heißt verfügbar gemacht, u
 Dieses "verfügbar machen" sieht übrigens so aus:
 
 ```r
-library("tadaatoolbox")
+library(ggplot2)
 ```
 
 Wenn ihr diesen Befehl ausgeführt hat, dann läd R für die aktuelle Session das package und ihr könnt die Funktionen darin benutzen.  
@@ -62,7 +55,6 @@ Es gibt *tausende* R-packages, und die meisten davon sind für euch vollkommen u
 
 Die wichtigste Quelle für R-packages ist das erwähnte *CRAN*, kurz für *"**C**omprehensive **R** **A**rchive **N**etwork"*. Packages müssen diverse Anforderungen erfüllen, um auf CRAN publiziert zu werden, was eine gewisse Hürde darstellt. Deswegen gibt es diverse packages, die gerade in frühen, potenziell noch nicht ausgereiften Versionen an anderen Stellen verfügbar gemacht werden.  
 Die wohl populärster dieser Sekundärquellen ist [**GitHub**](https://github.com).  
-Auf GitHub findet ihr zum Beispiel auch [den Quelltext der `tadaatoolbox`](https://github.com/tadaadata/tadaatoolbox).  
 
 Optional könnt ihr packages auch direkt von *GitHub* installieren, was insbesondere dann interessant ist, wenn das package noch jung und experimentell ist.  
 In euren normalen Projekten solltet ihr euch nicht auf GitHub-packages verlassen, sondern nach Möglichkeit ausschließlich packages von CRAN benutzen, aber wenn euch nach Abenteuer ist, dann fühlt euch frei:
@@ -91,11 +83,11 @@ update.packages(ask = FALSE)
 …dann rödelt R die Updates durch. RStudio wird euch an dieser Stelle fragen, ob ihr die R-Session vorher neustarten wollt – das könnt ihr tun, aber er könnt damit auch warten bis ihr alle Updates installiert habt anstatt für jedes einzelne Update die Session neuzustarten.  
 Wichtig ist auf jeden Fall, dass ihr die R-Session neustartet bevor ihr weiter arbeitet.  
 
-```{block2, package-update, type='rmdimportant'}
+:::{.callout-note}
 Wenn ein package geladen (`library()`) ist während ihr Updates durchführt, **muss** die R-Session danach neugestartet werden! Wenn ein package aktualisiert wird während es geladen ist macht das R sehr traurig und Fehler treten auf.
 
 RStudio --> Session --> Restart R
-```
+:::
 
 Solltet ihr mal ein packages löschen wollen, aus welchem Grund auch immer, dann geht das entweder auch über den Package-Tab in RStudio (das Kreuzchen rechts neben dem Namen des packages), oder ihr gebt folgendes in der Konsole ein:
 
@@ -110,64 +102,24 @@ Wieso nur.
 Ihr Monster.
 
 
-## sjPlot und Co.
-
-`sjPlot` ist das Aushängeschild der `strengejacke`-Packages von Daniel Lüdecke, und insgesamt sind seine packages _ziemlich ziemlich_ praktisch für die gängigen sozialwissenschaftlichen Analysen.  
-
-Eine umfassende Dokumentation findet ihr unter <https://www.strengejacke.de/sjPlot/>, und die packages von Interesse installiert ihr wie folgt:
-
-```r
-install.packages("sjPlot")
-install.packages("sjmisc")
-install.packages("sjstats")
-install.packages("sjlabelled")
-```
-### sjPlot 
-
-Das wichtigste package ist wie erwähnt `sjPlot`, also laden wir das erstmal:
-
-```{r, warning=FALSE, message=FALSE, error=FALSE}
-library("sjPlot")
-library("sjmisc")
-```
-
-*sjPlot* ist ziemlich praktisch wenn ihr mal schnell relativ komplexe Dinge erreichen wollt, in erster Linie Plots und Tabellen.  
-Die Funktionen im package sind nach ihrem Präfix sortiert:  
-
-- `sjt.` für Funktionen, die *Tabellen* produzieren
-- `sjp.` für Funktionen, die *Plots* produzieren
-
-Ein paar Beispiele anhand unseres `qmsurvey`-Datensatzes:
-
-```{r sjplot_1}
-qmsurvey <- readRDS("data/qm_survey_ss2017.rds")
-```
-
 #### Tabellen
 
 Für Kreuztabellen, wie wir sie relativ häufig in QM1 brauchen für unsere nominal- und ordinalskalierten Statistiken:
 
 ```{r sjplot_tables_1}
-sjt.xtab(qmsurvey$ernaehrung, qmsurvey$gender)
 
-sjt.xtab(qmsurvey$ernaehrung, qmsurvey$gender,
-  title = "Kontigenztabelle",
-  show.cell.prc = TRUE, show.exp = TRUE, show.legend = TRUE
-)
 ```
 
 Oder einfache Häufigkeitstabellen:
 
 ```{r sjplot_tables_2}
-frq(qmsurvey$ernaehrung, out = "viewer")
 ```
 
 Und für lineare Modelle, in deutlich schöner als `summary()`:
 
-```{r sjplot_tables_3}
+```{r sjplot_tables_3, eval = FALSE}
 model <- lm(zufrieden ~ alter * berufsvorstellung, data = qmsurvey)
 
-tab_model(model, show.std = TRUE)
 ```
 
 
@@ -176,43 +128,8 @@ tab_model(model, show.std = TRUE)
 Klassiker: Histogramm mit Normalverteilungskurve:
 
 ```{r sjplot_plots_1}
-plot_frq(qmsurvey$alter,
-  type = "histogram",
-  show.mean = TRUE, normal.curve = TRUE
-)
+
 ```
-
-### sjmisc
-
-*sjmisc* ist mehr so ein package für Datenbearbeitung, deshalb fällt es mir schwer da demonstrativ eine Funktion rauszuziehen. Im Fokus liegt unter Anderem *variable recoding*, das heißt falls ihr mal eine Variable klassieren müsst, könnte das mit *sjmisc* ganz dankbar werden.  
-Wenn wir `alter` in 3 Klassen umwandeln wollen, sähe das also zum Beispiel so aus:
-
-```{r sjmisc_1}
-library(sjmisc)
-
-rec(qmsurvey$alter, rec = "min:22=1; 23:28=2; 29:max=3")
-```
-
-Um die rekodierte Variable dann in unserem Datensatz zu speichern sähe das dann mit Hilfe von `dplyr` so aus:
-
-```r
-library(dplyr)
-
-qmsurvey <- qmsurvey %>%
-  mutate(alter_klassiert = rec(qmsurvey$alter, rec = "min:22=1; 23:28=2; 29:max=3"))
-```
-
-### sjlabelled
-
-Wenn ihr Daten aus SPSS einlest (oder ihr auf *labelled data* steht), dann haben eure Datensätze vermutlich *labels*. In *base R* ist das generell nicht so gängig, aber seit einiger Zeit sind die Tools dafür recht populär geworden. Labels sind zum Beispiel dafür zuständig, dass in eurer Variablenansicht jede Spalte eine Beschreibung hat, was im Falle der `sjt.*`-Funktionen auch dafür sorgt, dass eure Tabellen sauber beschriftet sind.  
-Ihr müsst *sjlabelled* in der Regel nicht explizit laden, *sjPlot* benutzt das unter der Haube sowieso, aber wenn ihr eure Labels mal ändern wollte oder ihr einen neuen Datensatz zusammensteckt, wo ihr eure Variablen labeln wollt, dann ist das package euer Freund.
-
-Die Funktionen dafür sind folgende:
-
-- `set_label`: Für *Variablenlabels*
-- `set_labels`: Füe *Value labels*, sprich einzelne Merkmalsausprägung (`1` = "niedrig" etc.)
-- `get_label`: *Variablenlabels* anzeigen
-- `get_labels`: *Value labels* anzeigen
 
 ## Das `tidyverse`
 
@@ -247,9 +164,6 @@ Hier eine kurze Übersicht über die wichtigsten *tidyverse*-packages/Funktionen
 Die `tadaatoolbox` ist das Produkt von Lukas' und Tobis Frustration mit diversem Kleinkram in R, wie etwa der Optik von statistischen Testoutput.  
 Im Fokus steht in erster Linie schnelles, einfaches Output mit möglichst wenig Aufwand. Zusätzlich bietet die Toolbox einige Sammelfunktionen um beispielsweise diverse nominal- oder ordinalskalierte Statistiken auf einen Rutsch anzuzeigen, optimiert auf Output in RMarkdown-Dokumenten (Siehe [Berichte]).  
 
-Eine Übersicht gibt es auf der Seite der Toolbox: <https://tadaatoolbox.tadaa-data.de>  
-Beispielhaftes Testoutput findet sich [dort](https://tadaatoolbox.tadaa-data.de/articles/test_output.html), und eine Funktionsreferenz [gibt's da auch](https://tadaatoolbox.tadaa-data.de/reference/).
-
 ## Addendum: "Installier mal alles"
 
 Hier ein Stück Code, das ihr im Zweifelsfall einfach copypasten könnt.  
@@ -271,38 +185,18 @@ install.packages("haven")
 install.packages("rvest")
 install.packages("scales")
 
-
-install.packages("sjmisc")
-install.packages("sjstats")
-install.packages("sjlabelled")
-install.packages("sjPlot")
-
-install.packages("tadaatoolbox")
 install.packages("cowplot")
-install.packages("waffle")
 install.packages("ggrepel")
 install.packages("psych")
 install.packages("DescTools")
 install.packages("ggthemes")
 install.packages("hrbrthemes")
 install.packages("rmarkdown")
-install.packages("knitr")
-install.packages("mosaic")
-install.packages("htmlwidgets")
-install.packages("DT")
 install.packages("viridis")
 install.packages("RColorBrewer")
 install.packages("nortest")
-install.packages("pixiedust")
 install.packages("plotly")
-install.packages("rpivotTable")
 install.packages("car")
-install.packages("colourpicker")
-install.packages("lsr")
-install.packages("vcd")
-install.packages("ryouready")
-install.packages("esc")
-install.packages("ez")
 install.packages("afex")
 ```
 
