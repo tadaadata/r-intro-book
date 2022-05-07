@@ -10,12 +10,17 @@ book:
     - index.qmd
     - part: "Vorbereitung"
       chapters:
-        - chapters/01-Was-ist-R.qmd
-        - chapters/02-Installation.qmd
-        - chapters/03-Orientierung.qmd
+        - chapters/01-was-ist-r.qmd
+        - chapters/02-installation.qmd
+        - chapters/03-orientierung.qmd
     - part: "Grundlagen"
       chapters:
         - chapters/04-Erste-Schritte.qmd
+        - chapters/04-erste-schritte.qmd
+        - chapters/05-datentypen.qmd
+        - chapters/06-packages.qmd
+        - chapters/07-die-hilfe.qmd
+        - chapters/08-datenimport.qmd
     - references.qmd
   appendices:
     - chapters/A01-Ressourcen.qmd

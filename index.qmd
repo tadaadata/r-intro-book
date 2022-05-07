@@ -1,4 +1,7 @@
-# Vorwort (2022 Edition (mit Glitzer (metaphorisch))) {-#index}
+---
+title: Vorwort
+subtitle: "2022 Edition (mit Glitzer (metaphorisch)) --- Jetzt in Farbe!"
+---
 
 Das hier ist/wird/war/wurde ^[time is a flat circle] eine R-Einführung für Psychologiestudierende so mit ganz ohne Vorwissen im Bereich Software oder Programmierung. Dieses Werk ~~ist~~ war zum Einen die Grundlage für die R-Intro für Psychologiestudierende in *Quantitative Methoden*, und zum Anderen auch das Referenzwerk für das R-Seminar im Rahmen des Statistikmoduls in Public Health ^[zumindest dieses eine Mal in 2018].
 
@@ -19,14 +22,6 @@ knitr::include_graphics(here::here("images/tobilukas.png"))
 Tobi und Lukas haben  ~~zwei~~ ~~drei~~ ein paar Jahre lang die R-Einführung in QM gehalten, anfangs basierend auf den Folien, die Lukas unter Anderem auch als Nachschlagwerk gedacht hatte.  
 Weil Lukas aber ein gigantischer Nerd mit viel zu viel Spaß an Zeug ist, und sich sonst niemand für technische Details interessiert, brauchte er für das dritte Jahr die Hilfe von Tobi und einer Hand voll TutorInnen um die Einführung menschenkompatibel zu halten.  
 Das Resultat ist das hier.  
-
-Diese Einführung hier wird deutlich stärker ins Detail gehen, und soll auf kurz oder lang so ziemlich alles abdecken, was ihr in zwei Semestern *Quantitative Methoden* brauchen werdet.  
-Okay, ihr werdet das Ganze auch in *Methodenlehre* brauchen.  
-Und in *Differenzielle*.  
-Und im *Expra*.  
-Und vermutlich danach auch.  
-Also, zumindest die Psychos unter euch, bei den Public Healther:innen sind dinge *anders*, aber *ähnlich*.  
-Vielleicht. 
 
 Wenn ihr mehr (oder so grob dasselbe, aber deutlich mehr und in besser erklärt) wollt, dann empfehle ich herzlichst "[**R for Data Science**](https://r4ds.had.co.nz/)", ein kostenloses Buch von Hadley Wickham, einem der R-Menschen, die uns in den letzten Jahren viele nette tools beschert haben^[Allen voran ggplot2, *das* package für plots in R.].
 

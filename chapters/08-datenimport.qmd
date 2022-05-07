@@ -1,7 +1,3 @@
----
-editor_options: 
-  chunk_output_type: console
----
 # Datenimport
 
 Im Laufe eures Studiums (und vermutlich darüberhinaus) werdet ihr sehr viel Zeit damit verbringen Daten aus verschiedenen Quellen in die Statistiksoftware eurer Wahl (oder auch nicht eurer Wahl, aber der eurer Arbeitstselle) zu quetschen.  
@@ -100,7 +96,7 @@ Hier habt ihr zwei Möglichkeiten: `.rds` und `.rda` (auch `.RData`): Generell s
 
 Daten einlesen ist simpel:
 
-```{r}
+```{r, eval=FALSE}
 qmsurvey <- readRDS("data/qm_survey_ss2017.rds")
 
 tibble::as_tibble(qmsurvey)
@@ -202,135 +198,3 @@ Es gibt da kein one-size-fits-all Rezept zur Datenbereinigung, denn jeder Datens
 Die gängigsten Probleme sind recoding, umbenennen oder zusammenfassen, und das meiste lässt sich entweder mit `dplyr`, `sjmisc` oder ggf. `tidyr` erledigen. Versucht es erstmal innerhalb des *tidyverse*, das ist vermutlich angenehmer als zusammengehackte Google-Lösungen. Aber auch hier, wie gesagt: Je nachdem was ihr vorhabt. Mehr dazu findet sich in [Data Munging].
 
 Datenbereinigung ist entweder sehr einfach oder sehr komplex, oder irgendwo dazwischen. In diesem Sinne: Learning by example und so.
-
-### Der NGO Datensatz
-
-Der **NGO**-Datensatz aus dem *Kähler* ist seit längere _der_ default Übungsdatensatz und dementsprechend auch unfassbar langweilig für VeteranInnen. Zudem haben wir den Datensatz in sauber auch schon in der `tadaatoolbox`, das heißt, wenn ihr die toolbox ladet könnt ihr `ngo` direkt benutzen.  
-In der Vorlesung schwirrt darüberhinaus vermutlich eine SPSS (`.sav`)-Version des Datensatzes rum, die wir hier mal beispielshalber einlesen und bearbeiten, bis sie identisch zur `tadaatoolbox`-Version ist.
-
-```{r ngo_einlesen}
-library(haven)
-ngo <- read_sav("data/NGO.SAV")
-
-head(ngo)
-```
-
-Zuerst wollen wir mal die Variablen rauskicken, die wir nicht brauchen. In diesem Fall sind das die Variablen, die wir zu Übungszwecken sowieso selber erstellen wollen: `ZENG`, `ZDEUTSCH`, `ZMATHE`, `INDEX`, `LEIST`
-
-```{r ngo_select}
-library(dplyr)
-
-ngo <- ngo %>%
-  select(-ZENG, -ZDEUTSCH, -ZMATHE, -INDEX, -LEIST)
-
-head(ngo)
-```
-
-Besser. Als nächstes stört mich, dass die Variablennamen alle *UPPER CASE* sind. Ich will die alle in *lower case* haben. Dafür können wir die Funktion `tolower` benutzen.
-
-```{r ngo_names}
-names(ngo) <- tolower(names(ngo))
-
-head(ngo)
-```
-
-Besser. Als nächstes wollen wir unsere Variablen labeln, zum Beispiel soll `geschl` nicht `1` oder `2` sagen, sondern `Männlich` und `Weiblich`.
-
-```{r ngo_recode}
-# Falls NA noch nicht korrekt kodiert:
-ngo$hausauf <- ifelse(ngo$hausauf == 0, NA, ngo$hausauf)
-ngo$abschalt <- ifelse(ngo$abschalt == 0, NA, ngo$abschalt)
-
-ngo$geschl <- factor(ngo$geschl, labels = c("Männlich", "Weiblich"))
-ngo$jahrgang <- factor(ngo$jahrgang, labels = c("11", "12", "13"), ordered = TRUE)
-ngo$abschalt <- factor(ngo$abschalt, labels = c("Ja", "Nein"))
-
-head(ngo)
-```
-
-Besser.  
-Hier haben wir `jahrgang` auch gleich zu einem `ordered factor` gemacht, damit die Reihenfolge der Merkmalsausprägungen immer intakt bleibt. Gegebenenfalls müssen wir das beachten, falls wir damit mal 'ne [ANOVA](#ANOVA) machen wollen, aber erstmal finden wir das so gut.  
-Zusätzlich solltet ihr beachten, dass Umlaute wie das `ä` in `Männlich` zwar auf eurem Computer lokal kein Problem sein sollten, solange ihr euch immer brav an **UTF-8** haltet, aber Windows handhabt Dinge da leider etwas anders als Linux und macOS, von daher könnte es sinnvoll sein für `"Männlich"` lieber `"M\\u00e4nnlich"` einzusetzen. Das ist der selbe Text, allerdings mit explizitem Unicode-Encoding. Es gibt Funktionen wie `stringi::stri_escape_unicode("Männlich")`, die die Konvertierung für euch machen, aber ich wünsche euch, dass ihr euch nie im Detail damit befassen müsst.
-
-Als nächstes können wir noch *value labels* setzen, die dann in `sjPlot`-Plots und Tabellen angezeigt werden. Bei unseren frisch erstellten `factor`-Variablen ist das nicht mehr nötig, aber `hausauf` könnte welche gebrauchen:
-
-```{r ngo_label_sj}
-library(sjlabelled)
-ngo$hausauf <- set_labels(ngo$hausauf,
-  labels = c(
-    "gar nicht", "weniger als halbe Stunde",
-    "halbe Stunde bis Stunde", "1 bis 2 Stunden",
-    "2 bis 3 Stunden", "3 bis 4 Stunden",
-    "mehr als 4 Stunden"
-  )
-)
-
-ngo$hausauf
-```
-
-Als letztes können wir noch ein paar Variablen-Labels verteilen:
-
-```{r ngo_var_labs}
-ngo$geschl <- set_label(ngo$geschl, "Geschlecht")
-ngo$abschalt <- set_label(ngo$abschalt, "Abschalten")
-ngo$jahrgang <- set_label(ngo$jahrgang, "Jahrgang")
-ngo$hausauf <- set_label(ngo$hausauf, "Hausaufgaben")
-```
-
-...Wir könnten noch mehr Labels verteilen, aber das sind so die Variablen, die am ehesten in Kontingenztabellen auftauchen, von daher reicht mir das so.  
-
-Fertig.  
-Sauber.  
-Wenn ihr den Datensatz so als Datei wegspeichern wollt, geht das einfach mit:
-
-```r
-saveRDS(ngo, "ngo.rds")
-```
-
-Der ganze Code zum Saubermachen in einem großen Blob:
-
-```r
-library(haven)
-library(sjlabelled)
-library(tibble)
-library(dplyr)
-
-# Einlesen
-ngo <- read_sav("data/NGO.SAV")
-
-# Variablen rauskicken
-ngo <- ngo %>%
-  select(-ZENG, -ZDEUTSCH, -ZMATHE, -INDEX, -LEIST)
-
-# Variablennamen in lower case
-names(ngo) <- tolower(names(ngo))
-
-# Recoding
-
-# Falls NA noch nicht korrekt kodiert:
-ngo$hausauf  <- ifelse(ngo$hausauf  == 0, NA, ngo$hausauf)
-ngo$abschalt <- ifelse(ngo$abschalt == 0, NA, ngo$abschalt)
-
-ngo$geschl   <- factor(ngo$geschl,   labels = c("Männlich", "Weiblich"))
-ngo$jahrgang <- factor(ngo$jahrgang, labels = c("11", "12", "13"), ordered = TRUE)
-ngo$abschalt <- factor(ngo$abschalt, labels = c("Ja", "Nein"))
-
-# Value labelling
-ngo$hausauf  <- set_labels(ngo$hausauf,
-                           labels = c("gar nicht", "weniger als halbe Stunde",
-                                      "halbe Stunde bis Stunde", "1 bis 2 Stunden",
-                                      "2 bis 3 Stunden", "3 bis 4 Stunden",
-                                      "mehr als 4 Stunden"))
-# Variable labelling
-ngo$geschl   <- set_label(ngo$geschl,   "Geschlecht")
-ngo$abschalt <- set_label(ngo$abschalt, "Abschalten")
-ngo$jahrgang <- set_label(ngo$jahrgang, "Jahrgang")
-ngo$hausauf  <- set_label(ngo$hausauf,  "Hausaufgaben")
-
-# Speichern als Datei
-saveRDS(ngo, "ngo.rds")
-```
-
-```{r include=FALSE}
-rm(ngo)
-```
