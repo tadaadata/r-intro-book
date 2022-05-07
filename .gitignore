@@ -1,5 +1,5 @@
 .vscode/vscode-R
-
+/.quarto/
 # bookdown output
 book
 _bookdown_files
