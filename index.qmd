@@ -8,7 +8,11 @@ Da wir aber mittlerweile auch so gar nichts mehr mit der Pszchologie an der Uni 
 
 ## Über diese Einführung {-}
 
-```{r portraits, fig.cap="Lukas \\& Tobi, weil richtige Portraits zu professionell wären.", echo = FALSE, out.width="70%"}
+```{r}
+#| fig.cap: "Lukas & Tobi, weil richtige Portraits zu professionell wären."
+#| echo: false
+#| out.width: "70%"
+#| 
 knitr::include_graphics(here::here("images/tobilukas.png"))
 ```
 

@@ -4,16 +4,29 @@ project:
 book:
   title: "R für Psychos"
   author: "Tobi & Lukas"
-  date: "`r Sys.Date()`"
+  date: today
+  date-format: medium
   chapters:
     - index.qmd
-    - chapters/01-Was-ist-R.qmd
+    - part: "Vorbereitung"
+      chapters:
+        - chapters/01-Was-ist-R.qmd
+        - chapters/02-Installation.qmd
+        - chapters/03-Orientierung.qmd
     - references.qmd
+  appendices:
+    - chapters/A01-Ressourcen.qmd
 
 bibliography: references.bib
 
 format:
   html:
-    theme: cosmo
+    theme: spacelab
+    lang: de_DE
   pdf:
     documentclass: scrreprt
+from: markdown+emoji
+knitr:
+  opts_chunk:
+    collapse: true
+    comment: "#>"

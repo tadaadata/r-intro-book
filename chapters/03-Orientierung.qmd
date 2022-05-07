@@ -12,7 +12,7 @@ Gute Praxis^[Wenn wir von "Guter Praxis" reden, dann meint das in der Regel best
 Wenn ihr RStudio öffnet, seht ihr vermutlich folgendes:
 
 ```{r, fig.cap="Ein frisches RStudio Fenster", echo=FALSE}
-include_graphics(here::here("images/rstudio_fresh.png"))
+knitr::include_graphics(here::here("images/rstudio_fresh.png"))
 ```
 
 Auf der rechten Seite habr ihr unter dem Reiter "Environment" eine Übersicht eurer Dateien und angelegten Variablen, sowie darunter mit der Hilfe und diversem anderem Krams, der uns zuerst noch nicht interessiert.  
@@ -22,11 +22,11 @@ Bevor wir hier aber irgendwas machen, schaffen wir erstmal ein bisschen Struktur
 Ein Projekt ist einfach nur ein bestimmter Ordner, in dem ihr arbeiten könnt. Idealerweise ist es auch ein Ordner, den ihr auf eurem Computer einfach wiederfindet.
 
 ```{r, fig.cap="Ein neues RStudio Projekt erstellen", echo=FALSE}
-include_graphics(here::here("images/rstudio_new_project_0.png"))
+knitr::include_graphics(here::here("images/rstudio_new_project_0.png"))
 ```
 
 ```{r, echo=FALSE}
-include_graphics(
+knitr::include_graphics(
   here::here(c(
     "images/rstudio_new_project_1.png",
     "images/rstudio_new_project_2.png",
@@ -39,13 +39,13 @@ Am Ende solltet ihr euer erstes Projekt erstellt haben.
 Hier könnt ihr jetzt den Rest der Einführung über bleiben und Scripte erstellen und sowieso und überhaupt, und wenn ihr brav alles gespeichert habt, könnt ihr darauf auch in drei Wochen noch wieder zurückgreifen, indem ihr einfach das Projekt aus der entsprechenden Leiste in RStudio auswählt.
 
 ```{r fig.cap="RStudio merkt sich eure letzten paar Projekte", echo=FALSE}
-include_graphics(here::here("images/rstudio_projects.png"))
+knitr::include_graphics(here::here("images/rstudio_projects.png"))
 ```
 
 Alternativ könnt ihr auch auf eurem Computer den Ordner mit dem Projekt öffnen^[Es bietet sich an, RStudio Projekte irgendwo zentral zu organisieren, oder sie zum Beispiel in einem Unterordner für euer Studiumszeug anzulegen. Bei mir war das z.B. sowas wie `Dokumente/Studium/Psychologie/Statistik/`], dort dann einfach die Datei mit dem RStudio-Logo und der `.Rproj`-Endung öffnen. Falls ihr Windows benutzt, werden die Dateiendungen per Standard nicht angezeigt - die Datei hat aber den gleichen Namen, den ihr auch dem Projekt gegeben habt und das Symbol sieht ungefähr so aus:
 
 ```{r fig.cap="Ein RStudio Projektordner", echo=FALSE}
-include_graphics(here::here("images/rstudio_project_file.png"))
+knitr::include_graphics(here::here("images/rstudio_project_file.png"))
 ```
 
 Als nächstes können wir uns **Konsole** und **Text Editor** widmen: Ihr könnt in der Regel immer nur in einem der beiden Bereiche schreiben, und erkennt den aktiven Bereich am blinkenden Cursor (ein bisschen wie in Textprogrammen á la Word) — Konsole und Editor sind die wichtigsten Bereiche in RStudio, und dort wird auch der Großteil eurer Arbeit gemacht.
@@ -62,7 +62,7 @@ Hier kommt die Taschenrechner-Analogie wieder — versucht mal folgendes:
 ```
 
 ```{r, fig.cap="Oh Schreck, es funktioniert tatsächlich!", echo=FALSE}
-include_graphics(here::here("images/console_math_1.png"))
+knitr::include_graphics(here::here("images/console_math_1.png"))
 ```
 
 Die Mathe-Basics in R:  
@@ -98,8 +98,8 @@ $$2 + \sin \left( \frac{2\pi}{3} \right) \cdot e^{5}$$
 Was den meisten Leuten während der R-Einführung passiert ist, dass sie einen Befehl in die Konsole eingeben und Enter drücken, aber der Befehl nicht richtig abgeschlossen (*korrekt terminiert*) wurde. Das passiert zum Beispiel, wenn ihr eine schließende Klammer vergesst, oder etwa ein `+` am Ende der Zeile habt. In diesen Fällen drückt ihr Enter und R nimmt euren Befehl entgegen, aber es merkt, dass da irgendwas fehlt und wartet auf den Rest des Befehls.  
 Ihr erkennt das daran, dass das Symbol an der linken Seite eurer Konsole auf einmal ein `+`-Symbol statt eines `>` ist und auch wiederholtes Drücken der Entertaste nichts daran ändert.  
 
-```{r, fig.cap="Plus was denn?!", echo=FALSE}
-include_graphics(here::here("images/inkorrekt_terminiert1.png"))
+```{r, fig.cap="Plus was denn?!", echo=FALSE, out.width="90%"}
+knitr::include_graphics(here::here("images/inkorrekt_terminiert1.png"))
 ```
 
 Ihr habt an dieser Stelle zwei Möglichkeiten:
@@ -120,27 +120,27 @@ Scripte schreibt und speichert ihr, um eure Befehle / Auswertung / Code später 
 Um euer erstes Script zu erstellen klickt ihr in RStudio oben links den Button, der nach _"neuer Datei"_ aussieht:
 
 ```{r, echo=FALSE, fig.cap="Liebes Tagebuch: Heute habe ich einen Button geklickt. Es war sehr schön."}
-include_graphics(here::here("images/text_editor_1.png"))
+knitr::include_graphics(here::here("images/text_editor_1.png"))
 ```
 
 Danach ploppt das Fenster oben links auf und begrüßt euch mit einem leeren Textfeld:
 
 ```{r fig.cap="Na, auch hier?", echo=FALSE}
-include_graphics(here::here("images/text_editor_2.png"))
+knitr::include_graphics(here::here("images/text_editor_2.png"))
 ```
 
 Im Moment heißt euer Script noch `Untitled1` — das heißt, euer Script hat noch keinen Namen und ist **noch nicht gespeichert**. Letzteres wollt ihr umgehend ändern, weil all eure schönen Befehle für die Katz sind, wenn ihr euren Kram nicht speichert.  
 Ihr könnt zum speichern entweder den anachronistischen Diskettenbutton klicken und eurem Script einen schönen Namen geben, oder ihr drückt `STRG + S` oder auf dem Mac `cmd + S` — der wohl wichtigste Keyboard-Shortcut der Welt. Wenn ihr Probleme habt eure Tasten zu finden oder zu benennen, dann guckt im [Glossar](#tasten) oder googlet halt.
 
 ```{r fig.cap="Der \"Datei speichern…\"-Dialog", echo=FALSE}
-include_graphics(here::here("images/text_editor_3.png"))
+knitr::include_graphics(here::here("images/text_editor_3.png"))
 ```
 
 Gebt eurem Script einen aussagekräftigen Namen. Ihr wollt ja auch in zwei Wochen noch wissen, was ihr da gemacht habt.  
 Außerdem solltet ihr darauf achten, am besten ausschließlich Zahlen und Buchstaben sowie `-` und `_` zu verwenden. Leerzeichen und Umlaute (äöü) sind zwar *in der Theorie* kein Problem, aber glaubt mir, sobald ihr euer Script an KommilitonInnen mit anderen Betriebssystemen verschickt, kann auch jedes noch so harmlos aussehende *Ü* auf einmal zu einer Reihe von kleinen Problemen führen, deren Ursache ihr erst nach Stundenlanger Probiererei (oder niemals) finden würdet. Das ist im übrigen kein R-Ding, sondern gilt auch für alles andere; Word- & Excel-Dateien, PDFs, Pornovideos...
 
 Etwas ähnliches gilt auch für den Text in eurem Script:  
-Vermeidet nach Möglichkeit besondere Zeichen wie Emoji ![](images/smile.png) (auch wenn die theoretisch korrekt angezeigt werden). Leerzeichen sind kein Problem, und sollten sogar der besseren Lesbarkeit halber großzügig eingesetzt werden.
+Vermeidet nach Möglichkeit besondere Zeichen wie Emoji :blush: (auch wenn die theoretisch korrekt angezeigt werden). Leerzeichen sind kein Problem, und sollten sogar der besseren Lesbarkeit halber großzügig eingesetzt werden.
 
 Was der Lesbarkeit auch sehr hilft: Kommentare.  
 R ignoriert in Scripten sowie in der Konsole generell alles, was rechts neben einem `#` steht. Wir nennen dieses Zeichen übrigens entweder *Raute*, *Lattenzaun* oder [*Octothorpe*](https://en.wiktionary.org/wiki/octothorpe). Wer es *hashtag* nennt muss leider 5€ in die Millenial-Dose werfen.
@@ -149,7 +149,7 @@ Damit können wir sowas machen:
 
 ```r
 # Wie alt bin ich nochmal?
-2020 - 1991
+2022 - 1991
 
 # Wie viele Stunden im Jahr?
 24 * 365

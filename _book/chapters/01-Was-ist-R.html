@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de_DE" xml:lang="de_DE"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-0.9.368">
@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>R für Psychos - (PART) Vorbereitung</title>
+<title>R für Psychos - 2&nbsp; Was ist R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,7 +24,7 @@ ul.task-list{list-style: none;}
 <script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
-<link href="../references.html" rel="next">
+<link href="../chapters/02-Installation.html" rel="next">
 <link href="../index.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -64,7 +64,7 @@ ul.task-list{list-style: none;}
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">(PART) Vorbereitung</h1>
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Was ist R</span></h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -92,16 +92,46 @@ ul.task-list{list-style: none;}
   <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Vorwort (2022 Edition (mit Glitzer (metaphorisch)))</span></a>
   </div>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Vorbereitung</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../chapters/01-Was-ist-R.html" class="sidebar-item-text sidebar-link active">(PART) Vorbereitung</a>
+  <a href="../chapters/01-Was-ist-R.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Was ist R</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../references.html" class="sidebar-item-text sidebar-link">References</a>
+  <a href="../chapters/02-Installation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Installation</span></a>
   </div>
 </li>
+    </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">Quellen</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Appendices</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/A01-Ressourcen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ressourcen</span></a>
+  </div>
+</li>
+    </ul>
+  </li>
     </ul>
     </div>
 </nav>
@@ -111,12 +141,9 @@ ul.task-list{list-style: none;}
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#was-ist-r" id="toc-was-ist-r" class="nav-link active" data-scroll-target="#was-ist-r">Was ist R</a>
-  <ul class="collapse">
-  <li><a href="#was-ist-an-r-so-toll" id="toc-was-ist-an-r-so-toll" class="nav-link" data-scroll-target="#was-ist-an-r-so-toll">Was ist an R so toll?</a></li>
-  <li><a href="#was-ist-r-nicht" id="toc-was-ist-r-nicht" class="nav-link" data-scroll-target="#was-ist-r-nicht">Was ist R <strong>nicht</strong>?</a></li>
-  <li><a href="#wieso-nicht-einfach-spss" id="toc-wieso-nicht-einfach-spss" class="nav-link" data-scroll-target="#wieso-nicht-einfach-spss">Wieso nicht einfach SPSS?</a></li>
-  </ul></li>
+  <li><a href="#was-ist-an-r-so-toll" id="toc-was-ist-an-r-so-toll" class="nav-link active" data-scroll-target="#was-ist-an-r-so-toll"> <span class="header-section-number">2.1</span> Was ist an R so toll?</a></li>
+  <li><a href="#was-ist-r-nicht" id="toc-was-ist-r-nicht" class="nav-link" data-scroll-target="#was-ist-r-nicht"> <span class="header-section-number">2.2</span> Was ist R <strong>nicht</strong>?</a></li>
+  <li><a href="#wieso-nicht-einfach-spss" id="toc-wieso-nicht-einfach-spss" class="nav-link" data-scroll-target="#wieso-nicht-einfach-spss"> <span class="header-section-number">2.3</span> Wieso nicht einfach SPSS?</a></li>
   </ul>
 </nav>
     </div>
@@ -125,7 +152,7 @@ ul.task-list{list-style: none;}
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">(PART) Vorbereitung</h1>
+<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Was ist R</span></h1>
 </div>
 
 
@@ -141,16 +168,14 @@ ul.task-list{list-style: none;}
 
 </header>
 
-<section id="was-ist-r" class="level1">
-<h1>Was ist R</h1>
 <p>R ist eine Programmiersprache, und ja, das klingt abschreckend.<br>
 Für uns heißt das in erster Linie Folgendes:</p>
 <ul>
 <li>Die Lernkurve ist etwas steil, flacht dann aber schnell ab. Versprochen.</li>
 <li>Wir können prinzipiell <em>alles</em> damit machen, wenn wir erstmal rausgefunden haben wie’s geht.</li>
 </ul>
-<section id="was-ist-an-r-so-toll" class="level2">
-<h2 class="anchored" data-anchor-id="was-ist-an-r-so-toll">Was ist an R so toll?</h2>
+<section id="was-ist-an-r-so-toll" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="was-ist-an-r-so-toll"><span class="header-section-number">2.1</span> Was ist an R so toll?</h2>
 <p>Nicht alles an R ist toll — und sobald ihr das erste Mal mehrere Stunden damit verbracht habt, ein vergleichsweise einfaches Problem lösen zu wollen, werdet ihr wissen was ich meine.</p>
 <p>Die am häufigsten zitierten Vorteile sind in etwa die Folgenden:</p>
 <ul>
@@ -184,8 +209,8 @@ Für uns heißt das in erster Linie Folgendes:</p>
 <li><strong>Aktive Entwicklung &amp; Community</strong>: R wird <em>immer besser</em>. Immer mehr Leute benutzen R, von diesen Leuten haben einige gute Ideen, und davon wiederum gibt es einige, die diese sogar umsetzen. Das Resultat ist ein stetig wachsendes und gedeihendes Ökosystem um R und eine aktive Community auf diversen Netzwerken, die sowohl Hilfestellung liefern können als auch aktiv an besseren Tools rund um R arbeiten, von besserer Dokumentation bis zu besserer Integration mit anderer Software.</li>
 </ul>
 </section>
-<section id="was-ist-r-nicht" class="level2">
-<h2 class="anchored" data-anchor-id="was-ist-r-nicht">Was ist R <strong>nicht</strong>?</h2>
+<section id="was-ist-r-nicht" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="was-ist-r-nicht"><span class="header-section-number">2.2</span> Was ist R <strong>nicht</strong>?</h2>
 <p>R ist nicht wie SPSS. R “nackt” ist ein Kommandozeilenprogramm. Terminal/Konsole, wie man es auch nennen mag, aber es ist nicht wie die Programme, die ihr im Alltag benutzt. Es gibt keine Knöpfe zum drücken und alles ist Text, ohne Formatierungskram wie <strong>fett</strong> oder <em>kursiv</em>, weil die Grundlagen bzw. Vorstufen von R aus einer Zeit kommen, in der Computer noch <em>anders</em> waren und die Mauer noch frisch war.</p>
 <p>Weil das wenig benutzerfreundlich bzw. einsteigerfreundlich ist, gibt es Programme wie <strong>RStudio</strong>, was sozusagen auf R sitzt und es benutzbar macht. Wenn R ein Pferd ist, ist RStudio ein Sattel.<br>
 Das heißt für euch aber auch, dass ihr eine Datenanalyse nicht durch bloßes Knöpfchendrücken zusammenstecken könnt wie das bei SPSS möglich ist — ihr müsst Befehle lernen, eure Daten(struktur) verstehen, und euch sicher sein, was ihr tun wollt.<br>
@@ -193,8 +218,8 @@ Ich weiß, dass das alles wirklich eher krampfig klingt wenn ihr das so lest, we
 <p>Ich betone das übrigens nicht, weil ich SPSS doof finde (was ich tue), oder R so toll finde (was ich tue), sondern tatsächlich aus Erfahrung und Überzeugung.<br>
 Wenn euch Statistik egal ist und ihr einfach nur bestehen wollt, dann reicht euch vielleicht SPSS. Wenn ihr langfristig gut mit Methodik und quantitativen Methoden arbeiten können wollt, dann ist R eine gute Investition.</p>
 </section>
-<section id="wieso-nicht-einfach-spss" class="level2">
-<h2 class="anchored" data-anchor-id="wieso-nicht-einfach-spss">Wieso nicht einfach SPSS?</h2>
+<section id="wieso-nicht-einfach-spss" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="wieso-nicht-einfach-spss"><span class="header-section-number">2.3</span> Wieso nicht einfach SPSS?</h2>
 <p>SPSS ist viel.<br>
 SPSS kann viel.<br>
 SPSS kostet unsäglich viel.<br>
@@ -209,7 +234,6 @@ So sicher wie der Tod und Steuern müsst ihr auch irgendwann ein Expra durchfüh
 <!-- Fußnoten -->
 
 
-</section>
 </section>
 <section class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
@@ -305,8 +329,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../references.html" class="pagination-link">
-        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../chapters/02-Installation.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Installation</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

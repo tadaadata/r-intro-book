@@ -9,8 +9,134 @@
   {
     "objectID": "chapters/01-Was-ist-R.html",
     "href": "chapters/01-Was-ist-R.html",
-    "title": "(PART) Vorbereitung",
+    "title": "2  Was ist R",
     "section": "",
-    "text": "Das mit der Schnelligkeit kommt mit etwas Übung. Wirklich.↩︎"
+    "text": "R ist eine Programmiersprache, und ja, das klingt abschreckend.\nFür uns heißt das in erster Linie Folgendes:"
+  },
+  {
+    "objectID": "chapters/01-Was-ist-R.html#was-ist-an-r-so-toll",
+    "href": "chapters/01-Was-ist-R.html#was-ist-an-r-so-toll",
+    "title": "2  Was ist R",
+    "section": "2.1 Was ist an R so toll?",
+    "text": "2.1 Was ist an R so toll?\nNicht alles an R ist toll — und sobald ihr das erste Mal mehrere Stunden damit verbracht habt, ein vergleichsweise einfaches Problem lösen zu wollen, werdet ihr wissen was ich meine.\nDie am häufigsten zitierten Vorteile sind in etwa die Folgenden:\n\nKostenlos\n\nKeine Lizenzgebühren\nKeine Update-Gebühren\n\nOpen Source\n\nSoftware-Sprech für “jeder kann sich die Innereien angucken”\nJeder kann R beliebig erweitern und modifizieren\n“Was genau macht R an Stelle XYZ” ist immer beantwortbar, weil der Quelltext offen verfügbar ist\n\nErweiterbarkeit\n\nEs gibt unzählige Erweiterungen (“packages”) für R, die neue Funktionen bereitstellen\nÜbersicht auf z.B. r-pkg.org\nSogar eure TutorInnen können packages schreiben. Tun sie sogar manchmal.\n\nGute Dokumentation (meistens)\n\nR bringt seine Hilfe selber mit, das ist der “Help”-Tab in RStudio. Jede Funktion ist dokumentiert!\nSeiten wie rdocumentation.org oder rdrr.io erlauben es so gut wie alle verfügbaren R packages nach bestimmten Funktionen zu durchsuchen, egal wie obskur der Anwendungsfall auch sein mag\nCommunities wie stackoverflow sind beliebte “Ich brauche Hilfe bei XY”-Anlaufstellen, und eine Horde von Menschen, die meistens das gleiche Problem auch schonmal hatten, können euch helfen\n\nInteraktivität: Wo SPSS auf Buttons und Befehle reagiert und dann einen Stapel PDFs produziert, kann R mit der Konsole auch einfach schnell und interaktiv benutzt werden: “Schnell mal eben was nachgucken” ist in R deutlich angenehmer als in SPSS, zumindest für einfache Sachen.\nReproduzierbarkeit: Wenn ihr ein sauberes R-Script geschrieben habt, könnt ihr das frei verfügbar machen und alle Interessierten können es bei sich selbst ausführen und BÄM!, Ergebnisse reproduziert. In case you didn’t realize, but that’s kind of a big thing in science.\nVisualisierung: R hat fantastische Werkzeuge zur Datenvisualisierung, primär sei hier ggplot2 erwähnt, was euch erlaubt wunderschöne Grafiken aus euren Daten zu zaubern, und auch das vollkommen reproduzierbar (versucht das mal mit SPSS oder Excel. Worlds of pain.)\nFlexibilität: R ist eine Programmiersprache, das heißt per default kann R erstmal alles. Vielleicht nicht alles gut, aber prinzipiell lässt sich zumindest theoretisch alles damit anstellen. Dieses Dokument hier? In R (RMarkdown, bookdown) geschrieben. Dynamische Webseiten? Auch möglich, googlet “R shiny”. Interaktive Elemente? Auch kein Ding, googlet “R htmlwidgets”. Daten aus Software wie SPSS, Excel oder sogar Google Sheets importieren? Auch kein Problem. You get the idea.\nAktive Entwicklung & Community: R wird immer besser. Immer mehr Leute benutzen R, von diesen Leuten haben einige gute Ideen, und davon wiederum gibt es einige, die diese sogar umsetzen. Das Resultat ist ein stetig wachsendes und gedeihendes Ökosystem um R und eine aktive Community auf diversen Netzwerken, die sowohl Hilfestellung liefern können als auch aktiv an besseren Tools rund um R arbeiten, von besserer Dokumentation bis zu besserer Integration mit anderer Software."
+  },
+  {
+    "objectID": "chapters/01-Was-ist-R.html#was-ist-r-nicht",
+    "href": "chapters/01-Was-ist-R.html#was-ist-r-nicht",
+    "title": "2  Was ist R",
+    "section": "2.2 Was ist R nicht?",
+    "text": "2.2 Was ist R nicht?\nR ist nicht wie SPSS. R “nackt” ist ein Kommandozeilenprogramm. Terminal/Konsole, wie man es auch nennen mag, aber es ist nicht wie die Programme, die ihr im Alltag benutzt. Es gibt keine Knöpfe zum drücken und alles ist Text, ohne Formatierungskram wie fett oder kursiv, weil die Grundlagen bzw. Vorstufen von R aus einer Zeit kommen, in der Computer noch anders waren und die Mauer noch frisch war.\nWeil das wenig benutzerfreundlich bzw. einsteigerfreundlich ist, gibt es Programme wie RStudio, was sozusagen auf R sitzt und es benutzbar macht. Wenn R ein Pferd ist, ist RStudio ein Sattel.\nDas heißt für euch aber auch, dass ihr eine Datenanalyse nicht durch bloßes Knöpfchendrücken zusammenstecken könnt wie das bei SPSS möglich ist — ihr müsst Befehle lernen, eure Daten(struktur) verstehen, und euch sicher sein, was ihr tun wollt.\nIch weiß, dass das alles wirklich eher krampfig klingt wenn ihr das so lest, weshalb es auch häufig vorkommt, dass Studierende in den ersten Semestern R eher ignorieren und sich lieber mit SPSS beschäftigen, weil das weniger kognitiver Aufwand ist — aber glaubt mir wenn ich euch sage, dass “R lernen” eine gute Investition ist. SPSS könnt ihr euch immer noch irgendwie beibringen oder Youtube-Tutorials gucken oder Befehlslisten ausdrucken und sowieso und überhaupt, R hingegen ist entsprechend komplexer, also nutzt die Zeit in der euch TutorInnen noch helfen können, bevor ihr dann vor eurem Expra-Datensatz sitzt, mit SPSS nicht weiter kommt und wie der Ochs vor’m Berg an R sitzt.\nIch betone das übrigens nicht, weil ich SPSS doof finde (was ich tue), oder R so toll finde (was ich tue), sondern tatsächlich aus Erfahrung und Überzeugung.\nWenn euch Statistik egal ist und ihr einfach nur bestehen wollt, dann reicht euch vielleicht SPSS. Wenn ihr langfristig gut mit Methodik und quantitativen Methoden arbeiten können wollt, dann ist R eine gute Investition."
+  },
+  {
+    "objectID": "chapters/01-Was-ist-R.html#wieso-nicht-einfach-spss",
+    "href": "chapters/01-Was-ist-R.html#wieso-nicht-einfach-spss",
+    "title": "2  Was ist R",
+    "section": "2.3 Wieso nicht einfach SPSS?",
+    "text": "2.3 Wieso nicht einfach SPSS?\nSPSS ist viel.\nSPSS kann viel.\nSPSS kostet unsäglich viel.\nSPSS nimmt euch das Denken ab — im guten wie im schlechten Sinn.\nWenn ihr SPSS bedienen könnt, ihr wisst was ihr tut und entweder ihr oder eure ArbeitgeberIn tief in die Tasche gegriffen haben um eine Lizenz bereitzustellen, dann ist das schön und gut, und ihr könnt den Knopf mit “Mach mal Statistik” drücken und dann kommen da PDFs raus wo Statistik drinsteht.\nSchön.\nMöglicherweise habt ihr aber nicht die finanziellen Ressourcen für SPSS.\nMöglicherweise braucht ihr mehr Flexibilität.\nVielleicht funktioniert SPSS für euch nur mittels einer Remotedesktop-Verbindung (*hust hust*), das heißt sobald ihr irgendwo ohne schnelle Verbindung seid, könnt ihr nicht mehr arbeiten.\nSo sicher wie der Tod und Steuern müsst ihr auch irgendwann ein Expra durchführen, die erhobenen Daten auswerten und darstellen. Solltet ihr das mit SPSS machen, dürft ihr keine der Grafiken oder Tabellen benutzen (außer ihr verzichtet freiwillig auf eine gute Note). Das gleiche gilt in schwächerer Gewichtung für euer Differentielle Projekt und natürlich ggf. in stärkerer Gewichtung für eure Bachelorarbeit.\nVielleicht gefällt euch aber auch nur, dass ihr mit R interaktiv und schnell1 einfache Dinge ausprobieren könnt."
+  },
+  {
+    "objectID": "chapters/02-Installation.html",
+    "href": "chapters/02-Installation.html",
+    "title": "3  Installation",
+    "section": "",
+    "text": "Hier eine kurze Anleitung um R und RStudio zu installieren.\nKurz zum Kontext: R ist eine Programmiersprache, das heißt auch “R installieren” ist anders als “Spotify installieren”.\nIhr installiert zunächst R, und bekommt dann auf dem Desktop Verknüpfungen angeboten für “R GUI” (o.Ä.) — Dabei handelt es sich um “nackte” Konsolenprogramme.\nDamit könntet ihr R benutzen, aber es macht beim besten Willen keinen Spaß.\nDeshalb installiert ihr RStudio — Ein Programm (wie Spotify, nur ganz anders!), mit dem ihr R komfortabler benutzen könnt."
+  },
+  {
+    "objectID": "chapters/02-Installation.html#r-installieren",
+    "href": "chapters/02-Installation.html#r-installieren",
+    "title": "3  Installation",
+    "section": "3.1 R installieren",
+    "text": "3.1 R installieren\nR bekommt ihr von der offiziellen seite, hier: https://cran.r-project.org/\n\n\n\n\n\nJa, die Seite sieht nach heutigen Standards furchtbar alt aus, aber die gibt’s nunmal auch schon ewig und sie hat den Anspruch möglichst spartanisch zu sein um auch auf jedem noch so ranzigen Computer ordentlich dargstellt und ggf. von Scripten ausgelesen zu werden.\n\n3.1.1 Windows\nKlickt auf der oben genannte Seite auf Download R for Windows. Vollkommen unerwartet.\n\n\n\n\n\nHier benötigt ihr base (der R installer):\n\n\n\n\n\n…und sicherheitshalber auch Rtools (fragt nicht. Vorerst installiert ihr es einfach, nur für den Fall, das es euch später Probleme erspart).\n\n\n\n\n\nDa ich akut keinen Windows-Computer zur Hand habe, gehe ich einfach davon aus, dass ihr das Prinzip “.exe-Datei doppelklicken und alles brav mit ja oder OK bestätigen” beherrscht. Schafft ihr bei Spotify ja auch.\nDas war die R-Installation!\nUnd jetzt installiert ihr RStudio\n\n\n3.1.2 Mac OS X (macOS)\nKlickt auf der oben genannte Seite auf Download R for (Mac) OS X. Auch das, vollkommen unerwartet.\n\n\n\n\n\n\nWenn euer Betriebssystem auf dem aktuellen Stand ist, benutzt die aktuelle Version des R-installers.\n\nWenn ihr aus unerfindlichen Gründen noch eine sehr alte OS X version laufen habt:\n\nMöge die Deität eurer Wahl euch beistehen\nAktualisiert euer Betriebssystem, oder wenn das nicht möglich ist…\n…müsst ihr vermutlich den Installer mit snowleopard im Namen benutzen\n\nWenn ihr nicht wisst, welche OS X Version ihr benutzt: Versucht’s erstmal mit dem aktuellen Installer, wenn das nicht funktioniert, versucht den älteren. Ansonsten: Googlet.\n\nAnsonsten braucht ihr nichts runterzuladen. Den Installer (die .pkg-Datei) einfach doppelklicken und alles brav bejahen.\nFertig.\n\n\n3.1.3 Linux\nWenn ihr Linux benutzt, solltet ihr unabhängig von der Geschmacksrichtung auch wissen, wie man da Software installiert.\nEs gibt diese Info-Seite für Ubuntu: https://cloud.r-project.org/bin/linux/ubuntu/README.html.\nWenn ihr nicht wisst, was https://<my.favorite.cran.mirror>/bin/linux/ubuntu sein soll, dann setzt für <my.favorite.cran.mirror> am besten einfach cloud.r-project.org ein. Die Zeilen unter “Installation” im verlinkten Dokument würden dann so aussehen (für Ubuntu 18.04 bionic):\n\ndeb https://cloud.r-project.org/bin/linux/ubuntu bionic/\n\nZusätzlich solltet ihr vermutlich einige Systempakete (also außerhalb R) installieren, für den Fall der Fälle.\nFür Ubuntu zum Beispiel (nur aus eigener Erfahrung, YMMV):\nsudo apt install libcurl4-openssl-dev curl git libxml2-dev libcairo2-dev\nDamit installiert ihr ein paar Pakete, die ihr für manche R-packages als dependencies benötigt.\nDie Liste ist nicht vollständig für alle möglichen R packages, aber zumindest alle, die wir im Laufe dieser Intro benutzen oder benutzen könnten sollten damit abgedeckt sein."
+  },
+  {
+    "objectID": "chapters/02-Installation.html#rstudio-install",
+    "href": "chapters/02-Installation.html#rstudio-install",
+    "title": "3  Installation",
+    "section": "3.2 RStudio installieren",
+    "text": "3.2 RStudio installieren\nRStudio bekommt ihr hier: https://www.rstudio.com/products/rstudio/download/#download\n\n\n\n\n\nHier dasselbe Spiel:\nInstallationsdatei für euer Betriebssystem runterladen und installieren traue ich euch zu.\nEnttäuscht mich nicht.\nNach der Installation solltet ihr jedenfalls folgendes Symbol entweder auf eurem Desktop oder in eurem Programmordner finden:\n\n\n\n\n\nDas wollt ihr anklicken, dann sollte sich RStudio öffnen und ihr habt erfolgreich R und RStudio installiert.\nGratuliere.\nFalls ihr Windows 10 benutzt und sich keine Desktopverknüfung erstellt habt, wollt ihr eure Suchfunktion benutzen und “RStudio” suchen. Vollkommen unerwartet, ich weiß."
+  },
+  {
+    "objectID": "chapters/02-Installation.html#rstudio-benutzen",
+    "href": "chapters/02-Installation.html#rstudio-benutzen",
+    "title": "3  Installation",
+    "section": "3.3 RStudio benutzen",
+    "text": "3.3 RStudio benutzen\nDas ist keine Anleitung, das ist eine Aufforderung.\nIhr benutzt ausschließlich RStudio. Alle anderen Desktopverknüpfungen die im Laufe der Installationen erschienen sein sollten könnt ihr getrost löschen, die braucht ihr nicht.\nDazu gehören solche Dinge wie “R Console” oder auch “R GUI” oder ähnliches. Das sind die Verknüpfungen für das reine R, aber wir wollen R ja durch RStudio benutzen.\nTrust me, it’s better that way.\nIn RStudio könnt ihr jetzt vermutlich noch nicht viel machen, außer in der Konsole aus Spaß “print('Wurstwasser')” eingeben und Enter drücken."
+  },
+  {
+    "objectID": "chapters/A01-Ressourcen.html",
+    "href": "chapters/A01-Ressourcen.html",
+    "title": "Appendix A — Ressourcen",
+    "section": "",
+    "text": "Es gibt viele freie Quellen für schöne Datensätze zum Üben oder rumspielen, und einige packages bringen auch entsprechende Datensätze mit, die geeignet sind um bestimmte Funktionen auszuprobieren.\n\n\n\nGängige Standarddatensätze:\n\nmtcars\nsleep\nattitude\n\npalmerpenguins::penguins: Pinguine!\ndplyr::starwars: Star Wars-stuff mit list-columns\nbabynames::babynames: Naja, baby names.\ntadaatoolbox::ngo: NGO-Datensatz aus QM (bzw. aus dem Kähler)\n\n\n\n\n\ndata.world: Hier kommt z.B. der Game of Thrones deaths-Datensatz her\n\n\n\n\nHier liegen diverse Datensätze aus unseren Projekten, wie z.B. die QM-Surveys und die Tutorienteilnahme.\n\ndata.tadaa-data.de"
+  },
+  {
+    "objectID": "chapters/A01-Ressourcen.html#bücher",
+    "href": "chapters/A01-Ressourcen.html#bücher",
+    "title": "Appendix A — Ressourcen",
+    "section": "A.2 Bücher",
+    "text": "A.2 Bücher\n\n“R for Data Science” – Hadley Wickham\n“Advanced R” – Hadley Wickham\nggplot2 – Hadley Wickham\n“Tidyverse Cookbook”\n“R Programming for Data Science” – Roger Peng\n“Exploratory Data Analysis with R” – Roger Peng\n“Top 50 ggplot2 Visualizations”\n“R Cookbook”\nMehr Bücher\n\n\nA.2.1 Kollaboration und Organisation\n\nA.2.1.1 Git & GitHub\n\nhappygitwithr.com – Jenny Bryan\nohshitgit"
+  },
+  {
+    "objectID": "chapters/A01-Ressourcen.html#kurse-workshops",
+    "href": "chapters/A01-Ressourcen.html#kurse-workshops",
+    "title": "Appendix A — Ressourcen",
+    "section": "A.3 Kurse & Workshops",
+    "text": "A.3 Kurse & Workshops\n\nA.3.1 Kostenlose Tutorials/Videos\n\nRStudio Webinars\nStat545\nLOTR Data"
+  },
+  {
+    "objectID": "chapters/A01-Ressourcen.html#blogs",
+    "href": "chapters/A01-Ressourcen.html#blogs",
+    "title": "Appendix A — Ressourcen",
+    "section": "A.4 Blogs",
+    "text": "A.4 Blogs\n\nAggregator: R-Bloggers\n\nSiehe auch: Blogs in blogdown"
+  },
+  {
+    "objectID": "chapters/A01-Ressourcen.html#community",
+    "href": "chapters/A01-Ressourcen.html#community",
+    "title": "Appendix A — Ressourcen",
+    "section": "A.5 Community",
+    "text": "A.5 Community\n\nStackoverflow\nTwitter: #rstats"
+  },
+  {
+    "objectID": "chapters/A01-Ressourcen.html#dokumentation",
+    "href": "chapters/A01-Ressourcen.html#dokumentation",
+    "title": "Appendix A — Ressourcen",
+    "section": "A.6 Dokumentation",
+    "text": "A.6 Dokumentation\n\nR help (inoffizielle bookdown-Version)\nrdrr.io\nPackage-specific\n\ntidyverse.org"
+  },
+  {
+    "objectID": "chapters/03-Orientierung.html",
+    "href": "chapters/03-Orientierung.html",
+    "title": "4  Orientierung",
+    "section": "",
+    "text": "Wenn ihr vorher noch nie eine Programmiersprache benutzt habt… ist das auch eigentlich gar nicht so schlimm, denn R verhält sich sowieso für den Einstieg etwas anders.\n“Programmiersprache” klingt so abschreckend, weil es nach kompliziertem Informatikkram klingt, aber wenn ihr es in eurer Schulzeit geschafft habt einen Taschenrechner zu bedienen, dann bekommt ihr auch den Einstieg in R hin.\nWas der Begriff “Programmiersprache” für uns heißt ist recht simpel:\nR folgt Anweisungen. Anweisungen, die wir entweder in die Konsole (in RStudio das Fenster unten links) schreiben können, und dann mit der Entertaste bestätigt werden. R guckt dann, ob es weiß wovon ihr redet, und rödelt dann los — und wenn es weiß was es mit eurem Befehl anfangen soll, gibt es euch auch direkt eine Antwort.\nGute Praxis1 ist es übrigens, ein Script zu erstellen, das Scriptfenster ist dann in RStudio oben links. Dort könnt ihr einen Befehl pro Zeile schreiben und als Datei abspeichern, so müsst ihr euch bei eurer Arbeit nicht jeden Befehl einzeln merken, sondern könnt einfach das Script wieder neu ausführen und eure Ergebnisse tauchen alle wieder auf."
+  },
+  {
+    "objectID": "chapters/03-Orientierung.html#rstudio",
+    "href": "chapters/03-Orientierung.html#rstudio",
+    "title": "4  Orientierung",
+    "section": "4.1 RStudio",
+    "text": "4.1 RStudio\nWenn ihr RStudio öffnet, seht ihr vermutlich folgendes:\n\n\n\n\n\nEin frisches RStudio Fenster\n\n\n\n\nAuf der rechten Seite habr ihr unter dem Reiter “Environment” eine Übersicht eurer Dateien und angelegten Variablen, sowie darunter mit der Hilfe und diversem anderem Krams, der uns zuerst noch nicht interessiert.\nDas große Fenster zur linken Seite ist die Konsole, mit der beschäftigen wir uns zuerst.\nBevor wir hier aber irgendwas machen, schaffen wir erstmal ein bisschen Struktur und erstellen ein neues Projekt.\nEin Projekt ist einfach nur ein bestimmter Ordner, in dem ihr arbeiten könnt. Idealerweise ist es auch ein Ordner, den ihr auf eurem Computer einfach wiederfindet.\n\n\n\n\n\nEin neues RStudio Projekt erstellen\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAm Ende solltet ihr euer erstes Projekt erstellt haben.\nHier könnt ihr jetzt den Rest der Einführung über bleiben und Scripte erstellen und sowieso und überhaupt, und wenn ihr brav alles gespeichert habt, könnt ihr darauf auch in drei Wochen noch wieder zurückgreifen, indem ihr einfach das Projekt aus der entsprechenden Leiste in RStudio auswählt.\n\n\n\n\n\nRStudio merkt sich eure letzten paar Projekte\n\n\n\n\nAlternativ könnt ihr auch auf eurem Computer den Ordner mit dem Projekt öffnen2, dort dann einfach die Datei mit dem RStudio-Logo und der .Rproj-Endung öffnen. Falls ihr Windows benutzt, werden die Dateiendungen per Standard nicht angezeigt - die Datei hat aber den gleichen Namen, den ihr auch dem Projekt gegeben habt und das Symbol sieht ungefähr so aus:\n\n\n\n\n\nEin RStudio Projektordner\n\n\n\n\nAls nächstes können wir uns Konsole und Text Editor widmen: Ihr könnt in der Regel immer nur in einem der beiden Bereiche schreiben, und erkennt den aktiven Bereich am blinkenden Cursor (ein bisschen wie in Textprogrammen á la Word) — Konsole und Editor sind die wichtigsten Bereiche in RStudio, und dort wird auch der Großteil eurer Arbeit gemacht."
+  },
+  {
+    "objectID": "chapters/03-Orientierung.html#konsole",
+    "href": "chapters/03-Orientierung.html#konsole",
+    "title": "4  Orientierung",
+    "section": "4.2 Konsole",
+    "text": "4.2 Konsole\nJetzt habt ihr ein frisches Projekt und könnt loslegen.\nAls erstes müssen wir uns mit der Konsole (dem Teil unten links) vertraut machen.\nHier könnt ihr Frage-Antwort-mäßig Befehle eingeben, mit Enter bestätigen, und erhaltet eine Antwort.\nHier kommt die Taschenrechner-Analogie wieder — versucht mal folgendes:\n928 + 182\n\n\n\n\n\nOh Schreck, es funktioniert tatsächlich!\n\n\n\n\nDie Mathe-Basics in R:\n\nAddition: +: 52 + 365 –> 417\nSubtraktion: -: 2017 - 18 –> 1999\nMultiplikation: *: 4*21 –> 84\nDivision: /: 936/12 –> 78\nExponentiation: ^: 2^10 –> 1024\nKlammern: (, ): 3 * (12 - 8) + 2^(5/2)\n\nWie beim Taschenrechner: Lieber zwei mehr als nötig als eine zu wenig\n…und ja, jede offene Klammer braucht eine geschlossen Klammer, sonst gibt’s Fehler\n\nDas Dezimaltrennzeichen ist der Punkt .: 12,1 wird eingegeben als 12.1\n\nAnsonsten gibt es etliche weitere mathematischen Funktionen, und wir können das ganze beliebig komplex aussehen lassen:\n2 + sin((2*pi)/3) * exp(5)\nHier sehen wir mehrere neue Dinge:\nErstens: pi ist wirklich, naja, \\(\\pi\\). Das mit dem Kreis. Als Konstante schon in R vorgespeichert, weil ja kein Mensch \\(\\pi\\) auf der Tastatur findet3.\nZweitens: sin() und exp() sind Funktionen. Die sind ziemlich wichtig, aber denen wenden wir uns erst im nächsten Abschnitt zu.\nWas wir da geschrieben haben sieht übersetzt in Mathe übrigens so aus…\n\\[2 + \\sin \\left( \\frac{2\\pi}{3} \\right) \\cdot e^{5}\\]\n… und ergibt etwa 130,5. Aber darum geht’s eigentlich gar nicht.\n\n4.2.1 Gängige Probleme\nWas den meisten Leuten während der R-Einführung passiert ist, dass sie einen Befehl in die Konsole eingeben und Enter drücken, aber der Befehl nicht richtig abgeschlossen (korrekt terminiert) wurde. Das passiert zum Beispiel, wenn ihr eine schließende Klammer vergesst, oder etwa ein + am Ende der Zeile habt. In diesen Fällen drückt ihr Enter und R nimmt euren Befehl entgegen, aber es merkt, dass da irgendwas fehlt und wartet auf den Rest des Befehls.\nIhr erkennt das daran, dass das Symbol an der linken Seite eurer Konsole auf einmal ein +-Symbol statt eines > ist und auch wiederholtes Drücken der Entertaste nichts daran ändert.\n\n\n\n\n\nPlus was denn?!\n\n\n\n\nIhr habt an dieser Stelle zwei Möglichkeiten:\n\nDrückt Escape (esc) um den Befehl abzubrechen und es nochmal zu versuchen\nFührt den Befehl korrekt zu Ende, sprich schließt ggf. offene Klammern etc."
+  },
+  {
+    "objectID": "chapters/03-Orientierung.html#text-editor",
+    "href": "chapters/03-Orientierung.html#text-editor",
+    "title": "4  Orientierung",
+    "section": "4.3 Text Editor",
+    "text": "4.3 Text Editor\nAlles was in der Konsole passiert ist schön und gut, aber es ist flüchtig. Stellt es euch vor wie eine Timeline auf Twitter oder ein Snapchat… Snapchat Dings oder was auch immer diese jungen Leute heutzutage benutzen.\nSobald ihr mehr als vier oder fünf Befehle eingegeben habt, müsst ihr hochscrollen, um eure alten Ergebnisse wieder zu finden. Das ist vollkommen okay um mal schnell etwas auszuprobieren, aber eher unpraktisch für eure Arbeit, die in der Regel sowas wie Reproduzierbarkeit erfordert.\nDazu gibt es Scripte. Scripte sind im Grunde nur Textdateien, in die ihr R-Befehle eingebt.\nSchön brav einen Befehl pro Zeile, wie in der Konsole.\nScripte könnt ihr speichern und an andere Leute verschicken oder hochladen oder euch ausdrucken und an die Backe tackern — der Kreativität sind keine Grenzen gesetzt! Scripte schreibt und speichert ihr, um eure Befehle / Auswertung / Code später wiederzufinden und nachvollziehen zu können. Ergebnisse reproduzieren könnt ihr indem ihr den Code aus dem Script nochmal ausführt.\nUm euer erstes Script zu erstellen klickt ihr in RStudio oben links den Button, der nach “neuer Datei” aussieht:\n\n\n\n\n\nLiebes Tagebuch: Heute habe ich einen Button geklickt. Es war sehr schön.\n\n\n\n\nDanach ploppt das Fenster oben links auf und begrüßt euch mit einem leeren Textfeld:\n\n\n\n\n\nNa, auch hier?\n\n\n\n\nIm Moment heißt euer Script noch Untitled1 — das heißt, euer Script hat noch keinen Namen und ist noch nicht gespeichert. Letzteres wollt ihr umgehend ändern, weil all eure schönen Befehle für die Katz sind, wenn ihr euren Kram nicht speichert.\nIhr könnt zum speichern entweder den anachronistischen Diskettenbutton klicken und eurem Script einen schönen Namen geben, oder ihr drückt STRG + S oder auf dem Mac cmd + S — der wohl wichtigste Keyboard-Shortcut der Welt. Wenn ihr Probleme habt eure Tasten zu finden oder zu benennen, dann guckt im Glossar oder googlet halt.\n\n\n\n\n\nDer “Datei speichern…”-Dialog\n\n\n\n\nGebt eurem Script einen aussagekräftigen Namen. Ihr wollt ja auch in zwei Wochen noch wissen, was ihr da gemacht habt.\nAußerdem solltet ihr darauf achten, am besten ausschließlich Zahlen und Buchstaben sowie - und _ zu verwenden. Leerzeichen und Umlaute (äöü) sind zwar in der Theorie kein Problem, aber glaubt mir, sobald ihr euer Script an KommilitonInnen mit anderen Betriebssystemen verschickt, kann auch jedes noch so harmlos aussehende Ü auf einmal zu einer Reihe von kleinen Problemen führen, deren Ursache ihr erst nach Stundenlanger Probiererei (oder niemals) finden würdet. Das ist im übrigen kein R-Ding, sondern gilt auch für alles andere; Word- & Excel-Dateien, PDFs, Pornovideos…\nEtwas ähnliches gilt auch für den Text in eurem Script:\nVermeidet nach Möglichkeit besondere Zeichen wie Emoji 😊 (auch wenn die theoretisch korrekt angezeigt werden). Leerzeichen sind kein Problem, und sollten sogar der besseren Lesbarkeit halber großzügig eingesetzt werden.\nWas der Lesbarkeit auch sehr hilft: Kommentare.\nR ignoriert in Scripten sowie in der Konsole generell alles, was rechts neben einem # steht. Wir nennen dieses Zeichen übrigens entweder Raute, Lattenzaun oder Octothorpe. Wer es hashtag nennt muss leider 5€ in die Millenial-Dose werfen.\nDamit können wir sowas machen:\n# Wie alt bin ich nochmal?\n2022 - 1991\n\n# Wie viele Stunden im Jahr?\n24 * 365\nDamit bekommen eure Befehle Kontext, und sowohl ihr als auch eure KommilitonInnen können leicht rausfinden, was zum Geier ihr euch da eigentlich gedacht habt.\nKommentare sind auch praktisch, wenn ihr ein längere Script ausführt, aber ein Befehl Probleme bereitet. Wenn ihr einfach ein # davor setzt, ist die Zeile auskommentiert, und wird von R ignoriert.\nWenn ihr dann ein paar Zeilen Code angesammelt habt, könnt ihr euer Script ausführen.\nEin Script wird von oben nach unten (und von links nach rechts) ausgeführt, wenn ihr auf “Source” klickt oder Shift + STRG + Enter drückt (auf dem Mac Shift + cmd + Enter).\nWenn ihr nur die aktuelle Zeile (da wo euer Cursor gerade ist, ist “aktuell”) ausführen wollt, reicht STRG + R (Mac: cmd + R). Auch hier kann das Glossar helfen."
+  },
+  {
+    "objectID": "chapters/03-Orientierung.html#und-das-da-rechts",
+    "href": "chapters/03-Orientierung.html#und-das-da-rechts",
+    "title": "4  Orientierung",
+    "section": "4.4 Und das da rechts?",
+    "text": "4.4 Und das da rechts?\nAuf der rechten Seite in RStudio findet ihr unter Anderem die Hilfe (Help), die Dateien in eurem Projektordner (Files), eine Übersicht der installierten packages (Packages), eine Variablenübersicht (Environment) und von euch erstelle Graphiken (Plots). Wenn ihr das hier in der richtigen Reihenfolge lest, habt ihr vermutlich keine Ahnung was das alles heißen soll — und genau deswegen wenden wir uns dem Ganzen auch Schritt wir Schritt in späteren Abschnitten zu, wenn ihr ein bisschen mehr Übersicht über die Grundlagen habt."
   }
 ]

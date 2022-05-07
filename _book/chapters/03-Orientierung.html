@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de_DE" xml:lang="de_DE"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.368">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R für Psychos - 4&nbsp; Orientierung</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<link href="../references.html" rel="next">
+<link href="../chapters/02-Installation.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link id="quarto-text-highlighting-styles" href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Orientierung</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">R für Psychos</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Vorwort (2022 Edition (mit Glitzer (metaphorisch)))</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Vorbereitung</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/01-Was-ist-R.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Was ist R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-Installation.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Installation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-Orientierung.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Orientierung</span></a>
+  </div>
+</li>
+    </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">Quellen</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Appendices</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/A01-Ressourcen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ressourcen</span></a>
+  </div>
+</li>
+    </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#rstudio" id="toc-rstudio" class="nav-link active" data-scroll-target="#rstudio"> <span class="header-section-number">4.1</span> RStudio</a></li>
+  <li><a href="#konsole" id="toc-konsole" class="nav-link" data-scroll-target="#konsole"> <span class="header-section-number">4.2</span> Konsole</a>
+  <ul class="collapse">
+  <li><a href="#gängige-probleme" id="toc-gängige-probleme" class="nav-link" data-scroll-target="#gängige-probleme"> <span class="header-section-number">4.2.1</span> Gängige Probleme</a></li>
+  </ul></li>
+  <li><a href="#text-editor" id="toc-text-editor" class="nav-link" data-scroll-target="#text-editor"> <span class="header-section-number">4.3</span> Text Editor</a></li>
+  <li><a href="#und-das-da-rechts" id="toc-und-das-da-rechts" class="nav-link" data-scroll-target="#und-das-da-rechts"> <span class="header-section-number">4.4</span> Und das da rechts?</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Orientierung</span></h1>
+</div>
+
+
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>Wenn ihr vorher noch nie eine Programmiersprache benutzt habt… ist das auch eigentlich gar nicht so schlimm, denn R verhält sich sowieso für den Einstieg etwas anders.<br>
+“Programmiersprache” klingt so abschreckend, weil es nach kompliziertem Informatikkram klingt, aber wenn ihr es in eurer Schulzeit geschafft habt einen Taschenrechner zu bedienen, dann bekommt ihr auch den Einstieg in R hin.<br>
+Was der Begriff “Programmiersprache” für uns heißt ist recht simpel:<br>
+R folgt Anweisungen. Anweisungen, die wir entweder in die Konsole (in RStudio das Fenster unten links) schreiben können, und dann mit der Entertaste bestätigt werden. R guckt dann, ob es weiß wovon ihr redet, und rödelt dann los — und wenn es weiß was es mit eurem Befehl anfangen soll, gibt es euch auch direkt eine Antwort.</p>
+<p>Gute Praxis<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> ist es übrigens, ein <em>Script</em> zu erstellen, das Scriptfenster ist dann in RStudio oben links. Dort könnt ihr einen Befehl pro Zeile schreiben und als Datei abspeichern, so müsst ihr euch bei eurer Arbeit nicht jeden Befehl einzeln merken, sondern könnt einfach das Script wieder neu ausführen und eure Ergebnisse tauchen alle wieder auf.</p>
+<section id="rstudio" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="rstudio"><span class="header-section-number">4.1</span> RStudio</h2>
+<p>Wenn ihr RStudio öffnet, seht ihr vermutlich folgendes:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/rstudio_fresh.png" class="img-fluid figure-img" width="688"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Ein frisches RStudio Fenster</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Auf der rechten Seite habr ihr unter dem Reiter “Environment” eine Übersicht eurer Dateien und angelegten Variablen, sowie darunter mit der Hilfe und diversem anderem Krams, der uns zuerst noch nicht interessiert.<br>
+Das große Fenster zur linken Seite ist die Konsole, mit der beschäftigen wir uns zuerst.</p>
+<p>Bevor wir hier aber irgendwas machen, schaffen wir erstmal ein bisschen Struktur und erstellen ein neues Projekt.<br>
+Ein Projekt ist einfach nur ein bestimmter Ordner, in dem ihr arbeiten könnt. Idealerweise ist es auch ein Ordner, den ihr auf eurem Computer einfach wiederfindet.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/rstudio_new_project_0.png" class="img-fluid figure-img" width="688"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Ein neues RStudio Projekt erstellen</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="../images/rstudio_new_project_1.png" class="img-fluid" width="350"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="../images/rstudio_new_project_2.png" class="img-fluid" width="351"></p>
+</div>
+<div class="cell-output-display">
+<p><img src="../images/rstudio_new_project_3.png" class="img-fluid" width="376"></p>
+</div>
+</div>
+<p>Am Ende solltet ihr euer erstes Projekt erstellt haben.<br>
+Hier könnt ihr jetzt den Rest der Einführung über bleiben und Scripte erstellen und sowieso und überhaupt, und wenn ihr brav alles gespeichert habt, könnt ihr darauf auch in drei Wochen noch wieder zurückgreifen, indem ihr einfach das Projekt aus der entsprechenden Leiste in RStudio auswählt.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/rstudio_projects.png" class="img-fluid figure-img" width="342"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">RStudio merkt sich eure letzten paar Projekte</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Alternativ könnt ihr auch auf eurem Computer den Ordner mit dem Projekt öffnen<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, dort dann einfach die Datei mit dem RStudio-Logo und der <code>.Rproj</code>-Endung öffnen. Falls ihr Windows benutzt, werden die Dateiendungen per Standard nicht angezeigt - die Datei hat aber den gleichen Namen, den ihr auch dem Projekt gegeben habt und das Symbol sieht ungefähr so aus:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/rstudio_project_file.png" class="img-fluid figure-img" width="155"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Ein RStudio Projektordner</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Als nächstes können wir uns <strong>Konsole</strong> und <strong>Text Editor</strong> widmen: Ihr könnt in der Regel immer nur in einem der beiden Bereiche schreiben, und erkennt den aktiven Bereich am blinkenden Cursor (ein bisschen wie in Textprogrammen á la Word) — Konsole und Editor sind die wichtigsten Bereiche in RStudio, und dort wird auch der Großteil eurer Arbeit gemacht.</p>
+</section>
+<section id="konsole" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="konsole"><span class="header-section-number">4.2</span> Konsole</h2>
+<p>Jetzt habt ihr ein frisches Projekt und könnt loslegen.<br>
+Als erstes müssen wir uns mit der Konsole (dem Teil unten links) vertraut machen.<br>
+Hier könnt ihr Frage-Antwort-mäßig Befehle eingeben, mit Enter bestätigen, und erhaltet eine Antwort.<br>
+Hier kommt die Taschenrechner-Analogie wieder — versucht mal folgendes:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="dv">928</span> <span class="sc">+</span> <span class="dv">182</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/console_math_1.png" class="img-fluid figure-img" width="574"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Oh Schreck, es funktioniert tatsächlich!</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Die Mathe-Basics in R:</p>
+<ul>
+<li>Addition: <code>+</code>: <code>52 + 365</code> –&gt; 417</li>
+<li>Subtraktion: <code>-</code>: <code>2017 - 18</code> –&gt; 1999</li>
+<li>Multiplikation: <code>*</code>: <code>4*21</code> –&gt; 84</li>
+<li>Division: <code>/</code>: <code>936/12</code> –&gt; 78</li>
+<li>Exponentiation: <code>^</code>: <code>2^10</code> –&gt; 1024</li>
+<li>Klammern: <code>(</code>, <code>)</code>: <code>3 * (12 - 8) + 2^(5/2)</code>
+<ul>
+<li>Wie beim Taschenrechner: Lieber zwei mehr als nötig als eine zu wenig</li>
+<li>…und ja, jede <a href="https://xkcd.com/859/">offene Klammer</a> braucht eine geschlossen Klammer, sonst gibt’s Fehler</li>
+</ul></li>
+<li>Das Dezimaltrennzeichen ist der Punkt <code>.</code>: 12,1 wird eingegeben als <code>12.1</code></li>
+</ul>
+<p>Ansonsten gibt es etliche weitere mathematischen Funktionen, und wir können das ganze beliebig komplex aussehen lassen:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="fu">sin</span>((<span class="dv">2</span><span class="sc">*</span>pi)<span class="sc">/</span><span class="dv">3</span>) <span class="sc">*</span> <span class="fu">exp</span>(<span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Hier sehen wir mehrere neue Dinge:</p>
+<p>Erstens: <code>pi</code> ist wirklich, naja, <span class="math inline">\(\pi\)</span>. Das mit dem Kreis. Als Konstante schon in R vorgespeichert, weil ja kein Mensch <span class="math inline">\(\pi\)</span> auf der Tastatur findet<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>.<br>
+Zweitens: <code>sin()</code> und <code>exp()</code> sind <strong>Funktionen</strong>. Die sind ziemlich wichtig, aber denen wenden wir uns erst im nächsten Abschnitt zu.<br>
+Was wir da geschrieben haben sieht übersetzt in Mathe übrigens so aus…</p>
+<p><span class="math display">\[2 + \sin \left( \frac{2\pi}{3} \right) \cdot e^{5}\]</span></p>
+<p>… und ergibt etwa 130,5. Aber darum geht’s eigentlich gar nicht.</p>
+<section id="gängige-probleme" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="gängige-probleme"><span class="header-section-number">4.2.1</span> Gängige Probleme</h3>
+<p>Was den meisten Leuten während der R-Einführung passiert ist, dass sie einen Befehl in die Konsole eingeben und Enter drücken, aber der Befehl nicht richtig abgeschlossen (<em>korrekt terminiert</em>) wurde. Das passiert zum Beispiel, wenn ihr eine schließende Klammer vergesst, oder etwa ein <code>+</code> am Ende der Zeile habt. In diesen Fällen drückt ihr Enter und R nimmt euren Befehl entgegen, aber es merkt, dass da irgendwas fehlt und wartet auf den Rest des Befehls.<br>
+Ihr erkennt das daran, dass das Symbol an der linken Seite eurer Konsole auf einmal ein <code>+</code>-Symbol statt eines <code>&gt;</code> ist und auch wiederholtes Drücken der Entertaste nichts daran ändert.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/inkorrekt_terminiert1.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Plus was denn?!</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Ihr habt an dieser Stelle zwei Möglichkeiten:</p>
+<ul>
+<li>Drückt Escape (<code>esc</code>) um den Befehl abzubrechen und es nochmal zu versuchen</li>
+<li>Führt den Befehl korrekt zu Ende, sprich schließt ggf. offene Klammern etc.</li>
+</ul>
+</section>
+</section>
+<section id="text-editor" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="text-editor"><span class="header-section-number">4.3</span> Text Editor</h2>
+<p>Alles was in der Konsole passiert ist schön und gut, aber es ist flüchtig. Stellt es euch vor wie eine Timeline auf Twitter oder ein Snapchat… Snapchat Dings oder was auch immer diese jungen Leute heutzutage benutzen.<br>
+Sobald ihr mehr als vier oder fünf Befehle eingegeben habt, müsst ihr hochscrollen, um eure alten Ergebnisse wieder zu finden. Das ist vollkommen okay um mal schnell etwas auszuprobieren, aber eher unpraktisch für eure Arbeit, die in der Regel sowas wie Reproduzierbarkeit erfordert.</p>
+<p>Dazu gibt es Scripte. Scripte sind im Grunde nur Textdateien, in die ihr R-Befehle eingebt.<br>
+Schön brav einen Befehl pro Zeile, wie in der Konsole.<br>
+Scripte könnt ihr speichern und an andere Leute verschicken oder hochladen oder euch ausdrucken und an die Backe tackern — der Kreativität sind keine Grenzen gesetzt! Scripte schreibt und speichert ihr, um eure Befehle / Auswertung / Code später wiederzufinden und nachvollziehen zu können. Ergebnisse reproduzieren könnt ihr indem ihr den Code aus dem Script nochmal ausführt.</p>
+<p>Um euer erstes Script zu erstellen klickt ihr in RStudio oben links den Button, der nach <em>“neuer Datei”</em> aussieht:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/text_editor_1.png" class="img-fluid figure-img" width="576"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Liebes Tagebuch: Heute habe ich einen Button geklickt. Es war sehr schön.</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Danach ploppt das Fenster oben links auf und begrüßt euch mit einem leeren Textfeld:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/text_editor_2.png" class="img-fluid figure-img" width="574"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Na, auch hier?</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Im Moment heißt euer Script noch <code>Untitled1</code> — das heißt, euer Script hat noch keinen Namen und ist <strong>noch nicht gespeichert</strong>. Letzteres wollt ihr umgehend ändern, weil all eure schönen Befehle für die Katz sind, wenn ihr euren Kram nicht speichert.<br>
+Ihr könnt zum speichern entweder den anachronistischen Diskettenbutton klicken und eurem Script einen schönen Namen geben, oder ihr drückt <code>STRG + S</code> oder auf dem Mac <code>cmd + S</code> — der wohl wichtigste Keyboard-Shortcut der Welt. Wenn ihr Probleme habt eure Tasten zu finden oder zu benennen, dann guckt im <a href="#tasten">Glossar</a> oder googlet halt.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/text_editor_3.png" class="img-fluid figure-img" width="354"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Der “Datei speichern…”-Dialog</figcaption><p></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Gebt eurem Script einen aussagekräftigen Namen. Ihr wollt ja auch in zwei Wochen noch wissen, was ihr da gemacht habt.<br>
+Außerdem solltet ihr darauf achten, am besten ausschließlich Zahlen und Buchstaben sowie <code>-</code> und <code>_</code> zu verwenden. Leerzeichen und Umlaute (äöü) sind zwar <em>in der Theorie</em> kein Problem, aber glaubt mir, sobald ihr euer Script an KommilitonInnen mit anderen Betriebssystemen verschickt, kann auch jedes noch so harmlos aussehende <em>Ü</em> auf einmal zu einer Reihe von kleinen Problemen führen, deren Ursache ihr erst nach Stundenlanger Probiererei (oder niemals) finden würdet. Das ist im übrigen kein R-Ding, sondern gilt auch für alles andere; Word- &amp; Excel-Dateien, PDFs, Pornovideos…</p>
+<p>Etwas ähnliches gilt auch für den Text in eurem Script:<br>
+Vermeidet nach Möglichkeit besondere Zeichen wie Emoji <span class="emoji" data-emoji="blush">😊</span> (auch wenn die theoretisch korrekt angezeigt werden). Leerzeichen sind kein Problem, und sollten sogar der besseren Lesbarkeit halber großzügig eingesetzt werden.</p>
+<p>Was der Lesbarkeit auch sehr hilft: Kommentare.<br>
+R ignoriert in Scripten sowie in der Konsole generell alles, was rechts neben einem <code>#</code> steht. Wir nennen dieses Zeichen übrigens entweder <em>Raute</em>, <em>Lattenzaun</em> oder <a href="https://en.wiktionary.org/wiki/octothorpe"><em>Octothorpe</em></a>. Wer es <em>hashtag</em> nennt muss leider 5€ in die Millenial-Dose werfen.</p>
+<p>Damit können wir sowas machen:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Wie alt bin ich nochmal?</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2022</span> <span class="sc">-</span> <span class="dv">1991</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Wie viele Stunden im Jahr?</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="dv">24</span> <span class="sc">*</span> <span class="dv">365</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Damit bekommen eure Befehle Kontext, und sowohl ihr als auch eure KommilitonInnen können leicht rausfinden, was zum Geier ihr euch da eigentlich gedacht habt.<br>
+Kommentare sind auch praktisch, wenn ihr ein längere Script ausführt, aber ein Befehl Probleme bereitet. Wenn ihr einfach ein <code>#</code> davor setzt, ist die Zeile <em>auskommentiert</em>, und wird von R ignoriert.</p>
+<p>Wenn ihr dann ein paar Zeilen Code angesammelt habt, könnt ihr euer Script ausführen.<br>
+Ein Script wird von oben nach unten (und von links nach rechts) ausgeführt, wenn ihr auf “<code>Source</code>” klickt oder <code>Shift + STRG + Enter</code> drückt (auf dem Mac <code>Shift + cmd + Enter</code>).<br>
+Wenn ihr nur die aktuelle Zeile (da wo euer Cursor gerade ist, ist “aktuell”) ausführen wollt, reicht <code>STRG + R</code> (Mac: <code>cmd + R</code>). Auch hier kann das <a href="#tasten">Glossar</a> helfen.</p>
+</section>
+<section id="und-das-da-rechts" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="und-das-da-rechts"><span class="header-section-number">4.4</span> Und das da rechts?</h2>
+<p>Auf der rechten Seite in RStudio findet ihr unter Anderem die Hilfe (<em>Help</em>), die Dateien in eurem Projektordner (<em>Files</em>), eine Übersicht der installierten packages (<em>Packages</em>), eine Variablenübersicht (<em>Environment</em>) und von euch erstelle Graphiken (<em>Plots</em>). Wenn ihr das hier in der richtigen Reihenfolge lest, habt ihr vermutlich keine Ahnung was das alles heißen soll — und genau deswegen wenden wir uns dem Ganzen auch Schritt wir Schritt in späteren Abschnitten zu, wenn ihr ein bisschen mehr Übersicht über die Grundlagen habt.</p>
+<!-- Footnotes -->
+
+
+</section>
+<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1" role="doc-endnote"><p>Wenn wir von “Guter Praxis” reden, dann meint das in der Regel bestimmte Gewohnheiten, die wir euch empfehlen, weil sie euer Leben langfristig einfacher machen. Ihr müsst nicht immer sofort verstehen wieso wir euch irgendetwas empfehlen, aber seid euch sicher, dass da mehrere Jahre Erfahrung hinter stecken.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>Es bietet sich an, RStudio Projekte irgendwo zentral zu organisieren, oder sie zum Beispiel in einem Unterordner für euer Studiumszeug anzulegen. Bei mir war das z.B. sowas wie <code>Dokumente/Studium/Psychologie/Statistik/</code><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>Die spitzfindigen Mac-User finden <span class="math inline">\(\pi\)</span> mit <em>alt + p</em>. Das Zeichen kennt aber R nicht.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/02-Installation.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Installation</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../references.html" class="pagination-link">
+        <span class="nav-page-text">Quellen</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

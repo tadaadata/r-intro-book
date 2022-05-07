@@ -1,5 +1,3 @@
-# (APPENDIX) Anhang {-}
-
 # Ressourcen
 
 ## Datensätze
@@ -9,10 +7,10 @@ Es gibt viele freie Quellen für schöne Datensätze zum Üben oder rumspielen, 
 ### In R / Packages
 
 - Gängige Standarddatensätze:
-    - `iris`
     - `mtcars`
     - `sleep`
     - `attitude`
+- [`palmerpenguins::penguins`](https://allisonhorst.github.io/palmerpenguins/): Pinguine!
 - `dplyr::starwars`: *Star Wars*-stuff mit *list-columns*
 - `babynames::babynames`: Naja, baby names.
 - `tadaatoolbox::ngo`: NGO-Datensatz aus QM (bzw. aus dem *Kähler*)

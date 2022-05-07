@@ -1,8 +1,3 @@
----
-output: html_document
-editor_options: 
-  chunk_output_type: console
----
 # Installation
 
 Hier eine kurze Anleitung um R und RStudio zu installieren.  
@@ -14,7 +9,7 @@ Damit *könntet* ihr R benutzen, aber es macht beim besten Willen keinen Spaß.
 
 ## R installieren
 
-R bekommt ihr von der offiziellen seite, hier: <https://cloud.r-project.org/>
+R bekommt ihr von der offiziellen seite, hier: <https://cran.r-project.org/>
 
 ```{r install00, echo=FALSE}
 knitr::include_graphics(here::here("images/install_R.png"))

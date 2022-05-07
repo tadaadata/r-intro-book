@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de_DE" xml:lang="de_DE"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.368">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R für Psychos - 3&nbsp; Installation</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<link href="../chapters/03-Orientierung.html" rel="next">
+<link href="../chapters/01-Was-ist-R.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link id="quarto-text-highlighting-styles" href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Installation</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">R für Psychos</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Vorwort (2022 Edition (mit Glitzer (metaphorisch)))</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Vorbereitung</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/01-Was-ist-R.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Was ist R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/02-Installation.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Installation</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/03-Orientierung.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Orientierung</span></a>
+  </div>
+</li>
+    </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">Quellen</a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">Appendices</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/A01-Ressourcen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ressourcen</span></a>
+  </div>
+</li>
+    </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#r-installieren" id="toc-r-installieren" class="nav-link active" data-scroll-target="#r-installieren"> <span class="header-section-number">3.1</span> R installieren</a>
+  <ul class="collapse">
+  <li><a href="#windows" id="toc-windows" class="nav-link" data-scroll-target="#windows"> <span class="header-section-number">3.1.1</span> Windows</a></li>
+  <li><a href="#mac" id="toc-mac" class="nav-link" data-scroll-target="#mac"> <span class="header-section-number">3.1.2</span> Mac OS X (macOS)</a></li>
+  <li><a href="#linux" id="toc-linux" class="nav-link" data-scroll-target="#linux"> <span class="header-section-number">3.1.3</span> Linux</a></li>
+  </ul></li>
+  <li><a href="#rstudio-install" id="toc-rstudio-install" class="nav-link" data-scroll-target="#rstudio-install"> <span class="header-section-number">3.2</span> RStudio installieren</a></li>
+  <li><a href="#rstudio-benutzen" id="toc-rstudio-benutzen" class="nav-link" data-scroll-target="#rstudio-benutzen"> <span class="header-section-number">3.3</span> RStudio benutzen</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Installation</span></h1>
+</div>
+
+
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>Hier eine kurze Anleitung um R und RStudio zu installieren.<br>
+Kurz zum Kontext: R ist eine Programmiersprache, das heißt auch “R installieren” ist anders als “Spotify installieren”.</p>
+<p>Ihr installiert zunächst R, und bekommt dann auf dem Desktop Verknüpfungen angeboten für “R GUI” (o.Ä.) — Dabei handelt es sich um “nackte” Konsolenprogramme.<br>
+Damit <em>könntet</em> ihr R benutzen, aber es macht beim besten Willen keinen Spaß.<br>
+<strong>Deshalb</strong> installiert ihr <strong>RStudio</strong> — Ein Programm (wie Spotify, nur ganz anders!), mit dem ihr R komfortabler benutzen könnt.</p>
+<section id="r-installieren" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="r-installieren"><span class="header-section-number">3.1</span> R installieren</h2>
+<p>R bekommt ihr von der offiziellen seite, hier: <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a></p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="../images/install_R.png" class="img-fluid" width="490"></p>
+</div>
+</div>
+<p>Ja, die Seite sieht nach heutigen Standards furchtbar alt aus, aber die gibt’s nunmal auch schon ewig und sie hat den Anspruch möglichst spartanisch zu sein um auch auf jedem noch so ranzigen Computer ordentlich dargstellt und ggf. von Scripten ausgelesen zu werden.</p>
+<section id="windows" class="level3" data-number="3.1.1">
+<h3 data-number="3.1.1" class="anchored" data-anchor-id="windows"><span class="header-section-number">3.1.1</span> Windows</h3>
+<p>Klickt auf der oben genannte Seite auf <code>Download R for Windows</code>. Vollkommen unerwartet.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="../images/install_R_windows_1.png" class="img-fluid" width="490"></p>
+</div>
+</div>
+<p>Hier benötigt ihr <code>base</code> (der R installer):</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="../images/install_R_windows_2.png" class="img-fluid" width="490"></p>
+</div>
+</div>
+<p>…und sicherheitshalber auch <code>Rtools</code> (fragt nicht. Vorerst installiert ihr es einfach, nur für den Fall, das es euch später Probleme erspart).</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="../images/install_R_windows_3.png" class="img-fluid" width="490"></p>
+</div>
+</div>
+<p>Da ich akut keinen Windows-Computer zur Hand habe, gehe ich einfach davon aus, dass ihr das Prinzip “<code>.exe</code>-Datei doppelklicken und alles brav mit <code>ja</code> oder <code>OK</code> bestätigen” beherrscht. Schafft ihr bei Spotify ja auch.</p>
+<p>Das war die R-Installation!<br>
+Und <em>jetzt</em> installiert ihr <a href="#rstudio-install">RStudio</a></p>
+</section>
+<section id="mac" class="level3" data-number="3.1.2">
+<h3 data-number="3.1.2" class="anchored" data-anchor-id="mac"><span class="header-section-number">3.1.2</span> Mac OS X (macOS)</h3>
+<p>Klickt auf der oben genannte Seite auf <code>Download R for (Mac) OS X</code>. Auch das, vollkommen unerwartet.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="../images/install_R_mac.png" class="img-fluid" width="490"></p>
+</div>
+</div>
+<ul>
+<li>Wenn euer Betriebssystem auf dem aktuellen Stand ist, benutzt die aktuelle Version des R-installers.<br>
+</li>
+<li>Wenn ihr aus unerfindlichen Gründen noch eine sehr alte OS X version laufen habt:
+<ol type="a">
+<li>Möge die Deität eurer Wahl euch beistehen</li>
+<li>Aktualisiert euer Betriebssystem, oder wenn das nicht möglich ist…</li>
+<li>…müsst ihr vermutlich den Installer mit <code>snowleopard</code> im Namen benutzen</li>
+</ol></li>
+<li>Wenn ihr nicht wisst, welche OS X Version ihr benutzt: Versucht’s erstmal mit dem aktuellen Installer, wenn das nicht funktioniert, versucht den älteren. Ansonsten: Googlet.</li>
+</ul>
+<p>Ansonsten braucht ihr nichts runterzuladen. Den Installer (die <code>.pkg</code>-Datei) einfach doppelklicken und alles brav bejahen.<br>
+Fertig.</p>
+</section>
+<section id="linux" class="level3" data-number="3.1.3">
+<h3 data-number="3.1.3" class="anchored" data-anchor-id="linux"><span class="header-section-number">3.1.3</span> Linux</h3>
+<p>Wenn ihr Linux benutzt, solltet ihr unabhängig von der Geschmacksrichtung auch wissen, wie man da Software installiert.</p>
+<p>Es gibt diese Info-Seite für Ubuntu: <a href="https://cloud.r-project.org/bin/linux/ubuntu/README.html" class="uri">https://cloud.r-project.org/bin/linux/ubuntu/README.html</a>.<br>
+Wenn ihr nicht wisst, was <code>https://&lt;my.favorite.cran.mirror&gt;/bin/linux/ubuntu</code> sein soll, dann setzt für <code>&lt;my.favorite.cran.mirror&gt;</code> am besten einfach <code>cloud.r-project.org</code> ein. Die Zeilen unter “Installation” im verlinkten Dokument würden dann so aussehen (für Ubuntu 18.04 bionic):</p>
+<ul>
+<li><code>deb https://cloud.r-project.org/bin/linux/ubuntu bionic/</code></li>
+</ul>
+<p>Zusätzlich solltet ihr vermutlich einige Systempakete (also außerhalb R) installieren, für den Fall der Fälle.</p>
+<p>Für Ubuntu zum Beispiel (nur aus eigener Erfahrung, YMMV):</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install libcurl4-openssl-dev curl git libxml2-dev libcairo2-dev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Damit installiert ihr ein paar Pakete, die ihr für manche R-packages als dependencies benötigt.<br>
+Die Liste ist nicht vollständig für <em>alle</em> möglichen R packages, aber zumindest alle, die wir im Laufe dieser Intro benutzen oder benutzen <em>könnten</em> sollten damit abgedeckt sein.</p>
+</section>
+</section>
+<section id="rstudio-install" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="rstudio-install"><span class="header-section-number">3.2</span> RStudio installieren</h2>
+<p>RStudio bekommt ihr hier: <a href="https://www.rstudio.com/products/rstudio/download/#download" class="uri">https://www.rstudio.com/products/rstudio/download/#download</a></p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="../images/install_rstudio.png" class="img-fluid" width="598"></p>
+</div>
+</div>
+<p>Hier dasselbe Spiel:<br>
+Installationsdatei für euer Betriebssystem runterladen und installieren traue ich euch zu.<br>
+Enttäuscht mich nicht.</p>
+<p>Nach der Installation solltet ihr jedenfalls folgendes Symbol entweder auf eurem Desktop oder in eurem Programmordner finden:</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><img src="../images/RStudio-Ball.png" class="img-fluid" style="width:30.0%"></p>
+</div>
+</div>
+<p>Das wollt ihr anklicken, dann sollte sich RStudio öffnen und ihr habt erfolgreich R und RStudio installiert.<br>
+Gratuliere.</p>
+<p>Falls ihr Windows 10 benutzt und sich keine Desktopverknüfung erstellt habt, wollt ihr eure Suchfunktion benutzen und “RStudio” suchen. Vollkommen unerwartet, ich weiß.</p>
+</section>
+<section id="rstudio-benutzen" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="rstudio-benutzen"><span class="header-section-number">3.3</span> RStudio benutzen</h2>
+<p>Das ist keine Anleitung, das ist eine Aufforderung.</p>
+<p>Ihr benutzt <em>ausschließlich</em> RStudio. Alle anderen Desktopverknüpfungen die im Laufe der Installationen erschienen sein sollten könnt ihr getrost löschen, die braucht ihr nicht.<br>
+Dazu gehören solche Dinge wie “R Console” oder auch “R GUI” oder ähnliches. Das sind die Verknüpfungen für das reine R, aber wir wollen R ja durch RStudio benutzen.<br>
+Trust me, it’s better that way.</p>
+<p>In RStudio könnt ihr jetzt vermutlich noch nicht viel machen, außer in der Konsole aus Spaß “<code>print('Wurstwasser')</code>” eingeben und Enter drücken.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../chapters/01-Was-ist-R.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Was ist R</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../chapters/03-Orientierung.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Orientierung</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
