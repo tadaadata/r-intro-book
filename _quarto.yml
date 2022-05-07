@@ -13,6 +13,9 @@ book:
         - chapters/01-Was-ist-R.qmd
         - chapters/02-Installation.qmd
         - chapters/03-Orientierung.qmd
+    - part: "Grundlagen"
+      chapters:
+        - chapters/04-Erste-Schritte.qmd
     - references.qmd
   appendices:
     - chapters/A01-Ressourcen.qmd
@@ -21,8 +24,11 @@ bibliography: references.bib
 
 format:
   html:
-    theme: spacelab
+    theme: spacelab # quartz
     lang: de_DE
+    code-fold: show
+    code-copy: true
+    code-link: true
   pdf:
     documentclass: scrreprt
 from: markdown+emoji
@@ -30,3 +36,6 @@ knitr:
   opts_chunk:
     collapse: true
     comment: "#>"
+execute:
+  freeze: auto
+  cache: true

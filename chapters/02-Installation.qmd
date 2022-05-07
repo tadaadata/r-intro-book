@@ -1,3 +1,9 @@
+---
+knitr:
+  opts_chunk:
+    echo: false
+---
+
 # Installation
 
 Hier eine kurze Anleitung um R und RStudio zu installieren.  
@@ -11,7 +17,7 @@ Damit *könntet* ihr R benutzen, aber es macht beim besten Willen keinen Spaß.
 
 R bekommt ihr von der offiziellen seite, hier: <https://cran.r-project.org/>
 
-```{r install00, echo=FALSE}
+```{r install00}
 knitr::include_graphics(here::here("images/install_R.png"))
 ```
 
@@ -21,19 +27,19 @@ Ja, die Seite sieht nach heutigen Standards furchtbar alt aus, aber die gibt's n
 
 Klickt auf der oben genannte Seite auf `Download R for Windows`. Vollkommen unerwartet.
 
-```{r install01, echo=FALSE}
+```{r install01}
 knitr::include_graphics(here::here("images/install_R_windows_1.png"))
 ```
 
 Hier benötigt ihr `base` (der R installer):
 
-```{r install02, echo=FALSE}
+```{r install02}
 knitr::include_graphics(here::here("images/install_R_windows_2.png"))
 ```
 
 …und sicherheitshalber auch `Rtools` (fragt nicht. Vorerst installiert ihr es einfach, nur für den Fall, das es euch später Probleme erspart).  
 
-```{r install03, echo=FALSE}
+```{r install03}
 knitr::include_graphics(here::here("images/install_R_windows_3.png"))
 ```
 
@@ -46,7 +52,7 @@ Und _jetzt_ installiert ihr [RStudio](#rstudio-install)
 
 Klickt auf der oben genannte Seite auf `Download R for (Mac) OS X`. Auch das, vollkommen unerwartet.
 
-```{r install04, echo=FALSE}
+```{r install04}
 knitr::include_graphics(here::here("images/install_R_mac.png"))
 ```
 

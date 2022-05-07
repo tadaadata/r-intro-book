@@ -1,10 +1,3 @@
-# (PART) Grundlagen {-}
-
-```{r setup_grundlagen}
-knitr::opts_chunk$set(echo = T)
-```
-
-
 # Erste Schritte
 
 Im letzten Abschnitt habt ihr R als glorifizierten Taschenrechner gesehen.  
