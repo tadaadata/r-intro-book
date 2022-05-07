@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.368">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R für Psychos - (PART) Vorbereitung</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<link href="../references.html" rel="next">
+<link href="../index.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link id="quarto-text-highlighting-styles" href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">(PART) Vorbereitung</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">R für Psychos</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Vorwort (2022 Edition (mit Glitzer (metaphorisch)))</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/01-Was-ist-R.html" class="sidebar-item-text sidebar-link active">(PART) Vorbereitung</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#was-ist-r" id="toc-was-ist-r" class="nav-link active" data-scroll-target="#was-ist-r">Was ist R</a>
+  <ul class="collapse">
+  <li><a href="#was-ist-an-r-so-toll" id="toc-was-ist-an-r-so-toll" class="nav-link" data-scroll-target="#was-ist-an-r-so-toll">Was ist an R so toll?</a></li>
+  <li><a href="#was-ist-r-nicht" id="toc-was-ist-r-nicht" class="nav-link" data-scroll-target="#was-ist-r-nicht">Was ist R <strong>nicht</strong>?</a></li>
+  <li><a href="#wieso-nicht-einfach-spss" id="toc-wieso-nicht-einfach-spss" class="nav-link" data-scroll-target="#wieso-nicht-einfach-spss">Wieso nicht einfach SPSS?</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">(PART) Vorbereitung</h1>
+</div>
+
+
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="was-ist-r" class="level1">
+<h1>Was ist R</h1>
+<p>R ist eine Programmiersprache, und ja, das klingt abschreckend.<br>
+Für uns heißt das in erster Linie Folgendes:</p>
+<ul>
+<li>Die Lernkurve ist etwas steil, flacht dann aber schnell ab. Versprochen.</li>
+<li>Wir können prinzipiell <em>alles</em> damit machen, wenn wir erstmal rausgefunden haben wie’s geht.</li>
+</ul>
+<section id="was-ist-an-r-so-toll" class="level2">
+<h2 class="anchored" data-anchor-id="was-ist-an-r-so-toll">Was ist an R so toll?</h2>
+<p>Nicht alles an R ist toll — und sobald ihr das erste Mal mehrere Stunden damit verbracht habt, ein vergleichsweise einfaches Problem lösen zu wollen, werdet ihr wissen was ich meine.</p>
+<p>Die am häufigsten zitierten Vorteile sind in etwa die Folgenden:</p>
+<ul>
+<li><strong>Kostenlos</strong>
+<ul>
+<li>Keine Lizenzgebühren</li>
+<li>Keine Update-Gebühren</li>
+</ul></li>
+<li><strong>Open Source</strong>
+<ul>
+<li>Software-Sprech für “jeder kann sich die Innereien angucken”</li>
+<li>Jeder kann R beliebig erweitern und modifizieren</li>
+<li>“Was genau macht R an Stelle XYZ” ist immer beantwortbar, weil der Quelltext <a href="https://github.com/wch/r-source">offen verfügbar ist</a></li>
+</ul></li>
+<li><strong>Erweiterbarkeit</strong>
+<ul>
+<li>Es gibt unzählige Erweiterungen (<em>“packages”</em>) für R, die neue Funktionen bereitstellen</li>
+<li>Übersicht auf z.B. <a href="https://www.r-pkg.org/">r-pkg.org</a></li>
+<li>Sogar eure TutorInnen können packages schreiben. Tun sie <a href="https://github.com/tadaadata/tadaatoolbox">sogar manchmal</a>.</li>
+</ul></li>
+<li><strong>Gute Dokumentation</strong> (meistens)
+<ul>
+<li>R bringt seine Hilfe selber mit, das ist der <em>“Help”</em>-Tab in RStudio. Jede Funktion ist dokumentiert!</li>
+<li>Seiten wie <a href="https://www.rdocumentation.org/">rdocumentation.org</a> oder <a href="https://rdrr.io/">rdrr.io</a> erlauben es so gut wie alle verfügbaren R packages nach bestimmten Funktionen zu durchsuchen, egal wie obskur der Anwendungsfall auch sein mag</li>
+<li>Communities wie <a href="https://stackoverflow.com/questions/tagged/r">stackoverflow</a> sind beliebte “Ich brauche Hilfe bei XY”-Anlaufstellen, und eine Horde von Menschen, die meistens das gleiche Problem auch schonmal hatten, können euch helfen</li>
+</ul></li>
+<li><strong>Interaktivität</strong>: Wo SPSS auf Buttons und Befehle reagiert und dann einen Stapel PDFs produziert, kann R mit der Konsole auch einfach schnell und interaktiv benutzt werden: “Schnell mal eben was nachgucken” ist in R deutlich angenehmer als in SPSS, zumindest für einfache Sachen.</li>
+<li><strong>Reproduzierbarkeit</strong>: Wenn ihr ein sauberes R-Script geschrieben habt, könnt ihr das frei verfügbar machen und alle Interessierten können es bei sich selbst ausführen und <em>BÄM!</em>, Ergebnisse reproduziert. In case you didn’t realize, but that’s kind of a big thing in science.</li>
+<li><strong>Visualisierung</strong>: R hat fantastische Werkzeuge zur Datenvisualisierung, primär sei hier <em>ggplot2</em> erwähnt, was euch erlaubt wunderschöne Grafiken aus euren Daten zu zaubern, und auch das vollkommen reproduzierbar (versucht das mal mit SPSS oder Excel. Worlds of pain.)</li>
+<li><strong>Flexibilität</strong>: R ist eine Programmiersprache, das heißt per default kann R erstmal <em>alles</em>. Vielleicht nicht alles gut, aber prinzipiell lässt sich zumindest theoretisch alles damit anstellen. Dieses Dokument hier? In R (RMarkdown, <em>bookdown</em>) geschrieben. Dynamische Webseiten? Auch möglich, googlet “R shiny”. Interaktive Elemente? Auch kein Ding, googlet “R htmlwidgets”. Daten aus Software wie SPSS, Excel oder sogar Google Sheets importieren? Auch kein Problem. You get the idea.</li>
+<li><strong>Aktive Entwicklung &amp; Community</strong>: R wird <em>immer besser</em>. Immer mehr Leute benutzen R, von diesen Leuten haben einige gute Ideen, und davon wiederum gibt es einige, die diese sogar umsetzen. Das Resultat ist ein stetig wachsendes und gedeihendes Ökosystem um R und eine aktive Community auf diversen Netzwerken, die sowohl Hilfestellung liefern können als auch aktiv an besseren Tools rund um R arbeiten, von besserer Dokumentation bis zu besserer Integration mit anderer Software.</li>
+</ul>
+</section>
+<section id="was-ist-r-nicht" class="level2">
+<h2 class="anchored" data-anchor-id="was-ist-r-nicht">Was ist R <strong>nicht</strong>?</h2>
+<p>R ist nicht wie SPSS. R “nackt” ist ein Kommandozeilenprogramm. Terminal/Konsole, wie man es auch nennen mag, aber es ist nicht wie die Programme, die ihr im Alltag benutzt. Es gibt keine Knöpfe zum drücken und alles ist Text, ohne Formatierungskram wie <strong>fett</strong> oder <em>kursiv</em>, weil die Grundlagen bzw. Vorstufen von R aus einer Zeit kommen, in der Computer noch <em>anders</em> waren und die Mauer noch frisch war.</p>
+<p>Weil das wenig benutzerfreundlich bzw. einsteigerfreundlich ist, gibt es Programme wie <strong>RStudio</strong>, was sozusagen auf R sitzt und es benutzbar macht. Wenn R ein Pferd ist, ist RStudio ein Sattel.<br>
+Das heißt für euch aber auch, dass ihr eine Datenanalyse nicht durch bloßes Knöpfchendrücken zusammenstecken könnt wie das bei SPSS möglich ist — ihr müsst Befehle lernen, eure Daten(struktur) verstehen, und euch sicher sein, was ihr tun wollt.<br>
+Ich weiß, dass das alles wirklich eher krampfig klingt wenn ihr das so lest, weshalb es auch häufig vorkommt, dass Studierende in den ersten Semestern R eher ignorieren und sich lieber mit SPSS beschäftigen, weil das weniger kognitiver Aufwand ist — aber glaubt mir wenn ich euch sage, dass “R lernen” eine gute Investition ist. SPSS könnt ihr euch immer noch irgendwie beibringen oder Youtube-Tutorials gucken oder Befehlslisten ausdrucken und sowieso und überhaupt, R hingegen ist entsprechend komplexer, also nutzt die Zeit in der euch TutorInnen noch helfen können, bevor ihr dann vor eurem Expra-Datensatz sitzt, mit SPSS nicht weiter kommt und wie der Ochs vor’m Berg an R sitzt.</p>
+<p>Ich betone das übrigens nicht, weil ich SPSS doof finde (was ich tue), oder R so toll finde (was ich tue), sondern tatsächlich aus Erfahrung und Überzeugung.<br>
+Wenn euch Statistik egal ist und ihr einfach nur bestehen wollt, dann reicht euch vielleicht SPSS. Wenn ihr langfristig gut mit Methodik und quantitativen Methoden arbeiten können wollt, dann ist R eine gute Investition.</p>
+</section>
+<section id="wieso-nicht-einfach-spss" class="level2">
+<h2 class="anchored" data-anchor-id="wieso-nicht-einfach-spss">Wieso nicht einfach SPSS?</h2>
+<p>SPSS ist viel.<br>
+SPSS kann viel.<br>
+SPSS kostet unsäglich viel.<br>
+SPSS nimmt euch das Denken ab — im guten wie im schlechten Sinn.</p>
+<p>Wenn ihr SPSS bedienen könnt, ihr wisst was ihr tut und entweder ihr oder eure ArbeitgeberIn tief in die Tasche gegriffen haben um eine Lizenz bereitzustellen, dann ist das schön und gut, und ihr könnt den Knopf mit <em>“Mach mal Statistik”</em> drücken und dann kommen da PDFs raus wo Statistik drinsteht.<br>
+Schön.</p>
+<p>Möglicherweise habt ihr aber nicht die finanziellen Ressourcen für SPSS.<br>
+Möglicherweise braucht ihr mehr Flexibilität.<br>
+Vielleicht funktioniert SPSS für euch nur mittels einer Remotedesktop-Verbindung (*hust hust*), das heißt sobald ihr irgendwo ohne schnelle Verbindung seid, könnt ihr nicht mehr arbeiten.<br>
+So sicher wie der Tod und Steuern müsst ihr auch irgendwann ein Expra durchführen, die erhobenen Daten auswerten und darstellen. Solltet ihr das mit SPSS machen, dürft ihr keine der Grafiken oder Tabellen benutzen (außer ihr verzichtet freiwillig auf eine gute Note). Das gleiche gilt in schwächerer Gewichtung für euer Differentielle Projekt und natürlich ggf. in stärkerer Gewichtung für eure Bachelorarbeit.</p>
+<p>Vielleicht gefällt euch aber auch nur, dass ihr mit R interaktiv und schnell<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> einfache Dinge ausprobieren könnt.</p>
+<!-- Fußnoten -->
+
+
+</section>
+</section>
+<section class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1" role="doc-endnote"><p>Das mit der Schnelligkeit kommt mit etwas Übung. Wirklich.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Vorwort (2022 Edition (mit Glitzer (metaphorisch)))</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

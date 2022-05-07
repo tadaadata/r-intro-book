@@ -1,0 +1,19 @@
+project:
+  type: book
+
+book:
+  title: "R für Psychos"
+  author: "Tobi & Lukas"
+  date: "`r Sys.Date()`"
+  chapters:
+    - index.qmd
+    - chapters/01-Was-ist-R.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
