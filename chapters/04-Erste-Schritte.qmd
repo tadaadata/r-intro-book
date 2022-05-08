@@ -210,7 +210,7 @@ Merke: Ein Vektor in R muss immer Elemente des gleichen Typs haben, Zahlen und B
 
 ## Tabellen
 
-Jetzt haben wir schonmal das Vokuabular an der Hand um Zahlen und beliebige Strings in R zu verarbeiten, aber noch ist das alles etwas unahndlich um damit *richtig* zu arbeiten.  
+Jetzt haben wir schonmal das Vokabular an der Hand um Zahlen und beliebige Strings in R zu verarbeiten, aber noch ist das alles etwas unhandlich um damit *richtig* zu arbeiten.  
 
 Stellt euch vor, wir wollen einen kleinen Datensatz erstellen über die Statistiktutorien in QM mit Variablen wie *Namen*, *Alter*, und vielleicht sowas wie *Beliebtheit* auf einer Skala von 1-10.  
 Wir könnten sowas machen:
