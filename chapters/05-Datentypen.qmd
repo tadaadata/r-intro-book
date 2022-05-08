@@ -335,6 +335,9 @@ Was wir im Abschnitt zu `factor` am Ende mit `as.numeric` gemacht haben fällt u
 as.numeric("5")
 as.numeric(5)
 
+is.numeric("5")
+is.character(10)
+
 as.character(c(2, 5, 4, 3))
 ```
 

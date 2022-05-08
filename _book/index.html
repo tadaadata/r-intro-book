@@ -40,6 +40,8 @@ ul.task-list{list-style: none;}
     "search-submit-button-title": "Submit"
   }
 }</script>
+<meta property="og:title" content="R für Psychos">
+<meta property="og:site-name" content="R für Psychos">
 </head>
 <body class="nav-sidebar floating">
 
@@ -55,6 +57,9 @@ ul.task-list{list-style: none;}
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">R für Psychos</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/tadaadata/r-intro-book" title="Source Code" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+</div>
     </div>
       </div>
       <div class="mt-2 flex-shrink-0 align-items-center">
@@ -66,7 +71,7 @@ ul.task-list{list-style: none;}
     <ul class="list-unstyled mt-1">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Vorwort</span></a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Vorwort: 2022 Edition</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -129,6 +134,21 @@ ul.task-list{list-style: none;}
 </li>
     </ul>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+    <div class="sidebar-item-container"> 
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Der Spaßige Teil</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+        <i class="bi bi-chevron-right ms-2"></i>
+      </a>
+    </div>
+    <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./chapters/09-visualisierung.html" class="sidebar-item-text sidebar-link">(PART) Der Spaßige Teil</a>
+  </div>
+</li>
+    </ul>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">Quellen</a>
@@ -136,12 +156,12 @@ ul.task-list{list-style: none;}
 </li>
         <li class="sidebar-item sidebar-item-section">
     <div class="sidebar-item-container"> 
-        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">Appendices</a>
-      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Appendices</a>
+      <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
         <i class="bi bi-chevron-right ms-2"></i>
       </a>
     </div>
-    <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+    <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./chapters/a01-ressourcen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ressourcen</span></a>
@@ -155,14 +175,18 @@ ul.task-list{list-style: none;}
         <nav id="TOC" role="doc-toc"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#%C3%BCber-diese-einf%C3%BChrung" id="toc-über-diese-einführung" class="nav-link active" data-scroll-target="#%C3%BCber-diese-einf%C3%BChrung">Über diese Einführung</a></li>
+<li>
+<a href="#vorwort-2022-edition" id="toc-vorwort-2022-edition" class="nav-link active" data-scroll-target="#vorwort-2022-edition"> <span class="header-section-number">1</span> Vorwort: 2022 Edition</a>
+  <ul class="collapse">
+<li><a href="#%C3%BCber-diese-einf%C3%BChrung" id="toc-über-diese-einführung" class="nav-link" data-scroll-target="#%C3%BCber-diese-einf%C3%BChrung">Über diese Einführung</a></li>
   <li><a href="#zielgruppe" id="toc-zielgruppe" class="nav-link" data-scroll-target="#zielgruppe">Zielgruppe</a></li>
+  </ul>
+</li>
   </ul></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
 <h1 class="title d-none d-lg-block">R für Psychos</h1>
-<p class="subtitle lead">2022 Edition (mit Glitzer (metaphorisch)) — Jetzt in Farbe!</p>
 </div>
 
 
@@ -188,7 +212,10 @@ ul.task-list{list-style: none;}
   </div>
   
 
-</header><p>Das hier ist/wird/war/wurde <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> eine R-Einführung für Psychologiestudierende so mit ganz ohne Vorwissen im Bereich Software oder Programmierung. Dieses Werk <del>ist</del> war zum Einen die Grundlage für die R-Intro für Psychologiestudierende in <em>Quantitative Methoden</em>, und zum Anderen auch das Referenzwerk für das R-Seminar im Rahmen des Statistikmoduls in Public Health <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
+</header><section id="vorwort-2022-edition" class="level1" data-number="1"><h1 data-number="1">
+<span class="header-section-number">1</span> Vorwort: 2022 Edition</h1>
+<p>mit Glitzer (metaphorisch)) — Jetzt in Farbe!</p>
+<p>Das hier ist/wird/war/wurde <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> eine R-Einführung für Psychologiestudierende so mit ganz ohne Vorwissen im Bereich Software oder Programmierung. Dieses Werk <del>ist</del> war zum Einen die Grundlage für die R-Intro für Psychologiestudierende in <em>Quantitative Methoden</em>, und zum Anderen auch das Referenzwerk für das R-Seminar im Rahmen des Statistikmoduls in Public Health <a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
 <p>Die grobe Idee war es, eine Einstiegspräsentation für die Übung zu haben, und zusätzlich eine long-form Intro als Nachschlagwerk und vertiefendes Material (das hier).<br>
 Beides sollte ausreichend mit Screenshots/Beispielen ausgefüttert sein um auch die verunsichertesten Neulinge bei der Stange zu halten.<br>
 Da wir aber mittlerweile auch so gar nichts mehr mit der Pszchologie an der Uni Bremen zu tun haben und mit anderem Kram beschäftigt waren und sind, ist das ganze Projekt etwas versandet, verstaubt, in die Jahre gekommen, aber aus nicht mehr nachvollziehbaren Gründen irgendwie dennoch an ausreichend vielen Stellen hängen geblieben, wo Leute das tatsächlich als ergänzendes Lehrmaterial verwenden.</p>
@@ -212,7 +239,7 @@ Wir gehen anfangs sehr kleinschrittig vor und versuchen gängige Konzepte wie Da
 <p>Solltet ihr bei Begriffen wie “funktionale Programmiersprache”, “generics”, “functionals” und “Attribute” ein grobes Bild im Kopf haben, dann empfehle ich euch einen Blick in das weiter oben erwähnte <a href="https://r4ds.had.co.nz/"><strong>R for Data Science</strong></a>. Also generell würde ich allen interessierten dieses Buch/Seite empfehlen, aber ich vermute, dass es für einen absoluten Sprung ins kalte Wasser R nur dann geeignet ist, wenn man entweder sehr viel Motivation oder ein entsprechendes Vorwissen mitbringt.</p>
 
 
-</section><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><hr>
+</section></section><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><hr>
 <ol>
 <li id="fn1" role="doc-endnote"><p>time is a flat circle<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2" role="doc-endnote"><p>zumindest dieses eine Mal in 2018<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
@@ -304,7 +331,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   </div>
 </nav>
 </div> <!-- /content -->
-
+<footer class="footer"><div class="nav-footer">
+      <div class="nav-footer-center">CC-BY-NC Lukas Burk &amp; Tobias Anton</div>
+  </div>
+</footer>
 
 
 </body></html>

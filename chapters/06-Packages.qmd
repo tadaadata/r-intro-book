@@ -10,7 +10,6 @@ Der *Kern* von R wird auch **base** genannt und umfasst die wichtigstens Grundfu
 
 Packages ladet ihr aus dem Internet runter, woraufhin sie ggf. kompiliert und in eure R-library eingepflegt werden müssen.  
 Das klingt kompliziert, und deshalb passiert das auch alles automatisch!  
-N
 Wir installieren ein package mit einem einfachen Befehl in der Konsole:
 
 ```r
@@ -89,15 +88,14 @@ Wenn ein package geladen (`library()`) ist während ihr Updates durchführt, **m
 RStudio --> Session --> Restart R
 :::
 
-Solltet ihr mal ein packages löschen wollen, aus welchem Grund auch immer, dann geht das entweder auch über den Package-Tab in RStudio (das Kreuzchen rechts neben dem Namen des packages), oder ihr gebt folgendes in der Konsole ein:
+Solltet ihr mal ein package löschen wollen, aus welchem Grund auch immer, dann geht das entweder auch über den Package-Tab in RStudio (das Kreuzchen rechts neben dem Namen des packages), oder ihr gebt folgendes in der Konsole ein:
 
 ```r
-remove.packages("tadaatoolbox")
+remove.packages("ggplot2")
 ```
 
-…um das package `tadaatoolbox` zu deinstallieren.  
+…um das package `ggplot2` zu deinstallieren.  
 Aber wieso solltet ihr das tun wollen.  
-Wir haben so viel Arbeit in das package gesteckt.  
 Wieso nur.  
 Ihr Monster.
 

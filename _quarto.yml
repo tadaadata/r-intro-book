@@ -6,6 +6,9 @@ book:
   author: "Tobi & Lukas"
   date: today
   date-format: medium
+  open-graph: true
+  page-footer: "CC-BY-NC Lukas Burk & Tobias Anton"
+  repo-url: "https://github.com/tadaadata/r-intro-book"
   chapters:
     - index.qmd
     - part: "Vorbereitung"
@@ -20,6 +23,10 @@ book:
         - chapters/06-packages.qmd
         - chapters/07-die-hilfe.qmd
         - chapters/08-datenimport.qmd
+    - part: "Der Spaßige Teil"
+      chapters:
+        - chapters/09-visualisierung.qmd
+        - chapters/10-berichte.qmd
     - references.qmd
   appendices:
     - chapters/a01-ressourcen.qmd

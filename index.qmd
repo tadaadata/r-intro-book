@@ -1,7 +1,5 @@
----
-title: Vorwort
-subtitle: "2022 Edition (mit Glitzer (metaphorisch)) --- Jetzt in Farbe!"
----
+# Vorwort: 2022 Edition 
+mit Glitzer (metaphorisch)) --- Jetzt in Farbe!
 
 Das hier ist/wird/war/wurde ^[time is a flat circle] eine R-Einführung für Psychologiestudierende so mit ganz ohne Vorwissen im Bereich Software oder Programmierung. Dieses Werk ~~ist~~ war zum Einen die Grundlage für die R-Intro für Psychologiestudierende in *Quantitative Methoden*, und zum Anderen auch das Referenzwerk für das R-Seminar im Rahmen des Statistikmoduls in Public Health ^[zumindest dieses eine Mal in 2018].
 

@@ -8,6 +8,12 @@ Hier die *Session Info* zum Zeitpunkt des Renderns.
 rmarkdown::pandoc_version()
 ```
 
+## Quarto
+
+```{r}
+packageVersion("quarto")
+```
+
 ## R session
 
 ```{r}

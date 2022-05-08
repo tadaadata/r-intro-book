@@ -1,15 +1,7 @@
----
-output: html_document
-editor_options: 
-  chunk_output_type: console
----
-
-# (PART) Der Spaßige Teil {-}
-
 ```{r load_fonts, include=FALSE}
 library(ggplot2)
 library(dplyr)
-library(tadaatoolbox)
+knitr::opts_chunk$set(eval = FALSE)
 ```
 
 
