@@ -27,7 +27,7 @@ book:
       chapters:
         #- chapters/09-visualisierung.qmd
         - chapters/10-berichte.qmd
-    - references.qmd
+    #- references.qmd
   appendices:
     - chapters/a01-ressourcen.qmd
 

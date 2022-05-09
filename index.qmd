@@ -1,32 +1,46 @@
-# Vorwort: 2022 Edition 
+---
+title-block-banner: true
+title-block-style: default
+title-block-banner-color: "#8B3081"
+---
+
+# Vorwort: 2022 Edition {.unnumbered}
+
 mit Glitzer (metaphorisch)) --- Jetzt in Farbe!
 
-Das hier ist/wird/war/wurde ^[time is a flat circle] eine R-Einführung für Psychologiestudierende so mit ganz ohne Vorwissen im Bereich Software oder Programmierung. Dieses Werk ~~ist~~ war zum Einen die Grundlage für die R-Intro für Psychologiestudierende in *Quantitative Methoden*, und zum Anderen auch das Referenzwerk für das R-Seminar im Rahmen des Statistikmoduls in Public Health ^[zumindest dieses eine Mal in 2018].
+Das hier ist/wird/war/wurde [^1] eine R-Einführung für Psychologiestudierende so mit ganz ohne Vorwissen im Bereich Software oder Programmierung.
+Dieses Werk ~~ist~~ war zum Einen die Grundlage für die R-Intro für Psychologiestudierende in *Quantitative Methoden*, und zum Anderen auch das Referenzwerk für das R-Seminar im Rahmen des Statistikmoduls in Public Health [^2]
+.
 
-Die grobe Idee war es, eine Einstiegspräsentation für die Übung zu haben, und zusätzlich eine long-form Intro als Nachschlagwerk und vertiefendes Material (das hier).  
-Beides sollte ausreichend mit Screenshots/Beispielen ausgefüttert sein um auch die verunsichertesten Neulinge bei der Stange zu halten.  
-Da wir aber mittlerweile auch so gar nichts mehr mit der Pszchologie an der Uni Bremen zu tun haben und mit anderem Kram beschäftigt waren und sind, ist das ganze Projekt etwas versandet, verstaubt, in die Jahre gekommen, aber aus nicht mehr nachvollziehbaren Gründen irgendwie dennoch an ausreichend vielen Stellen hängen geblieben, wo Leute das tatsächlich als ergänzendes Lehrmaterial verwenden.
+Die grobe Idee war es, eine Einstiegspräsentation für die Übung zu haben, und zusätzlich eine long-form Intro als Nachschlagwerk und vertiefendes Material (das hier).\
 
-## Über diese Einführung {-}
+Beides sollte ausreichend mit Screenshots/Beispielen ausgefüttert sein um auch die verunsichertesten Neulinge bei der Stange zu halten.\
 
-```{r}
-#| fig.cap: "Lukas & Tobi, weil richtige Portraits zu professionell wären."
-#| echo: false
-#| out.width: "70%"
-#| 
-knitr::include_graphics(here::here("images/tobilukas.png"))
-```
+Da wir aber mittlerweile auch so gar nichts mehr mit der Psychologie an der Uni Bremen zu tun haben und mit anderem Kram beschäftigt waren und sind, ist das ganze Projekt etwas versandet, verstaubt, in die Jahre gekommen, aber aus nicht mehr nachvollziehbaren Gründen irgendwie dennoch an ausreichend vielen Stellen hängen geblieben, wo Leute das tatsächlich als ergänzendes Lehrmaterial verwenden.
 
-Tobi und Lukas haben  ~~zwei~~ ~~drei~~ ein paar Jahre lang die R-Einführung in QM gehalten, anfangs basierend auf den Folien, die Lukas unter Anderem auch als Nachschlagwerk gedacht hatte.  
-Weil Lukas aber ein gigantischer Nerd mit viel zu viel Spaß an Zeug ist, und sich sonst niemand für technische Details interessiert, brauchte er für das dritte Jahr die Hilfe von Tobi und einer Hand voll TutorInnen um die Einführung menschenkompatibel zu halten.  
-Das Resultat ist das hier.  
+[^1]: time is a flat circle
 
-Wenn ihr mehr (oder so grob dasselbe, aber deutlich mehr und in besser erklärt) wollt, dann empfehle ich herzlichst "[**R for Data Science**](https://r4ds.had.co.nz/)", ein kostenloses Buch von Hadley Wickham, einem der R-Menschen, die uns in den letzten Jahren viele nette tools beschert haben^[Allen voran ggplot2, *das* package für plots in R.].
+[^2]: zumindest dieses eine Mal in 2018
 
-## Zielgruppe {-}
+## Über diese Einführung {.unnumbered}
 
-Die primäre Motivation und Zielgruppe für diese Einführung waren die Studierenden der Psychologie an der Universität Bremen, weshalb hier auch möglichst wenig Vorkenntnisse im Bereich der Statistik, Programmierung, statistischen Programmierung oder programmierenden Sta... ähm... ihr versteht schon.  
-Wir gehen anfangs sehr kleinschrittig vor und versuchen gängige Konzepte wie Datentypen/-klassen, Datenstrukturen, Syntax von Grund auf zu erklären.  
+![Tobi & Lukas, weil richtige Portraits zu professionell wären](images/tobilukas.png){fig-align="center" width="1557"}
 
-Solltet ihr bei Begriffen wie "funktionale Programmiersprache", "generics", "functionals" und "Attribute" ein grobes Bild im Kopf haben, dann empfehle ich euch einen Blick in das weiter oben erwähnte [**R for Data Science**](https://r4ds.had.co.nz/). Also generell würde ich allen interessierten dieses Buch/Seite empfehlen, aber ich vermute, dass es für einen absoluten Sprung ins kalte Wasser R nur dann geeignet ist, wenn man entweder sehr viel Motivation oder ein entsprechendes Vorwissen mitbringt.
+Tobi und Lukas haben ~~zwei~~ ~~drei~~ ein paar Jahre lang die R-Einführung in QM gehalten, anfangs basierend auf den Folien, die Lukas unter Anderem auch als Nachschlagwerk gedacht hatte.\
 
+Weil Lukas aber ein gigantischer Nerd mit viel zu viel Spaß an Zeug ist, und sich sonst niemand für technische Details interessiert, brauchte er für das dritte Jahr die Hilfe von Tobi und einer Hand voll TutorInnen um die Einführung menschenkompatibel zu halten.\
+
+Das Resultat ist das hier.
+
+Wenn ihr mehr (oder so grob dasselbe, aber deutlich mehr und in besser erklärt) wollt, dann empfehle ich herzlichst "[**R for Data Science**](https://r4ds.had.co.nz/)", ein kostenloses Buch von Hadley Wickham, einem der R-Menschen, die uns in den letzten Jahren viele nette tools beschert haben[^3].
+
+[^3]: Allen voran ggplot2, *das* package für plots in R.
+
+## Zielgruppe {.unnumbered}
+
+Die primäre Motivation und Zielgruppe für diese Einführung waren die Studierenden der Psychologie an der Universität Bremen, weshalb hier auch möglichst wenig Vorkenntnisse im Bereich der Statistik, Programmierung, statistischen Programmierung oder programmierenden Sta... ähm... ihr versteht schon.\
+
+Wir gehen anfangs sehr kleinschrittig vor und versuchen gängige Konzepte wie Datentypen & Klassen, Datenstrukturen, Syntax von Grund auf zu erklären.
+
+Solltet ihr bei Begriffen wie "funktionale Programmiersprache", "generics", "functionals" und "Attribute" ein grobes Bild im Kopf haben, dann empfehle ich euch einen Blick in das weiter oben erwähnte [**R for Data Science**](https://r4ds.had.co.nz/).
+Also generell würde ich allen interessierten dieses Buch/Seite empfehlen, aber ich vermute, dass es für einen absoluten Sprung ins kalte Wasser R nur dann geeignet ist, wenn man entweder sehr viel Motivation oder ein entsprechendes Vorwissen mitbringt.
