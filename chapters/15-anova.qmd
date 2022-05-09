@@ -1,3 +1,0 @@
-# Varianzanalyse (ANOVA) {#ANOVA}
-
-Long story short: Benutzt [afex](https://github.com/singmann/afex)!

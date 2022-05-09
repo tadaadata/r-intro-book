@@ -18,7 +18,7 @@ Da wir aber mittlerweile auch so gar nichts mehr mit der Psychologie an der Uni 
 
 ## Über diese Einführung {.unnumbered}
 
-![Tobi & Lukas, weil richtige Portraits zu professionell wären](images/tobilukas.png){fig-align="center" width="1557"}
+![Tobi & Lukas, weil richtige Portraits zu professionell wären](images/tobilukas.png){fig-align="center"}
 
 Tobi und Lukas haben ~~zwei~~ ~~drei~~ ein paar Jahre lang die R-Einführung in QM gehalten, anfangs basierend auf den Folien, die Lukas unter Anderem auch als Nachschlagwerk gedacht hatte.\
 

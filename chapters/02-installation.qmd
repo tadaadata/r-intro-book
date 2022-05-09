@@ -27,7 +27,7 @@ etwas anders aussieht als in den Screenshots.
 
 R bekommt ihr von der offiziellen seite, hier: <https://cran.r-project.org/>
 
-![](images/install_R.png){fig-align="center"}
+![](/images/install_R.png){fig-align="center"}
 
 Ja, die Seite sieht nach heutigen Standards furchtbar alt aus, aber die gibt's nunmal auch schon ewig und sie hat den Anspruch möglichst spartanisch zu sein um auch auf jedem noch so ranzigen Computer ordentlich dargstellt und ggf.
 von Scripten ausgelesen zu werden.
