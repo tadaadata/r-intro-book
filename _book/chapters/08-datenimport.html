@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="de_DE" xml:lang="de_DE"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-0.9.368">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<meta name="dcterms.date" content="2022-05-08">
+<meta name="author" content="Lukas Burk">
+<meta name="author" content="Tobias Anton">
 <title>R für Psychos - 8&nbsp; Datenimport</title>
 <style>
 code{white-space: pre-wrap;}
@@ -92,21 +93,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   "type": "textbox",
   "limit": 20,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken"
   }
-}</script><style>
-    .quarto-title-banner {
-      color: red;
-    }
-    </style>
+}</script>
 <meta property="og:title" content="R für Psychos - 8&nbsp; Datenimport">
 <meta property="og:site-name" content="R für Psychos">
 </head>
@@ -135,11 +132,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
   <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Autoren</div>
+      <div class="quarto-title-meta-contents">
+               <p>Lukas Burk </p>
+               <p>Tobias Anton </p>
+            </div>
+    </div>
       
       <div>
-      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">May 8, 2022</p>
+        <p class="date">8. Mai 2022</p>
       </div>
     </div>
       
@@ -245,7 +249,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item sidebar-item-section">
     <div class="sidebar-item-container"> 
-        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Appendices</a>
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Anhang</a>
       <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
         <i class="bi bi-chevron-right ms-2"></i>
       </a>
@@ -271,7 +275,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
 </div>
 </nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc"><h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc"><h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
 <li>
@@ -304,7 +308,7 @@ Auch hier liefert RStudio jedenfalls im “Files”-Tab entsprechende Orientieru
 </div>
 </div>
 <p>Das rot umrandete ist der Pfad zum Projektordner, in R würde ich den also so eingeben müssen:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="st">"~/repos/tadaadata/r-intro-book"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode sh code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="st">"~/repos/tadaadata/r-intro-book"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Wobei die Tilde <code>~</code> eine Abkürzung für das Home-Verzeichnis ist.</p>
 <section id="quellen" class="level2" data-number="8.1"><h2 data-number="8.1" class="anchored" data-anchor-id="quellen">
 <span class="header-section-number">8.1</span> Quellen</h2>
@@ -344,7 +348,7 @@ Textformate sind also ziemlich einfach um eure Daten zu speichern oder zu versch
 <details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org">readr</a></span><span class="op">)</span>
 <span class="va">gotdeaths</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"data/got_deaths.csv"</span><span class="op">)</span>
 
-<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">gotdeaths</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">gotdeaths</span><span class="op">)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Hier habe ich <code>col_types = cols()</code> nur benutzt, um das Output zu unterdrücken. Ihr könnt über dieses Argument aber auch manuell spezifizieren, welchen Typ jede Spalte haben soll, damit eure Daten explizit so eingelesen werden, wie ihr sie erwartet.<br>
@@ -357,7 +361,7 @@ Die schmutzigen Details gibt’s natürlich in der Hilfe: <code><a href="https:/
 </ul>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://haven.tidyverse.org">haven</a></span><span class="op">)</span>
 
-<span class="va">ngo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://haven.tidyverse.org/reference/read_spss.html">read_spss</a></span><span class="op">(</span><span class="st">"data/NGO.SAV"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="va">ngo</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://haven.tidyverse.org/reference/read_spss.html">read_spss</a></span><span class="op">(</span><span class="st">"data/NGO.SAV"</span><span class="op">)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Die Funktionen <code>read_sav</code> und <code>read_spss</code> sind identisch.</p>
 </section><section id="r-.rds-.rda-.rdata" class="level3" data-number="8.1.3"><h3 data-number="8.1.3" class="anchored" data-anchor-id="r-.rds-.rda-.rdata">
 <span class="header-section-number">8.1.3</span> R (<code>.rds</code>, <code>.rda</code> &amp; <code>.RData</code>)</h3>
@@ -374,18 +378,18 @@ Hier habt ihr zwei Möglichkeiten: <code>.rds</code> und <code>.rda</code> (auch
 <div class="cell" data-hash="08-datenimport_cache/html/unnamed-chunk-4_14be9d7983780244c6a1698cecc56b0d">
 <details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">qmsurvey</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"data/qm_survey_ss2017.rds"</span><span class="op">)</span>
 
-<span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="va">qmsurvey</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="va">qmsurvey</span><span class="op">)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Wir benutzen hier das <code>tibble</code> package nur, damit der Datensatz kompakter angezeigt wird. Das ist für euch keine Notwendigkeit, aber ich empfehle es in der Regel gerne, weil euch so nicht die Konsole vollgeklatscht wird, wenn ihr euch euren Datensatz mal schnell anschauen wollt.</p>
 <p>Daten speichern auch:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">datensatz</span>, <span class="st">"pfad/zur/datei.rds"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">saveRDS</a></span><span class="op">(</span><span class="va">datensatz</span>, <span class="st">"pfad/zur/datei.rds"</span><span class="op">)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Hier zum Beispiel der Datensatz zur Tutoriumsteilnahme, den ihr von <a href="https://public.tadaa-data.de/data/participation.rds" class="uri">https://public.tadaa-data.de/data/participation.rds</a> runterladen könnt:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">participation</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"~/Downloads/participation.rds"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">participation</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"~/Downloads/participation.rds"</span><span class="op">)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Alternativ könnt ihr das <code>readr</code>-package benutzen. Die Funktion daraus sieht fast gleich aus, und macht auch exakt das gleiche wie <code>readRDS</code>. Der einzige Grund für <code>read_rds</code> ist die Konsistenz der Funktionsnamen.</p>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org">readr</a></span><span class="op">)</span>
 
-<span class="va">participation</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_rds.html">read_rds</a></span><span class="op">(</span><span class="st">"~/Downloads/participation.rds"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="va">participation</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_rds.html">read_rds</a></span><span class="op">(</span><span class="st">"~/Downloads/participation.rds"</span><span class="op">)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section><section id="rda-.rdata" class="level4" data-number="8.1.3.2"><h4 data-number="8.1.3.2" class="anchored" data-anchor-id="rda-.rdata">
 <span class="header-section-number">8.1.3.2</span> <code>.rda</code>, <code>.RData</code>
 </h4>
@@ -395,9 +399,9 @@ Theoretisch kann so eine Datei auch mehrere Variablen enthalten, und wenn ihr zu
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"pfad/zur/datei.rda"</span><span class="op">)</span>
 
 <span class="co"># Oder…</span>
-<span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"pfad/zur/datei.RData"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="st">"pfad/zur/datei.RData"</span><span class="op">)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Speichern:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/save.html">save</a></span><span class="op">(</span><span class="va">datensatz</span>, file <span class="op">=</span> <span class="st">"pfad/zur/Datei.rda"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/save.html">save</a></span><span class="op">(</span><span class="va">datensatz</span>, file <span class="op">=</span> <span class="st">"pfad/zur/Datei.rda"</span><span class="op">)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section></section><section id="excel-.xlsx" class="level3" data-number="8.1.4"><h3 data-number="8.1.4" class="anchored" data-anchor-id="excel-.xlsx">
 <span class="header-section-number">8.1.4</span> Excel (<code>.xlsx</code>)</h3>
 <ul>
@@ -418,11 +422,11 @@ Es gibt da <a href="https://github.com/rsheets/rexcel#rexcel">das ein oder ander
 <p>Wenn euch Excel zu unpraktisch ist, dann bietet sich <a href="https://www.google.com/sheets/about/">Google Sheets</a> an. Es ist kostenlos, einfach und ausreichend mächtig für alles, was ihr so vorhaben könntet — mitunter weil ihr für alle komplexeren Sachen sowieso R benutzen wollt. Sheets ist praktisch wie Excel, nur halt in der Cloud<sup>TM</sup> und von Google, aber für überschaubare Datensammlungen reicht’s auf alle Fälle. Die <a href="https://qmparticipation.tadaa-data.de/">Tutoriumsteilnahmedaten haben wir da auch gesammelt</a>, und da das Sheet immer an der selben Stelle ist muss man einfach nur den Code zum einlesen und auswerten erneut ausführen und schon hat man eine mehr oder weniger selbstupdatende Analyse. Nett.</p>
 <p>In besagtem Projekt sieht das zum Beispiel so aus:</p>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">participation_1</span> <span class="op">&lt;-</span> <span class="fu">gs_title</span><span class="op">(</span><span class="st">"Tutoriumsteilnehmer"</span><span class="op">)</span> <span class="op">%&gt;%</span>
-  <span class="fu">gs_read</span><span class="op">(</span>ws <span class="op">=</span> <span class="st">"WS1516"</span>, range <span class="op">=</span> <span class="fu">cellranger</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/cellranger/man/cell_cols.html">cell_cols</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">7</span><span class="op">)</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+  <span class="fu">gs_read</span><span class="op">(</span>ws <span class="op">=</span> <span class="st">"WS1516"</span>, range <span class="op">=</span> <span class="fu">cellranger</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/cellranger/man/cell_cols.html">cell_cols</a></span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">7</span><span class="op">)</span><span class="op">)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Zuerst müsst ihr aber die Authentifizierung mit eurem Google-Account abhandeln:</p>
 <div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va">googlesheets</span><span class="op">)</span>
 
-<span class="fu">gs_ls</span><span class="op">(</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="fu">gs_ls</span><span class="op">(</span><span class="op">)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Mit diesem Befehl zeigt euch das package all eure Google Sheets an nachdem es euch nach einem Login gefragt hat, von da aus könnt ihr dann weiterarbeiten. Mehr Informationen und Beispiele <a href="https://rawgit.com/jennybc/googlesheets/master/vignettes/basic-usage.html">gibt’s in der Vignette</a>.</p>
 </section></section><section id="daten-angucken-sauber-machen" class="level2" data-number="8.2"><h2 data-number="8.2" class="anchored" data-anchor-id="daten-angucken-sauber-machen">
 <span class="header-section-number">8.2</span> Daten angucken &amp; sauber machen</h2>
@@ -463,7 +467,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Kopiert");
     setTimeout(function() {
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');

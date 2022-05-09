@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="de_DE" xml:lang="de_DE"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-0.9.368">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<meta name="dcterms.date" content="2022-05-08">
+<meta name="author" content="Lukas Burk">
+<meta name="author" content="Tobias Anton">
 <title>R für Psychos - 5&nbsp; Datentypen</title>
 <style>
 code{white-space: pre-wrap;}
@@ -92,22 +93,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   "type": "textbox",
   "limit": 20,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken"
   }
-}</script><style>
-    .quarto-title-banner {
-      color: red;
-    }
-    </style>
-<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+}</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 <meta property="og:title" content="R für Psychos - 5&nbsp; Datentypen">
 <meta property="og:site-name" content="R für Psychos">
 </head>
@@ -136,11 +132,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
   <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Autoren</div>
+      <div class="quarto-title-meta-contents">
+               <p>Lukas Burk </p>
+               <p>Tobias Anton </p>
+            </div>
+    </div>
       
       <div>
-      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">May 8, 2022</p>
+        <p class="date">8. Mai 2022</p>
       </div>
     </div>
       
@@ -246,7 +249,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item sidebar-item-section">
     <div class="sidebar-item-container"> 
-        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Appendices</a>
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Anhang</a>
       <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
         <i class="bi bi-chevron-right ms-2"></i>
       </a>
@@ -272,7 +275,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
 </div>
 </nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc"><h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc"><h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
 <li><a href="#numeric-zahlen-und-so" id="toc-numeric-zahlen-und-so" class="nav-link active" data-scroll-target="#numeric-zahlen-und-so"> <span class="header-section-number">5.1</span> Numeric <small class="subtitle">(Zahlen und so)</small></a></li>
@@ -310,7 +313,7 @@ Was eine R-Funktion mit einem Objekt anstellt hängt von der <em>Klasse</em> des
 <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">$</span><span class="va">extra</span><span class="op">)</span>
 <span class="co">#&gt; [1] "numeric"</span>
 <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">$</span><span class="va">group</span><span class="op">)</span>
-<span class="co">#&gt; [1] "factor"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="co">#&gt; [1] "factor"</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p><small>(Was es mit <code>factor</code> auf sich hat sehen wir ein paar Abschnitte weiter)</small></p>
@@ -327,7 +330,7 @@ Was eine R-Funktion mit einem Objekt anstellt hängt von der <em>Klasse</em> des
 <span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">$</span><span class="va">extra</span><span class="op">)</span>
 <span class="co">#&gt; [1] "double"</span>
 <span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">$</span><span class="va">group</span><span class="op">)</span>
-<span class="co">#&gt; [1] "integer"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="co">#&gt; [1] "integer"</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <section id="numeric-zahlen-und-so" class="level2" data-number="5.1"><h2 data-number="5.1" class="anchored" data-anchor-id="numeric-zahlen-und-so">
@@ -349,7 +352,7 @@ Fließkommazahlen sind so gängig, dass R sogar eine einfache ganze Zahl wie <co
 
 <span class="co"># …und</span>
 <span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="fl">2.5</span><span class="op">)</span>
-<span class="co">#&gt; [1] "double"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="co">#&gt; [1] "double"</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Integers sind ziemlich unproblematisch, werden aber in der Praxis nicht häufig explizit genutzt.<br>
@@ -366,7 +369,7 @@ Das Problem an der Sache ist nur leider, dass Fließkommazahlen seltsam sind. Ni
 
 <span class="co"># Das sollte ja dann…</span>
 <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span> <span class="op">==</span> <span class="fl">2</span>
-<span class="co">#&gt; [1] FALSE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="co">#&gt; [1] FALSE</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p><small>Wait, what?</small></p>
@@ -377,7 +380,7 @@ Die absolut kleinste Toleranz, die euer Computer für Fließkommazahlen berücks
 <div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-6_452ca5bf78bf8612bd804cecc77693c1">
 <details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Wie groß ist die Abweichung vom erwarteten Ergebnis?</span>
 <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span> <span class="op">-</span> <span class="fl">2</span>
-<span class="co">#&gt; [1] 4.440892e-16</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="co">#&gt; [1] 4.440892e-16</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p><code>4.4408920985e-16</code> ist Computer für <span class="math inline">\(4.4408920985 \cdot 10^{-16}\)</span>, also ungefähr…</p>
@@ -394,7 +397,7 @@ Die absolut kleinste Toleranz, die euer Computer für Fließkommazahlen berücks
 
 <span class="co"># Wenn jetzt…</span>
 <span class="op">(</span><span class="va">.Machine</span><span class="op">$</span><span class="va">double.eps</span> <span class="op">*</span> <span class="fl">2</span><span class="op">)</span> <span class="op">==</span> <span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span> <span class="op">-</span> <span class="fl">2</span><span class="op">)</span>
-<span class="co">#&gt; [1] TRUE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="co">#&gt; [1] TRUE</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Tatsache.<br>
@@ -405,7 +408,7 @@ Wir könnten noch weiter damit rumspielen, aber als Lektion sollte eigentlich nu
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Note
+Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -426,7 +429,7 @@ Note
 
 <span class="co"># Literally close enough.</span>
 <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span>, digits <span class="op">=</span> <span class="fl">5</span><span class="op">)</span> <span class="op">==</span> <span class="fl">2</span>
-<span class="co">#&gt; [1] TRUE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="co">#&gt; [1] TRUE</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="callout-note callout callout-style-default callout-captioned">
@@ -435,7 +438,7 @@ Note
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Note
+Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -466,7 +469,7 @@ Note
 
 <span class="co"># Strings aneinanderhängen</span>
 <span class="fu"><a href="https://rdrr.io/r/base/paste.html">paste</a></span><span class="op">(</span><span class="st">"Lukas"</span>, <span class="st">"hat"</span>, <span class="st">"Spass"</span>, sep <span class="op">=</span> <span class="st">"_"</span><span class="op">)</span>
-<span class="co">#&gt; [1] "Lukas_hat_Spass"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="co">#&gt; [1] "Lukas_hat_Spass"</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Die Funktionen <code>paste</code> und <code>paste0</code> sind ziemlich praktisch wenn ihr mit Strings arbeitet, die werdet ihr früher oder später mal brauchen.<br>
 Ansonsten dürfte euch aufgefallen sein, dass man <em>Spaß</em> mit <em>ß</em> schreibt. Das ist korrekt. Allerdings zählt <em>ß</em> als Sonderzeichen, genauso wie Umlaute (<em>üöä</em>). R kann damit zwar prinzipiell umgehen, solange ihr das richtige <em>Encoding</em> verwendet, aber dennoch bietet es sich an auf Sonderzeichen in R-Code zu verzichten, um Inkompatibilität mit anderen vorzubeugen.</p>
 <p>Um eure Einstellungen anzupassen und auf Nummer sicher zu gehen, öffnet die Einstellungen von RStudio und setzt die folgende Einstellung auf <strong>UTF-8</strong> (Unicode):</p>
@@ -485,7 +488,7 @@ Ansonsten dürfte euch aufgefallen sein, dass man <em>Spaß</em> mit <em>ß</em>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Note
+Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -516,7 +519,7 @@ Die <code>factor</code>-Klasse in R ist unheimlich praktisch, aber auch ziemlich
 
 <span class="co"># Und die levels…</span>
 <span class="fu"><a href="https://rdrr.io/r/base/levels.html">levels</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">$</span><span class="va">group</span><span class="op">)</span>
-<span class="co">#&gt; [1] "1" "2"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="co">#&gt; [1] "1" "2"</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Wir sehen, dass <code>group</code> die Merkmalsausprägungen (<em>levels</em>) <code>1</code> und <code>2</code> hat, aber das ist für uns möglicherweise nicht wirklich aussagekräftig. Wir können die Variable modifizieren, und einen schöneren <code>factor</code> daraus machen:</p>
@@ -538,7 +541,7 @@ Die <code>factor</code>-Klasse in R ist unheimlich praktisch, aber auch ziemlich
 
 <span class="co"># Aber wir können den factor immer noch wie Zahlen behandeln</span>
 <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">$</span><span class="va">group</span><span class="op">)</span>
-<span class="co">#&gt;  [1] 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="co">#&gt;  [1] 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Mit <code>factor</code> können wir praktisch zwei Lagen an Informationen in nur einer Variable speichern, einmal numerische <em>levels</em> und einmal character <em>labels</em>. Die Levels sind die eigentlich wichtige Information und die Labels sind praktisch nur für uns zur besseren Lesbarkeit da, zum Beispiel bei Tabellen oder Grafiken.</p>
@@ -553,14 +556,14 @@ Meistens kommen eure Daten auch mit Fehlenden oder irgendwie kaputten Werten, mi
 Das ist auch der Grund, warum der Mittelwert nicht funktioniert, wenn da <code>NA</code> drinstecken:</p>
 <div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-12_996f886ab0ada49e57e54e208237c926">
 <details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="cn">NA</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="cn">NA</span>, <span class="fl">7</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; [1] NA</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="co">#&gt; [1] NA</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Klar könnten wir einfach annehmen, dass die fehlenden Werte <code>3</code> und <code>6</code> sind, aber das wissen wir nunmal nicht, und da R in der Regel nicht rät, sagt es halt auch “weiß nicht” in Form von <code>NA</code>.<br>
 In solchen Fällen müsst ihr explizit <code>NA</code> ignorieren:</p>
 <div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-13_1be9d4fc1278031a1dd7f59567859038">
 <details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="cn">NA</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="cn">NA</span>, <span class="fl">7</span><span class="op">)</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
-<span class="co">#&gt; [1] 3.8</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="co">#&gt; [1] 3.8</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Ihr könnt auch mit der Funktion <code>is.na</code> prüfen, ob ihr fehlende Werte habt. Beachtet, dass <code>==</code> zum vergleichen nicht funktioniert!</p>
@@ -576,7 +579,7 @@ In solchen Fällen müsst ihr explizit <code>NA</code> ignorieren:</p>
 
 <span class="co"># An welcher Position sind die NAs?</span>
 <span class="fu"><a href="https://rdrr.io/r/base/which.html">which</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">zahlen</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; [1] 3 6</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="co">#&gt; [1] 3 6</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section><section id="leere-werte-null" class="level3" data-number="5.4.2"><h3 data-number="5.4.2" class="anchored" data-anchor-id="leere-werte-null">
@@ -598,7 +601,7 @@ Ansonsten taucht <code>NULL</code> eher bei R-Funktionen als <em>default argumen
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Note
+Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -622,7 +625,7 @@ Nehmt mal folgendes Beispiel:</p>
 
 <span class="co"># Okay, aber jetzt…</span>
 <span class="fl">10</span><span class="op">^</span><span class="fl">1000</span>
-<span class="co">#&gt; [1] Inf</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="co">#&gt; [1] Inf</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Das ist R einfach zu viel, bzw. es ist eurem Computer generell zu viel.<br>
@@ -633,7 +636,7 @@ Wenn ihr <code>Inf</code> oder <code>-Inf</code> in euren Ergebnissen seht, dann
 <p>Und dann ist da noch die Sache mit <code>NaN</code>.<br><code>NaN</code> steht für <em>not a number</em> und passiert dann, wenn ihr irgendwas mathematisch fragwürdiges macht, wie zum Beispiel 0 durch 0 teilen:</p>
 <div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-16_cd01872ab2d16125e420079531f44f1c">
 <details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fl">0</span> <span class="op">/</span> <span class="fl">0</span>
-<span class="co">#&gt; [1] NaN</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="co">#&gt; [1] NaN</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Das ist mathematisch nicht definiert, und wieso das so ist und mehr dazu findet ihr zum Beispiel bei <a href="https://www.youtube.com/watch?v=BRRolKTlF6Q">Numberphile</a> gut erklärt.<br>
@@ -666,7 +669,7 @@ Um sich einen Überblick über einen Datensatz zu verschaffen empfiehlt sich die
 <span class="co">#&gt; 'data.frame':    20 obs. of  3 variables:</span>
 <span class="co">#&gt;  $ extra: num  0.7 -1.6 -0.2 -1.2 -0.1 3.4 3.7 0.8 0 2 ...</span>
 <span class="co">#&gt;  $ group: Factor w/ 2 levels "Medikament A",..: 1 1 1 1 1 1 1 1 1 1 ...</span>
-<span class="co">#&gt;  $ ID   : Factor w/ 10 levels "1","2","3","4",..: 1 2 3 4 5 6 7 8 9 10 ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="co">#&gt;  $ ID   : Factor w/ 10 levels "1","2","3","4",..: 1 2 3 4 5 6 7 8 9 10 ...</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Das Output von <code>str</code> sagt euch alles, was ihr braucht:</p>
@@ -704,7 +707,7 @@ Um sich einen Überblick über einen Datensatz zu verschaffen empfiehlt sich die
 <span class="co">#&gt; [1] FALSE</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">2</span>, <span class="fl">5</span>, <span class="fl">4</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span>
-<span class="co">#&gt; [1] "2" "5" "4" "3"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="co">#&gt; [1] "2" "5" "4" "3"</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Es gibt etliche solcher Konvertierungsfunktionen in R, manche mehr oder weniger nützlich, aber nun gut, sie sind da:</p>
@@ -721,7 +724,7 @@ Um sich einen Überblick über einen Datensatz zu verschaffen empfiehlt sich die
 <span class="fu"><a href="https://rdrr.io/r/base/logical.html">as.logical</a></span><span class="op">(</span><span class="fl">0</span><span class="op">)</span>
 <span class="co">#&gt; [1] FALSE</span>
 <span class="fu"><a href="https://rdrr.io/r/base/logical.html">as.logical</a></span><span class="op">(</span><span class="fl">1</span><span class="op">)</span>
-<span class="co">#&gt; [1] TRUE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="co">#&gt; [1] TRUE</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <!-- Footnotes -->
@@ -753,7 +756,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Kopiert");
     setTimeout(function() {
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');

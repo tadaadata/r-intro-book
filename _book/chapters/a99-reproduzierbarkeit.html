@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="de_DE" xml:lang="de_DE"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-0.9.368">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<meta name="dcterms.date" content="2022-05-08">
+<meta name="author" content="Lukas Burk">
+<meta name="author" content="Tobias Anton">
 <title>R für Psychos - Appendix C — Reproduzierbarkeit</title>
 <style>
 code{white-space: pre-wrap;}
@@ -91,21 +92,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   "type": "textbox",
   "limit": 20,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken"
   }
-}</script><style>
-    .quarto-title-banner {
-      color: red;
-    }
-    </style>
+}</script>
 <meta property="og:title" content="R für Psychos - Appendix C — Reproduzierbarkeit">
 <meta property="og:site-name" content="R für Psychos">
 </head>
@@ -130,11 +127,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
   <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Autoren</div>
+      <div class="quarto-title-meta-contents">
+               <p>Lukas Burk </p>
+               <p>Tobias Anton </p>
+            </div>
+    </div>
       
       <div>
-      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">May 8, 2022</p>
+        <p class="date">8. Mai 2022</p>
       </div>
     </div>
       
@@ -240,7 +244,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item sidebar-item-section">
     <div class="sidebar-item-container"> 
-        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Appendices</a>
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Anhang</a>
       <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
         <i class="bi bi-chevron-right ms-2"></i>
       </a>
@@ -266,7 +270,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
 </div>
 </nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc"><h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc"><h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
 <li><a href="#pandoc" id="toc-pandoc" class="nav-link active" data-scroll-target="#pandoc"> <span class="header-section-number">C.1</span> Pandoc</a></li>
@@ -280,14 +284,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="header-section-number">C.1</span> Pandoc</h2>
 <div class="cell" data-hash="a99-reproduzierbarkeit_cache/html/unnamed-chunk-1_bc5aade283cdc4aad69a43f7ac50ed86">
 <details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu">rmarkdown</span><span class="fu">::</span><span class="fu"><a href="https://pkgs.rstudio.com/rmarkdown/reference/pandoc_available.html">pandoc_version</a></span><span class="op">(</span><span class="op">)</span>
-<span class="co">#&gt; [1] '2.18'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="co">#&gt; [1] '2.18'</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section><section id="quarto" class="level2" data-number="C.2"><h2 data-number="C.2" class="anchored" data-anchor-id="quarto">
 <span class="header-section-number">C.2</span> Quarto</h2>
 <div class="cell" data-hash="a99-reproduzierbarkeit_cache/html/unnamed-chunk-2_3b05b8ea3a715d6acb9edb8725eed022">
 <details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/packageDescription.html">packageVersion</a></span><span class="op">(</span><span class="st">"quarto"</span><span class="op">)</span>
-<span class="co">#&gt; [1] '1.1'</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="co">#&gt; [1] '1.1'</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section><section id="r-session" class="level2" data-number="C.3"><h2 data-number="C.3" class="anchored" data-anchor-id="r-session">
@@ -355,7 +359,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="co">#&gt;  [1] /Users/Lukas/Library/R/arm64/4.2/library</span>
 <span class="co">#&gt;  [2] /Library/Frameworks/R.framework/Versions/4.2-arm64/Resources/library</span>
 <span class="co">#&gt; </span>
-<span class="co">#&gt; ──────────────────────────────────────────────────────────────────────────────</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="co">#&gt; ──────────────────────────────────────────────────────────────────────────────</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 
@@ -382,7 +386,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Kopiert");
     setTimeout(function() {
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');

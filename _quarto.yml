@@ -2,12 +2,15 @@ project:
   type: book
 
 from: markdown+emoji
+lang: de
+date: last-modified
+date-format: long
+author:
+  - name: "Lukas Burk"
+  - name: "Tobias Anton"
 
 book:
   title: "R für Psychos"
-  author: "Tobi & Lukas"
-  date: today
-  date-format: medium
   open-graph: true
   page-footer: "CC-BY-NC Lukas Burk & Tobias Anton"
   repo-url: "https://github.com/tadaadata/r-intro-book"
@@ -40,17 +43,14 @@ bibliography: references.bib
 format:
   html:
     theme: spacelab # quartz
-    lang: de_DE
     code-fold: show
     code-copy: true
     code-link: true
     code-summary: "Code verbergen/anzeigen"
     title-block-banner: true
     title-block-style: default
-    title-block-banner-color: "red"
     fig-align: center
     fig-responsive: true
-    date: last-modified
   # pdf:
   #   documentclass: scrreprt
 knitr:

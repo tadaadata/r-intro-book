@@ -111,7 +111,7 @@ Enttäuscht mich nicht.
 
 Nach der Installation solltet ihr jedenfalls folgendes Symbol entweder auf eurem Desktop oder in eurem Programmordner finden:
 
-![](images/rstudio-ball.png){fig-align="center"}
+![](images/rstudio-ball.png){fig-align="center" width="250"}
 
 Das wollt ihr anklicken, dann sollte sich RStudio öffnen und ihr habt erfolgreich R und RStudio installiert.\
 

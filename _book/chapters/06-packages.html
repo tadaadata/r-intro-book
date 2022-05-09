@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="de_DE" xml:lang="de_DE"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-0.9.368">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<meta name="dcterms.date" content="2022-05-09">
+<meta name="author" content="Lukas Burk">
+<meta name="author" content="Tobias Anton">
 <title>R für Psychos - 6&nbsp; Packages</title>
 <style>
 code{white-space: pre-wrap;}
@@ -92,21 +93,17 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   "type": "textbox",
   "limit": 20,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken"
   }
-}</script><style>
-    .quarto-title-banner {
-      color: red;
-    }
-    </style>
+}</script>
 <meta property="og:title" content="R für Psychos - 6&nbsp; Packages">
 <meta property="og:site-name" content="R für Psychos">
 </head>
@@ -135,11 +132,18 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
   <div class="quarto-title-meta">
 
+      <div>
+      <div class="quarto-title-meta-heading">Autoren</div>
+      <div class="quarto-title-meta-contents">
+               <p>Lukas Burk </p>
+               <p>Tobias Anton </p>
+            </div>
+    </div>
       
       <div>
-      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">May 9, 2022</p>
+        <p class="date">9. Mai 2022</p>
       </div>
     </div>
       
@@ -245,7 +249,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </li>
         <li class="sidebar-item sidebar-item-section">
     <div class="sidebar-item-container"> 
-        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Appendices</a>
+        <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">Anhang</a>
       <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
         <i class="bi bi-chevron-right ms-2"></i>
       </a>
@@ -271,7 +275,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     </ul>
 </div>
 </nav><!-- margin-sidebar --><div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc"><h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc"><h2 id="toc-title">Inhaltsverzeichnis</h2>
    
   <ul>
 <li>
@@ -296,14 +300,14 @@ Der <em>Kern</em> von R wird auch <strong>base</strong> genannt und umfasst die 
 <p>Packages ladet ihr aus dem Internet runter, woraufhin sie ggf. kompiliert und in eure R-library eingepflegt werden müssen.<br>
 Das klingt kompliziert, und deshalb passiert das auch alles automatisch!<br>
 Wir installieren ein package mit einem einfachen Befehl in der Konsole:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"ggplot2"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"ggplot2"</span><span class="op">)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Important
+Wichtig
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -320,7 +324,7 @@ Das schöne an diesem Befehl ist, dass es auch direkt alle packages installiert,
 Das könnt ihr auch aus der Konsole heraus machen indem ihr den Befehl <code>update.packages(ask = FALSE)</code> ausführt. R fragt euch dann, ob ihr sicherheitshalber R neustarten wollt, das könnt ihr tun oder auch nicht, aber wenn ihr es <em>nicht</em> tut, dann solltet ihr <em>auf jeden Fall</em> die R-Session neu starten nachdem ihr alle Updates gemacht habt (<code>RStudio -&gt; Session -&gt; Restart R</code>).</p>
 <p>Wieso? Nun ja, packages werden von R <em>geladen</em>, das heißt verfügbar gemacht, und wenn ihr ein package ersetzt (was beim Update passiert), dann zieht ihr damit R praktisch den Boden unter den Füßen weg und es ist sauer weil Dinge anders sind, als sie eben noch waren.</p>
 <p>Dieses “verfügbar machen” sieht übrigens so aus:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org">ggplot2</a></span><span class="op">)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Wenn ihr diesen Befehl ausgeführt hat, dann läd R für die aktuelle Session das package und ihr könnt die Funktionen darin benutzen.<br>
 Normalerweise beginnen eure R-Scripte mit einer Reihe von <code><a href="https://rdrr.io/r/base/library.html">library()</a></code>-Befehlen um eure Analyse vorzubereiten und alle benötigten packages zu laden, da ihr diesen Schritt jedes mal wiederholen müsst, wenn ihr eine neue R-Session starten (z.B. beim Neustart von RStudio, Computerneustart etc.).<br>
 Außerdem gebt ihr so euren KommilitonInnen eine gute Gelegenheit abzuschätzen, was in eurem Script so passiert, wenn sie direkt erkennen können, welche packages ihr dafür benutzt habt.</p>
@@ -338,13 +342,13 @@ In euren normalen Projekten solltet ihr euch nicht auf GitHub-packages verlassen
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://remotes.r-lib.org">remotes</a></span><span class="op">)</span>
 
 <span class="co"># install_github ist eine Funktion aus dem remotes package</span>
-<span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"tadaadata/tadaatoolbox"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"tadaadata/tadaatoolbox"</span><span class="op">)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section><section id="maintenance" class="level3" data-number="6.1.2"><h3 data-number="6.1.2" class="anchored" data-anchor-id="maintenance">
 <span class="header-section-number">6.1.2</span> Maintenance</h3>
 <p>Packages installieren ist einfach, aber wie jede Software wollen auch R-packages auf dem neusten Stand gehalten werden. Oder zumindest auf einem “nicht total veraltet”-Stand.<br>
 Updaten ist ziemlich einfach:<br>
 Entweder ihr klickt im “Packages”-Tab von RStudio auf den “Update”-Button, wählt alle Packages aus und installiert die Updates so, oder ihr gebt in der Konsole folgendes ein:</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/update.packages.html">update.packages</a></span><span class="op">(</span>ask <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/update.packages.html">update.packages</a></span><span class="op">(</span>ask <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>…dann rödelt R die Updates durch. RStudio wird euch an dieser Stelle fragen, ob ihr die R-Session vorher neustarten wollt – das könnt ihr tun, aber er könnt damit auch warten bis ihr alle Updates installiert habt anstatt für jedes einzelne Update die Session neuzustarten.<br>
 Wichtig ist auf jeden Fall, dass ihr die R-Session neustartet bevor ihr weiter arbeitet.</p>
 <div class="callout-note callout callout-style-default callout-captioned">
@@ -353,7 +357,7 @@ Wichtig ist auf jeden Fall, dass ihr die R-Session neustartet bevor ihr weiter a
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Note
+Hinweis
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -362,7 +366,7 @@ Note
 </div>
 </div>
 <p>Solltet ihr mal ein package löschen wollen, aus welchem Grund auch immer, dann geht das entweder auch über den Package-Tab in RStudio (das Kreuzchen rechts neben dem Namen des packages), oder ihr gebt folgendes in der Konsole ein:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/remove.packages.html">remove.packages</a></span><span class="op">(</span><span class="st">"ggplot2"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/remove.packages.html">remove.packages</a></span><span class="op">(</span><span class="st">"ggplot2"</span><span class="op">)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>…um das package <code>ggplot2</code> zu deinstallieren.<br>
 Aber wieso solltet ihr das tun wollen.<br>
 Wieso nur.<br>
@@ -376,7 +380,7 @@ Ihr Monster.</p>
 <p>Oder einfache Häufigkeitstabellen:</p>
 <p>Und für lineare Modelle, in deutlich schöner als <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code>:</p>
 <div class="cell" data-hash="06-packages_cache/html/sjplot_tables_3_3599ff584173bf9dfc456e6b4e64153d">
-<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">zufrieden</span> <span class="op">~</span> <span class="va">alter</span> <span class="op">*</span> <span class="va">berufsvorstellung</span>, data <span class="op">=</span> <span class="va">qmsurvey</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">zufrieden</span> <span class="op">~</span> <span class="va">alter</span> <span class="op">*</span> <span class="va">berufsvorstellung</span>, data <span class="op">=</span> <span class="va">qmsurvey</span><span class="op">)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section><section id="plots" class="level4" data-number="6.1.2.2"><h4 data-number="6.1.2.2" class="anchored" data-anchor-id="plots">
@@ -391,7 +395,7 @@ Ihr Monster.</p>
 <p>Das <em>tidyverse</em> ist eine Ansammlung von packages, die alle mehr oder weniger gut miteinander auskommen und auf ähnliche Art zu benutzen sind.<br>
 Eine Übersicht und ganz viel Dokumentation und Beispiele findet ihr auf <a href="https://tidyverse.org" class="uri">https://tidyverse.org</a>.</p>
 <p>Es gibt ein <em>catchall</em> R-package, das die wichtigstens packages für euch installiert:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"tidyverse"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"tidyverse"</span><span class="op">)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Ihr könnt danach entweder das package laden und habt damit die wichtigsten Funktionen parat, oder ihr ladet die packages nach Bedarf einzeln.<br>
 Ich würde zu letzterem raten, weil ihr so eher ein Gefühl dafür bekommt welches package für welche Funktionen zuständig ist, und nebenbei geht es auch ein bisschen schneller.</p>
 <p>Hier eine kurze Übersicht über die wichtigsten <em>tidyverse</em>-packages/Funktionen für alltägliche Aufgaben:</p>
@@ -460,7 +464,7 @@ Es sollte euch so ziemlich alles oder zumindest das meiste an (vorerst) relevant
 <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"nortest"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"plotly"</span><span class="op">)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"car"</span><span class="op">)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"afex"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"afex"</span><span class="op">)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><hr>
@@ -488,7 +492,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Kopiert");
     setTimeout(function() {
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
