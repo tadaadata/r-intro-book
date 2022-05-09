@@ -65,9 +65,6 @@ Ihr könnt damit loslegen, sobald ihr RMarkdown installiert habt:
 # Für die Grundfunktion
 install.packages("rmarkdown")
 
-# Schöne HTML Output-Formate (optional)
-install.packages("rmdformats")
-
 # Schöne Präsentationen (Optional)
 install.packages("revealjs")
 ```

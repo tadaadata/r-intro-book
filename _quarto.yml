@@ -1,6 +1,8 @@
 project:
   type: book
 
+from: markdown+emoji
+
 book:
   title: "R für Psychos"
   author: "Tobi & Lukas"
@@ -30,6 +32,8 @@ book:
     #- references.qmd
   appendices:
     - chapters/a01-ressourcen.qmd
+    - chapters/a02-glossar.qmd
+    - chapters/a99-reproduzierbarkeit.qmd
 
 bibliography: references.bib
 
@@ -40,9 +44,15 @@ format:
     code-fold: show
     code-copy: true
     code-link: true
-  pdf:
-    documentclass: scrreprt
-from: markdown+emoji
+    code-summary: "Code verbergen/anzeigen"
+    title-block-banner: true
+    title-block-style: default
+    title-block-banner-color: "red"
+    fig-align: center
+    fig-responsive: true
+    date: last-modified
+  # pdf:
+  #   documentclass: scrreprt
 knitr:
   opts_chunk:
     collapse: true

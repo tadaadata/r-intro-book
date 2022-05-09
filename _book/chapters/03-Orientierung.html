@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-0.9.368">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="dcterms.date" content="2022-05-08">
 <title>R für Psychos - 3&nbsp; Orientierung</title>
 <style>
 code{white-space: pre-wrap;}
@@ -101,7 +102,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+}</script><style>
+    .quarto-title-banner {
+      color: red;
+    }
+    </style>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 <meta property="og:title" content="R für Psychos - 3&nbsp; Orientierung">
 <meta property="og:site-name" content="R für Psychos">
 </head>
@@ -116,7 +122,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <i class="bi bi-chevron-right"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title d-none d-lg-block">
+<span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Orientierung</span>
+</h1>
+                </div>
+  </div>
+    
+  
+
+
+
+  <div class="quarto-title-meta">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">May 8, 2022</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
@@ -226,6 +257,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="../chapters/a01-ressourcen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ressourcen</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/a02-glossar.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Glossar</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/a99-reproduzierbarkeit.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Reproduzierbarkeit</span></a>
+  </div>
+</li>
     </ul>
 </li>
     </ul>
@@ -246,24 +287,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title d-none d-lg-block">
-<span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Orientierung</span>
-</h1>
-</div>
-
-
-
-
-
-<div class="quarto-title-meta">
-
-    
-    
-  </div>
-  
-
-</header><p>Wenn ihr vorher noch nie eine Programmiersprache benutzt habt… ist das auch eigentlich gar nicht so schlimm, denn R verhält sich sowieso für den Einstieg etwas anders.<br>
+<main class="content quarto-banner-title-block" id="quarto-document-content"><p>Wenn ihr vorher noch nie eine Programmiersprache benutzt habt… ist das auch eigentlich gar nicht so schlimm, denn R verhält sich sowieso für den Einstieg etwas anders.<br>
 “Programmiersprache” klingt so abschreckend, weil es nach kompliziertem Informatikkram klingt, aber wenn ihr es in eurer Schulzeit geschafft habt einen Taschenrechner zu bedienen, dann bekommt ihr auch den Einstieg in R hin.<br>
 Was der Begriff “Programmiersprache” für uns heißt ist recht simpel:<br>
 R folgt Anweisungen. Anweisungen, die wir entweder in die Konsole (in RStudio das Fenster unten links) schreiben können, und dann mit der Entertaste bestätigt werden. R guckt dann, ob es weiß wovon ihr redet, und rödelt dann los — und wenn es weiß was es mit eurem Befehl anfangen soll, gibt es euch auch direkt eine Antwort.</p>
@@ -273,9 +297,8 @@ R folgt Anweisungen. Anweisungen, die wir entweder in die Konsole (in RStudio da
 <p>Wenn ihr RStudio öffnet, seht ihr vermutlich folgendes:</p>
 <div class="cell" data-hash="03-orientierung_cache/html/unnamed-chunk-1_779bbafa0f91295876eca73752fc45de">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="../images/rstudio_fresh.png" class="img-fluid figure-img" width="688"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Ein frisches RStudio Fenster</figcaption><p></p>
+<div id="fig-anonymous-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><figure class="figure"><img src="../images/rstudio_fresh.png" class="img-fluid figure-img" width="688"></figure><p></p><figcaption aria-hidden="true" class="figure-caption">Ein frisches RStudio Fenster</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -286,31 +309,41 @@ Das große Fenster zur linken Seite ist die Konsole, mit der beschäftigen wir u
 Ein Projekt ist einfach nur ein bestimmter Ordner, in dem ihr arbeiten könnt. Idealerweise ist es auch ein Ordner, den ihr auf eurem Computer einfach wiederfindet.</p>
 <div class="cell" data-hash="03-orientierung_cache/html/unnamed-chunk-2_2558e217ed19a76e04ccde0dc7a05dd6">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="../images/rstudio_new_project_0.png" class="img-fluid figure-img" width="688"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Ein neues RStudio Projekt erstellen</figcaption><p></p>
+<div id="fig-anonymous-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><figure class="figure"><img src="../images/rstudio_new_project_0.png" class="img-fluid figure-img" width="688"></figure><p></p><figcaption aria-hidden="true" class="figure-caption">Ein neues RStudio Projekt erstellen</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell" data-hash="03-orientierung_cache/html/unnamed-chunk-3_3240fcb2a8a6d2e4fbbbb61708da338f">
 <div class="cell-output-display">
-<p><img src="../images/rstudio_new_project_1.png" class="img-fluid" width="350"></p>
+<div id="fig-anonymous-3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="../images/rstudio_new_project_1.png" class="img-fluid figure-img" width="350"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption"></figcaption><p></p>
+</figure>
+</div>
 </div>
 <div class="cell-output-display">
-<p><img src="../images/rstudio_new_project_2.png" class="img-fluid" width="351"></p>
+<div id="fig-anonymous-4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="../images/rstudio_new_project_2.png" class="img-fluid figure-img" width="351"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption"></figcaption><p></p>
+</figure>
+</div>
 </div>
 <div class="cell-output-display">
-<p><img src="../images/rstudio_new_project_3.png" class="img-fluid" width="376"></p>
+<div id="fig-anonymous-5" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="../images/rstudio_new_project_3.png" class="img-fluid figure-img" width="376"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption"></figcaption><p></p>
+</figure>
+</div>
 </div>
 </div>
 <p>Am Ende solltet ihr euer erstes Projekt erstellt haben.<br>
 Hier könnt ihr jetzt den Rest der Einführung über bleiben und Scripte erstellen und sowieso und überhaupt, und wenn ihr brav alles gespeichert habt, könnt ihr darauf auch in drei Wochen noch wieder zurückgreifen, indem ihr einfach das Projekt aus der entsprechenden Leiste in RStudio auswählt.</p>
 <div class="cell" data-hash="03-orientierung_cache/html/unnamed-chunk-4_29f35c301095f97aec7d8e3501c2bf92">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="../images/rstudio_projects.png" class="img-fluid figure-img" width="342"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">RStudio merkt sich eure letzten paar Projekte</figcaption><p></p>
+<div id="fig-anonymous-6" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><figure class="figure"><img src="../images/rstudio_projects.png" class="img-fluid figure-img" width="342"></figure><p></p><figcaption aria-hidden="true" class="figure-caption">RStudio merkt sich eure letzten paar Projekte</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -318,9 +351,8 @@ Hier könnt ihr jetzt den Rest der Einführung über bleiben und Scripte erstell
 <p>Alternativ könnt ihr auch auf eurem Computer den Ordner mit dem Projekt öffnen<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, dort dann einfach die Datei mit dem RStudio-Logo und der <code>.Rproj</code>-Endung öffnen. Falls ihr Windows benutzt, werden die Dateiendungen per Standard nicht angezeigt - die Datei hat aber den gleichen Namen, den ihr auch dem Projekt gegeben habt und das Symbol sieht ungefähr so aus:</p>
 <div class="cell" data-hash="03-orientierung_cache/html/unnamed-chunk-5_9c5d4e443cd285b4f587c4e09748743a">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="../images/rstudio_project_file.png" class="img-fluid figure-img" width="155"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Ein RStudio Projektordner</figcaption><p></p>
+<div id="fig-anonymous-7" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><figure class="figure"><img src="../images/rstudio_project_file.png" class="img-fluid figure-img" width="155"></figure><p></p><figcaption aria-hidden="true" class="figure-caption">Ein RStudio Projektordner</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -335,9 +367,8 @@ Hier kommt die Taschenrechner-Analogie wieder — versucht mal folgendes:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fl">928</span> <span class="op">+</span> <span class="fl">182</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell" data-hash="03-orientierung_cache/html/unnamed-chunk-6_4c70b6bca76ec7051ca52e8cd0e48f1a">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="../images/console_math_1.png" class="img-fluid figure-img" width="574"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Oh Schreck, es funktioniert tatsächlich!</figcaption><p></p>
+<div id="fig-anonymous-8" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><figure class="figure"><img src="../images/console_math_1.png" class="img-fluid figure-img" width="574"></figure><p></p><figcaption aria-hidden="true" class="figure-caption">Oh Schreck, es funktioniert tatsächlich!</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -372,9 +403,8 @@ Was wir da geschrieben haben sieht übersetzt in Mathe übrigens so aus…</p>
 Ihr erkennt das daran, dass das Symbol an der linken Seite eurer Konsole auf einmal ein <code>+</code>-Symbol statt eines <code>&gt;</code> ist und auch wiederholtes Drücken der Entertaste nichts daran ändert.</p>
 <div class="cell" data-hash="03-orientierung_cache/html/unnamed-chunk-7_c7026d5d59d860068a78b1cbaa7ba5f7">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="../images/inkorrekt_terminiert1.png" class="img-fluid figure-img" style="width:90.0%"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Plus was denn?!</figcaption><p></p>
+<div id="fig-anonymous-9" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><figure class="figure"><img src="../images/inkorrekt_terminiert1.png" class="img-fluid figure-img" style="width:90.0%"></figure><p></p><figcaption aria-hidden="true" class="figure-caption">Plus was denn?!</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -393,9 +423,8 @@ Scripte könnt ihr speichern und an andere Leute verschicken oder hochladen oder
 <p>Um euer erstes Script zu erstellen klickt ihr in RStudio oben links den Button, der nach <em>“neuer Datei”</em> aussieht:</p>
 <div class="cell" data-hash="03-orientierung_cache/html/unnamed-chunk-8_1df8077cf5094d81afb5d16afe8e8cc5">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="../images/text_editor_1.png" class="img-fluid figure-img" width="576"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Liebes Tagebuch: Heute habe ich einen Button geklickt. Es war sehr schön.</figcaption><p></p>
+<div id="fig-anonymous-10" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><figure class="figure"><img src="../images/text_editor_1.png" class="img-fluid figure-img" width="576"></figure><p></p><figcaption aria-hidden="true" class="figure-caption">Liebes Tagebuch: Heute habe ich einen Button geklickt. Es war sehr schön.</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -403,20 +432,18 @@ Scripte könnt ihr speichern und an andere Leute verschicken oder hochladen oder
 <p>Danach ploppt das Fenster oben links auf und begrüßt euch mit einem leeren Textfeld:</p>
 <div class="cell" data-hash="03-orientierung_cache/html/unnamed-chunk-9_115c795e71b01e3e051f858ed78121a8">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="../images/text_editor_2.png" class="img-fluid figure-img" width="574"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Na, auch hier?</figcaption><p></p>
+<div id="fig-anonymous-11" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><figure class="figure"><img src="../images/text_editor_2.png" class="img-fluid figure-img" width="574"></figure><p></p><figcaption aria-hidden="true" class="figure-caption">Na, auch hier?</figcaption><p></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Im Moment heißt euer Script noch <code>Untitled1</code> — das heißt, euer Script hat noch keinen Namen und ist <strong>noch nicht gespeichert</strong>. Letzteres wollt ihr umgehend ändern, weil all eure schönen Befehle für die Katz sind, wenn ihr euren Kram nicht speichert.<br>
-Ihr könnt zum speichern entweder den anachronistischen Diskettenbutton klicken und eurem Script einen schönen Namen geben, oder ihr drückt <code>STRG + S</code> oder auf dem Mac <code>cmd + S</code> — der wohl wichtigste Keyboard-Shortcut der Welt. Wenn ihr Probleme habt eure Tasten zu finden oder zu benennen, dann guckt im <a href="#tasten">Glossar</a> oder googlet halt.</p>
+Ihr könnt zum speichern entweder den anachronistischen Diskettenbutton klicken und eurem Script einen schönen Namen geben, oder ihr drückt <code>STRG + S</code> oder auf dem Mac <code>cmd + S</code> — der wohl wichtigste Keyboard-Shortcut der Welt. Wenn ihr Probleme habt eure Tasten zu finden oder zu benennen, dann guckt im <a href="a02-glossar.html#tasten">Glossar</a> oder googlet halt.</p>
 <div class="cell" data-hash="03-orientierung_cache/html/unnamed-chunk-10_ce67c809341420ce73266ffd3cc94125">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="../images/text_editor_3.png" class="img-fluid figure-img" width="354"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Der “Datei speichern…”-Dialog</figcaption><p></p>
+<div id="fig-anonymous-12" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><figure class="figure"><img src="../images/text_editor_3.png" class="img-fluid figure-img" width="354"></figure><p></p><figcaption aria-hidden="true" class="figure-caption">Der “Datei speichern…”-Dialog</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -437,7 +464,7 @@ R ignoriert in Scripten sowie in der Konsole generell alles, was rechts neben ei
 Kommentare sind auch praktisch, wenn ihr ein längere Script ausführt, aber ein Befehl Probleme bereitet. Wenn ihr einfach ein <code>#</code> davor setzt, ist die Zeile <em>auskommentiert</em>, und wird von R ignoriert.</p>
 <p>Wenn ihr dann ein paar Zeilen Code angesammelt habt, könnt ihr euer Script ausführen.<br>
 Ein Script wird von oben nach unten (und von links nach rechts) ausgeführt, wenn ihr auf “<code>Source</code>” klickt oder <code>Shift + STRG + Enter</code> drückt (auf dem Mac <code>Shift + cmd + Enter</code>).<br>
-Wenn ihr nur die aktuelle Zeile (da wo euer Cursor gerade ist, ist “aktuell”) ausführen wollt, reicht <code>STRG + R</code> (Mac: <code>cmd + R</code>). Auch hier kann das <a href="#tasten">Glossar</a> helfen.</p>
+Wenn ihr nur die aktuelle Zeile (da wo euer Cursor gerade ist, ist “aktuell”) ausführen wollt, reicht <code>STRG + R</code> (Mac: <code>cmd + R</code>). Auch hier kann das <a href="a02-glossar.html#tasten">Glossar</a> helfen.</p>
 </section><section id="und-das-da-rechts" class="level2" data-number="3.4"><h2 data-number="3.4" class="anchored" data-anchor-id="und-das-da-rechts">
 <span class="header-section-number">3.4</span> Und das da rechts?</h2>
 <p>Auf der rechten Seite in RStudio findet ihr unter Anderem die Hilfe (<em>Help</em>), die Dateien in eurem Projektordner (<em>Files</em>), eine Übersicht der installierten packages (<em>Packages</em>), eine Variablenübersicht (<em>Environment</em>) und von euch erstelle Graphiken (<em>Plots</em>). Wenn ihr das hier in der richtigen Reihenfolge lest, habt ihr vermutlich keine Ahnung was das alles heißen soll — und genau deswegen wenden wir uns dem Ganzen auch Schritt wir Schritt in späteren Abschnitten zu, wenn ihr ein bisschen mehr Übersicht über die Grundlagen habt.</p>

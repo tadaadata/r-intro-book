@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-0.9.368">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="dcterms.date" content="2022-05-08">
 <title>R für Psychos - 5&nbsp; Datentypen</title>
 <style>
 code{white-space: pre-wrap;}
@@ -101,7 +102,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+}</script><style>
+    .quarto-title-banner {
+      color: red;
+    }
+    </style>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 <meta property="og:title" content="R für Psychos - 5&nbsp; Datentypen">
 <meta property="og:site-name" content="R für Psychos">
 </head>
@@ -116,7 +122,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <i class="bi bi-chevron-right"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title d-none d-lg-block">
+<span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Datentypen</span>
+</h1>
+                </div>
+  </div>
+    
+  
+
+
+
+  <div class="quarto-title-meta">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">May 8, 2022</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
@@ -226,6 +257,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="../chapters/a01-ressourcen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ressourcen</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/a02-glossar.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Glossar</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/a99-reproduzierbarkeit.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Reproduzierbarkeit</span></a>
+  </div>
+</li>
     </ul>
 </li>
     </ul>
@@ -250,24 +291,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title d-none d-lg-block">
-<span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Datentypen</span>
-</h1>
-</div>
-
-
-
-
-
-<div class="quarto-title-meta">
-
-    
-    
-  </div>
-  
-
-</header><p>Es gibt eine Reihe von Unterscheidungsmöglichkeiten zwischen verschiedenen Arten von Daten.<br>
+<main class="content quarto-banner-title-block" id="quarto-document-content"><p>Es gibt eine Reihe von Unterscheidungsmöglichkeiten zwischen verschiedenen Arten von Daten.<br>
 Neben der naheliegenden Unterscheidung zwischen “Zahlen” und “Buchstaben” gibt es diverse andere Typen, die R verwendet.<br>
 Technisch gesehen müssten wir hier noch zwischen Typen und Klassen unterscheiden, aber für die meisten unserer normalen Anwendungszwecke ist es nicht unbedingt notwendig Typen und Klassen auseinanderhalten zu können, weshalb wir hier auch mehr oder weniger beides gleichzeitig abhandeln.</p>
 <p><em>“Und wieso sollte uns interessieren, wie R da unterscheidet?”</em><br>
@@ -275,7 +299,7 @@ R ist verwirrt, wenn wir Buchstaben in eine Funktion stecken, die Zahlen erwarte
 Was eine R-Funktion mit einem Objekt anstellt hängt von der <em>Klasse</em> des Objekts ab, das ganze fällt vermutlich irgendwo unter <em>“object oriented programming”</em>, und wenn ihr InformatikerInnen kennt und die euch Fragen, ob R eine funktionale oder objektorientierte Frage ist, könnt ihr getrost “ja” sagen<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 <p>Die wichtigste Funktion für diesen Abschnitt ist <code><a href="https://rdrr.io/r/base/class.html">class()</a></code>, was euch sagt was R unter einem bestimmten Objekt versteht (die <em>Klasse</em> des Objekts):</p>
 <div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-2_8937f651100cc3fd0eaed9912c108802">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span>
 <span class="co">#&gt; [1] "numeric"</span>
 <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; [1] "numeric"</span>
@@ -292,7 +316,7 @@ Was eine R-Funktion mit einem Objekt anstellt hängt von der <em>Klasse</em> des
 <p><small>(Was es mit <code>factor</code> auf sich hat sehen wir ein paar Abschnitte weiter)</small></p>
 <p>Zusätzlich gibt es <code><a href="https://rdrr.io/r/base/typeof.html">typeof()</a></code>, eine Funktion, die so speziell ist, dass ich sie in meinen ~4 Jahren R erst neulich entdeckt habe, weil der exakte <em>Typ</em> eines Objekts meistens weniger relevant ist als die <em>Klasse</em>:</p>
 <div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-3_8bec388265835e036c13cccf6e8a4635">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="fl">4</span><span class="op">)</span>
 <span class="co">#&gt; [1] "double"</span>
 <span class="fu"><a href="https://rdrr.io/r/base/typeof.html">typeof</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; [1] "double"</span>
@@ -313,7 +337,7 @@ Was eine R-Funktion mit einem Objekt anstellt hängt von der <em>Klasse</em> des
 Der Grund dafür hat damit zu tun, wie Computer intern Zahlen abbilden, binäres Zahlensystem, Bits, ihr wisst schon — komplizierter Kram wo sich kluge Menschen Dinge ausdachten, mit denen wir arbeiten können, wir aber nicht im Detail verstehen müssen.<br>
 Fließkommazahlen sind so gängig, dass R sogar eine einfache ganze Zahl wie <code>2</code> erstmal als <em>double</em>, also praktisch als <code>2.0</code> interpretiert, und wir explizit <code>2L</code> schreiben müssen, wenn wir <em>“2, aber als integer”</em> meinen. Wieso wir dafür <code>L</code> brauchen sei dahingestellt, aber nun ja, der Unterschied ist da:</p>
 <div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-4_c69a30c615ad0acadf86edcb1f9c5564">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Beides "numeric"</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Beides "numeric"</span>
 <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span>
 <span class="co">#&gt; [1] "numeric"</span>
 <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="fl">2.5</span><span class="op">)</span>
@@ -332,7 +356,7 @@ Fließkommazahlen sind so gängig, dass R sogar eine einfache ganze Zahl wie <co
 Fließkommazahlen (<em>double</em>) hingegen tauchen häufiger auf, weil Computer in den letzten Jahrzehnten <em>echt verdammt gut</em> darin geworden sind, mit Fließkommazhalen zu rechnen. Arithmetik mit integers ist auch okay, aber wenn eure Datensätze riesig und eure Statistik komplex ist, dann ist Geschwindigkeit von Rechenoperationen auf ein mal ein wichtiger Faktor.<br>
 Das Problem an der Sache ist nur leider, dass Fließkommazahlen seltsam sind. Nicht nur vom initialen Verständnis her, dazu empfehle ich euch herzlichst <a href="https://www.youtube.com/watch?v=PZRI1IfStY0">dieses schöne Video von Tom Scott</a>, sondern auch für ganz reale Konsequenzen, über die wir stolpern können, wenn wir nicht aufpassen:</p>
 <div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-5_484004b295ee27e83e59ba5eca588865">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Wurzel aus 2, ganz harmlos</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Wurzel aus 2, ganz harmlos</span>
 <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span>
 <span class="co">#&gt; [1] 1.414214</span>
 
@@ -351,7 +375,7 @@ Die kurze Version: <span class="math inline">\(\sqrt{2}\)</span> ist eine <em>ir
 <p>An dieser Stelle ein kurzer Exkurs in die Numerik:<br>
 Die absolut kleinste Toleranz, die euer Computer für Fließkommazahlen berücksichtigt, könnt ihr euch mit <code>.Machine$double.eps</code> anzeigen lassen<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>. <code>.Machine</code> ist ein besonderes Objekt in R, dass Informationen zu eurem Computer (sprich eurer <em>Maschine</em>) sammelt.</p>
 <div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-6_452ca5bf78bf8612bd804cecc77693c1">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Wie groß ist die Abweichung vom erwarteten Ergebnis?</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Wie groß ist die Abweichung vom erwarteten Ergebnis?</span>
 <span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span><span class="op">^</span><span class="fl">2</span> <span class="op">-</span> <span class="fl">2</span>
 <span class="co">#&gt; [1] 4.440892e-16</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
@@ -360,7 +384,7 @@ Die absolut kleinste Toleranz, die euer Computer für Fließkommazahlen berücks
 <p><span class="math display">\[\frac{4.4408920985}{10000000000000000} \approx 0.00000000000000044\]</span></p>
 <p>Das ist… ziemlich wenig, und im Alltag auch ziemlich egal, aber wie gesagt: Für R ist das ein Unterschied.</p>
 <div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-7_157bcffa6809319de626a2b9783a7b06">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Wie groß ist die Toleranz?</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Wie groß ist die Toleranz?</span>
 <span class="va">.Machine</span><span class="op">$</span><span class="va">double.eps</span>
 <span class="co">#&gt; [1] 2.220446e-16</span>
 
@@ -392,7 +416,7 @@ Note
 </div>
 <p>Wenn ihr mal auf sowas stoßen solltet, dann verwendet am besten einfach die Funktion <code><a href="https://rdrr.io/r/base/Round.html">round()</a></code> um eure Werte auf eine sinnvolle Anzahl Nachkommastellen zu runden:</p>
 <div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-8_6276473c6c627122b8b6e34598993596">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Auf 5 Stellen gerundete Wurzel 2</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Auf 5 Stellen gerundete Wurzel 2</span>
 <span class="fu"><a href="https://rdrr.io/r/base/Round.html">round</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/MathFun.html">sqrt</a></span><span class="op">(</span><span class="fl">2</span><span class="op">)</span>, digits <span class="op">=</span> <span class="fl">5</span><span class="op">)</span>
 <span class="co">#&gt; [1] 1.41421</span>
 
@@ -448,9 +472,8 @@ Ansonsten dürfte euch aufgefallen sein, dass man <em>Spaß</em> mit <em>ß</em>
 <p>Um eure Einstellungen anzupassen und auf Nummer sicher zu gehen, öffnet die Einstellungen von RStudio und setzt die folgende Einstellung auf <strong>UTF-8</strong> (Unicode):</p>
 <div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-9_e4b6b8b5db2114f7727e911cb8854694">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="../images/character_encoding_settings.png" class="img-fluid figure-img" width="296"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">RStudio &gt; Optionen &gt; Code &gt; Saving: UTF-8</figcaption><p></p>
+<div id="fig-anonymous-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><figure class="figure"><img src="../images/character_encoding_settings.png" class="img-fluid figure-img" width="296"></figure><p></p><figcaption aria-hidden="true" class="figure-caption">RStudio &gt; Optionen &gt; Code &gt; Saving: UTF-8</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -482,7 +505,7 @@ Die <code>factor</code>-Klasse in R ist unheimlich praktisch, aber auch ziemlich
 </ul>
 <p>Ein Beispiel aus dem <code>sleep</code>-Datensatz:</p>
 <div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-10_ba78a3b3cf7f110abb413d63ad5693e9">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Die Vairable "group"</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Die Vairable "group"</span>
 <span class="va">sleep</span><span class="op">$</span><span class="va">group</span>
 <span class="co">#&gt;  [1] 1 1 1 1 1 1 1 1 1 1 2 2 2 2 2 2 2 2 2 2</span>
 <span class="co">#&gt; Levels: 1 2</span>
@@ -498,7 +521,7 @@ Die <code>factor</code>-Klasse in R ist unheimlich praktisch, aber auch ziemlich
 </div>
 <p>Wir sehen, dass <code>group</code> die Merkmalsausprägungen (<em>levels</em>) <code>1</code> und <code>2</code> hat, aber das ist für uns möglicherweise nicht wirklich aussagekräftig. Wir können die Variable modifizieren, und einen schöneren <code>factor</code> daraus machen:</p>
 <div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-11_c8baf8d8935501889b679878ca475b4f">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Wir modifizieren nur die labels, nicht die level</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Wir modifizieren nur die labels, nicht die level</span>
 <span class="va">sleep</span><span class="op">$</span><span class="va">group</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/factor.html">factor</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">$</span><span class="va">group</span>, levels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span><span class="op">)</span>, labels <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Medikament A"</span>, <span class="st">"Medikament B"</span><span class="op">)</span><span class="op">)</span>
 
 <span class="co"># Jetzt werden uns unsere Labels angezeigt</span>
@@ -529,20 +552,20 @@ Meistens kommen eure Daten auch mit Fehlenden oder irgendwie kaputten Werten, mi
 <p>Vermutlich der wichtigste Datentyp, der euch begegnen wird. <code>NA</code> steht für <em>Not Available</em> und heißt, dass es an dieser Stelle einfach keinen Wert gibt. In einem Fragebogen wäre das zum Beispiel eine nicht ausgefüllte Frage, und das heißt für euch, dass ihr ohne Weiteres keine Annahme über diese Wert machen könnt. <code>NA</code> heißt nicht “da ist nichts”, sondern eher “da könnte was sein, aber ich weiß nicht”.<br>
 Das ist auch der Grund, warum der Mittelwert nicht funktioniert, wenn da <code>NA</code> drinstecken:</p>
 <div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-12_996f886ab0ada49e57e54e208237c926">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="cn">NA</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="cn">NA</span>, <span class="fl">7</span><span class="op">)</span><span class="op">)</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="cn">NA</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="cn">NA</span>, <span class="fl">7</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; [1] NA</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Klar könnten wir einfach annehmen, dass die fehlenden Werte <code>3</code> und <code>6</code> sind, aber das wissen wir nunmal nicht, und da R in der Regel nicht rät, sagt es halt auch “weiß nicht” in Form von <code>NA</code>.<br>
 In solchen Fällen müsst ihr explizit <code>NA</code> ignorieren:</p>
 <div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-13_1be9d4fc1278031a1dd7f59567859038">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="cn">NA</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="cn">NA</span>, <span class="fl">7</span><span class="op">)</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="cn">NA</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="cn">NA</span>, <span class="fl">7</span><span class="op">)</span>, na.rm <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span>
 <span class="co">#&gt; [1] 3.8</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Ihr könnt auch mit der Funktion <code>is.na</code> prüfen, ob ihr fehlende Werte habt. Beachtet, dass <code>==</code> zum vergleichen nicht funktioniert!</p>
 <div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-14_83dbaa0497f6bdb48ef866f5fd6e3c51">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">zahlen</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="cn">NA</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="cn">NA</span>, <span class="fl">7</span><span class="op">)</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">zahlen</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">2</span>, <span class="cn">NA</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="cn">NA</span>, <span class="fl">7</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/NA.html">is.na</a></span><span class="op">(</span><span class="va">zahlen</span><span class="op">)</span>
 <span class="co">#&gt; [1] FALSE FALSE  TRUE FALSE FALSE  TRUE FALSE</span>
@@ -589,7 +612,7 @@ Das ist die Ecke, in der <code>Inf</code> und <code>NaN</code> auftauchen.</p>
 <p><code>Inf</code> und <code>-Inf</code> stehen erstmal nur für <span class="math inline">\(\infty\)</span> und <span class="math inline">\(-\infty\)</span> und sind Rs Weg euch zu sagen, dass ihr da gerade den Bereich der alltagstauglichen Zahlen überschritten habt.<br>
 Nehmt mal folgendes Beispiel:</p>
 <div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-15_98bcfb646c4f88f7b29c6437644c11df">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># 2 hoch 10… geht noch</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># 2 hoch 10… geht noch</span>
 <span class="fl">10</span><span class="op">^</span><span class="fl">10</span>
 <span class="co">#&gt; [1] 1e+10</span>
 
@@ -609,7 +632,7 @@ Kurzer reminder: <code>1e10</code> ist Computer für <span class="math inline">\
 Wenn ihr <code>Inf</code> oder <code>-Inf</code> in euren Ergebnissen seht, dann solltet ihr nur wissen, dass es da ein entweder <em>viel zu großes</em> oder <em>viel zu kleines</em> Ergebnis gab.</p>
 <p>Und dann ist da noch die Sache mit <code>NaN</code>.<br><code>NaN</code> steht für <em>not a number</em> und passiert dann, wenn ihr irgendwas mathematisch fragwürdiges macht, wie zum Beispiel 0 durch 0 teilen:</p>
 <div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-16_cd01872ab2d16125e420079531f44f1c">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fl">0</span> <span class="op">/</span> <span class="fl">0</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fl">0</span> <span class="op">/</span> <span class="fl">0</span>
 <span class="co">#&gt; [1] NaN</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
@@ -622,7 +645,7 @@ Hier solltet ihr auch nur wissen, dass es das gibt und dass ihr es im Zweifelsfa
 Tabellen in R sind im Grunde nichts anderes als Listen von Vektoren mit gleiche Länge: Der <code>sleep</code>-Datensatz zum Beispiel besteht aus drei Vektoren der Länge 20, und jede Spalte verhält sich wie ein Vektor mit bestimmten Typen.<br>
 Um sich einen Überblick über einen Datensatz zu verschaffen empfiehlt sich die Funktion <code>str</code> (lies <em>structure</em>), oder auch <code>head</code>:</p>
 <div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-17_7e8ebfada93d51348aeb64c6af3ccee7">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Die ersten paar Zeilen</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Die ersten paar Zeilen</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">)</span>
 <span class="co">#&gt;   extra        group ID</span>
 <span class="co">#&gt; 1   0.7 Medikament A  1</span>
@@ -670,7 +693,7 @@ Um sich einen Überblick über einen Datensatz zu verschaffen empfiehlt sich die
 <span class="header-section-number">5.6</span> Prüfen &amp; Konvertieren</h2>
 <p>Was wir im Abschnitt zu <code>factor</code> am Ende mit <code>as.numeric</code> gemacht haben fällt unter <em>Coercion</em>, und heißt, dass Werte eines Typs in einen anderen Typ konvertiert werden sollen. Das Gegenstück dazu wäre <code>is.numeric</code>, was nachsieht, ob eine Variable bereits <em>numeric</em> ist.</p>
 <div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-18_55c709ce31527ca3cea552d1b9d038e7">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="st">"5"</span><span class="op">)</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="st">"5"</span><span class="op">)</span>
 <span class="co">#&gt; [1] 5</span>
 <span class="fu"><a href="https://rdrr.io/r/base/numeric.html">as.numeric</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span>
 <span class="co">#&gt; [1] 5</span>
@@ -686,7 +709,7 @@ Um sich einen Überblick über einen Datensatz zu verschaffen empfiehlt sich die
 </div>
 <p>Es gibt etliche solcher Konvertierungsfunktionen in R, manche mehr oder weniger nützlich, aber nun gut, sie sind da:</p>
 <div class="cell" data-hash="05-datentypen_cache/html/unnamed-chunk-19_0a232a44b01f23cae880c12bff384819">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Römische Zahlen</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Römische Zahlen</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/roman.html">as.roman</a></span><span class="op">(</span><span class="fl">2017</span><span class="op">)</span>
 <span class="co">#&gt; [1] MMXVII</span>
 

@@ -16,7 +16,7 @@ Wir installieren ein package mit einem einfachen Befehl in der Konsole:
 install.packages("ggplot2")
 ```
 
-:::{.callout-note}
+:::{.callout-important}
 Windows-BenutzerInnen: Wenn ihr Antivirus-Software benutzt (Norton, Kaspersky, whatever) **kann es sein** dass diese euch beim installieren stört. Ihr bekommt dann wenig aussagekräftige Fehler. **Schaltet eure Antivirus-Software aus** wenn ihr Probleme bei der Installation habt.
 :::
 

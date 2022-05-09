@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-0.9.368">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="dcterms.date" content="2022-05-08">
 <title>R für Psychos - 8&nbsp; Datenimport</title>
 <style>
 code{white-space: pre-wrap;}
@@ -101,7 +102,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script>
+}</script><style>
+    .quarto-title-banner {
+      color: red;
+    }
+    </style>
 <meta property="og:title" content="R für Psychos - 8&nbsp; Datenimport">
 <meta property="og:site-name" content="R für Psychos">
 </head>
@@ -116,7 +121,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <i class="bi bi-chevron-right"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title d-none d-lg-block">
+<span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Datenimport</span>
+</h1>
+                </div>
+  </div>
+    
+  
+
+
+
+  <div class="quarto-title-meta">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">May 8, 2022</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
@@ -226,6 +256,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="../chapters/a01-ressourcen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ressourcen</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/a02-glossar.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Glossar</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/a99-reproduzierbarkeit.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Reproduzierbarkeit</span></a>
+  </div>
+</li>
     </ul>
 </li>
     </ul>
@@ -248,24 +288,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title d-none d-lg-block">
-<span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Datenimport</span>
-</h1>
-</div>
-
-
-
-
-
-<div class="quarto-title-meta">
-
-    
-    
-  </div>
-  
-
-</header><p>Im Laufe eures Studiums (und vermutlich darüberhinaus) werdet ihr sehr viel Zeit damit verbringen Daten aus verschiedenen Quellen in die Statistiksoftware eurer Wahl (oder auch nicht eurer Wahl, aber der eurer Arbeitstselle) zu quetschen.<br>
+<main class="content quarto-banner-title-block" id="quarto-document-content"><p>Im Laufe eures Studiums (und vermutlich darüberhinaus) werdet ihr sehr viel Zeit damit verbringen Daten aus verschiedenen Quellen in die Statistiksoftware eurer Wahl (oder auch nicht eurer Wahl, aber der eurer Arbeitstselle) zu quetschen.<br>
 Das funktioniert mal mehr und mal weniger einfach, denn je nachdem wie die Originaldaten aussehen, kann das mitunter anstrengend bis deprimierend werden.<br>
 Saubere (<em>tidy</em>) Daten sehen immer gleich aus, aber unsaubere Daten sind alle auf ihre eigene Art unsauber. Mal fehlen Variablenbeschriftungen, mal sind da Umlaute durch Encoding kaputtgegangen, manchmal werden numerische Werte als <em>character</em> interpretiert und manchmal sind fehlende Werte mit irgendwelchen willkürlichen Werten kodiert (z.B. <code>-99</code> anstatt <code>NA</code>).</p>
 <p>Vielleicht wundert ihr euch auch, wieso dieses Kapitel erst so spät in dieser Einführung auftaucht. Das liegt primär daran, dass ihr unter Umständen ein ausreichend großes Repertoire an Grundlagen braucht, um Daten auf alle Fälle sauber eingelesen zu bekommen.<br>
@@ -274,9 +297,8 @@ In vielen Fällen, und besonders in QM, ist das Ganze noch relativ überschaubar
 Auch hier liefert RStudio jedenfalls im “Files”-Tab entsprechende Orientierungshilfe:</p>
 <div class="cell" data-hash="08-datenimport_cache/html/unnamed-chunk-1_dc56ccf0c5536f121d3b7b45b0f25eb8">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="../images/data_import_rstudio_filesystem.png" class="img-fluid figure-img" style="width:50.0%"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">RStudio Filebrowser im Projekt dieser Einführung</figcaption><p></p>
+<div id="fig-anonymous-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><figure class="figure"><img src="../images/data_import_rstudio_filesystem.png" class="img-fluid figure-img" style="width:50.0%"></figure><p></p><figcaption aria-hidden="true" class="figure-caption">RStudio Filebrowser im Projekt dieser Einführung</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -290,9 +312,8 @@ Auch hier liefert RStudio jedenfalls im “Files”-Tab entsprechende Orientieru
 <p>Die einfachste Option ist meistens die RStudio-Funktio zum Datenimport, aber auch hier solltet ihr erstmal wissen, wo eure Daten herkommen und ggf. über die ein oder andere Eigenart bescheid wissen.</p>
 <div class="cell" data-hash="08-datenimport_cache/html/unnamed-chunk-2_bb8e9c60b91ed90183943b2b3d73e56d">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="../images/data_import_rstudio.png" class="img-fluid figure-img" style="width:50.0%"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">RStudio Import-Tool</figcaption><p></p>
+<div id="fig-anonymous-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><figure class="figure"><img src="../images/data_import_rstudio.png" class="img-fluid figure-img" style="width:50.0%"></figure><p></p><figcaption aria-hidden="true" class="figure-caption">RStudio Import-Tool</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -320,7 +341,7 @@ Textformate sind also ziemlich einfach um eure Daten zu speichern oder zu versch
 <p>Zum lesen und schreiben empfehle ich herzlichst das <code>readr</code>-package mit den Funktionen <code>read_csv</code>, <code>write_csv</code> etc. zu benutzen, die sind weniger anfällig für Murks als die base-Standardfunktionen mit gleichem Namen aber <code>.</code> statt <code>_</code> (<code>read.csv</code>, <code>write.csv</code>).</p>
 <p>Als Beispiel laden wir mal <a href="https://data.world/aendrew/game-of-thrones-deaths">diesen schönen <em>Game of Thrones</em>-Datensatz</a>:</p>
 <div class="cell" data-hash="08-datenimport_cache/html/unnamed-chunk-3_5cf539c05c23f698a8c3e091c8d139b8">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org">readr</a></span><span class="op">)</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org">readr</a></span><span class="op">)</span>
 <span class="va">gotdeaths</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"data/got_deaths.csv"</span><span class="op">)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">gotdeaths</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -351,7 +372,7 @@ Hier habt ihr zwei Möglichkeiten: <code>.rds</code> und <code>.rda</code> (auch
 </h4>
 <p>Daten einlesen ist simpel:</p>
 <div class="cell" data-hash="08-datenimport_cache/html/unnamed-chunk-4_14be9d7983780244c6a1698cecc56b0d">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">qmsurvey</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"data/qm_survey_ss2017.rds"</span><span class="op">)</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">qmsurvey</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/readRDS.html">readRDS</a></span><span class="op">(</span><span class="st">"data/qm_survey_ss2017.rds"</span><span class="op">)</span>
 
 <span class="fu">tibble</span><span class="fu">::</span><span class="fu"><a href="https://tibble.tidyverse.org/reference/as_tibble.html">as_tibble</a></span><span class="op">(</span><span class="va">qmsurvey</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>

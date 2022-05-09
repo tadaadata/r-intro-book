@@ -1,12 +1,6 @@
----
-title-block-banner: true
-title-block-style: default
-title-block-banner-color: "#8B3081"
----
-
 # Vorwort: 2022 Edition {.unnumbered}
 
-mit Glitzer (metaphorisch)) --- Jetzt in Farbe!
+mit Glitzer (metaphorisch) --- Jetzt in Farbe!
 
 Das hier ist/wird/war/wurde [^1] eine R-Einführung für Psychologiestudierende so mit ganz ohne Vorwissen im Bereich Software oder Programmierung.
 Dieses Werk ~~ist~~ war zum Einen die Grundlage für die R-Intro für Psychologiestudierende in *Quantitative Methoden*, und zum Anderen auch das Referenzwerk für das R-Seminar im Rahmen des Statistikmoduls in Public Health [^2]

@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-0.9.368">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="dcterms.date" content="2022-05-09">
 <title>R für Psychos - 6&nbsp; Packages</title>
 <style>
 code{white-space: pre-wrap;}
@@ -101,7 +102,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script>
+}</script><style>
+    .quarto-title-banner {
+      color: red;
+    }
+    </style>
 <meta property="og:title" content="R für Psychos - 6&nbsp; Packages">
 <meta property="og:site-name" content="R für Psychos">
 </head>
@@ -116,7 +121,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <i class="bi bi-chevron-right"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title d-none d-lg-block">
+<span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Packages</span>
+</h1>
+                </div>
+  </div>
+    
+  
+
+
+
+  <div class="quarto-title-meta">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">May 9, 2022</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
@@ -226,6 +256,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="../chapters/a01-ressourcen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ressourcen</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/a02-glossar.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Glossar</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/a99-reproduzierbarkeit.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Reproduzierbarkeit</span></a>
+  </div>
+</li>
     </ul>
 </li>
     </ul>
@@ -247,24 +287,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title d-none d-lg-block">
-<span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Packages</span>
-</h1>
-</div>
-
-
-
-
-
-<div class="quarto-title-meta">
-
-    
-    
-  </div>
-  
-
-</header><p>Fast jede Software hat Erweiterungen irgendeiner Art. Manche haben <em>extensions</em>, andere <em>plug-ins</em>, wieder andere haben <em>add-ons</em>. Unterschiedliche Terminologie für dasselbe Prinzip: Mehr Features durch Erweiterungen anderer Leute.<br>
+<main class="content quarto-banner-title-block" id="quarto-document-content"><p>Fast jede Software hat Erweiterungen irgendeiner Art. Manche haben <em>extensions</em>, andere <em>plug-ins</em>, wieder andere haben <em>add-ons</em>. Unterschiedliche Terminologie für dasselbe Prinzip: Mehr Features durch Erweiterungen anderer Leute.<br>
 Bei Programmiersprachen heißt sowas meistens <em>library</em> oder <em>package</em><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 <p>R hat sowas natürlich auch, als populäre open-source Software. Hier heißt sowas <em>packages</em> und besteht aus Funktionen, die andere Leute für bestimmte Anwendungsfälle geschrieben haben, und durch ein Verteilungssystem verfügbar machen, sodass wir alle sie benutzen können.<br>
 Der <em>Kern</em> von R wird auch <strong>base</strong> genannt und umfasst die wichtigstens Grundfunktionen — mit denen kommen wir auch schon relativ weit, wir können zum Beispiel problemlos diverse Statistiken berechnen und sogar Visualisierungen machen, aber wir wollen natürlich mehr, einfacher, schneller und besser.</p>
@@ -274,13 +297,13 @@ Der <em>Kern</em> von R wird auch <strong>base</strong> genannt und umfasst die 
 Das klingt kompliziert, und deshalb passiert das auch alles automatisch!<br>
 Wir installieren ein package mit einem einfachen Befehl in der Konsole:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"ggplot2"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-important callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-caption-container flex-fill">
-Note
+Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -353,7 +376,7 @@ Ihr Monster.</p>
 <p>Oder einfache Häufigkeitstabellen:</p>
 <p>Und für lineare Modelle, in deutlich schöner als <code><a href="https://rdrr.io/r/base/summary.html">summary()</a></code>:</p>
 <div class="cell" data-hash="06-packages_cache/html/sjplot_tables_3_3599ff584173bf9dfc456e6b4e64153d">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">zufrieden</span> <span class="op">~</span> <span class="va">alter</span> <span class="op">*</span> <span class="va">berufsvorstellung</span>, data <span class="op">=</span> <span class="va">qmsurvey</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/stats/lm.html">lm</a></span><span class="op">(</span><span class="va">zufrieden</span> <span class="op">~</span> <span class="va">alter</span> <span class="op">*</span> <span class="va">berufsvorstellung</span>, data <span class="op">=</span> <span class="va">qmsurvey</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 </section><section id="plots" class="level4" data-number="6.1.2.2"><h4 data-number="6.1.2.2" class="anchored" data-anchor-id="plots">

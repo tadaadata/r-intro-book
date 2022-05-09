@@ -9,13 +9,13 @@ Das hier ist kein vollständiges griechisches Alphabet (das könnt ihr gefällis
 
 Buchstabe | Sprich       | Benutzung
 ----------|--------------|---------------------------------------------
-$\alpha$           | "Alpha"         | Testniveau (QM2)
-$\beta$            | "Beta"          | Fehler 2. Art (QM2)
+$\alpha$           | "Alpha"         | Fehler 1. Art
+$\beta$            | "Beta"          | Fehler 2. Art
 $\gamma$           | "Gamma"         | Statistik / Effektgröße
 $\delta$, $\Delta$ | "Delta" (kleines, großes) | Effektgröße, allgemein "Unterschied", "Differenz"
-$\eta$             | "Eta"           | Statistik / Effektgröße (QM1, QM2)
-$\lambda$          | "Lambda"        | Statistik / Effektgröße (QM1)
-$\mu$              | "Mü"            | Populationsmittelwert; Mittelwert in der Inferenzstatistik
+$\eta$             | "Eta"           | Statistik / Effektgröße
+$\lambda$          | "Lambda"        | Statistik / Effektgröße
+$\mu$              | "Mü"            | Populationsmittelwert; Parameter
 $\pi$              | "Pi"            | Das mit dem Kreis halt. Wisstschon.
 $\rho$             | "Rho"           | Statistik / Effektgröße; Alternative zu Pearson's $r$
 $\sigma$, $\Sigma$ | "Sigma" (kleines, großes) | Standardabweichung in der Population bzw. Summenzeichen ($\sum^n_{i = 1}$)
@@ -50,7 +50,7 @@ Die Zeichen findet ihr alle auf eurer Tastatur. Wenn ihr nicht wisst wie ihr sie
     - `< >`: Spitze Klammern / auch "größer" bzw. "kleiner" Zeichen
     
 - Anführungszeichen:
-    - <code>` `</code>: Backticks, Akzent
+    - `` ` ` ``: Backticks, Akzent
     - `" "`: Doppelte Anführungszeichen / Double Quotes
     - `' '`: Einfache Anführungszeichen / Single Quotes / Meistens als Apostroph benutzt
 
@@ -58,7 +58,7 @@ Die Zeichen findet ihr alle auf eurer Tastatur. Wenn ihr nicht wisst wie ihr sie
     - `+`: Plus
     - `-`: Minus, Bindestrich. Kein Unterstrich. Bindestrich.
     - `/`: Geteilt durch, *Slash*
-    - `^`: Hoch / Circumflex
+    - `^`: Circumflex, e.g. `x^2`
 
 - Logische Operatoren
     - `==`: Doppeltes `=` Zeichen **Ohne Leerzeichen dazwischen**

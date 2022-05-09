@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-0.9.368">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="dcterms.date" content="2022-05-09">
 <title>R für Psychos - 2&nbsp; Installation</title>
 <style>
 code{white-space: pre-wrap;}
@@ -101,7 +102,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script>
+}</script><style>
+    .quarto-title-banner {
+      color: red;
+    }
+    </style>
 <meta property="og:title" content="R für Psychos - 2&nbsp; Installation">
 <meta property="og:site-name" content="R für Psychos">
 </head>
@@ -116,7 +121,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <i class="bi bi-chevron-right"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title d-none d-lg-block">
+<span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Installation</span>
+</h1>
+                </div>
+  </div>
+    
+  
+
+
+
+  <div class="quarto-title-meta">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">May 9, 2022</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
@@ -226,6 +256,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="../chapters/a01-ressourcen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ressourcen</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/a02-glossar.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Glossar</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/a99-reproduzierbarkeit.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Reproduzierbarkeit</span></a>
+  </div>
+</li>
     </ul>
 </li>
     </ul>
@@ -247,66 +287,63 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title d-none d-lg-block">
-<span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Installation</span>
-</h1>
+<main class="content quarto-banner-title-block" id="quarto-document-content"><p>Hier eine kurze Anleitung um R und RStudio zu installieren.<br></p>
+<p>Kurz zum Kontext: R ist eine Programmiersprache, das heißt auch “R installieren” ist anders als “Spotify installieren”.</p>
+<p>Ihr installiert zunächst R, und bekommt dann auf dem Desktop Verknüpfungen angeboten für “R GUI” (o.Ä.) — Dabei handelt es sich um “nackte” Konsolenprogramme.<br></p>
+<p>Damit <em>könntet</em> ihr R benutzen, aber es macht beim besten Willen keinen Spaß.<br></p>
+<p><strong>Deshalb</strong> installiert ihr <strong>RStudio</strong> — Ein Programm (wie Spotify, nur ganz anders!), mit dem ihr R komfortabler benutzen könnt.</p>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-
-
-
-
-
-<div class="quarto-title-meta">
-
-    
-    
-  </div>
-  
-
-</header><p>Hier eine kurze Anleitung um R und RStudio zu installieren.<br>
-Kurz zum Kontext: R ist eine Programmiersprache, das heißt auch “R installieren” ist anders als “Spotify installieren”.</p>
-<p>Ihr installiert zunächst R, und bekommt dann auf dem Desktop Verknüpfungen angeboten für “R GUI” (o.Ä.) — Dabei handelt es sich um “nackte” Konsolenprogramme.<br>
-Damit <em>könntet</em> ihr R benutzen, aber es macht beim besten Willen keinen Spaß.<br><strong>Deshalb</strong> installiert ihr <strong>RStudio</strong> — Ein Programm (wie Spotify, nur ganz anders!), mit dem ihr R komfortabler benutzen könnt.</p>
+<div class="callout-caption-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Man bemerke, dass die Screenshots hier mittlerweile etwa sin die Jahre gekommen sind. Das Prinzip ist weiterhin dasselbe, aber die aktuelle R version ist mittlerweile eben eine andere. Ihr solltet aber auf dem Weg keine Schwierigkeiten haben die jeweils aktuelle Version vom allen ausfindig zu machen, auch wenn Kleinkram ggf. etwas anders aussieht als in den Screenshots.</p>
+</div>
+</div>
 <section id="r-installieren" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="r-installieren">
 <span class="header-section-number">2.1</span> R installieren</h2>
 <p>R bekommt ihr von der offiziellen seite, hier: <a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a></p>
-<div class="cell" data-hash="02-installation_cache/html/install00_a2d32a5995ce26a748974d164875f33a">
-<div class="cell-output-display">
-<p><img src="../images/install_R.png" class="img-fluid" width="490"></p>
-</div>
+<div id="fig-anonymous-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="images/install_R.png" class="img-fluid figure-img"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption"></figcaption><p></p>
+</figure>
 </div>
 <p>Ja, die Seite sieht nach heutigen Standards furchtbar alt aus, aber die gibt’s nunmal auch schon ewig und sie hat den Anspruch möglichst spartanisch zu sein um auch auf jedem noch so ranzigen Computer ordentlich dargstellt und ggf. von Scripten ausgelesen zu werden.</p>
 <section id="windows" class="level3" data-number="2.1.1"><h3 data-number="2.1.1" class="anchored" data-anchor-id="windows">
 <span class="header-section-number">2.1.1</span> Windows</h3>
 <p>Klickt auf der oben genannte Seite auf <code>Download R for Windows</code>. Vollkommen unerwartet.</p>
-<div class="cell" data-hash="02-installation_cache/html/install01_515e9b6cd1e19021156166141b31c28f">
-<div class="cell-output-display">
-<p><img src="../images/install_R_windows_1.png" class="img-fluid" width="490"></p>
-</div>
+<div id="fig-anonymous-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="images/install_R_windows_1.png" class="img-fluid figure-img"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption"></figcaption><p></p>
+</figure>
 </div>
 <p>Hier benötigt ihr <code>base</code> (der R installer):</p>
-<div class="cell" data-hash="02-installation_cache/html/install02_2d57d37dcf16c9416ca1b7b4950457e1">
-<div class="cell-output-display">
-<p><img src="../images/install_R_windows_2.png" class="img-fluid" width="490"></p>
-</div>
+<div id="fig-anonymous-3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="images/install_R_windows_2.png" class="img-fluid figure-img"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption"></figcaption><p></p>
+</figure>
 </div>
 <p>…und sicherheitshalber auch <code>Rtools</code> (fragt nicht. Vorerst installiert ihr es einfach, nur für den Fall, das es euch später Probleme erspart).</p>
-<div class="cell" data-hash="02-installation_cache/html/install03_2ccdf2f12cd90318a44f59a17da5c40e">
-<div class="cell-output-display">
-<p><img src="../images/install_R_windows_3.png" class="img-fluid" width="490"></p>
-</div>
+<div id="fig-anonymous-4" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="images/install_R_windows_3.png" class="img-fluid figure-img"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption"></figcaption><p></p>
+</figure>
 </div>
 <p>Da ich akut keinen Windows-Computer zur Hand habe, gehe ich einfach davon aus, dass ihr das Prinzip “<code>.exe</code>-Datei doppelklicken und alles brav mit <code>ja</code> oder <code>OK</code> bestätigen” beherrscht. Schafft ihr bei Spotify ja auch.</p>
-<p>Das war die R-Installation!<br>
-Und <em>jetzt</em> installiert ihr <a href="#rstudio-install">RStudio</a></p>
+<p>Das war die R-Installation!<br></p>
+<p>Und <em>jetzt</em> installiert ihr <a href="#rstudio-install">RStudio</a></p>
 </section><section id="mac" class="level3" data-number="2.1.2"><h3 data-number="2.1.2" class="anchored" data-anchor-id="mac">
 <span class="header-section-number">2.1.2</span> Mac OS X (macOS)</h3>
 <p>Klickt auf der oben genannte Seite auf <code>Download R for (Mac) OS X</code>. Auch das, vollkommen unerwartet.</p>
-<div class="cell" data-hash="02-installation_cache/html/install04_e1c7571a842d8adab40a6246bbb229b4">
-<div class="cell-output-display">
-<p><img src="../images/install_R_mac.png" class="img-fluid" width="490"></p>
-</div>
+<div id="fig-anonymous-5" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="images/install_R_mac.png" class="img-fluid figure-img"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption"></figcaption><p></p>
+</figure>
 </div>
 <ul>
 <li>Wenn euer Betriebssystem auf dem aktuellen Stand ist, benutzt die aktuelle Version des R-installers.<br>
@@ -320,8 +357,9 @@ Und <em>jetzt</em> installiert ihr <a href="#rstudio-install">RStudio</a></p>
 </li>
 <li>Wenn ihr nicht wisst, welche OS X Version ihr benutzt: Versucht’s erstmal mit dem aktuellen Installer, wenn das nicht funktioniert, versucht den älteren. Ansonsten: Googlet.</li>
 </ul>
-<p>Ansonsten braucht ihr nichts runterzuladen. Den Installer (die <code>.pkg</code>-Datei) einfach doppelklicken und alles brav bejahen.<br>
-Fertig.</p>
+<p>Ansonsten braucht ihr nichts runterzuladen. Den Installer (die <code>.pkg</code>-Datei) einfach doppelklicken und alles brav bejahen.<br></p>
+<p>Fertig.</p>
+<p>Alternativ könnt ihr euch noch auf <a href="https://mac.r-project.org/">der Mac-spezifischen CRAN Seite umschauen.</a></p>
 </section><section id="linux" class="level3" data-number="2.1.3"><h3 data-number="2.1.3" class="anchored" data-anchor-id="linux">
 <span class="header-section-number">2.1.3</span> Linux</h3>
 <p>Wenn ihr Linux benutzt, solltet ihr unabhängig von der Geschmacksrichtung auch wissen, wie man da Software installiert.</p>
@@ -333,34 +371,35 @@ Wenn ihr nicht wisst, was <code>https://&lt;my.favorite.cran.mirror&gt;/bin/linu
 <p>Zusätzlich solltet ihr vermutlich einige Systempakete (also außerhalb R) installieren, für den Fall der Fälle.</p>
 <p>Für Ubuntu zum Beispiel (nur aus eigener Erfahrung, YMMV):</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sudo</span> apt install libcurl4-openssl-dev curl git libxml2-dev libcairo2-dev</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Damit installiert ihr ein paar Pakete, die ihr für manche R-packages als dependencies benötigt.<br>
-Die Liste ist nicht vollständig für <em>alle</em> möglichen R packages, aber zumindest alle, die wir im Laufe dieser Intro benutzen oder benutzen <em>könnten</em> sollten damit abgedeckt sein.</p>
+<p>Damit installiert ihr ein paar Pakete, die ihr für manche R-packages als dependencies benötigt.<br></p>
+<p>Die Liste ist nicht vollständig für <em>alle</em> möglichen R packages, aber zumindest alle, die wir im Laufe dieser Intro benutzen oder benutzen <em>könnten</em> sollten damit abgedeckt sein.</p>
+<p>Alternativ, aber etwas advanced, würde ich einen Blick auf <a href="https://eddelbuettel.github.io/r2u/">dieses Projekt empfehlen</a>, womit ihr am Ende vermutlich eine deutlich entspanntere experience habt.</p>
 </section></section><section id="rstudio-install" class="level2" data-number="2.2"><h2 data-number="2.2" class="anchored" data-anchor-id="rstudio-install">
 <span class="header-section-number">2.2</span> RStudio installieren</h2>
 <p>RStudio bekommt ihr hier: <a href="https://www.rstudio.com/products/rstudio/download/#download" class="uri">https://www.rstudio.com/products/rstudio/download/#download</a></p>
-<div class="cell" data-hash="02-installation_cache/html/install05_7292558857c7e0c2f6050827fada6dfe">
-<div class="cell-output-display">
-<p><img src="../images/install_rstudio.png" class="img-fluid" width="598"></p>
-</div>
+<div id="fig-anonymous-6" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="images/install_rstudio.png" class="img-fluid figure-img"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption"></figcaption><p></p>
+</figure>
 </div>
 <p>Hier dasselbe Spiel:<br>
-Installationsdatei für euer Betriebssystem runterladen und installieren traue ich euch zu.<br>
-Enttäuscht mich nicht.</p>
+Installationsdatei für euer Betriebssystem runterladen und installieren traue ich euch zu.<br></p>
+<p>Enttäuscht mich nicht.</p>
 <p>Nach der Installation solltet ihr jedenfalls folgendes Symbol entweder auf eurem Desktop oder in eurem Programmordner finden:</p>
-<div class="cell" data-hash="02-installation_cache/html/install06_7334798fdf097b1c7c962bbc12483019">
-<div class="cell-output-display">
-<p><img src="../images/RStudio-Ball.png" class="img-fluid" style="width:30.0%"></p>
+<div id="fig-anonymous-7" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><p><img src="images/rstudio-ball.png" class="img-fluid figure-img"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption"></figcaption><p></p>
+</figure>
 </div>
-</div>
-<p>Das wollt ihr anklicken, dann sollte sich RStudio öffnen und ihr habt erfolgreich R und RStudio installiert.<br>
-Gratuliere.</p>
+<p>Das wollt ihr anklicken, dann sollte sich RStudio öffnen und ihr habt erfolgreich R und RStudio installiert.<br></p>
+<p>Gratuliere.</p>
 <p>Falls ihr Windows 10 benutzt und sich keine Desktopverknüfung erstellt habt, wollt ihr eure Suchfunktion benutzen und “RStudio” suchen. Vollkommen unerwartet, ich weiß.</p>
 </section><section id="rstudio-benutzen" class="level2" data-number="2.3"><h2 data-number="2.3" class="anchored" data-anchor-id="rstudio-benutzen">
 <span class="header-section-number">2.3</span> RStudio benutzen</h2>
 <p>Das ist keine Anleitung, das ist eine Aufforderung.</p>
-<p>Ihr benutzt <em>ausschließlich</em> RStudio. Alle anderen Desktopverknüpfungen die im Laufe der Installationen erschienen sein sollten könnt ihr getrost löschen, die braucht ihr nicht.<br>
-Dazu gehören solche Dinge wie “R Console” oder auch “R GUI” oder ähnliches. Das sind die Verknüpfungen für das reine R, aber wir wollen R ja durch RStudio benutzen.<br>
-Trust me, it’s better that way.</p>
+<p>Ihr benutzt <em>ausschließlich</em> RStudio. Alle anderen Desktopverknüpfungen die im Laufe der Installationen erschienen sein sollten könnt ihr getrost löschen, die braucht ihr nicht.<br></p>
+<p>Dazu gehören solche Dinge wie “R Console” oder auch “R GUI” oder ähnliches. Das sind die Verknüpfungen für das reine R, aber wir wollen R ja durch RStudio benutzen.<br></p>
+<p>Trust me, it’s better that way.</p>
 <p>In RStudio könnt ihr jetzt vermutlich noch nicht viel machen, außer in der Konsole aus Spaß “<code>print('Wurstwasser')</code>” eingeben und Enter drücken.</p>
 
 

@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-0.9.368">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="dcterms.date" content="2022-05-09">
 <title>R für Psychos - 9&nbsp; Berichte</title>
 <style>
 code{white-space: pre-wrap;}
@@ -101,7 +102,11 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script>
+}</script><style>
+    .quarto-title-banner {
+      color: red;
+    }
+    </style>
 <meta property="og:title" content="R für Psychos - 9&nbsp; Berichte">
 <meta property="og:site-name" content="R für Psychos">
 </head>
@@ -116,7 +121,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <i class="bi bi-chevron-right"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title d-none d-lg-block">
+<span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Berichte</span>
+</h1>
+                </div>
+  </div>
+    
+  
+
+
+
+  <div class="quarto-title-meta">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">May 9, 2022</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
@@ -226,6 +256,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="../chapters/a01-ressourcen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ressourcen</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/a02-glossar.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Glossar</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/a99-reproduzierbarkeit.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Reproduzierbarkeit</span></a>
+  </div>
+</li>
     </ul>
 </li>
     </ul>
@@ -244,24 +284,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title d-none d-lg-block">
-<span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Berichte</span>
-</h1>
-</div>
-
-
-
-
-
-<div class="quarto-title-meta">
-
-    
-    
-  </div>
-  
-
-</header><p>Scripte schreiben ist schön und gut, aber das was dabei rauskommt ist in erster Linie ein Haufen Konsolen-Output, gespickt mit Plots, die ihr ggf. manuell speichern müsst, und dann wollt ihr das in eure krummen Word-Dokumente stecken und das will doch niemand. In SPSS ist das einfach. Ihr drückt den großen bunten Knopf wo <em>“Mach mal Statistik”</em> draufsteht und dann fallen da PDFs raus. In R ist das anders. Habt ihr vermutlich gemerkt. Das erste Output, das ihr mit R erzeugt wird wahrscheinlich nicht besonders hübsch aussehen — das ist schade, aber es ist nunmal auch die einfachste Art. Was in der Konsole passiert, kann auch problemlos auf großen Servern in der Cloud<sup>TM</sup> passieren und ferngesteuert werden — bei SPSS bleibt euch nur Remotedesktop-Kram. Aber ich schweife ab. Das schöne an R ist jedenfalls die Flexibilität, die wir beim Output haben. Vielleicht habt ihr den Abschnitt zu <code>sjPlot</code> im Kapitel zu <strong>[Packages]</strong> schon gelesen, und wie die <code>sjt.*</code>-Funktionen hübsche Tabellen produzieren. Diese Tabellen sind HTML — dasselbe Zeug, aus dem Webseiten zusammengesteckt werden, und auch dasselbe Zeug, das so grob auch in Word-Dokumenten steckt. Wir können auch gleich eine ganze Analyse in HTML produzieren, mit Plots an den richtigen stellen und Tabellen in schön!</p>
+<main class="content quarto-banner-title-block" id="quarto-document-content"><p>Scripte schreiben ist schön und gut, aber das was dabei rauskommt ist in erster Linie ein Haufen Konsolen-Output, gespickt mit Plots, die ihr ggf. manuell speichern müsst, und dann wollt ihr das in eure krummen Word-Dokumente stecken und das will doch niemand. In SPSS ist das einfach. Ihr drückt den großen bunten Knopf wo <em>“Mach mal Statistik”</em> draufsteht und dann fallen da PDFs raus. In R ist das anders. Habt ihr vermutlich gemerkt. Das erste Output, das ihr mit R erzeugt wird wahrscheinlich nicht besonders hübsch aussehen — das ist schade, aber es ist nunmal auch die einfachste Art. Was in der Konsole passiert, kann auch problemlos auf großen Servern in der Cloud<sup>TM</sup> passieren und ferngesteuert werden — bei SPSS bleibt euch nur Remotedesktop-Kram. Aber ich schweife ab. Das schöne an R ist jedenfalls die Flexibilität, die wir beim Output haben. Vielleicht habt ihr den Abschnitt zu <code>sjPlot</code> im Kapitel zu <strong>[Packages]</strong> schon gelesen, und wie die <code>sjt.*</code>-Funktionen hübsche Tabellen produzieren. Diese Tabellen sind HTML — dasselbe Zeug, aus dem Webseiten zusammengesteckt werden, und auch dasselbe Zeug, das so grob auch in Word-Dokumenten steckt. Wir können auch gleich eine ganze Analyse in HTML produzieren, mit Plots an den richtigen stellen und Tabellen in schön!</p>
 <p>Wie das funktioniert soll in diesem Kapitel erklärt werden. Als Vorraussetzung bzw. further reading könnt ihr euch bei diesen RStudio-Ressourcen umschauen:</p>
 <ul>
 <li><a href="https://rmarkdown.rstudio.com/lesson-1.html">RMarkdown</a></li>
@@ -304,17 +327,13 @@ Diese ganze Einführung ist in RMarkdown geschrieben, inklusive allen Code-Beisp
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Für die Grundfunktion</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"rmarkdown"</span><span class="op">)</span>
 
-<span class="co"># Schöne HTML Output-Formate (optional)</span>
-<span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"rmdformats"</span><span class="op">)</span>
-
 <span class="co"># Schöne Präsentationen (Optional)</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"revealjs"</span><span class="op">)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Also los, macht mal ein neues RMarkdown-Dokument auf:</p>
 <div class="cell" data-hash="10-berichte_cache/html/unnamed-chunk-1_838db7a186786f817ad6ec9f9cfee485">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="../images/rmarkdown_new_file_button.png" class="img-fluid figure-img" style="width:50.0%"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Neues Dokument für RMarkdown</figcaption><p></p>
+<div id="fig-anonymous-1" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><figure class="figure"><img src="../images/rmarkdown_new_file_button.png" class="img-fluid figure-img" style="width:50.0%"></figure><p></p><figcaption aria-hidden="true" class="figure-caption">Neues Dokument für RMarkdown</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -323,9 +342,8 @@ Diese ganze Einführung ist in RMarkdown geschrieben, inklusive allen Code-Beisp
 Als nächstes dürft ihr euch was wünschen: Einen Dateinamen und einen AutorInnennamen.</p>
 <div class="cell" data-hash="10-berichte_cache/html/unnamed-chunk-2_7be1641088727e93c0ebe3a41acc6e2e">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="../images/rmarkdown_new_doc_modal.png" class="img-fluid figure-img" style="width:50.0%"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Beliebig ausfüllen und “HTML” ausgewählt lassen</figcaption><p></p>
+<div id="fig-anonymous-2" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><figure class="figure"><img src="../images/rmarkdown_new_doc_modal.png" class="img-fluid figure-img" style="width:50.0%"></figure><p></p><figcaption aria-hidden="true" class="figure-caption">Beliebig ausfüllen und “HTML” ausgewählt lassen</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -376,9 +394,8 @@ Vermutlich letzteres.</p>
 <p>Als nächstes könnt ihr ein bisschen an den Optionen rumspielen:</p>
 <div class="cell" data-hash="10-berichte_cache/html/unnamed-chunk-3_4f6c76ace4c5ccba195b94d96a836c15">
 <div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure"><p><img src="../images/rmarkdown_output_options.png" class="img-fluid figure-img" style="width:50.0%"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Output Optionen für diversen Kram</figcaption><p></p>
+<div id="fig-anonymous-3" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure"><figure class="figure"><img src="../images/rmarkdown_output_options.png" class="img-fluid figure-img" style="width:50.0%"></figure><p></p><figcaption aria-hidden="true" class="figure-caption">Output Optionen für diversen Kram</figcaption><p></p>
 </figure>
 </div>
 </div>
@@ -405,7 +422,7 @@ Ihr erkennt das Muster.</p>
 <span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Was euch da komisch vorkommen könnte ist der Teil mit dem <code>date:</code>. Das rechts daneben ist ein <em>String</em> mit einem <em>inline code chunk</em>, und alles was in RMarkdown zwischen <code>`r</code> und <code>`</code> steht wird wie R-Code behandelt und ausgeführt, das heißt das Datum des Dokuments wird in diesem Fall automatisch auf <code>format(Sys.time(), '%F %H:%M')</code> gesetzt, was folgendes ergibt:</p>
 <div class="cell" data-hash="10-berichte_cache/html/unnamed-chunk-4_56903013a397b253a0f0de8d4514ea62">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.time</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"%F %H:%M"</span><span class="op">)</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb7"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/format.html">format</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/Sys.time.html">Sys.time</a></span><span class="op">(</span><span class="op">)</span>, <span class="st">"%F %H:%M"</span><span class="op">)</span>
 <span class="co">#&gt; [1] "2022-05-08 17:48"</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>

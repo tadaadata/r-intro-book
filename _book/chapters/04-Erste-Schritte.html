@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-0.9.368">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<meta name="dcterms.date" content="2022-05-08">
 <title>R für Psychos - 4&nbsp; Erste Schritte</title>
 <style>
 code{white-space: pre-wrap;}
@@ -101,7 +102,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit"
   }
-}</script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+}</script><style>
+    .quarto-title-banner {
+      color: red;
+    }
+    </style>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 <meta property="og:title" content="R für Psychos - 4&nbsp; Erste Schritte">
 <meta property="og:site-name" content="R für Psychos">
 </head>
@@ -116,7 +122,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
         <i class="bi bi-chevron-right"></i>
       </button>
     </div>
-  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><header id="title-block-header" class="quarto-title-block default page-columns page-full"><div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title d-none d-lg-block">
+<span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Erste Schritte</span>
+</h1>
+                </div>
+  </div>
+    
+  
+
+
+
+  <div class="quarto-title-meta">
+
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">May 8, 2022</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
@@ -226,6 +257,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <a href="../chapters/a01-ressourcen.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">A</span>&nbsp; <span class="chapter-title">Ressourcen</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/a02-glossar.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">B</span>&nbsp; <span class="chapter-title">Glossar</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chapters/a99-reproduzierbarkeit.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">C</span>&nbsp; <span class="chapter-title">Reproduzierbarkeit</span></a>
+  </div>
+</li>
     </ul>
 </li>
     </ul>
@@ -254,24 +295,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </ul></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><div class="quarto-title">
-<h1 class="title d-none d-lg-block">
-<span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Erste Schritte</span>
-</h1>
-</div>
-
-
-
-
-
-<div class="quarto-title-meta">
-
-    
-    
-  </div>
-  
-
-</header><p>Im letzten Abschnitt habt ihr R als glorifizierten Taschenrechner gesehen.<br>
+<main class="content quarto-banner-title-block" id="quarto-document-content"><p>Im letzten Abschnitt habt ihr R als glorifizierten Taschenrechner gesehen.<br>
 Als nächstes schauen wir uns an, was wir sonst so damit anstellen können.</p>
 <p>Zuerst ein bisschen Terminologie:</p>
 <blockquote class="blockquote">
@@ -290,7 +314,7 @@ Eine Funktion in R hat sieht immer ungefähr so aus: <code>sqrt(8)</code>. Der N
 <p>Eine der wichtigsten Grundfunktionen ist <code><a href="https://rdrr.io/r/base/c.html">c()</a></code>, für <em>combine</em>. Mit <code>c</code> verbindet ihr mehrere Zahlen zu einem <strong>Vektor</strong> (ja, wie in der linearen Algebra. Mathe und so. Wisstschon.). Wenn ihr mehrere Zahlen zu einem Vektor kombiniert habt, könnt ihr damit so spaßige Dinge machen wie Mittelwerte ausrechen, sie aufsummieren oder zwei Vektoren gleicher Länge addieren.<br>
 Probiert mal ein paar Beispiele aus:</p>
 <div class="cell" data-hash="04-erste-schritte_cache/html/unnamed-chunk-1_5f2e4f5987536ddf98d2fe00741bea8e">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Ein paar Zahlen</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Ein paar Zahlen</span>
 <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">5</span>, <span class="fl">8</span>, <span class="fl">13</span>, <span class="fl">21</span><span class="op">)</span>
 <span class="co">#&gt; [1]  1  1  2  3  5  8 13 21</span>
 
@@ -319,7 +343,7 @@ Wenn wir uns also angucken, wie der Mittelwert funktioniert…</p>
 <p><span class="math display">\[\bar{x} = \frac{1}{n} \sum^n_{i=1} x_i\]</span></p>
 <p>…und wir das übersetzen in <em>“Die Summe aller Werte geteilt durch die Anzahl der Werte”</em>, dann können wir statt <code>mean</code> also auch folgendes schreiben:</p>
 <div class="cell" data-hash="04-erste-schritte_cache/html/unnamed-chunk-2_c3ab6432939db1394932e7c67a4f3d3a">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># in lang</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># in lang</span>
 <span class="fu"><a href="https://rdrr.io/r/base/sum.html">sum</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">5</span>, <span class="fl">8</span>, <span class="fl">13</span>, <span class="fl">21</span><span class="op">)</span><span class="op">)</span><span class="op">/</span><span class="fu"><a href="https://rdrr.io/r/base/length.html">length</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">5</span>, <span class="fl">8</span>, <span class="fl">13</span>, <span class="fl">21</span><span class="op">)</span><span class="op">)</span>
 <span class="co">#&gt; [1] 6.75</span>
 
@@ -342,7 +366,7 @@ Aber gut, so langsam wird’s unübersichtlich, es wird Zeit ein paar Variablen 
 </li>
 </ul>
 <div class="cell" data-hash="04-erste-schritte_cache/html/unnamed-chunk-3_a6e8aa331ade893515a7fcceefe0e6db">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">zahlen</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">6</span>, <span class="fl">8</span>, <span class="fl">3</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">5</span>, <span class="fl">6</span>, <span class="fl">4</span>, <span class="fl">3</span>, <span class="cn">NA</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">7</span>, <span class="cn">NA</span>, <span class="fl">1</span>, <span class="fl">4</span><span class="op">)</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb3"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">zahlen</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">3</span>, <span class="fl">6</span>, <span class="fl">8</span>, <span class="fl">3</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">5</span>, <span class="fl">6</span>, <span class="fl">4</span>, <span class="fl">3</span>, <span class="cn">NA</span>, <span class="fl">4</span>, <span class="fl">5</span>, <span class="fl">7</span>, <span class="cn">NA</span>, <span class="fl">1</span>, <span class="fl">4</span><span class="op">)</span>
 
 <span class="co"># Ergibt NA :(</span>
 <span class="fu"><a href="https://rdrr.io/r/stats/sd.html">sd</a></span><span class="op">(</span><span class="va">zahlen</span><span class="op">)</span>
@@ -357,7 +381,7 @@ Aber gut, so langsam wird’s unübersichtlich, es wird Zeit ein paar Variablen 
 Nicht jede Funktion hat ein Argument namens <code>na.rm</code>, aber ihr werdet im Laufe der Zeit lernen, bei welchen Funktionen ihr darauf achten müsst, wie mit fehlenden Werten umgegangen wird.</p>
 <p>Einige andere Funktionen, die insbesondere zum Lernen und Ausprobieren praktisch sind, werden zur Erstellung von <strong>Sequenzen</strong> benutzt — also Reihen von Zahlen in einem bestimmten Muster:</p>
 <div class="cell" data-hash="04-erste-schritte_cache/html/unnamed-chunk-4_882c9cc204dc6ee23aa84ac957a7bbeb">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Die Zahlen von 1 bis 100</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb4"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Die Zahlen von 1 bis 100</span>
 <span class="fl">1</span><span class="op">:</span><span class="fl">100</span>
 <span class="co">#&gt;   [1]   1   2   3   4   5   6   7   8   9  10  11  12  13  14  15  16  17  18</span>
 <span class="co">#&gt;  [19]  19  20  21  22  23  24  25  26  27  28  29  30  31  32  33  34  35  36</span>
@@ -387,7 +411,7 @@ Nicht jede Funktion hat ein Argument namens <code>na.rm</code>, aber ihr werdet 
 </div>
 <p>Das <code>:</code> ist eine einfache Funktion und kann gelesen werden wie “Von … bis … in ganzen Schritten”. Zusötzlich gibt es die Funktion <code><a href="https://rdrr.io/r/base/seq.html">seq()</a></code>, die etwas flexibler ist. Außerdem gibt es diverse Funktionen für zufallsgenerierte Zahlen:</p>
 <div class="cell" data-hash="04-erste-schritte_cache/html/unnamed-chunk-5_e4956c7c6e9db6bacf9916b81ec8f18e">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Normalverteilte Zufallszahlen (10 Stück, Mittelwert 5, Standardabweichung 2) </span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Normalverteilte Zufallszahlen (10 Stück, Mittelwert 5, Standardabweichung 2) </span>
 <span class="fu"><a href="https://rdrr.io/r/stats/Normal.html">rnorm</a></span><span class="op">(</span>n <span class="op">=</span> <span class="fl">10</span>, mean <span class="op">=</span> <span class="fl">5</span>, sd <span class="op">=</span> <span class="fl">2</span><span class="op">)</span>
 <span class="co">#&gt;  [1] 3.125531 4.290414 3.257567 6.157613 8.736960 5.762605 3.971103 3.725957</span>
 <span class="co">#&gt;  [9] 3.205225 6.926189</span>
@@ -413,7 +437,7 @@ Variablen werden durch eine <em>Zuweisung</em> (<em>Assignment</em>) erstellt, w
 In den meisten anderen Programmiersprachen benutzt man dafür <code>=</code>, aber nun ja, R ist <a href="https://ironholds.org/projects/rbitrary/#why-do-we-use---for-assignment">historisch gewachsen</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, also nehmt für den Anfang einfach mal hin, dass das nunmal so ist.<br>
 Wir speichern also mal ein paar Dinge:</p>
 <div class="cell" data-hash="04-erste-schritte_cache/html/unnamed-chunk-6_dc79f98ebb054166b790f3669199f6ff">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Speichern in "fib"</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb6"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Speichern in "fib"</span>
 <span class="va">fib</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">5</span>, <span class="fl">8</span>, <span class="fl">13</span>, <span class="fl">21</span><span class="op">)</span> 
 
 <span class="co"># Ausgeben lassen</span>
@@ -439,7 +463,7 @@ Strings stehen in R immer in Anführungszeichen, entweder in "doppelten" oder in
 <p>Wichtig dabei ist, dass sich Anführungszeichen ähnlich verhalten wie Klammern. Wenn wir einen String mit <code>“</code> beginnen, müssen wir ihn auch wieder mit <code>”</code> schließen, ansonsten wartet R brav darauf, dass endlich das zweite <code>“</code> kommt und verläuft sich.<br>
 Ein Beispiel:</p>
 <div class="cell" data-hash="04-erste-schritte_cache/html/unnamed-chunk-7_a473e269ac60faa19dd477a07675d353">
-<details open=""><summary>Code</summary><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vollkommen okay</span></span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vollkommen okay</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>namen <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Tobi"</span>, <span class="st">"Lukas"</span>, <span class="st">"Nadja"</span>, <span class="st">"Christoph"</span>)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Auch okay, aber inkonsistent und daher eher unschön</span></span>
@@ -452,7 +476,7 @@ Ein Beispiel:</p>
 <p>Wir können auch Zahlen in <code>""</code> setzen — das ist kein Problem, aber dann sind es nunmal keine Zahlen in diesem Sinne mehr, es sind <em>Strings</em>, und mit Strings können wir nicht rechnen.<br>
 Probiert folgendes aus:</p>
 <div class="cell" data-hash="04-erste-schritte_cache/html/unnamed-chunk-8_4629127375ae04645f33e202bd762bb9">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Okay</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb8"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Okay</span>
 <span class="fl">5</span> <span class="op">+</span> <span class="fl">5</span>
 
 <span class="co"># Hä?</span>
@@ -464,7 +488,7 @@ Das <em>non-numeric argument</em> hier ist die <code>"5"</code>. Merken: <code>5
 Der <em>binary operator</em> an dieser Stelle ist übrigens das <code>+</code>. Ein <strong>Operator</strong>, weil es, äh… operiert? Naja, es tut Dinge, und wenn etwas in R Dinge tut, ist es meistens ein Operator in irgendeinem Sinne. Das <em>binary</em> heißt, dass es <strong>zwei</strong> (bi, binär, binary, zwei halt) Argumente nimmt.<br>
 Wie schon gesagt, Argumente sind die Dinge, die wir an Funktionen übergeben, und wenn wir an eine Funktion wie <code>+</code> oder auch <code><a href="https://rdrr.io/r/base/mean.html">mean()</a></code> ein Argument übergeben, mit denen sie nichts anfangen können, dann beschwert sich R weil es nicht weiß was zum Geier ihr da vorhabt.</p>
 <div class="cell" data-hash="04-erste-schritte_cache/html/unnamed-chunk-9_0aaedff40d4180c8d78b1a0da752752f">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">namen</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Tobi"</span>, <span class="st">"Lukas"</span>, <span class="st">"Nadja"</span>, <span class="st">"Christoph"</span><span class="op">)</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb9"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">namen</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Tobi"</span>, <span class="st">"Lukas"</span>, <span class="st">"Nadja"</span>, <span class="st">"Christoph"</span><span class="op">)</span>
 
 <span class="va">fib</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">5</span>, <span class="fl">8</span>, <span class="fl">13</span>, <span class="fl">21</span><span class="op">)</span> 
 
@@ -500,7 +524,7 @@ Note
 <p>Stellt euch vor, wir wollen einen kleinen Datensatz erstellen über die Statistiktutorien in QM mit Variablen wie <em>Namen</em>, <em>Alter</em>, und vielleicht sowas wie <em>Beliebtheit</em> auf einer Skala von 1-10.<br>
 Wir könnten sowas machen:</p>
 <div class="cell" data-hash="04-erste-schritte_cache/html/unnamed-chunk-10_a20b406ea54210d614205968d32e22d4">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">namen</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Tobi"</span>, <span class="st">"Christoph"</span>, <span class="st">"Nadja"</span>, <span class="st">"Lukas"</span><span class="op">)</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb10"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">namen</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Tobi"</span>, <span class="st">"Christoph"</span>, <span class="st">"Nadja"</span>, <span class="st">"Lukas"</span><span class="op">)</span>
 <span class="va">alter</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">20</span>, <span class="fl">35</span>, <span class="fl">30</span>, <span class="fl">12</span><span class="op">)</span> <span class="co"># (Nicht alle diese Werte sind korrekt)</span>
 
 <span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">alter</span><span class="op">)</span>
@@ -510,7 +534,7 @@ Wir könnten sowas machen:</p>
 <p>Schön und gut, aber das ist ja unhandlich. Was, wenn wir die Namen aller TutorInnen haben wollen, die jünger als 30 sind? Alles was wir mit <code>alter</code> machen, passiert unabhängig von <code>namen</code>.</p>
 <p>Um mehrere Variablen in Kontext zu setzen, gibt es tabellarischen Datenstrukturen, namentlich nennt sich sowas in R dann <code>data.frame</code>. Letztendlich ist das nichts anderes als eine Tabelle, aber für R ist eine Tabelle praktische eine Liste von Vektoren mit gleicher länge:</p>
 <div class="cell" data-hash="04-erste-schritte_cache/html/unnamed-chunk-11_cbcbcf0b22cbd0c9acd1274202352fa3">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">leute</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Tobi"</span>, <span class="st">"Christoph"</span>, <span class="st">"Nadja"</span>, <span class="st">"Lukas"</span><span class="op">)</span>,
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb11"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">leute</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html">data.frame</a></span><span class="op">(</span>name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">"Tobi"</span>, <span class="st">"Christoph"</span>, <span class="st">"Nadja"</span>, <span class="st">"Lukas"</span><span class="op">)</span>,
                     alter <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">20</span>, <span class="fl">35</span>, <span class="fl">30</span>, <span class="fl">12</span><span class="op">)</span>,
                     beliebtheit <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">9</span>, <span class="fl">10</span>, <span class="fl">8</span>, <span class="fl">3</span><span class="op">)</span><span class="op">)</span>
 
@@ -536,7 +560,7 @@ Eine Beobachtung (<em>Observation</em>) sind alle Werte, die wir zu einem Unters
 <p>Tabellen, und damit <code>data.frames</code>, sind für uns die wichtigsten Objekte in R, weil wir fast ausschließlich mit Datensätzen in dieser Form arbeiten werden um unsere Statistik da draufzuwerfen.<br>
 Wie können wir jetzt mit einzelnen Variablen arbeiten?</p>
 <div class="cell" data-hash="04-erste-schritte_cache/html/unnamed-chunk-12_35a57c7aa47a74542412863b0930e01f">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Die Variable "name" ausgeben lassen</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb12"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Die Variable "name" ausgeben lassen</span>
 <span class="va">leute</span><span class="op">$</span><span class="va">name</span>
 <span class="co">#&gt; [1] "Tobi"      "Christoph" "Nadja"     "Lukas"</span>
 
@@ -572,7 +596,7 @@ Spalten können wir mit <code>$</code> oder <code>[[ ]]</code> direkt aus einem 
 <code>ID</code>: Die Identifikationsnummer der Person. Es ist gängig, ProbandInnen pseudonymisiert durchzunummerieren, der Zuordnung unt des Datenschutzes wegen als Zahlen.</li>
 </ul>
 <div class="cell" data-hash="04-erste-schritte_cache/html/unnamed-chunk-13_5bcd0586010c0ba02f46053a42b02bf1">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Mit head() lassen wir uns die ersten paar Zeilen (den "Kopf") der Tabelle anzeigen</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb13"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Mit head() lassen wir uns die ersten paar Zeilen (den "Kopf") der Tabelle anzeigen</span>
 <span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">)</span>
 <span class="co">#&gt;   extra group ID</span>
 <span class="co">#&gt; 1   0.7     1  1</span>
@@ -585,27 +609,27 @@ Spalten können wir mit <code>$</code> oder <code>[[ ]]</code> direkt aus einem 
 </div>
 <p>Wie viele Zeilen hat die Tabelle?</p>
 <div class="cell" data-hash="04-erste-schritte_cache/html/unnamed-chunk-14_ce4ae61d84c8ce671125503c793a0344">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">)</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb14"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">nrow</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">)</span>
 <span class="co">#&gt; [1] 20</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Die <em>number of rows</em> bekommen wir mit <code><a href="https://rdrr.io/r/base/nrow.html">nrow()</a></code> — ihr dürft jetzt raten, wie wir uns die Anzahl der Spalten (<em>columns</em>) anzeigen lassen können.</p>
 <div class="cell" data-hash="04-erste-schritte_cache/html/unnamed-chunk-15_42f242616de71fa137a173e83da570ba">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">)</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb15"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/nrow.html">ncol</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">)</span>
 <span class="co">#&gt; [1] 3</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Surprise!</p>
 <p>Okay, aber was interessiert uns an diesem Datensatz jetzt? Wie wäre es mit dem durchschnittlichen Schlafzuwachs:</p>
 <div class="cell" data-hash="04-erste-schritte_cache/html/unnamed-chunk-16_38623a984b75acda1aad9ba774960f4e">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">$</span><span class="va">extra</span><span class="op">)</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb16"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/mean.html">mean</a></span><span class="op">(</span><span class="va">sleep</span><span class="op">$</span><span class="va">extra</span><span class="op">)</span>
 <span class="co">#&gt; [1] 1.54</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Schön und gut, aber wir wollen ja vermutlich die beiden Gruppen (Medikamente) vergleichen, also was tun?<br>
 Subsetting to the rescue /o/</p>
 <div class="cell" data-hash="04-erste-schritte_cache/html/unnamed-chunk-17_2483603735e736ae4e6d0be8ab1dcd6b">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">gruppe1</span> <span class="op">&lt;-</span> <span class="va">sleep</span><span class="op">[</span><span class="va">sleep</span><span class="op">$</span><span class="va">group</span> <span class="op">==</span> <span class="fl">1</span>, <span class="op">]</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb17"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">gruppe1</span> <span class="op">&lt;-</span> <span class="va">sleep</span><span class="op">[</span><span class="va">sleep</span><span class="op">$</span><span class="va">group</span> <span class="op">==</span> <span class="fl">1</span>, <span class="op">]</span>
 <span class="va">gruppe2</span> <span class="op">&lt;-</span> <span class="va">sleep</span><span class="op">[</span><span class="va">sleep</span><span class="op">$</span><span class="va">group</span> <span class="op">==</span> <span class="fl">2</span>, <span class="op">]</span>
 
 <span class="co"># Mittelwert der ersten Gruppe</span>
@@ -625,7 +649,7 @@ In Worten heißt die Zeile <code>gruppe1 &lt;- sleep[sleep$group == 1]</code> le
 <p>Wieso dann eigentlich noch diese <code>,</code>-Sache am Ende der eckigen Klammern?<br>
 Das gehört zur Art, wie R Tabellen <em>indiziert</em>, sprich wie man einzelne Bereiche der Tabelle ansteuert:</p>
 <div class="cell" data-hash="04-erste-schritte_cache/html/unnamed-chunk-18_0cda4d06c36a79e01bd9f6631264643b">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Die erste Spalte</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb18"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Die erste Spalte</span>
 <span class="va">sleep</span><span class="op">[</span><span class="fl">1</span><span class="op">]</span>
 <span class="co">#&gt;    extra</span>
 <span class="co">#&gt; 1    0.7</span>
@@ -705,7 +729,7 @@ Was ihr intuitiv als Logik kennt ist alleridngs etwas anderes als <em>formale Lo
 Wir brauchen zum Glück nicht all zu viel davon, nur den Standardkram und nichtmal das <a href="https://de.wikipedia.org/wiki/Boolesche_Algebra">volle Spekrum Bool’scher Algebra</a>.</p>
 <p>Wir brauchen Logik in R in erster Linie zum <em>indizieren</em> von Objekten. Das heißt, wenn wir alle Zeilen einer Tabelle haben wollen, für die eine bestimmte Variable einen bestimmten Wert hat oder eine <em>Bedingung</em> erfüllt, dann drücken wir das durch Logik aus. Dasselbe funktioniert natürlich auch bei Vektoren (und strenggenommen funktioniert Tabellenindizierung sowieso über Vektorindizierung). Man nehme folgendes Beispiel:</p>
 <div class="cell" data-hash="04-erste-schritte_cache/html/unnamed-chunk-19_262628fcb013fcb2ae62b84e18a752ab">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">sleep</span><span class="op">[</span><span class="va">sleep</span><span class="op">$</span><span class="va">extra</span> <span class="op">&gt;</span> <span class="fl">3</span>, <span class="op">]</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb20"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">sleep</span><span class="op">[</span><span class="va">sleep</span><span class="op">$</span><span class="va">extra</span> <span class="op">&gt;</span> <span class="fl">3</span>, <span class="op">]</span>
 <span class="co">#&gt;    extra group ID</span>
 <span class="co">#&gt; 6    3.4     1  6</span>
 <span class="co">#&gt; 7    3.7     1  7</span>
@@ -719,7 +743,7 @@ Wir brauchen zum Glück nicht all zu viel davon, nur den Standardkram und nichtm
 <p>Das Ergebnis eines logischen Vergleichs ist immer entweder <code>TRUE</code> oder <code>FALSE</code> für wahr oder falsch.<br>
 Wenn wir in R indizieren wollen, können wir dafür auch direkt <code>TRUE</code> und <code>FALSE</code> statt eines Vergleichs benutzen:</p>
 <div class="cell" data-hash="04-erste-schritte_cache/html/unnamed-chunk-20_5ca4505da455042496f10642f6687814">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">fib</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">5</span>, <span class="fl">8</span>, <span class="fl">13</span>, <span class="fl">21</span><span class="op">)</span> 
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb21"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">fib</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">1</span>, <span class="fl">2</span>, <span class="fl">3</span>, <span class="fl">5</span>, <span class="fl">8</span>, <span class="fl">13</span>, <span class="fl">21</span><span class="op">)</span> 
 
 <span class="va">fib</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span>, <span class="cn">FALSE</span><span class="op">)</span><span class="op">]</span>
 <span class="co">#&gt; [1] 1 1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -728,7 +752,7 @@ Wenn wir in R indizieren wollen, können wir dafür auch direkt <code>TRUE</code
 <p>Hier haben wir uns effektiv nur die ersten beiden Werte des Vektors <code>fib</code> ausgeben lassen, weil R alles ausgibt, was mit <code>TRUE</code> indiziert ist und alles weglässt, was mit <code>FALSE</code> indiziert ist.<br><code>c(TRUE, TRUE, FALSE, FALSE, FALSE, FALSE, FALSE, FALSE)</code> ist hier ein <em>logischer Vektor</em>, also ein Vektor mit, naja, logischen Werten, der praktisch der Reihe nach jedes Element im Vektor <code>fib</code> entweder <em>an</em> oder <em>aus</em> schaltet, wie Lichtschalter. Wir müssen dafür nicht unbedingt einen logischen Vektor der gleichen Länge (Anzahl der Elemente) wie unser Zielvektor (der, den wir indizieren/filtern wollen) benutzen, aber es bietet sich für den Einstieg an so genau wie möglich zu sein.<br>
 Wir könnten aber auch sowas machen:</p>
 <div class="cell" data-hash="04-erste-schritte_cache/html/unnamed-chunk-21_d3d47e8cfc9a41639d87207112e4922f">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Immer abwechselnd TRUE und FALSE, also jedes zweite Element</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb22"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Immer abwechselnd TRUE und FALSE, also jedes zweite Element</span>
 <span class="va">fib</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="cn">TRUE</span>, <span class="cn">FALSE</span><span class="op">)</span><span class="op">]</span>
 <span class="co">#&gt; [1]  1  2  5 13</span>
 
@@ -904,7 +928,7 @@ Die Motivation hinter dem Logikram ist wie erwähnt primär das Filtern von Tabe
 <span class="header-section-number">4.5.3.1</span> Vektoren</h4>
 <p>Vektoren werden immer <em>elementweise</em> verglichen, das heißt, dass das Ergebnis von <code>c(1, 2) == 1</code> nicht <code>FALSE</code> oder <code>TRUE</code> ist, sondern der <em>logische Vektor</em> <code>TRUE FALSE</code>. Dadurch entsteht durch den logischen Vergleich eines Vektors ein Vektor aus <code>TRUE</code> und <code>FALSE</code>, den wir zum indizieren benutzen können, wie wir weiter oben schon gesehen haben.</p>
 <div class="cell" data-hash="04-erste-schritte_cache/html/unnamed-chunk-22_cfcff7085f50e342444590d66002a910">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Irgendwelche Zahlen</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb23"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="co"># Irgendwelche Zahlen</span>
 <span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">7</span>, <span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">7</span>, <span class="fl">9</span>, <span class="fl">6</span>, <span class="fl">5</span>, <span class="fl">4</span>, <span class="fl">3</span>, <span class="fl">3</span>, <span class="fl">2</span>, <span class="fl">2</span>, <span class="fl">5</span>, <span class="fl">8</span>, <span class="fl">9</span>, <span class="fl">31</span><span class="op">)</span>
 
 <span class="co"># Alle Zahlen größer 4: "Gib mir x, wo x &gt; 4"</span>
@@ -924,7 +948,7 @@ Die Motivation hinter dem Logikram ist wie erwähnt primär das Filtern von Tabe
 <p>Das Ganze lässt sich natürlich beliebig komplex aussehen lassen, weshalb zu viele Bedingungen in Kombination etwas verwirrend aussehen können.<br>
 Weiterhin können wir einen Vektor natürlich auch durch einen Vergleich eines anderen Vektors indizieren.</p>
 <div class="cell" data-hash="04-erste-schritte_cache/html/unnamed-chunk-23_ddeca342475b178de394dd33426123c7">
-<details open=""><summary>Code</summary><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">7</span>, <span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">7</span>, <span class="fl">9</span>, <span class="fl">6</span>, <span class="fl">5</span>, <span class="fl">4</span>, <span class="fl">3</span><span class="op">)</span>
+<details open=""><summary>Code verbergen/anzeigen</summary><div class="sourceCode" id="cb24"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span class="va">x</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">4</span>, <span class="fl">7</span>, <span class="fl">2</span>, <span class="fl">1</span>, <span class="fl">7</span>, <span class="fl">9</span>, <span class="fl">6</span>, <span class="fl">5</span>, <span class="fl">4</span>, <span class="fl">3</span><span class="op">)</span>
 <span class="va">y</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="fl">6</span>, <span class="fl">7</span>, <span class="fl">10</span>, <span class="fl">1</span>, <span class="fl">9</span>, <span class="fl">3</span>, <span class="fl">6</span>, <span class="fl">5</span>, <span class="fl">6</span>, <span class="fl">3</span><span class="op">)</span>
 
 <span class="co"># x, wo x größer gleich 4 ist *und* y kleiner 6</span>
